@@ -1,0 +1,25 @@
+{
+  "name": "panda-desgin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --config ./webpack.dev.js",
+    "dist": "bee-tools run dist --babel-runtime",
+    "lint": "bee-tools run js-lint",
+    "compile": "bee-tools run compile --babel-runtime",
+    "gh-pages": "bee-tools run gh-pages",
+    "buildExample": "bee-tools run buildExample"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bee-build-tools": "0.0.10",
+    "classnames": "^2.2.6",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}

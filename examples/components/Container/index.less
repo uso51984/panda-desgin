@@ -1,0 +1,14 @@
+.panda-doc-container {
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding-left: @nav-width;
+
+  &--with-simulator {
+    padding-right: calc(@simulator-width + @padding);
+
+    @media (max-width: 1300px) {
+      padding-right: calc(@simulator-small-width + @padding);
+    }
+  }
+}
