@@ -14,15 +14,30 @@
     "gh-pages": "bee-tools run gh-pages",
     "buildExample": "bee-tools run buildExample"
   },
+  "config": {
+    "demo": {
+      "htmlTemplatePath": "./docs/index.html",
+      "entry": {
+        "index": [
+          "./docs/index.js"
+        ],
+        "mobile": [
+          "./docs/mobile.js"
+        ]
+      }
+    }
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bee-build-tools": "0.0.10",
+    "bee-build-tools": "0.0.11",
     "classnames": "^2.2.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
+    "highlight.js": "^9.13.1",
+    "react-markdown": "^4.0.4",
     "react-router-dom": "^4.3.1"
   }
 }

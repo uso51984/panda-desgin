@@ -1,4 +1,4 @@
-.van-doc-content {
+.panda-doc-content {
   flex: 1;
   position: relative;
   padding: 0 0 75px;
@@ -10,6 +10,99 @@
   section {
     padding: 10px @padding;
     overflow: hidden;
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em;
+      color: #333;
+      background: #f8f8f8;
+    }
+
+    .hljs-comment,.hljs-quote {
+      color: #998;
+      font-style: italic
+    }
+
+    .hljs-keyword,.hljs-selector-tag,.hljs-subst {
+      color: #333;
+      font-weight: bold
+    }
+
+    .hljs-number,.hljs-literal,.hljs-variable,.hljs-template-variable,.hljs-tag .hljs-attr {
+      color: #008080
+    }
+
+    .hljs-string,.hljs-doctag {
+      color: #d14
+    }
+
+    .hljs-title,.hljs-section,.hljs-selector-id {
+      color: #900;
+      font-weight: bold
+    }
+
+    .hljs-subst {
+      font-weight: normal
+    }
+
+    .hljs-type,.hljs-class .hljs-title {
+      color: #458;
+      font-weight: bold
+    }
+
+    .hljs-tag,.hljs-name,.hljs-attribute {
+      color: #000080;
+      font-weight: normal
+    }
+
+    .hljs-regexp,.hljs-link {
+      color: #009926
+    }
+
+    .hljs-symbol,.hljs-bullet {
+      color: #990073
+    }
+
+    .hljs-built_in,.hljs-builtin-name {
+      color: #0086b3
+    }
+
+    .hljs-meta {
+      color: #999;
+      font-weight: bold
+    }
+
+    .hljs-deletion {
+      background: #fdd
+    }
+
+    .hljs-addition {
+      background: #dfd
+    }
+
+    .hljs-emphasis {
+      font-style: italic
+    }
+
+    .hljs-strong {
+      font-weight: bold
+    }
+
+    code {
+      font-size: 13px;
+      overflow-x: auto;
+      font-weight: 400;
+      line-height: 22px;
+      border-radius: 3px;
+      margin-bottom: 25px;
+      position: relative;
+      word-break: break-all;
+      white-space: pre-wrap;
+      color: #455a64;
+      padding: 18px 10px 18px 20px;
+      background-color: #f1f4f8;
+      font-family: Source Code Pro,Monaco,Inconsolata,monospace;
+    }
 
     > h1,
     > h2,
@@ -149,6 +242,7 @@
       padding: 0 8px;
       font-family: inherit;
       word-break: keep-all;
+      display: block;
     }
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default class Simulator extends React.Component {
+export default class Simulator extends React.PureComponent {
   state = {
     isFixed: false,
     src: this.props.path,

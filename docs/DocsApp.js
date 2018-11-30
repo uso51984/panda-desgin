@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import Container from './components/Container';
 import Content from './components/Content';
 import Simulator from './components/Simulator';
+import DocConfig from './doc.config';
 import registerRoute from './routers';
 
 const getIframeUrl = (path) => {
@@ -36,10 +37,11 @@ function iframeReady(iframe, callback) {
   }
 }
 
-export default class WapApp extends React.Component {
+export default class WapApp extends React.PureComponent {
   state = {
     path: getIframeUrl(location.hash.split('/')[1]),
   }
+
   componentDidMount() {
     this.history = createHistory();
     this.history.listen((location) => {
@@ -55,12 +57,13 @@ export default class WapApp extends React.Component {
       });
     }
   }
+
   render() {
     return (
       <Router>
         <div>
           <Header />
-          <Nav />
+          <Nav docConfig={DocConfig} />
           <Container>
             <Content>
               {registerRoute()}

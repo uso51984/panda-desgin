@@ -1,1 +1,0 @@
-export default () => 'doc页面asdfasdf';
