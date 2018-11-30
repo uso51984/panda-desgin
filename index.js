@@ -217,7 +217,7 @@ var getIframeUrl = function getIframeUrl(path) {
   if (!path) {
     path = '';
   }
-  return location.protocol + '//' + location.host + '/mobile.html#/' + path;
+  return location.protocol + '//' + location.host + location.pathname + 'mobile.html#/' + path;
 };
 
 function iframeReady(iframe, callback) {
