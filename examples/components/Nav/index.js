@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Nav extends React.Component {
   state = {
@@ -28,15 +29,10 @@ export default class Nav extends React.Component {
                 <div className="panda-doc-nav__group-title">基础组件</div>
                 <div>
                   <div className="panda-doc-nav__subitem">
-                    <a href="#/zh-CN/button" className="router-link-exact-active active">
-                      Button
-                      <span>按钮</span>
-                    </a>
+                    <Link to="/button"> Button <span>按钮</span></Link>
                   </div>
                   <div className="panda-doc-nav__subitem">
-                    <a href="#/zh-CN/cell" className="">
-                      Cell <span>单元格</span>
-                    </a>
+                    <Link to="/alert">Alert <span>单元格</span></Link>
                   </div>
                   <div className="panda-doc-nav__subitem">
                     <a href="#/zh-CN/icon" className="">

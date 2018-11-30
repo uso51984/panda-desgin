@@ -1,0 +1,1 @@
+export default () => 'Alertdoc页面asdfasdf';

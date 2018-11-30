@@ -1,21 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Container from './components/Container';
-import Content from './components/Content';
-import Simulator from './components/Simulator';
+import DocsApp from './DocsApp';
 import './style/index.less';
 
+const ua = navigator.userAgent.toLowerCase();
+const isMobile = /ios|iphone|ipod|ipad|android/.test(ua);
+
+if (isMobile) {
+  location.replace(`mobile.html${location.hash}`);
+} else if (location.pathname === 'mobile.html') {
+  location.replace(`${location.hash}`);
+}
+
 ReactDOM.render(
-  <div>
-    <Header />
-    <Nav />
-    <Container>
-      <Content />
-    </Container>
-    <Simulator/>
-  </div>,
+  <DocsApp />,
   document.getElementById('root'),
 );
 

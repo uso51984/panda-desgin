@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export default class Simulator extends React.Component {
   state = {
     isFixed: false,
-    iframeHostName: '',
+    src: this.props.path,
     height: Math.min(580, window.innerHeight - 150),
   }
 
@@ -19,17 +19,10 @@ export default class Simulator extends React.Component {
     window.addEventListener('resize', () => {
       this.setState({ height: Math.min(580, window.innerHeight - 150) });
     });
+  }
 
-    // const { iframe } = this.$refs;
-    // if (iframe) {
-    //   if (iframe.contentDocument.readyState === 'complete') {
-    //     setTimeout(this.onSrcChanged, 0);
-    //   } else {
-    //     iframe.onload = () => {
-    //       this.onSrcChanged();
-    //     };
-    //   }
-    // }
+  componentWillReceiveProps({ path }) {
+    this.setState({ src: path });
   }
 
   render() {
@@ -43,7 +36,7 @@ export default class Simulator extends React.Component {
           <div className="panda-doc-simulator__url">iframeHostName</div>
           <div className="panda-doc-simulator__reload" />
         </div>
-        <iframe ref="iframe" src='https://h5.m.taobao.com/' style={{ height: this.state.height }} frameBorder="0" />
+        <iframe title="mobile" ref={el => this.iframe = el} src={this.state.src} style={{ height: this.state.height }} frameBorder="0" />
       </div>
     );
   }
