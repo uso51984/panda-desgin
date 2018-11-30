@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./examples/DocsApp.js":
-/*!*****************************!*\
-  !*** ./examples/DocsApp.js ***!
-  \*****************************/
+/***/ "./examples/WapApp.js":
+/*!****************************!*\
+  !*** ./examples/WapApp.js ***!
+  \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -100,12 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var history_createBrowserHistory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! history/createBrowserHistory */ "./node_modules/history/createBrowserHistory.js");
 /* harmony import */ var history_createBrowserHistory__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(history_createBrowserHistory__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Header */ "./examples/components/Header/index.js");
-/* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Nav */ "./examples/components/Nav/index.js");
-/* harmony import */ var _components_Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Container */ "./examples/components/Container/index.js");
-/* harmony import */ var _components_Content__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Content */ "./examples/components/Content/index.js");
-/* harmony import */ var _components_Simulator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Simulator */ "./examples/components/Simulator/index.js");
-/* harmony import */ var _routers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./routers */ "./examples/routers.js");
+/* harmony import */ var _routers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routers */ "./examples/routers.js");
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -119,98 +114,34 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
-
-
-
-var getIframeUrl = function getIframeUrl(path) {
-  if (!path) {
-    path = '';
-  }
-  return location.protocol + '//' + location.host + '/mobile.html#/' + path;
-};
-
-function iframeReady(iframe, callback) {
-  var doc = iframe.contentDocument || iframe.contentWindow.document;
-  var interval = function interval() {
-    if (iframe.contentWindow.g_history) {
-      iframe.contentWindow.g_history.listen(function (location) {
-        callback(location);
-      });
-    } else {
-      setTimeout(function () {
-        interval();
-      }, 50);
-    }
-  };
-
-  if (doc.readyState === 'complete') {
-    interval();
-  } else {
-    iframe.onload = interval;
-  }
-}
-
 var WapApp = function (_React$Component) {
   _inherits(WapApp, _React$Component);
 
   function WapApp() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, WapApp);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = WapApp.__proto__ || Object.getPrototypeOf(WapApp)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      path: getIframeUrl(location.hash.split('/')[1])
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, (WapApp.__proto__ || Object.getPrototypeOf(WapApp)).apply(this, arguments));
   }
 
   _createClass(WapApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
-      this.history = history_createBrowserHistory__WEBPACK_IMPORTED_MODULE_2___default()();
-      this.history.listen(function (location) {
-        _this2.setState({ path: getIframeUrl(location.hash.split('/')[1]) });
-      });
-
-      var iframe = document.querySelector('iframe');
-      if (iframe) {
-        iframeReady(iframe, function (e) {
-          var path = e.hash.split('/')[1];
-          location.hash = path;
-          _this2.setState({ path: getIframeUrl(path) });
-        });
-      }
+      window.g_history = history_createBrowserHistory__WEBPACK_IMPORTED_MODULE_2___default()();
     }
   }, {
     key: 'render',
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"],
+        'div',
         null,
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          'div',
+          react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"],
           null,
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], null),
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            _components_Container__WEBPACK_IMPORTED_MODULE_5__["default"],
-            null,
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              _components_Content__WEBPACK_IMPORTED_MODULE_6__["default"],
-              null,
-              Object(_routers__WEBPACK_IMPORTED_MODULE_8__["default"])()
-            )
-          ),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Simulator__WEBPACK_IMPORTED_MODULE_7__["default"], { path: this.state.path })
+            'div',
+            { className: 'mian-content2323' },
+            Object(_routers__WEBPACK_IMPORTED_MODULE_3__["default"])(true)
+          )
         )
       );
     }
@@ -220,370 +151,6 @@ var WapApp = function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (WapApp);
-
-/***/ }),
-
-/***/ "./examples/components/Container/index.js":
-/*!************************************************!*\
-  !*** ./examples/components/Container/index.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var children = _ref.children;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "div",
-    { className: "panda-doc-container panda-doc-row panda-doc-container--with-simulator" },
-    children
-  );
-});
-
-/***/ }),
-
-/***/ "./examples/components/Content/index.js":
-/*!**********************************************!*\
-  !*** ./examples/components/Content/index.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var children = _ref.children;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    "div",
-    { className: "panda-doc-content" },
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      "div",
-      { className: "van-doc-content van-doc-content--button" },
-      children
-    )
-  );
-});
-
-/***/ }),
-
-/***/ "./examples/components/Header/index.js":
-/*!*********************************************!*\
-  !*** ./examples/components/Header/index.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    'div',
-    { className: 'panda-doc-header' },
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      'div',
-      { className: 'panda-doc-row' },
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        { className: 'panda-doc-header__top' },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-          { className: 'panda-doc-header__logo', to: '/' },
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('img', { src: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K', alt: '' }),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            'span',
-            null,
-            'panda'
-          ),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            'span',
-            { className: 'version' },
-            'v1.0.0'
-          )
-        ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          'div',
-          { className: 'panda-doc-header__top-nav' },
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            'a',
-            {
-              className: 'panda-doc-header__top-nav-title'
-            },
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              'svg',
-              {
-                height: '28',
-                width: '28',
-                className: 'octicon octicon-mark-github',
-                viewBox: '0 0 16 16',
-                version: '1.1',
-                'aria-hidden': 'true'
-              },
-              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('path', { fillRule: 'evenodd', d: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z' })
-            )
-          )
-        )
-      )
-    )
-  );
-});
-
-/***/ }),
-
-/***/ "./examples/components/Nav/index.js":
-/*!******************************************!*\
-  !*** ./examples/components/Nav/index.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-var Nav = function (_React$Component) {
-  _inherits(Nav, _React$Component);
-
-  function Nav() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Nav);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Nav.__proto__ || Object.getPrototypeOf(Nav)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      top: 60,
-      bottom: 0
-    }, _this.onScroll = function () {
-      var _window = window,
-          offset = _window.pageYOffset;
-
-      _this.setState({ top: Math.max(0, 60 - offset) });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Nav, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.onScroll);
-      this.onScroll();
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var top = this.state.top;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        { className: 'panda-doc-nav', style: { top: top, bottom: 0 } },
-        [1, 2, 2, 3, 4, 5, 34, 3].map(function (item, index) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            'div',
-            { className: 'panda-doc-nav__item', key: index },
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              'a',
-              null,
-              '\u7EC4\u4EF6'
-            ),
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              'div',
-              null,
-              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                'div',
-                { className: 'panda-doc-nav__group-title' },
-                '\u57FA\u7840\u7EC4\u4EF6'
-              ),
-              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                'div',
-                null,
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                  'div',
-                  { className: 'panda-doc-nav__subitem' },
-                  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-                    { to: '/button' },
-                    ' Button ',
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      'span',
-                      null,
-                      '\u6309\u94AE'
-                    )
-                  )
-                ),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                  'div',
-                  { className: 'panda-doc-nav__subitem' },
-                  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-                    { to: '/alert' },
-                    'Alert ',
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      'span',
-                      null,
-                      '\u5355\u5143\u683C'
-                    )
-                  )
-                ),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                  'div',
-                  { className: 'panda-doc-nav__subitem' },
-                  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                    'a',
-                    { href: '#/zh-CN/icon', className: '' },
-                    'Icon ',
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-                      'span',
-                      null,
-                      '\u56FE\u6807'
-                    )
-                  )
-                )
-              )
-            )
-          );
-        })
-      );
-    }
-  }]);
-
-  return Nav;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Nav);
-
-/***/ }),
-
-/***/ "./examples/components/Simulator/index.js":
-/*!************************************************!*\
-  !*** ./examples/components/Simulator/index.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-var Simulator = function (_React$Component) {
-  _inherits(Simulator, _React$Component);
-
-  function Simulator() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Simulator);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Simulator.__proto__ || Object.getPrototypeOf(Simulator)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      isFixed: false,
-      src: _this.props.path,
-      height: Math.min(580, window.innerHeight - 150)
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Simulator, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 60) {
-          _this2.setState({ isFixed: true });
-        } else {
-          _this2.setState({ isFixed: false });
-        }
-      });
-      window.addEventListener('resize', function () {
-        _this2.setState({ height: Math.min(580, window.innerHeight - 150) });
-      });
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(_ref2) {
-      var path = _ref2.path;
-
-      this.setState({ src: path });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this3 = this;
-
-      var cls = classnames__WEBPACK_IMPORTED_MODULE_1___default()({
-        'panda-doc-simulator': true,
-        'panda-doc-simulator-fixed': this.state.isFixed
-      });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        { className: cls },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          'div',
-          { className: 'panda-doc-simulator__nav' },
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            'div',
-            { className: 'panda-doc-simulator__url' },
-            'iframeHostName'
-          ),
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', { className: 'panda-doc-simulator__reload' })
-        ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('iframe', { title: 'mobile', ref: function ref(el) {
-            return _this3.iframe = el;
-          }, src: this.state.src, style: { height: this.state.height }, frameBorder: '0' })
-      );
-    }
-  }]);
-
-  return Simulator;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Simulator);
 
 /***/ }),
 
@@ -670,10 +237,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./examples/index.js":
-/*!***************************!*\
-  !*** ./examples/index.js ***!
-  \***************************/
+/***/ "./examples/mobile.js":
+/*!****************************!*\
+  !*** ./examples/mobile.js ***!
+  \****************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -683,24 +250,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _DocsApp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DocsApp */ "./examples/DocsApp.js");
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style/index.less */ "./examples/style/index.less");
-/* harmony import */ var _style_index_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_index_less__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _WapApp_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WapApp.js */ "./examples/WapApp.js");
+/* harmony import */ var _style_mobile_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style/mobile.less */ "./examples/style/mobile.less");
+/* harmony import */ var _style_mobile_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_mobile_less__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
 
-var ua = navigator.userAgent.toLowerCase();
-var isMobile = /ios|iphone|ipod|ipad|android/.test(ua);
-
-if (isMobile) {
-  location.replace('mobile.html' + location.hash);
-} else if (location.pathname === 'mobile.html') {
-  location.replace('' + location.hash);
-}
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DocsApp__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+  'div',
+  null,
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_WapApp_js__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+), document.getElementById('root'));
 
 /***/ }),
 
@@ -850,17 +412,17 @@ var registerRoute = function registerRoute(isDemo) {
 
 /***/ }),
 
-/***/ "./examples/style/index.less":
-/*!***********************************!*\
-  !*** ./examples/style/index.less ***!
-  \***********************************/
+/***/ "./examples/style/mobile.less":
+/*!************************************!*\
+  !*** ./examples/style/mobile.less ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--11-1!../../node_modules/postcss-loader/lib??ref--11-2!../../node_modules/less-loader/dist/cjs.js??ref--11-3!./index.less */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/lib/index.js?!./node_modules/less-loader/dist/cjs.js?!./examples/style/index.less");
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--11-1!../../node_modules/postcss-loader/lib??ref--11-2!../../node_modules/less-loader/dist/cjs.js??ref--11-3!./mobile.less */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/lib/index.js?!./node_modules/less-loader/dist/cjs.js?!./examples/style/mobile.less");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -875,72 +437,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/classnames/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/classnames/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ( true && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-}());
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/lib/index.js?!./node_modules/less-loader/dist/cjs.js?!./examples/style/index.less":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--11-1!./node_modules/postcss-loader/lib??ref--11-2!./node_modules/less-loader/dist/cjs.js??ref--11-3!./examples/style/index.less ***!
-  \***********************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/lib/index.js?!./node_modules/less-loader/dist/cjs.js?!./examples/style/mobile.less":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--11-1!./node_modules/postcss-loader/lib??ref--11-2!./node_modules/less-loader/dist/cjs.js??ref--11-3!./examples/style/mobile.less ***!
+  \************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -949,7 +449,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "/* header */\n/* simulator */\n@media (min-width: 1300) {\n  body {\n    min-width: 1100px;\n  }\n}\nbody {\n  margin: 0;\n  color: #333;\n  font-size: 16px;\n  overflow-x: auto;\n  background-color: #fff;\n  -webkit-font-smoothing: antialiased;\n  font-family: PingFang SC, \"Helvetica Neue\", Arial, sans-serif;\n}\np {\n  margin: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  font-size: inherit;\n}\nul,\nol {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.panda-doc-row {\n  width: 100%;\n}\n@media (min-width: 1440px) {\n  .panda-doc-row {\n    width: 1440px;\n    margin: 0 auto;\n  }\n}\n.panda-doc-header {\n  width: 100%;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border-bottom: 1px solid #f1f4f8;\n}\n.panda-doc-header__logo {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.panda-doc-header__logo img {\n  vertical-align: middle;\n  height: 30px;\n  margin-right: 10px;\n}\n.panda-doc-header__logo span {\n  font-size: 20px;\n}\n.panda-doc-header__logo span.version {\n  font-size: 90%;\n  padding-left: 5px;\n  padding-top: 7px;\n  opacity: 0.7;\n  margin-left: 3px;\n  line-height: 1;\n}\n.panda-doc-header__top {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  background-color: #fff;\n  padding: 0 40px;\n  height: 60px;\n  line-height: 60px;\n}\n.panda-doc-header__top-nav-title {\n  display: block;\n}\n.panda-doc-header__top-nav-title svg {\n  fill: #455a64;\n  display: block;\n  vertical-align: middle;\n  transition: 0.3s ease-in-out;\n}\n.panda-doc-header__top-nav-title svg:hover {\n  fill: #0079f3;\n}\n.panda-doc-nav {\n  left: 0;\n  top: 60px;\n  bottom: 0;\n  z-index: 1;\n  position: fixed;\n  overflow-y: scroll;\n  padding: 25px 0 75px;\n  min-width: 240px;\n  max-width: 240px;\n  border-right: 1px solid #f1f4f8;\n}\n@media (max-width: 1300px) {\n  .panda-doc-nav {\n    min-width: 220px;\n    max-width: 220px;\n  }\n}\n@media (min-width: 1440px) {\n  .panda-doc-nav {\n    left: 50%;\n    margin-left: calc(-720px);\n  }\n}\n.panda-doc-nav::-webkit-scrollbar {\n  height: 6px;\n  width: 6px;\n  background-color: transparent;\n}\n.panda-doc-nav::-webkit-scrollbar-thumb {\n  border-radius: 6px;\n  background-color: transparent;\n}\n.panda-doc-nav:hover::-webkit-scrollbar-thumb {\n  background-color: rgba(69, 90, 100, 0.2);\n}\n.panda-doc-nav__item a,\n.panda-doc-nav__subitem a {\n  margin: 0;\n  display: block;\n  color: #455a64;\n  font-size: 16px;\n  padding: 10px calc(20px) 10px 40px;\n  line-height: 24px;\n  transition: all .3s;\n}\n.panda-doc-nav__item a.active,\n.panda-doc-nav__subitem a.active {\n  color: #0079f3;\n}\n.panda-doc-nav__item > a {\n  font-weight: bold;\n}\n.panda-doc-nav__subitem a {\n  font-size: 14px;\n}\n.panda-doc-nav__subitem a:hover {\n  color: #0079f3;\n}\n.panda-doc-nav__subitem span {\n  opacity: .6;\n  font-size: 13px;\n}\n.panda-doc-nav__group-title {\n  font-size: 12px;\n  line-height: 40px;\n  padding-left: 40px;\n  color: rgba(69, 90, 100, 0.6);\n}\n@media (max-width: 1300px) {\n  .panda-doc-nav {\n    min-width: 220px;\n    max-width: 220px;\n  }\n  .panda-doc-nav__item a,\n  .panda-doc-nav__subitem a {\n    line-height: 22px;\n  }\n  .panda-doc-nav__subitem a {\n    font-size: 13px;\n  }\n}\n.panda-doc-container {\n  overflow: hidden;\n  box-sizing: border-box;\n  background-color: #fff;\n  padding-left: 240px;\n}\n.panda-doc-container--with-simulator {\n  padding-right: calc(400px);\n}\n@media (max-width: 1300px) {\n  .panda-doc-container--with-simulator {\n    padding-right: calc(360px);\n  }\n}\n.van-doc-content {\n  -ms-flex: 1;\n      flex: 1;\n  position: relative;\n  padding: 0 0 75px;\n}\n.van-doc-content a {\n  color: #0079f3;\n}\n.van-doc-content section {\n  padding: 10px 40px;\n  overflow: hidden;\n}\n.van-doc-content section > h1,\n.van-doc-content section > h2,\n.van-doc-content section > h3,\n.van-doc-content section > h4,\n.van-doc-content section > h5,\n.van-doc-content section > h6 {\n  line-height: 1.5;\n  font-weight: normal;\n  margin: 20px 0 10px;\n  color: #333;\n}\n.van-doc-content section > h1 {\n  font-size: 36px;\n}\n.van-doc-content section > h2 {\n  font-size: 30px;\n  margin-bottom: 25px;\n}\n.van-doc-content section > h3 {\n  font-size: 22px;\n  margin-top: 45px;\n}\n.van-doc-content section > h2 + h3 {\n  margin-top: 25px;\n}\n.van-doc-content section > h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n}\n.van-doc-content section > h5 {\n  font-size: 14px;\n}\n.van-doc-content section > h6 {\n  font-size: 14px;\n  color: #666;\n}\n.van-doc-content section > p {\n  margin: 15px 0;\n  font-size: 14px;\n  line-height: 26px;\n  color: #34495e;\n}\n.van-doc-content section > ul,\n.van-doc-content section > ol {\n  padding: 15px 0;\n  background-color: #f1f4f8;\n}\n.van-doc-content section > ul li,\n.van-doc-content section > ol li {\n  color: #34495e;\n  font-size: 14px;\n  line-height: 22px;\n  margin: 5px 0 5px 20px;\n  padding-left: 15px;\n  position: relative;\n}\n.van-doc-content section > ul li::before,\n.van-doc-content section > ol li::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 6px;\n  height: 6px;\n  margin-top: 8px;\n  border-radius: 50%;\n  box-sizing: border-box;\n  border: 1px solid #666;\n}\n.van-doc-content section > ul li li,\n.van-doc-content section > ol li li {\n  margin-left: 0;\n}\n.van-doc-content section > hr {\n  border: 0px none;\n  border-top: 1px solid #eee;\n}\n.van-doc-content section p > code,\n.van-doc-content section li > code,\n.van-doc-content section table code {\n  margin: 2px;\n  padding: 2px 7px;\n  display: inline;\n}\n.van-doc-content blockquote {\n  padding: 16px;\n  margin: 20px 0;\n  font-size: 14px;\n  border-radius: 4px;\n  background-color: #ecf9ff;\n  color: rgba(52, 73, 94, 0.8);\n  border-left: 5px solid #50bfff;\n}\n.van-doc-content table {\n  width: 100%;\n  font-size: 13px;\n  line-height: 1.5;\n  margin-bottom: 45px;\n  background-color: #fff;\n  border-collapse: collapse;\n  color: #34495e;\n}\n.van-doc-content table th {\n  padding: 8px 10px;\n  text-align: left;\n  font-weight: normal;\n  background-color: #f1f4f8;\n}\n.van-doc-content table th:first-child {\n  padding-left: 10px;\n}\n.van-doc-content table td {\n  padding: 8px;\n  border-bottom: 1px solid #f1f4f8;\n}\n.van-doc-content table code {\n  font-size: 13px;\n  padding: 0 8px;\n  font-family: inherit;\n  word-break: keep-all;\n}\n.van-doc-content--changelog section {\n  padding-bottom: 30px;\n}\n.van-doc-content--changelog section > h2 {\n  margin-top: 50px;\n}\n.van-doc-content--changelog section > h2 + p {\n  margin: 0;\n}\n.van-doc-content--changelog section > h2 + p code {\n  margin: 0;\n}\n.van-doc-content--changelog section > h2 a {\n  color: inherit;\n  font-size: 24px;\n  -webkit-font-smoothing: auto;\n}\n.van-doc-content--changelog section > h2:nth-child(1),\n.van-doc-content--changelog section > h2:nth-child(2) {\n  margin-top: 20px;\n}\n.van-doc-content--changelog section > h2:nth-child(2) {\n  margin-bottom: 10px;\n}\n.panda-doc-simulator {\n  z-index: 1;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 6px;\n  background: #fafafa;\n  box-sizing: border-box;\n  right: 40px;\n  width: 360px;\n  min-width: 360px;\n  top: calc(100px);\n  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px, rgba(0, 0, 0, 0.2) 0px 1px 2px;\n}\n@media (max-width: 1300px) {\n  .panda-doc-simulator {\n    width: 320px;\n    min-width: 320px;\n  }\n}\n@media (max-width: 1100px) {\n  .panda-doc-simulator {\n    left: 750px;\n    right: auto;\n  }\n}\n@media (min-width: 1440px) {\n  .panda-doc-simulator {\n    right: 50%;\n    margin-right: calc(-680px);\n  }\n}\n.panda-doc-simulator-fixed {\n  position: fixed;\n  top: 40px;\n}\n.panda-doc-simulator iframe {\n  width: 100%;\n  display: block;\n}\n.panda-doc-simulator__nav {\n  height: 60px;\n  background: url('data:image/png;base64,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') no-repeat;\n  background-size: 100%;\n}\n.panda-doc-simulator__url {\n  left: 40px;\n  top: 23px;\n  right: 40px;\n  font-size: 14px;\n  position: absolute;\n  text-align: center;\n  font-weight: bold;\n  line-height: 28px;\n  font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;\n}\n@media (max-width: 1300px) {\n  .panda-doc-simulator__url {\n    top: 21px;\n    line-height: 24px;\n  }\n}\n.panda-doc-simulator__reload {\n  top: 25px;\n  right: 10px;\n  width: 28px;\n  height: 28px;\n  cursor: pointer;\n  position: absolute;\n}\nbody {\n  height: 1400px;\n}\n", "", {"version":3,"sources":["/Users/echen1/mywork/panda-desgin/examples/style/index.less"],"names":[],"mappings":"AAAA,YAAY;AACZ,eAAe;AACf;EACE;IACE,kBAAkB;GACnB;CACF;AACD;EACE,UAAU;EACV,YAAY;EACZ,gBAAgB;EAChB,iBAAiB;EACjB,uBAAuB;EACvB,oCAAoC;EACpC,8DAA8D;CAC/D;AACD;EACE,UAAU;CACX;AACD;;;;;;EAME,UAAU;EACV,mBAAmB;CACpB;AACD;;EAEE,UAAU;EACV,WAAW;EACX,iBAAiB;CAClB;AACD;EACE,sBAAsB;CACvB;AACD;EACE,YAAY;CACb;AACD;EACE;IACE,cAAc;IACd,eAAe;GAChB;CACF;AACD;EACE,YAAY;EACZ,0BAA0B;KACvB,uBAAuB;MACtB,sBAAsB;UAClB,kBAAkB;EAC1B,iCAAiC;CAClC;AACD;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;MACnB,oBAAoB;CACzB;AACD;EACE,uBAAuB;EACvB,aAAa;EACb,mBAAmB;CACpB;AACD;EACE,gBAAgB;CACjB;AACD;EACE,eAAe;EACf,kBAAkB;EAClB,iBAAiB;EACjB,aAAa;EACb,iBAAiB;EACjB,eAAe;CAChB;AACD;EACE,qBAAqB;EACrB,cAAc;EACd,uBAAuB;MACnB,oBAAoB;EACxB,uBAAuB;MACnB,+BAA+B;EACnC,uBAAuB;EACvB,gBAAgB;EAChB,aAAa;EACb,kBAAkB;CACnB;AACD;EACE,eAAe;CAChB;AACD;EACE,cAAc;EACd,eAAe;EACf,uBAAuB;EACvB,6BAA6B;CAC9B;AACD;EACE,cAAc;CACf;AACD;EACE,QAAQ;EACR,UAAU;EACV,UAAU;EACV,WAAW;EACX,gBAAgB;EAChB,mBAAmB;EACnB,qBAAqB;EACrB,iBAAiB;EACjB,iBAAiB;EACjB,gCAAgC;CACjC;AACD;EACE;IACE,iBAAiB;IACjB,iBAAiB;GAClB;CACF;AACD;EACE;IACE,UAAU;IACV,0BAA0B;GAC3B;CACF;AACD;EACE,YAAY;EACZ,WAAW;EACX,8BAA8B;CAC/B;AACD;EACE,mBAAmB;EACnB,8BAA8B;CAC/B;AACD;EACE,yCAAyC;CAC1C;AACD;;EAEE,UAAU;EACV,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,mCAAmC;EACnC,kBAAkB;EAClB,oBAAoB;CACrB;AACD;;EAEE,eAAe;CAChB;AACD;EACE,kBAAkB;CACnB;AACD;EACE,gBAAgB;CACjB;AACD;EACE,eAAe;CAChB;AACD;EACE,YAAY;EACZ,gBAAgB;CACjB;AACD;EACE,gBAAgB;EAChB,kBAAkB;EAClB,mBAAmB;EACnB,8BAA8B;CAC/B;AACD;EACE;IACE,iBAAiB;IACjB,iBAAiB;GAClB;EACD;;IAEE,kBAAkB;GACnB;EACD;IACE,gBAAgB;GACjB;CACF;AACD;EACE,iBAAiB;EACjB,uBAAuB;EACvB,uBAAuB;EACvB,oBAAoB;CACrB;AACD;EACE,2BAA2B;CAC5B;AACD;EACE;IACE,2BAA2B;GAC5B;CACF;AACD;EACE,YAAY;MACR,QAAQ;EACZ,mBAAmB;EACnB,kBAAkB;CACnB;AACD;EACE,eAAe;CAChB;AACD;EACE,mBAAmB;EACnB,iBAAiB;CAClB;AACD;;;;;;EAME,iBAAiB;EACjB,oBAAoB;EACpB,oBAAoB;EACpB,YAAY;CACb;AACD;EACE,gBAAgB;CACjB;AACD;EACE,gBAAgB;EAChB,oBAAoB;CACrB;AACD;EACE,gBAAgB;EAChB,iBAAiB;CAClB;AACD;EACE,iBAAiB;CAClB;AACD;EACE,gBAAgB;EAChB,oBAAoB;CACrB;AACD;EACE,gBAAgB;CACjB;AACD;EACE,gBAAgB;EAChB,YAAY;CACb;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;CAChB;AACD;;EAEE,gBAAgB;EAChB,0BAA0B;CAC3B;AACD;;EAEE,eAAe;EACf,gBAAgB;EAChB,kBAAkB;EAClB,uBAAuB;EACvB,mBAAmB;EACnB,mBAAmB;CACpB;AACD;;EAEE,YAAY;EACZ,mBAAmB;EACnB,OAAO;EACP,QAAQ;EACR,WAAW;EACX,YAAY;EACZ,gBAAgB;EAChB,mBAAmB;EACnB,uBAAuB;EACvB,uBAAuB;CACxB;AACD;;EAEE,eAAe;CAChB;AACD;EACE,iBAAiB;EACjB,2BAA2B;CAC5B;AACD;;;EAGE,YAAY;EACZ,iBAAiB;EACjB,gBAAgB;CACjB;AACD;EACE,cAAc;EACd,eAAe;EACf,gBAAgB;EAChB,mBAAmB;EACnB,0BAA0B;EAC1B,6BAA6B;EAC7B,+BAA+B;CAChC;AACD;EACE,YAAY;EACZ,gBAAgB;EAChB,iBAAiB;EACjB,oBAAoB;EACpB,uBAAuB;EACvB,0BAA0B;EAC1B,eAAe;CAChB;AACD;EACE,kBAAkB;EAClB,iBAAiB;EACjB,oBAAoB;EACpB,0BAA0B;CAC3B;AACD;EACE,mBAAmB;CACpB;AACD;EACE,aAAa;EACb,iCAAiC;CAClC;AACD;EACE,gBAAgB;EAChB,eAAe;EACf,qBAAqB;EACrB,qBAAqB;CACtB;AACD;EACE,qBAAqB;CACtB;AACD;EACE,iBAAiB;CAClB;AACD;EACE,UAAU;CACX;AACD;EACE,UAAU;CACX;AACD;EACE,eAAe;EACf,gBAAgB;EAChB,6BAA6B;CAC9B;AACD;;EAEE,iBAAiB;CAClB;AACD;EACE,oBAAoB;CACrB;AACD;EACE,WAAW;EACX,iBAAiB;EACjB,mBAAmB;EACnB,mBAAmB;EACnB,oBAAoB;EACpB,uBAAuB;EACvB,YAAY;EACZ,aAAa;EACb,iBAAiB;EACjB,iBAAiB;EACjB,2EAA2E;CAC5E;AACD;EACE;IACE,aAAa;IACb,iBAAiB;GAClB;CACF;AACD;EACE;IACE,YAAY;IACZ,YAAY;GACb;CACF;AACD;EACE;IACE,WAAW;IACX,2BAA2B;GAC5B;CACF;AACD;EACE,gBAAgB;EAChB,UAAU;CACX;AACD;EACE,YAAY;EACZ,eAAe;CAChB;AACD;EACE,aAAa;EACb,g2IAAg2I;EACh2I,sBAAsB;CACvB;AACD;EACE,WAAW;EACX,UAAU;EACV,YAAY;EACZ,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;EAClB,kBAAkB;EAClB,uEAAuE;CACxE;AACD;EACE;IACE,UAAU;IACV,kBAAkB;GACnB;CACF;AACD;EACE,UAAU;EACV,YAAY;EACZ,YAAY;EACZ,aAAa;EACb,gBAAgB;EAChB,mBAAmB;CACpB;AACD;EACE,eAAe;CAChB","file":"index.less","sourcesContent":["/* header */\n/* simulator */\n@media (min-width: 1300) {\n  body {\n    min-width: 1100px;\n  }\n}\nbody {\n  margin: 0;\n  color: #333;\n  font-size: 16px;\n  overflow-x: auto;\n  background-color: #fff;\n  -webkit-font-smoothing: antialiased;\n  font-family: PingFang SC, \"Helvetica Neue\", Arial, sans-serif;\n}\np {\n  margin: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  font-size: inherit;\n}\nul,\nol {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.panda-doc-row {\n  width: 100%;\n}\n@media (min-width: 1440px) {\n  .panda-doc-row {\n    width: 1440px;\n    margin: 0 auto;\n  }\n}\n.panda-doc-header {\n  width: 100%;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border-bottom: 1px solid #f1f4f8;\n}\n.panda-doc-header__logo {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n}\n.panda-doc-header__logo img {\n  vertical-align: middle;\n  height: 30px;\n  margin-right: 10px;\n}\n.panda-doc-header__logo span {\n  font-size: 20px;\n}\n.panda-doc-header__logo span.version {\n  font-size: 90%;\n  padding-left: 5px;\n  padding-top: 7px;\n  opacity: 0.7;\n  margin-left: 3px;\n  line-height: 1;\n}\n.panda-doc-header__top {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  background-color: #fff;\n  padding: 0 40px;\n  height: 60px;\n  line-height: 60px;\n}\n.panda-doc-header__top-nav-title {\n  display: block;\n}\n.panda-doc-header__top-nav-title svg {\n  fill: #455a64;\n  display: block;\n  vertical-align: middle;\n  transition: 0.3s ease-in-out;\n}\n.panda-doc-header__top-nav-title svg:hover {\n  fill: #0079f3;\n}\n.panda-doc-nav {\n  left: 0;\n  top: 60px;\n  bottom: 0;\n  z-index: 1;\n  position: fixed;\n  overflow-y: scroll;\n  padding: 25px 0 75px;\n  min-width: 240px;\n  max-width: 240px;\n  border-right: 1px solid #f1f4f8;\n}\n@media (max-width: 1300px) {\n  .panda-doc-nav {\n    min-width: 220px;\n    max-width: 220px;\n  }\n}\n@media (min-width: 1440px) {\n  .panda-doc-nav {\n    left: 50%;\n    margin-left: calc(-720px);\n  }\n}\n.panda-doc-nav::-webkit-scrollbar {\n  height: 6px;\n  width: 6px;\n  background-color: transparent;\n}\n.panda-doc-nav::-webkit-scrollbar-thumb {\n  border-radius: 6px;\n  background-color: transparent;\n}\n.panda-doc-nav:hover::-webkit-scrollbar-thumb {\n  background-color: rgba(69, 90, 100, 0.2);\n}\n.panda-doc-nav__item a,\n.panda-doc-nav__subitem a {\n  margin: 0;\n  display: block;\n  color: #455a64;\n  font-size: 16px;\n  padding: 10px calc(20px) 10px 40px;\n  line-height: 24px;\n  transition: all .3s;\n}\n.panda-doc-nav__item a.active,\n.panda-doc-nav__subitem a.active {\n  color: #0079f3;\n}\n.panda-doc-nav__item > a {\n  font-weight: bold;\n}\n.panda-doc-nav__subitem a {\n  font-size: 14px;\n}\n.panda-doc-nav__subitem a:hover {\n  color: #0079f3;\n}\n.panda-doc-nav__subitem span {\n  opacity: .6;\n  font-size: 13px;\n}\n.panda-doc-nav__group-title {\n  font-size: 12px;\n  line-height: 40px;\n  padding-left: 40px;\n  color: rgba(69, 90, 100, 0.6);\n}\n@media (max-width: 1300px) {\n  .panda-doc-nav {\n    min-width: 220px;\n    max-width: 220px;\n  }\n  .panda-doc-nav__item a,\n  .panda-doc-nav__subitem a {\n    line-height: 22px;\n  }\n  .panda-doc-nav__subitem a {\n    font-size: 13px;\n  }\n}\n.panda-doc-container {\n  overflow: hidden;\n  box-sizing: border-box;\n  background-color: #fff;\n  padding-left: 240px;\n}\n.panda-doc-container--with-simulator {\n  padding-right: calc(400px);\n}\n@media (max-width: 1300px) {\n  .panda-doc-container--with-simulator {\n    padding-right: calc(360px);\n  }\n}\n.van-doc-content {\n  -ms-flex: 1;\n      flex: 1;\n  position: relative;\n  padding: 0 0 75px;\n}\n.van-doc-content a {\n  color: #0079f3;\n}\n.van-doc-content section {\n  padding: 10px 40px;\n  overflow: hidden;\n}\n.van-doc-content section > h1,\n.van-doc-content section > h2,\n.van-doc-content section > h3,\n.van-doc-content section > h4,\n.van-doc-content section > h5,\n.van-doc-content section > h6 {\n  line-height: 1.5;\n  font-weight: normal;\n  margin: 20px 0 10px;\n  color: #333;\n}\n.van-doc-content section > h1 {\n  font-size: 36px;\n}\n.van-doc-content section > h2 {\n  font-size: 30px;\n  margin-bottom: 25px;\n}\n.van-doc-content section > h3 {\n  font-size: 22px;\n  margin-top: 45px;\n}\n.van-doc-content section > h2 + h3 {\n  margin-top: 25px;\n}\n.van-doc-content section > h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n}\n.van-doc-content section > h5 {\n  font-size: 14px;\n}\n.van-doc-content section > h6 {\n  font-size: 14px;\n  color: #666;\n}\n.van-doc-content section > p {\n  margin: 15px 0;\n  font-size: 14px;\n  line-height: 26px;\n  color: #34495e;\n}\n.van-doc-content section > ul,\n.van-doc-content section > ol {\n  padding: 15px 0;\n  background-color: #f1f4f8;\n}\n.van-doc-content section > ul li,\n.van-doc-content section > ol li {\n  color: #34495e;\n  font-size: 14px;\n  line-height: 22px;\n  margin: 5px 0 5px 20px;\n  padding-left: 15px;\n  position: relative;\n}\n.van-doc-content section > ul li::before,\n.van-doc-content section > ol li::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 6px;\n  height: 6px;\n  margin-top: 8px;\n  border-radius: 50%;\n  box-sizing: border-box;\n  border: 1px solid #666;\n}\n.van-doc-content section > ul li li,\n.van-doc-content section > ol li li {\n  margin-left: 0;\n}\n.van-doc-content section > hr {\n  border: 0px none;\n  border-top: 1px solid #eee;\n}\n.van-doc-content section p > code,\n.van-doc-content section li > code,\n.van-doc-content section table code {\n  margin: 2px;\n  padding: 2px 7px;\n  display: inline;\n}\n.van-doc-content blockquote {\n  padding: 16px;\n  margin: 20px 0;\n  font-size: 14px;\n  border-radius: 4px;\n  background-color: #ecf9ff;\n  color: rgba(52, 73, 94, 0.8);\n  border-left: 5px solid #50bfff;\n}\n.van-doc-content table {\n  width: 100%;\n  font-size: 13px;\n  line-height: 1.5;\n  margin-bottom: 45px;\n  background-color: #fff;\n  border-collapse: collapse;\n  color: #34495e;\n}\n.van-doc-content table th {\n  padding: 8px 10px;\n  text-align: left;\n  font-weight: normal;\n  background-color: #f1f4f8;\n}\n.van-doc-content table th:first-child {\n  padding-left: 10px;\n}\n.van-doc-content table td {\n  padding: 8px;\n  border-bottom: 1px solid #f1f4f8;\n}\n.van-doc-content table code {\n  font-size: 13px;\n  padding: 0 8px;\n  font-family: inherit;\n  word-break: keep-all;\n}\n.van-doc-content--changelog section {\n  padding-bottom: 30px;\n}\n.van-doc-content--changelog section > h2 {\n  margin-top: 50px;\n}\n.van-doc-content--changelog section > h2 + p {\n  margin: 0;\n}\n.van-doc-content--changelog section > h2 + p code {\n  margin: 0;\n}\n.van-doc-content--changelog section > h2 a {\n  color: inherit;\n  font-size: 24px;\n  -webkit-font-smoothing: auto;\n}\n.van-doc-content--changelog section > h2:nth-child(1),\n.van-doc-content--changelog section > h2:nth-child(2) {\n  margin-top: 20px;\n}\n.van-doc-content--changelog section > h2:nth-child(2) {\n  margin-bottom: 10px;\n}\n.panda-doc-simulator {\n  z-index: 1;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 6px;\n  background: #fafafa;\n  box-sizing: border-box;\n  right: 40px;\n  width: 360px;\n  min-width: 360px;\n  top: calc(100px);\n  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px, rgba(0, 0, 0, 0.2) 0px 1px 2px;\n}\n@media (max-width: 1300px) {\n  .panda-doc-simulator {\n    width: 320px;\n    min-width: 320px;\n  }\n}\n@media (max-width: 1100px) {\n  .panda-doc-simulator {\n    left: 750px;\n    right: auto;\n  }\n}\n@media (min-width: 1440px) {\n  .panda-doc-simulator {\n    right: 50%;\n    margin-right: calc(-680px);\n  }\n}\n.panda-doc-simulator-fixed {\n  position: fixed;\n  top: 40px;\n}\n.panda-doc-simulator iframe {\n  width: 100%;\n  display: block;\n}\n.panda-doc-simulator__nav {\n  height: 60px;\n  background: url('data:image/png;base64,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') no-repeat;\n  background-size: 100%;\n}\n.panda-doc-simulator__url {\n  left: 40px;\n  top: 23px;\n  right: 40px;\n  font-size: 14px;\n  position: absolute;\n  text-align: center;\n  font-weight: bold;\n  line-height: 28px;\n  font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;\n}\n@media (max-width: 1300px) {\n  .panda-doc-simulator__url {\n    top: 21px;\n    line-height: 24px;\n  }\n}\n.panda-doc-simulator__reload {\n  top: 25px;\n  right: 10px;\n  width: 28px;\n  height: 28px;\n  cursor: pointer;\n  position: absolute;\n}\nbody {\n  height: 1400px;\n}\n"],"sourceRoot":""}]);
+exports.push([module.i, "/* header */\n/* simulator */\n@media (min-width: 1300) {\n  body {\n    min-width: 1100px;\n  }\n}\nbody {\n  margin: 0;\n  color: #333;\n  font-size: 16px;\n  overflow-x: auto;\n  background-color: #fff;\n  -webkit-font-smoothing: antialiased;\n  font-family: PingFang SC, \"Helvetica Neue\", Arial, sans-serif;\n}\np {\n  margin: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  font-size: inherit;\n}\nul,\nol {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.panda-doc-row {\n  width: 100%;\n}\n@media (min-width: 1440px) {\n  .panda-doc-row {\n    width: 1440px;\n    margin: 0 auto;\n  }\n}\n.side-nav {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 60px 15px 20px;\n}\n.side-nav .zanui-title,\n.side-nav .zanui-desc {\n  text-align: center;\n  font-weight: normal;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.side-nav .zanui-title {\n  margin: 0 0 15px;\n}\n.side-nav .zanui-title img,\n.side-nav .zanui-title span {\n  display: inline-block;\n  vertical-align: middle;\n}\n.side-nav .zanui-title img {\n  width: 36px;\n}\n.side-nav .zanui-title span {\n  font-size: 40px;\n  margin-left: 15px;\n  font-family: \"Dosis\", \"Source Sans Pro\", \"Helvetica Neue\", Arial, sans-serif;\n}\n.side-nav .zanui-desc {\n  font-size: 14px;\n  color: #455a64;\n  margin: 0 0 60px;\n}\n", "", {"version":3,"sources":["/Users/echen1/mywork/panda-desgin/examples/style/mobile.less"],"names":[],"mappings":"AAAA,YAAY;AACZ,eAAe;AACf;EACE;IACE,kBAAkB;GACnB;CACF;AACD;EACE,UAAU;EACV,YAAY;EACZ,gBAAgB;EAChB,iBAAiB;EACjB,uBAAuB;EACvB,oCAAoC;EACpC,8DAA8D;CAC/D;AACD;EACE,UAAU;CACX;AACD;;;;;;EAME,UAAU;EACV,mBAAmB;CACpB;AACD;;EAEE,UAAU;EACV,WAAW;EACX,iBAAiB;CAClB;AACD;EACE,sBAAsB;CACvB;AACD;EACE,YAAY;CACb;AACD;EACE;IACE,cAAc;IACd,eAAe;GAChB;CACF;AACD;EACE,YAAY;EACZ,uBAAuB;EACvB,wBAAwB;CACzB;AACD;;EAEE,mBAAmB;EACnB,oBAAoB;EACpB,0BAA0B;KACvB,uBAAuB;MACtB,sBAAsB;UAClB,kBAAkB;CAC3B;AACD;EACE,iBAAiB;CAClB;AACD;;EAEE,sBAAsB;EACtB,uBAAuB;CACxB;AACD;EACE,YAAY;CACb;AACD;EACE,gBAAgB;EAChB,kBAAkB;EAClB,6EAA6E;CAC9E;AACD;EACE,gBAAgB;EAChB,eAAe;EACf,iBAAiB;CAClB","file":"mobile.less","sourcesContent":["/* header */\n/* simulator */\n@media (min-width: 1300) {\n  body {\n    min-width: 1100px;\n  }\n}\nbody {\n  margin: 0;\n  color: #333;\n  font-size: 16px;\n  overflow-x: auto;\n  background-color: #fff;\n  -webkit-font-smoothing: antialiased;\n  font-family: PingFang SC, \"Helvetica Neue\", Arial, sans-serif;\n}\np {\n  margin: 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 0;\n  font-size: inherit;\n}\nul,\nol {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.panda-doc-row {\n  width: 100%;\n}\n@media (min-width: 1440px) {\n  .panda-doc-row {\n    width: 1440px;\n    margin: 0 auto;\n  }\n}\n.side-nav {\n  width: 100%;\n  box-sizing: border-box;\n  padding: 60px 15px 20px;\n}\n.side-nav .zanui-title,\n.side-nav .zanui-desc {\n  text-align: center;\n  font-weight: normal;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.side-nav .zanui-title {\n  margin: 0 0 15px;\n}\n.side-nav .zanui-title img,\n.side-nav .zanui-title span {\n  display: inline-block;\n  vertical-align: middle;\n}\n.side-nav .zanui-title img {\n  width: 36px;\n}\n.side-nav .zanui-title span {\n  font-size: 40px;\n  margin-left: 15px;\n  font-family: \"Dosis\", \"Source Sans Pro\", \"Helvetica Neue\", Arial, sans-serif;\n}\n.side-nav .zanui-desc {\n  font-size: 14px;\n  color: #455a64;\n  margin: 0 0 60px;\n}\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -29487,17 +28987,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 5:
-/*!*********************************!*\
-  !*** multi ./examples/index.js ***!
-  \*********************************/
+/***/ 6:
+/*!**********************************!*\
+  !*** multi ./examples/mobile.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./examples/index.js */"./examples/index.js");
+module.exports = __webpack_require__(/*! ./examples/mobile.js */"./examples/mobile.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=mobile.js.map
