@@ -11,14 +11,14 @@ module.exports = {
           {
             groupName: '基础组件',
             list: [
-              {
-                path: '/button',
-                title: 'Button 按钮'
-              },
-              {
-                path: '/alert',
-                title: 'Cell 单元格'
-              },
+              // {
+              //   path: '/button',
+              //   title: 'Button 按钮'
+              // },
+              // {
+              //   path: '/alert',
+              //   title: 'Cell 单元格'
+              // },
               {
                 path: '/icon',
                 title: 'Icon 图标'
