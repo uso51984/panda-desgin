@@ -5,7 +5,15 @@
 @import '../components/Container/index.less';
 @import '../components/Content/index.less';
 @import '../components/Simulator/index.less';
+@import (inline) "~codemirror/lib/codemirror.css";
 
 body {
   height: 1400px;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto !important;
+  padding: 8px;
+  font-size: 14px;
 }

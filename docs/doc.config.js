@@ -19,6 +19,14 @@ module.exports = {
                 path: '/alert',
                 title: 'Cell 单元格'
               },
+              {
+                path: '/icon',
+                title: 'Icon 图标'
+              },
+              {
+                path: '/grid',
+                title: 'Grid 栅格'
+              },
             ]
           },
           // {

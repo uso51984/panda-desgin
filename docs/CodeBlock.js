@@ -1,6 +1,8 @@
-const React = require('react');
-const PropTypes = require('prop-types');
-import hljs from 'highlight.js';
+import React from 'react';
+import PropTypes from 'prop-types';
+import CodeMirror from 'codemirror';
+import 'codemirror/mode/jsx/jsx';
+import 'codemirror/mode/css/css';
 
 class CodeBlock extends React.PureComponent {
   constructor(props) {
@@ -13,35 +15,23 @@ class CodeBlock extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.highlightCode();
-  }
-
-  componentDidUpdate() {
-    this.highlightCode();
-  }
-
-  highlightCode() {
-    hljs.highlightBlock(this.codeEl);
+    CodeMirror(this.codeEl, {
+      readOnly: true,
+      value: this.props.value,
+      mode: this.props.language,
+    });
   }
 
   render() {
     return (
-      <pre>
-        <code ref={this.setRef} className={`language-${this.props.language}`}>
-          {this.props.value}
-        </code>
-      </pre>
+      <div ref={this.setRef} />
     );
   }
 }
 
-CodeBlock.defaultProps = {
-  language: '',
-};
-
 CodeBlock.propTypes = {
   value: PropTypes.string.isRequired,
-  language: PropTypes.string,
+  language: PropTypes.string.isRequired,
 };
 
 export default CodeBlock;
