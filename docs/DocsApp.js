@@ -46,6 +46,8 @@ export default class WapApp extends React.PureComponent {
     this.history = createHistory();
     this.history.listen((location) => {
       this.setState({ path: getIframeUrl(location.hash.split('/')[1]) });
+
+      // document.querySelector('iframe').src = getIframeUrl(location.hash.split('/')[1]);
     });
 
     const iframe = document.querySelector('iframe');

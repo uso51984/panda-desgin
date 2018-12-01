@@ -16,7 +16,7 @@ export default () => (
   <DemoBlock title="图标列表" className="demo-icon">
     {
       list.map(item => (
-        <Col span={8}>
+        <Col span={8} key={item}>
           <Icon type={item} />
           <div>{ item }</div>
         </Col>
