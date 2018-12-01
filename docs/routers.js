@@ -1,9 +1,10 @@
 import React from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import docConfig from './doc.config';
 import DemoList from './mobileComponents/DemoList';
-import componentDocs from './docs-entry';
+import componentDocs, { Markdown } from './docs-entry';
 import componentDemos from './demo-entry';
+import intro from './markdown/intro.md';
 // import DemoPages from './components/DemoPages';
 // import './utils/iframe-router';
 
@@ -16,6 +17,13 @@ const registerRoute = (isDemo) => {
         exact
         path="/"
         component={DemoList}
+      />));
+    } else {
+      route.push((<Route
+        key={'index'}
+        exact
+        path="/"
+        component={Markdown(intro)}
       />));
     }
     function addRoute(page, lang1) {

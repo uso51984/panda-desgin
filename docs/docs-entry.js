@@ -9,7 +9,7 @@ import CodeBlock from './CodeBlock';
 
 const ReactMarkdown = require('react-markdown');
 
-const Markdown = docData => () => <ReactMarkdown source={docData} renderers={{ code: CodeBlock }} />;
+export const Markdown = docData => () => <ReactMarkdown source={docData} escapeHtml={false} renderers={{ code: CodeBlock }} />;
 
 export default {
   button: Markdown(Button),
