@@ -3,10 +3,12 @@ import Button from 'src/components/Button/demo';
 import Alert from 'src/components/Alert/demo';
 import Icon from 'src/components/Icon/demo';
 import Grid from 'src/components/Grid/demo';
+import Cell from 'src/components/Cell/demo';
 
 export default {
   button: Button,
   alert: Alert,
   icon: Icon,
   grid: Grid,
+  cell: Cell,
 };

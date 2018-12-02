@@ -27,6 +27,10 @@ module.exports = {
                 path: '/grid',
                 title: 'Grid 栅格'
               },
+              {
+                path: '/cell',
+                title: 'Cell 单元格'
+              },
             ]
           },
           // {
