@@ -5,6 +5,8 @@ import Alert from 'src/components/Alert/zh-CN.md';
 import Icon from 'src/components/Icon/zh-CN.md';
 import Grid from 'src/components/Grid/zh-CN.md';
 import Cell from 'src/components/Cell/zh-CN.md';
+import Collapse from 'src/components/Collapse/zh-CN.md';
+
 
 import CodeBlock from './CodeBlock';
 
@@ -18,4 +20,5 @@ export default {
   icon: Markdown(Icon),
   grid: Markdown(Grid),
   cell: Markdown(Cell),
+  collapse: Markdown(Collapse),
 };

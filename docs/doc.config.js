@@ -31,6 +31,10 @@ module.exports = {
                 path: '/cell',
                 title: 'Cell 单元格'
               },
+              {
+                path: '/collapse',
+                title: 'Collapse 单元格'
+              },
             ]
           },
           // {
