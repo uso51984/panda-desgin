@@ -1,92 +1,51 @@
-@prefixCls: rc-collapse;
-@text-color: #666;
-@borderStyle: 1px solid #d9d9d9;
+@accordionPrefixCls: panda-collapse;
 
-#arrow {
-  .common(){
-    width: 0;
-    height: 0;
-    font-size: 0;
-    line-height: 0;
-  }
-  .right(@w, @h, @color) {
-    border-top: @w solid transparent;
-    border-bottom: @w solid transparent;
-    border-left: @h solid @color;
-  }
-
-  .bottom(@w, @h, @color) {
-    border-left: @w solid transparent;
-    border-right: @w solid transparent;
-    border-top: @h solid @color;
-  }
-}
-
-.@{prefixCls} {
-  background-color: #f7f7f7;
-  border-radius: 3px;
-  border: @borderStyle;
-
+.@{accordionPrefixCls} {
+  position: relative;
   &-anim-active {
-    transition: height .2s ease-out;
+    transition: all .2s ease-out;
   }
 
-  & > &-item {
-    border-top: @borderStyle;
-    &:first-child {
-      border-top: none;
-    }
+  & &-item {
+    .@{accordionPrefixCls}-header {
+      width: 100%;
+      display: flex;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      line-height: 24px;
+      position: relative;
+      background-color: @white;
+      color: @text-color;
+      font-size: 14px;
+      overflow: hidden;
 
-    > .@{prefixCls}-header {
-      line-height: 22px;
-      padding: 10px 16px;
-      color: #666;
-      cursor: pointer;
-      .arrow {
-        display: inline-block;
-        content: '\20';
-        #arrow > .common();
-        #arrow > .right(3px, 4px, #666);
-        vertical-align: middle;
-        margin-right: 8px;
+      i {
+        .encoded-svg-background('right');
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        transition: transform .2s ease;
+      }
+
+      &[aria-expanded~="true"] {
+        i {
+          transform: rotate(270deg);
+        }
       }
     }
-  }
 
-  & > &-item-disabled > .@{prefixCls}-header {
-    cursor: not-allowed;
-    color: #999;
-    background-color: #f3f3f3;
-  }
+    .@{accordionPrefixCls}-content {
+      overflow: hidden;
 
-  &-content {
-    overflow: hidden;
-    color: @text-color;
-    padding: 0 16px;
-    background-color: #fff;
+      .@{accordionPrefixCls}-content-box {
+        position: relative;
+      }
 
-    & > &-box {
-      margin-top: 16px;
-      margin-bottom: 16px;
-    }
-
-    &-inactive {
-      display: none;
-    }
-  }
-
-  &-item:last-child {
-    > .@{prefixCls}-content {
-      border-radius: 0 0 3px 3px;
-    }
-  }
-
-  & > &-item-active {
-    > .@{prefixCls}-header {
-
-      .arrow {
-        #arrow > .bottom(3px, 4px, #666);
-        margin-right: 6px;
+      &.@{accordionPrefixCls}-content-inactive {
+        display: none;
       }
     }
   }

@@ -136,7 +136,7 @@ Collapse.propTypes = {
 };
 
 Collapse.defaultProps = {
-  prefixCls: 'rc-collapse',
+  prefixCls: 'panda-collapse',
   onChange() {},
   accordion: false,
   destroyInactivePanel: false,
