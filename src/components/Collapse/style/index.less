@@ -2,6 +2,7 @@
 
 .@{accordionPrefixCls} {
   position: relative;
+  border-top: 1px solid @border-color;
   &-anim-active {
     transition: all .2s ease-out;
   }
@@ -10,14 +11,17 @@
     .@{accordionPrefixCls}-header {
       width: 100%;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 10px 15px;
       box-sizing: border-box;
       line-height: 24px;
-      position: relative;
       background-color: @white;
       color: @text-color;
       font-size: 14px;
       overflow: hidden;
+      outline: none;
+      border-bottom: 1px solid @border-color;
 
       i {
         .encoded-svg-background('right');
@@ -27,6 +31,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 50% 50%;
+        transform: rotate(90deg);
         transition: transform .2s ease;
       }
 
@@ -37,11 +42,21 @@
       }
     }
 
+    &-disabled {
+      .@{accordionPrefixCls}-header{
+        color: @gray;
+      }
+    }
+
     .@{accordionPrefixCls}-content {
+      background-color: @white;
       overflow: hidden;
 
       .@{accordionPrefixCls}-content-box {
+        padding: 15px;
+        font-size: 12px;
         position: relative;
+        border-bottom: 1px solid @border-color;
       }
 
       &.@{accordionPrefixCls}-content-inactive {

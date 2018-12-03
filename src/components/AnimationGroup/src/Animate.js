@@ -36,7 +36,7 @@ export default class Animate extends React.Component {
     onEnd: noop,
     onEnter: noop,
     onLeave: noop,
-    onAppear: noop
+    onAppear: noop,
   }
 
   constructor(props) {
@@ -47,8 +47,8 @@ export default class Animate extends React.Component {
     this.keysToLeave = [];
 
     this.state = {
-      children: toArrayChildren(getChildrenFromProps(props))
-    }
+      children: toArrayChildren(getChildrenFromProps(props)),
+    };
 
     this.childrenRefs = {};
   }
@@ -57,19 +57,16 @@ export default class Animate extends React.Component {
     const showProp = this.props.showProp;
     let { children } = this.state;
     if (showProp) {
-      children = children.filter((child) => {
-        return !!child.props[showProp];
-      })
+      children = children.filter(child => !!child.props[showProp]);
     }
     children.forEach((child) => {
       if (child) {
         this.performAppear(child.key);
       }
-    })
+    });
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps', nextProps);
     this.nextProps = nextProps;
     const nextChildren = toArrayChildren(getChildrenFromProps(nextProps));
     const props = this.props;
@@ -111,7 +108,7 @@ export default class Animate extends React.Component {
     } else {
       newChildren = mergeChildren(
         currentChildren,
-        nextChildren
+        nextChildren,
       );
     }
 
@@ -174,22 +171,17 @@ export default class Animate extends React.Component {
 
   performEnter = (key) => {
     // may already remove by exclusive
-    console.log('performEnter-key', key)
     if (this.childrenRefs[key]) {
       this.currentlyAnimatingKeys[key] = true;
-      this.childrenRefs[key].componentWillEnter(
-        this.handleDoneAdding.bind(this, key, 'enter')
-      );
+      this.childrenRefs[key].componentWillEnter(this.handleDoneAdding.bind(this, key, 'enter'));
     }
   }
 
   performAppear = (key) => {
     if (this.childrenRefs[key]) {
-      console.log('performAppear', key)
+      console.log('performAppear', key);
       this.currentlyAnimatingKeys[key] = true;
-      this.childrenRefs[key].componentWillAppear(
-        this.handleDoneAdding.bind(this, key, 'appear')
-      )
+      this.childrenRefs[key].componentWillAppear(this.handleDoneAdding.bind(this, key, 'appear') );
     }
   }
 
@@ -198,6 +190,14 @@ export default class Animate extends React.Component {
     if (this.childrenRefs[key]) {
       this.currentlyAnimatingKeys[key] = true;
       this.childrenRefs[key].componentWillLeave(this.handleDoneLeaving.bind(this, key));
+    }
+  }
+
+  stop(key) {
+    delete this.currentlyAnimatingKeys[key];
+    const component = this.childrenRefs[key];
+    if (component) {
+      component.stop();
     }
   }
 
@@ -219,8 +219,10 @@ export default class Animate extends React.Component {
           props.onEnd(key, false);
         }
       };
-      if (!isSameChildren(this.state.children,
-        currentChildren, props.showProp)) {
+      if (!isSameChildren(
+        this.state.children,
+        currentChildren, props.showProp,
+      )) {
         this.setState({
           children: currentChildren,
         }, end);
@@ -263,9 +265,9 @@ export default class Animate extends React.Component {
 
   render() {
     const props = this.props;
-    console.log('test render')
     this.nextProps = props;
     const stateChildren = this.state.children;
+
     let children = null;
     if (stateChildren) {
       children = stateChildren.map((child) => {
@@ -290,8 +292,8 @@ export default class Animate extends React.Component {
             {child}
           </AnimateChild>
         );
-      })
-    };
+      });
+    }
     return children[0] || null;
   }
 }

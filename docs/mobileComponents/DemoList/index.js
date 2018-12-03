@@ -1,10 +1,11 @@
 import React from 'react';
 import { Cell } from 'src/components/Cell';
+import Collapse from 'src/components/Collapse';
 import DocConfig from '../../doc.config';
 
 export default class DemoList extends React.PureComponent {
   handleClick({ path }) {
-    this.props.history.push(path)
+    this.props.history.push(path);
   }
 
   render() {
@@ -17,15 +18,16 @@ export default class DemoList extends React.PureComponent {
         <h2 className="zanui-desc">轻量、可靠的移动端 react 组件库</h2>
 
         {
-          DocConfig['zh-CN'].nav[0].groups.map((item, index) => (
-            <div key={index}>
-              <span>{item.groupName}</span>
-              {
-                item.list.map((listItem, Lindex) => (
-                  <Cell key={Lindex} title={listItem.title} onClick={() => { this.handleClick(listItem); }} arrow="right" />
-                ))
-              }
-            </div>
+          DocConfig['zh-CN'].nav[1].groups.map((item, index) => (
+            <Collapse>
+              <Collapse.Panel header={item.groupName}>
+                {
+                  item.list.map((listItem, Lindex) => (
+                    <Cell key={Lindex} title={listItem.title} onClick={() => { this.handleClick(listItem); }} arrow="right" />
+                  ))
+                }
+              </Collapse.Panel>
+            </Collapse>
           ))
         }
       </div>);

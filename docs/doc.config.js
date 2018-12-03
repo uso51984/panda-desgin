@@ -5,6 +5,19 @@ module.exports = {
   'zh-CN': {
     nav: [
       {
+        name: '开发指南',
+        groups: [
+          {
+            list: [
+              {
+                path: '/',
+                title: '介绍'
+              },
+            ]
+          }
+        ]
+      },
+      {
         name: '组件',
         showInMobile: true,
         groups: [

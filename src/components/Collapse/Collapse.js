@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CollapsePanel from './Panel';
@@ -12,7 +12,14 @@ function toArray(activeKey) {
   return currentActiveKey;
 }
 
-class Collapse extends Component {
+class Collapse extends React.Component {
+  static defaultProps = {
+    prefixCls: 'panda-collapse',
+    onChange() {},
+    accordion: false,
+    destroyInactivePanel: false,
+  }
+
   constructor(props) {
     super(props);
 
@@ -63,11 +70,15 @@ class Collapse extends Component {
     const { prefixCls, accordion, destroyInactivePanel, expandIcon } = this.props;
     const newChildren = [];
 
-    Children.forEach(this.props.children, (child, index) => {
-      if (!child) return;
+    React.Children.forEach(this.props.children, (child, index) => {
+      if (!child) {
+        return;
+      }
+
       const key = child.key || String(index);
-      const { header, headerClass, disabled } = child.props;
+      const { disabled } = child.props;
       let isActive = false;
+
       if (accordion) {
         isActive = activeKey[0] === key;
       } else {
@@ -76,8 +87,6 @@ class Collapse extends Component {
 
       const props = {
         key,
-        header,
-        headerClass,
         isActive,
         prefixCls,
         destroyInactivePanel,
@@ -133,13 +142,6 @@ Collapse.propTypes = {
   style: PropTypes.object,
   destroyInactivePanel: PropTypes.bool,
   expandIcon: PropTypes.func,
-};
-
-Collapse.defaultProps = {
-  prefixCls: 'panda-collapse',
-  onChange() {},
-  accordion: false,
-  destroyInactivePanel: false,
 };
 
 Collapse.Panel = CollapsePanel;

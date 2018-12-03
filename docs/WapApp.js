@@ -11,7 +11,7 @@ export default class WapApp extends React.Component {
     return (
       <div>
         <Router>
-          <div className="mian-content2323">
+          <div className="mian-content">
             {
               registerRoute(true)
             }

@@ -1,64 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import PanelContent from './PanelContent';
 import Animate from '../AnimationGroup';
 
-class CollapsePanel extends Component {
+class CollapsePanel extends React.Component {
   handleItemClick = () => {
-    if (this.props.onItemClick) {
-      this.props.onItemClick();
-    }
-  }
+    const { onItemClick } = this.props;
 
-  handleKeyPress = (e) => {
-    if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) {
-      this.handleItemClick();
+    if (onItemClick) {
+      onItemClick();
     }
   }
 
   render() {
     const {
-      className,
-      id,
-      style,
-      prefixCls,
-      header,
-      headerClass,
-      children,
-      isActive,
-      showArrow,
-      destroyInactivePanel,
-      disabled,
-      accordion,
-      forceRender,
-      expandIcon,
+      className, style, prefixCls, header, children, isActive, showArrow,
+      destroyInactivePanel, disabled, accordion, expandIcon,
     } = this.props;
-    const headerCls = classNames(`${prefixCls}-header`, {
-      [headerClass]: headerClass,
-    });
+
     const itemCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-active`]: isActive,
       [`${prefixCls}-item-disabled`]: disabled,
     }, className);
 
-    let icon = null;
-    if (showArrow && typeof expandIcon === 'function') {
-      icon = React.createElement(expandIcon, { ...this.props });
-    }
     return (
-      <div className={itemCls} style={style} id={id}>
+      <div className={itemCls} style={style}>
         <div
-          className={headerCls}
+          className={`${prefixCls}-header`}
           onClick={this.handleItemClick}
           role={accordion ? 'tab' : 'button'}
-          tabIndex={disabled ? -1 : 0}
           aria-expanded={isActive}
-          onKeyPress={this.handleKeyPress}
         >
           {header}
-          {showArrow && (icon || <i className="arrow" />)}
+          {showArrow && (expandIcon || <i className="arrow" />)}
         </div>
         <Animate
           showProp="isActive"
@@ -70,8 +46,6 @@ class CollapsePanel extends Component {
             prefixCls={prefixCls}
             isActive={isActive}
             destroyInactivePanel={destroyInactivePanel}
-            forceRender={forceRender}
-            role={accordion ? 'tabpanel' : null}
           >
             {children}
           </PanelContent>
@@ -86,7 +60,6 @@ CollapsePanel.propTypes = {
     PropTypes.string,
     PropTypes.object,
   ]),
-  id: PropTypes.string,
   children: PropTypes.any,
   openAnimation: PropTypes.object,
   prefixCls: PropTypes.string,
@@ -95,7 +68,6 @@ CollapsePanel.propTypes = {
     PropTypes.number,
     PropTypes.node,
   ]),
-  headerClass: PropTypes.string,
   showArrow: PropTypes.bool,
   isActive: PropTypes.bool,
   onItemClick: PropTypes.func,
@@ -103,7 +75,6 @@ CollapsePanel.propTypes = {
   destroyInactivePanel: PropTypes.bool,
   disabled: PropTypes.bool,
   accordion: PropTypes.bool,
-  forceRender: PropTypes.bool,
   expandIcon: PropTypes.func,
 };
 

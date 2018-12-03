@@ -1,74 +1,77 @@
-## Cell 单元格
-
+## Collapse 折叠面板
 ### 代码演示
 
 #### 基础用法
-
-`Cell`可以单独使用，也可以与`CellGroup`搭配使用。`CellGroup`可以为`Cell`提供上下外边框。
-
-```jsx
-<CellGroup>
-  <Cell title="单元格" value="内容" />
-  <Cell title="单元格" value="内容" label="描述信息" />
-</CellGroup>
-```
-
-#### 单元格大小
-
-通过`size`属性可以控制单元格的大小
+可以通过`defaultActiveKey`、`activeKey`控制展开的面板列表，`Pannel`key默认值是索引字符串
 
 ```jsx
-<Cell title="单元格" value="内容" size="large" />
-<Cell title="单元格" value="内容" size="large" label="描述信息" />
+<Collapse defaultActiveKey="0">
+  <Panel header="微商城" >
+    提供多样店铺模板，快速搭建网上商城
+  </Panel>
+  <Panel header="零售">
+    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+  </Panel>
+  <Panel header="美业" disabled>
+    线上拓客，随时预约，贴心顺手的开单收银
+  </Panel>
+</Collapse>
 ```
 
-#### 展示图标
-
-通过`icon`属性在标题左侧展示图标
+#### 手风琴
+通过`accordion`可以设置为手风琴模式，最多展开一个面板
 
 ```jsx
-<Cell title="单元格" icon="location" />
+<Collapse
+  accordion
+  className="demo-collapse"
+>
+  <Panel
+    header={<span className="demo-collapse-header">微商城 <Icon type="check-circle-o" /></span>}
+    key="1"
+  >
+    提供多样店铺模板，快速搭建网上商城
+  </Panel>
+  <Panel header="零售" key="2">
+    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+  </Panel>
+  <Panel header="美业" key="3" disabled>
+    线上拓客，随时预约，贴心顺手的开单收银
+  </Panel>
+</Collapse>
 ```
 
-#### 只设置 value
-
-只设置`value`时会向左对齐
+#### 受控组件
 
 ```jsx
-<Cell value="内容" />
+<Collapse activeKey=["1"]>
+  <Panel header="微商城" >
+    提供多样店铺模板，快速搭建网上商城
+  </Panel>
+  <Panel header="零售">
+    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+  </Panel>
+  <Panel header="美业" disabled>
+    线上拓客，随时预约，贴心顺手的开单收银
+  </Panel>
+</Collapse>
 ```
 
-#### 展示箭头及点击反馈
 
-传入`arrow`属性则会在右侧显示箭头，传入onClick会有点击反馈, `activeClass`属性自定义点击时候的class
 
-```jsx
-<Cell title="单元格" onClick={() => {}} arrow="right" />
-<Cell title="单元格" onClick={() => { }} arrow="right" value="内容" />
-<Cell title="单元格" onClick={() => { }} arrow="down" value="内容" />
-```
+### Collapse API
 
-### CellGroup API
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| activeKey        | 当前激活 tab 面板的 key| Array/String   | 默认无，accordion模式下默认第一个元素|
+| defaultActiveKey | 初始化选中面板的 key | String   | 无 |
+| onChange      |   切换面板的回调   | (key: string): void |  noop  |
+| accordion    | `手风琴`模式 | Boolean | false  |
+| openAnimation  |  设置自定义切换动画，禁止动画可设为`{}` | Object | 参考 openAnimationFactory.js 文件  |
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| border | 是否显示外边框 | `Boolean` | `true` | - |
+### Collapse.Panel
 
-### Cell API
-
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| icon | 左侧图标，可选值见 Icon 组件 | `String` | - | - |
-| title | 左侧标题 | `String | number | React.Element` | - | - |
-| desc | 标题下方的描述信息 | `String` | - | - |
-| value | 右侧内容 | `String | number | React.Element` | - | - |
-| size | 单元格大小，可选值为 `large` | `String` | - | 1.4.4 |
-| border | 是否显示内边框 | `Boolean` | `true` | - |
-| required | 是否显示表单必填星号 | `Boolean` | `false` | - |
-| arrow | 箭头方向，可选值为 `left` `up` `down` `right` | `String` | - | 1.1.10 |
-
-### Cell Event
-
-| 事件名 | 说明 | 参数 |
-|------|------|------|
-| onClick | 点击单元格时触发 | - |
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| key  | 对应 activeKey   | String          | 无     |
+| header | 面板头内容 | React.Element or String | 无  |

@@ -33,7 +33,7 @@ export default class Simulator extends React.PureComponent {
     return (
       <div className={cls} >
         <div className="panda-doc-simulator__nav">
-          <div className="panda-doc-simulator__url">iframeHostName</div>
+          <div className="panda-doc-simulator__url">{this.state.src}</div>
           <div className="panda-doc-simulator__reload" />
         </div>
         <iframe title="mobile" ref={el => this.iframe = el} src={this.state.src} style={{ height: this.state.height }} frameBorder="0" />
