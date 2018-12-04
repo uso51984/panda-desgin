@@ -29,6 +29,7 @@
   &-fixed {
     position: fixed;
     top: @padding;
+    z-index: 1000;
   }
 
   iframe {
@@ -51,6 +52,8 @@
     text-align: center;
     font-weight: bold;
     line-height: 28px;
+    white-space: nowrap;
+    overflow: hidden;
     font-family: PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
 
     @media (max-width: 1300px) {

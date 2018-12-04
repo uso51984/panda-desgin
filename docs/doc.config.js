@@ -48,6 +48,12 @@ module.exports = {
                 path: '/collapse',
                 title: 'Collapse 单元格'
               },
+              {
+                path: '/nav-bar',
+                title: 'NavBar 导航栏'
+              },
+
+
             ]
           },
           // {
