@@ -22,6 +22,7 @@ export default class DialogWrap extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log('0000000000');
     if (this.props.visible) {
       if (!IS_REACT_16) {
         this.renderDialog(false);
@@ -62,6 +63,7 @@ export default class DialogWrap extends React.Component {
       if (!IS_REACT_16) {
         ReactDOM.unmountComponentAtNode(this.container);
       }
+      console.log('--------')
       this.container.parentNode.removeChild(this.container);
       this.container = null;
     }
@@ -91,6 +93,6 @@ export default class DialogWrap extends React.Component {
     if (IS_REACT_16 && (visible || this.component)) {
       return (ReactDOM).createPortal(this.getComponent(visible), this.getContainer());
     }
-    return (null);
+    return null;
   }
 }

@@ -20,13 +20,17 @@ export default class App extends React.Component {
     };
   }
   showModal = key => (e) => {
-    alert('sdfsdf')
-
     e.preventDefault(); // 修复 Android 上点击穿透
-    // this.setState({
-    //   [key]: true,
-    // });
+
+    this.setState({
+      [key]: true,
+    });
   }
+  showModal2 = () => (e) => {
+    e.preventDefault(); // 修复 Android 上点击穿透
+    alert('sdfsdf', '', [{ text: 'Ok', onPress: () => console.log('oksdfsdf') }], 'test-class');
+  }
+
   onClose = key => () => {
     this.setState({
       [key]: false,
@@ -48,6 +52,7 @@ export default class App extends React.Component {
     return (
       <div>
         <button onClick={this.showModal('modal1')}>basic</button>
+        <button onClick={this.showModal2()}>alert</button>
         <Modal
           visible={this.state.modal1}
           transparent
