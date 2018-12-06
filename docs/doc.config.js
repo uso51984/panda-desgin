@@ -52,6 +52,14 @@ module.exports = {
                 path: '/nav-bar',
                 title: 'NavBar 导航栏'
               },
+              {
+                path: '/modal',
+                title: 'Modal 对话框'
+              },
+              {
+                path: '/dialog',
+                title: 'dialog'
+              },
 
 
             ]
