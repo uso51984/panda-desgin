@@ -5,8 +5,8 @@ import Dialog from '../dialog';
 
 export default class Modal extends React.Component {
   static defaultProps = {
-    prefixCls: 'am-modal',
-    transparent: false,
+    prefixCls: 'panda-modal',
+    transparent: true,
     popup: false,
     animationType: 'slide-down',
     animated: true,
@@ -14,8 +14,6 @@ export default class Modal extends React.Component {
     onShow() {},
     footer: [],
     closable: false,
-    operation: false,
-    platform: 'ios',
   };
 
   renderFooterButton(button, prefixCls, i) {
@@ -54,29 +52,14 @@ export default class Modal extends React.Component {
   }
 
   render() {
-    const {
-      prefixCls,
-      className,
-      wrapClassName,
-      transitionName,
-      maskTransitionName,
-      style,
-      platform,
-      footer = [],
-      operation,
-      animated,
-      transparent,
-      popup,
-      animationType,
-      ...restProps
+    const { prefixCls, className, wrapClassName, transitionName, maskTransitionName, style,
+      footer = [], animated, transparent, popup, animationType, ...restProps
     } = this.props;
 
-    const btnGroupClass = classnames(
-      `${prefixCls}-button-group-${
-        footer.length === 2 && !operation ? 'h' : 'v'
-      }`,
-      `${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`,
-    );
+    const btnGroupClass = classnames(`${prefixCls}-button-group-${
+      footer.length === 2 ? 'h' : 'v'
+    }`);
+
     const footerDom = footer.length ? (
       <div className={btnGroupClass} role="group">
         {footer.map((button, i) =>
@@ -88,9 +71,11 @@ export default class Modal extends React.Component {
     let maskTransName;
     if (animated) {
       if (transparent) {
-        transName = maskTransName = 'am-fade';
+        transName = 'am-fade';
+        maskTransName = 'am-fade';
       } else {
-        transName = maskTransName = 'am-slide-up';
+        transName = 'am-slide-up';
+        maskTransName = 'am-slide-up';
       }
       if (popup) {
         transName =
@@ -106,7 +91,6 @@ export default class Modal extends React.Component {
       [`${prefixCls}-transparent`]: transparent,
       [`${prefixCls}-popup`]: popup,
       [`${prefixCls}-popup-${animationType}`]: popup && animationType,
-      [`${prefixCls}-android`]: platform === 'android',
     });
 
     return (

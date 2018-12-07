@@ -1,5 +1,5 @@
-import classnames from 'classnames';
 import React from 'react';
+import classnames from 'classnames';
 import loadSprite from './loadSprite';
 
 export default class Icon extends React.Component {

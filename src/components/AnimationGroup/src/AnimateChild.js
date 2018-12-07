@@ -28,7 +28,6 @@ export default class AnimateChild extends React.Component {
   }
 
   componentWillAppear(done) {
-    console.log('animUtil.isAppearSupported(this.props)', animUtil.isAppearSupported(this.props))
     if (animUtil.isAppearSupported(this.props)) {
       this.transition('appear', done);
     } else {

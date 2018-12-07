@@ -12,6 +12,16 @@
 @gray-darker: #666;
 @gray-dark: #999;
 
+// 文字色
+@color-text-base: #000;                  // 基本
+@color-text-base-inverse: #fff;          // 基本 - 反色
+@color-text-secondary: #a4a9b0;          // 辅助色
+@color-text-placeholder: #bbb;           // 文本框提示
+@color-text-disabled: #bbb;              // 失效
+@color-text-caption: #888;               // 辅助描述
+@color-text-paragraph: #333;             // 段落
+@color-link: @brand-primary;             // 链接
+
 // default colors
 @text-color: #333;
 @border-color: #eee;
@@ -65,6 +75,15 @@
 @icon-size-lg: 36 * @hd;
 
 
+// 圆角
+// ---
+@radius-xs: 2 * @hd;
+@radius-sm: 3 * @hd;
+@radius-md: 5 * @hd;
+@radius-lg: 7 * @hd;
+@radius-circle: 50%;
+
+
 // modal
 @modal-zindex: 999;
 @fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
@@ -89,3 +108,33 @@
 @v-spacing-md: 9 * @hd;
 @font-size-base: 14 * @hd;
 @h-spacing-md: 8 * @hd;
+
+
+// 全局/品牌色
+@brand-primary: #108ee9;
+@brand-primary-tap: #0e80d2;
+@brand-success: #6abf47;
+@brand-warning: #ffc600;
+@brand-error: #f4333c;
+@brand-important: #ff5b05;  // 用于小红点
+@brand-wait: #108ee9;
+
+
+// button
+@button-height: 40 * @hd;
+@button-font-size: 16 * @hd;
+
+@button-height-sm: 30 * @hd;
+@button-font-size-sm: 13 * @hd;
+
+@primary-button-fill: @brand-primary;
+@primary-button-fill-tap: @brand-primary-tap;
+
+@ghost-button-color: @brand-primary;    // 同时应用于背景、文字颜色、边框色
+@ghost-button-fill-tap: fade(@brand-primary, 60%);
+
+@warning-button-fill: #e94f4f;
+@warning-button-fill-tap: #d24747;
+
+@link-button-fill-tap: #ddd;
+@link-button-font-size: 16 * @hd;

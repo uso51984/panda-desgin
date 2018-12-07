@@ -5,7 +5,8 @@ import Modal from './Modal';
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
 const ConfirmDialog = (props) => {
-  const { close, title, message, actions, visible, afterClose, className } = props;
+  const { close, options, actions, visible, afterClose } = props;
+  const { title, message, className, closable, wrapClassName, maskClosable } = options;
 
   const footer = actions.map((button) => {
     const orginPress = button.onPress || function () {};
@@ -40,11 +41,14 @@ const ConfirmDialog = (props) => {
     <Modal
       visible={visible}
       className={className}
+      maskClosable={maskClosable}
+      wrapClassName={wrapClassName}
       transparent
       title={title}
+      afterClose={afterClose}
       transitionName="am-zoom"
-      closable={false}
-      maskClosable={false}
+      closable={closable}
+      onClose={close}
       footer={footer}
       maskTransitionName="am-fade"
       wrapProps={{ onTouchStart: onWrapTouchStart }}
@@ -54,7 +58,9 @@ const ConfirmDialog = (props) => {
   );
 };
 
-export default function alert(title, message, actions = [{ text: '确定' }], className = '') {
+export default function alert(options, actions = [{ text: '确定' }]) {
+  const { title, message } = options;
+
   if (!title && !message) {
     return {
       close: () => {},
@@ -77,13 +83,13 @@ export default function alert(title, message, actions = [{ text: '确定' }], cl
 
   function close() {
     if (IS_REACT_16) {
-      render({ close, visible: false, title, message, className, actions, afterClose: destroy.bind(this) });
+      render({ close, visible: false, options, actions, afterClose: destroy.bind(this) });
     } else {
       destroy();
     }
   }
 
-  render({ visible: true, close, title, message, className, actions, afterClose: destroy.bind(this) });
+  render({ close, visible: true, options, actions, afterClose: destroy.bind(this) });
 
   return {
     close,

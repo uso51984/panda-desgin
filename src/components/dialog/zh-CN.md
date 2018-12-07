@@ -1,77 +1,127 @@
-## Collapse 折叠面板
-### 代码演示
+# m-dialog
+---
 
-#### 基础用法
-可以通过`defaultActiveKey`、`activeKey`控制展开的面板列表，`Pannel`key默认值是索引字符串
+react dialog component for mobile
 
-```jsx
-<Collapse defaultActiveKey="0">
-  <Panel header="微商城" >
-    提供多样店铺模板，快速搭建网上商城
-  </Panel>
-  <Panel header="零售">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
-  </Panel>
-  <Panel header="美业" disabled>
-    线上拓客，随时预约，贴心顺手的开单收银
-  </Panel>
-</Collapse>
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![gemnasium deps][gemnasium-image]][gemnasium-url]
+[![npm download][download-image]][download-url]
+
+[npm-image]: http://img.shields.io/npm/v/rmc-dialog.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/rmc-dialog
+[travis-image]: https://img.shields.io/travis/react-component/m-dialog.svg?style=flat-square
+[travis-url]: https://travis-ci.org/react-component/m-dialog
+[coveralls-image]: https://img.shields.io/coveralls/react-component/m-dialog.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/react-component/m-dialog?branch=master
+[gemnasium-image]: http://img.shields.io/gemnasium/react-component/m-dialog.svg?style=flat-square
+[gemnasium-url]: https://gemnasium.com/react-component/m-dialog
+[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
+[node-url]: http://nodejs.org/download/
+[download-image]: https://img.shields.io/npm/dm/rmc-dialog.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rmc-dialog
+
+## Screenshot
+
+<img src="http://gtms04.alicdn.com/tps/i4/TB1dp5lHXXXXXbmXpXXyVug.FXX-664-480.png" />
+
+## Install
+
+[![rmc-dialog](https://nodei.co/npm/rmc-dialog.png)](https://npmjs.org/package/rmc-dialog)
+
+## Usage
+
+```js
+var Dialog = require('rmc-dialog');
+
+ReactDOM.render(
+  <Dialog title={title} onClose={callback1} visible>
+      <p>first dialog</p>
+  </Dialog>
+), document.getElementById('t1'));
+
+// use dialog
 ```
 
-#### 手风琴
-通过`accordion`可以设置为手风琴模式，最多展开一个面板
+## API
 
-```jsx
-<Collapse
-  accordion
-  className="demo-collapse"
->
-  <Panel
-    header={<span className="demo-collapse-header">微商城 <Icon type="check-circle-o" /></span>}
-    key="1"
-  >
-    提供多样店铺模板，快速搭建网上商城
-  </Panel>
-  <Panel header="零售" key="2">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
-  </Panel>
-  <Panel header="美业" key="3" disabled>
-    线上拓客，随时预约，贴心顺手的开单收银
-  </Panel>
-</Collapse>
+### rmc-dialog(web)
+
+| name     | description    | type     | default      |
+|----------|----------------|----------|--------------|
+| prefixCls | The dialog dom node's prefixCls | String | `rmc-dialog` |
+| className | additional className for dialog | String |  |
+| wrapClassName | additional className for dialog wrap | String |  |
+| style | Root style for dialog element.Such as width, height | Object | {} |
+| zIndex | z-index | Number |  |
+| bodyStyle | body style for dialog body element.Such as height | Object | {} |
+| maskStyle | style for mask element. | Object | {} |
+| visible | current dialog's visible status | Boolean | false |
+| animation | part of dialog animation css class name | String |  |
+| maskAnimation | part of dialog's mask animation css class name | String |  |
+| transitionName | dialog animation css class name | String |  |
+| maskTransitionName | mask animation css class name | String |  |
+| title | Title of the dialog | String|React.Element |  |
+| footer | footer of the dialog | React.Element |  |
+| closable | whether show close button | Boolean | true |
+| mask | whether show mask | Boolean | true |
+| maskClosable | whether click mask to close | Boolean | true |
+| onClose | called when click close button or mask | function |  |
+
+### rmc-dialog/lib/Dialog (react-native)
+
+| name     | description    | type     | default      |
+|----------|----------------|----------|--------------|
+| wrapStyle | style for modal wrap | Object | {} |
+| maskStyle | style for modal mask | Object | {} |
+| style | style for modal | Object | {} |
+| animationType | animation type for modal content, can be one of `none|fade|slide-up|slide-down` | String | slide-up |
+| animationDuration | animation duration | number | 300 |
+| visible | visible state | boolean | false |
+| animateAppear | whether animation on first show | boolean | false |
+| onClose | called when close | Function | ()=>void |
+| onAnimationEnd | called when animation end | Function | (visible:boolean)=>void (animationType !== 'none') |
+
+
+## Development
+
+```
+npm install
+npm start
 ```
 
-#### 受控组件
+## Example
 
-```jsx
-<Collapse activeKey=["1"]>
-  <Panel header="微商城" >
-    提供多样店铺模板，快速搭建网上商城
-  </Panel>
-  <Panel header="零售">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
-  </Panel>
-  <Panel header="美业" disabled>
-    线上拓客，随时预约，贴心顺手的开单收银
-  </Panel>
-</Collapse>
+http://localhost:8007/examples/
+
+online example: http://react-component.github.io/m-dialog/
+
+## react-native
+
+```
+npm run rn-init
+npm run watch-tsc
+react-native start
+react-native run-ios
 ```
 
+## Test Case
+
+```
+npm test
+npm run chrome-test
+```
+
+## Coverage
+
+```
+npm run coverage
+```
+
+open coverage/ dir
 
 
-### Collapse API
+## License
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| activeKey        | 当前激活 tab 面板的 key| Array/String   | 默认无，accordion模式下默认第一个元素|
-| defaultActiveKey | 初始化选中面板的 key | String   | 无 |
-| onChange      |   切换面板的回调   | (key: string): void |  noop  |
-| accordion    | `手风琴`模式 | Boolean | false  |
-| openAnimation  |  设置自定义切换动画，禁止动画可设为`{}` | Object | 参考 openAnimationFactory.js 文件  |
-
-### Collapse.Panel
-
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| key  | 对应 activeKey   | String          | 无     |
-| header | 面板头内容 | React.Element or String | 无  |
+rmc-dialog is released under the MIT license.
