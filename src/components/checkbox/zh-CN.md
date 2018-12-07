@@ -3,6 +3,7 @@
 ### 代码演示
 
 #### 基础用法
+单独使用，当为受控组件时，通过`checked`的值来设置选择与否
 
 ```javascript
 function onChange(e) {
@@ -11,7 +12,6 @@ function onChange(e) {
 ```
 
 ```jsx
-<DemoBlock title="基础用法" className="has-padding">
   <Checkbox
     checked
     onChange={onChange}
@@ -63,7 +63,7 @@ function groupChange(value) {
   console.log('groupChange checked:', (value));
 }
 ```
-
+`onChange` 返回为一个数组
 ```jsx
 const optionsWithDisabled = [
   { label: 'Apple', value: 'Apple' },
@@ -76,7 +76,6 @@ const optionsWithDisabled = [
   onChange={groupChange}
 />
 ```
-> CheckboxGroup onChange返回为一个数组
 
 #### 搭配单元格组件使用
 
@@ -87,7 +86,7 @@ const optionsWithDisabled = [
   title="单元格"
   onClick={() => { this.setState({ value: !this.state.value }); }}
   value={<Checkbox checked={this.state.value} />}
-  />
+/>
 ```
 
 ### API
