@@ -19,7 +19,7 @@ export default class DemoList extends React.PureComponent {
 
         {
           DocConfig['zh-CN'].nav[1].groups.map((item, index) => (
-            <Collapse>
+            <Collapse key={index}>
               <Collapse.Panel header={item.groupName}>
                 {
                   item.list.map((listItem, Lindex) => (

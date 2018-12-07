@@ -7,6 +7,7 @@ import Collapse from 'src/components/Collapse/demo';
 import NavBar from 'src/components/nav-bar/demo';
 import Dialog from 'src/components/dialog/demo';
 import Modal from 'src/components/modal/demo';
+import Checkbox from 'src/components/checkbox/demo';
 
 export default {
   button: Button,
@@ -17,4 +18,5 @@ export default {
   'nav-bar': NavBar,
   dialog: Dialog,
   modal: Modal,
+  checkbox: Checkbox,
 };

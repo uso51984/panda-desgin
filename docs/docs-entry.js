@@ -8,6 +8,7 @@ import Collapse from 'src/components/Collapse/zh-CN.md';
 import NavBar from 'src/components/nav-bar/zh-CN.md';
 import Dialog from 'src/components/dialog/zh-CN.md';
 import Modal from 'src/components/modal/zh-CN.md';
+import Checkbox from 'src/components/checkbox/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -24,4 +25,5 @@ export default {
   'nav-bar': Markdown(NavBar),
   dialog: Markdown(Dialog),
   modal: Markdown(Modal),
+  checkbox: Markdown(Checkbox),
 };
