@@ -6,3 +6,5 @@ export {
   CellGroup,
 };
 
+export default Cell;
+

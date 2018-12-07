@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 export default class Checkbox extends React.PureComponent {
   static defaultProps = {
-    prefixCls: 'am-checkbox',
+    prefixCls: 'panda-checkbox',
     className: '',
     style: {},
     type: 'checkbox',
@@ -79,34 +79,42 @@ export default class Checkbox extends React.PureComponent {
     }, {});
 
     const { checked } = this.state;
+
+    const wrapperCls = classNames({
+      [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-wrapper-disabled`]: disabled,
+    })
+
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-checked`]: checked,
       [`${prefixCls}-disabled`]: disabled,
     });
 
     return (
-      <span className={classString} style={style}>
-        <input
-          name={name}
-          id={id}
-          type={type}
-          readOnly={readOnly}
-          disabled={disabled}
-          tabIndex={tabIndex}
-          className={`${prefixCls}-input`}
-          checked={!!checked}
-          onClick={onClick}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onChange={this.handleChange}
-          autoFocus={autoFocus}
-          ref={this.saveInput}
-          value={value}
-          {...globalProps}
-        />
-        <span className={`${prefixCls}-inner`} />
-        {children && <span>{children}</span>}
-      </span>
+      <label className={wrapperCls} style={style}>
+        <span className={classString}>
+          <input
+            name={name}
+            id={id}
+            type={type}
+            readOnly={readOnly}
+            disabled={disabled}
+            tabIndex={tabIndex}
+            className={`${prefixCls}-input`}
+            checked={!!checked}
+            onClick={onClick}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={this.handleChange}
+            autoFocus={autoFocus}
+            ref={this.saveInput}
+            value={value}
+            {...globalProps}
+          />
+          <span className={`${prefixCls}-inner`} />
+        </span>
+        {children && <span className="label-text">{children}</span>}
+      </label>
     );
   }
 }
