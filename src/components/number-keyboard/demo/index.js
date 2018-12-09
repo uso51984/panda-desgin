@@ -9,7 +9,6 @@ export default class Demo extends React.PureComponent {
   }
 
   onKeyboardClick = (value) => {
-    console.log('value', value);
     if (value === 'confirm') {
       this.setState({ showKeyboard: false });
     }
@@ -20,7 +19,6 @@ export default class Demo extends React.PureComponent {
       <div>
         <DemoBlock title="主题1" className="has-padding">
           <Button
-            type="primary"
             size="small"
             inline
             onClick={() =>
@@ -39,7 +37,6 @@ export default class Demo extends React.PureComponent {
         </DemoBlock>
         <DemoBlock title="主题2" className="has-padding">
           <Button
-            type="primary"
             size="small"
             inline
             onClick={() =>

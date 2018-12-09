@@ -1,37 +1,42 @@
-## NavBar 导航栏
-位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。
+## NumberKeyboard 数字键盘
 
-### 代码演示1
+### 代码演示
+组件显示与否为受控与`visible`的值
+#### 样式1
 ```jsx
-<NavBar
-  icon={<Icon type="left" />}
-  onLeftClick={() => console.log('onLeftClick')}
-  leftContent="返回"
-  rightContent="按钮"
->
-  NavBar
-</NavBar>
+onKeyboardClick = (value) => {
+  if (value === 'confirm') {
+    this.setState({ showKeyboard: false });
+  }
+}
+<PopupNumberKeyboard
+    visible={this.state.showKeyboard}
+    onKeyboardClick={this.onKeyboardClick}
+  />
 ```
 
-### 代码演示2
+#### 样式2
 ```jsx
-<NavBar
-  icon={<Icon type="left" />}
-  onLeftClick={() => console.log('onLeftClick')}
-  rightContent={[
-    <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-    <Icon key="1" type="ellipsis" />,
-]}
->
-  NavBar
-</NavBar>
+onKeyboardClick = (value) => {
+  if (value === 'confirm') {
+    this.setState({ showKeyboard: false });
+  }
+}
+<PopupNumberKeyboard
+  visible={this.state.showKeyboardTwo}
+  onKeyboardClick={this.onKeyboardClick}
+  theme="custom"
+/>
 ```
 
 ### API
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| icon   | 出现在最左边的图标占位符  | ReactNode |  - |
-| leftContent   | 导航左边内容      | any |    无  |
-| rightContent   | 导航右边内容      | any |    无  |
-| onLeftClick   | 导航左边点击回调      | (e: Object): void |    无  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| visible | 是否显示键盘 | `Boolean` | - | - |
+| theme | 样式风格，可选值为 `default` `custom` | `String` | `default` | - |
+| title | 键盘标题 | `String` | - | - |
+| onKeyboardClick | 点击按键时回调 | `Fuction` | - |
+|confirm| 确定按键文字 | `String` | 确定 | - |
+|delete |删除键文字 | `String` | 删除| -|
+
