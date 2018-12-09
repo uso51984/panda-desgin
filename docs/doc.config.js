@@ -45,6 +45,14 @@ module.exports = {
                 path: '/checkbox',
                 title: 'Checkbox 复选框'
               },
+              {
+                path: '/input-item',
+                title: 'InputItem 输入'
+              },
+              {
+                path: '/number-keyboard',
+                title: 'NumberKeyboard 数字键盘'
+              },
             ]
           },
           {

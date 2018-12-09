@@ -1,0 +1,96 @@
+@prefixCls: panda-input;
+.@{prefixCls}-wrapper {
+  width: 100%;
+  display: flex;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  line-height: 24px;
+  position: relative;
+  background-color: @white;
+  color: @text-color;
+  font-size: 14px;
+  overflow: hidden;
+
+  &:not(:last-child)::after {
+    .hairline-bottom(@border-color, 15px);
+  }
+
+  .@{prefixCls}-label,
+  .@{prefixCls}-control {
+    flex: 1;
+  }
+
+  .@{prefixCls}-label {
+    max-width: 90px;
+  }
+
+  .@{prefixCls}-control {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      resize: none;
+      display: block;
+      box-sizing: border-box;
+      background-color: transparent;
+    }
+
+    .@{prefixCls}-suffix {
+      color: #1989fa;
+      height: 22px;
+    }
+
+    .@{prefixCls}-clear {
+      display: none;
+      width: @icon-size-sm;
+      height: @icon-size-sm;
+      border-radius: @radius-circle;
+      overflow: hidden;
+      font-style: normal;
+      color: @fill-base;
+      background-color: @input-color-icon;
+      background-repeat: no-repeat;
+      .encoded-svg-background('input_item_delete');
+
+      background-size: @icon-size-sm auto;
+      background-position: 2 * @hd 2 * @hd;
+
+      &-active {
+        background-color: @input-color-icon-tap;
+      }
+    }
+  }
+
+  &.@{prefixCls}-focus {
+    .@{prefixCls}-clear {
+      display: block;
+    }
+  }
+
+  &.@{prefixCls}-disabled {
+    color: @color-text-disabled;
+    background-color: #fff;
+  }
+
+  &.@{prefixCls}-error {
+    .@{prefixCls}-control {
+      input {
+        color: #f50;
+      }
+    }
+
+    .@{prefixCls}-error-extra {
+      height: 23px;
+      width: 23px;
+      margin-left: @v-spacing-sm;
+      background-repeat: no-repeat;
+      .encoded-svg-background('error');
+      background-size: @icon-size-sm auto;
+    }
+  }
+}

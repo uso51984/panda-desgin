@@ -9,6 +9,8 @@ import NavBar from 'src/components/nav-bar/zh-CN.md';
 import Dialog from 'src/components/dialog/zh-CN.md';
 import Modal from 'src/components/modal/zh-CN.md';
 import Checkbox from 'src/components/checkbox/zh-CN.md';
+import InputItem from 'src/components/input-item/zh-CN.md';
+import NumberKeyboard from 'src/components/number-keyboard/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -26,4 +28,6 @@ export default {
   dialog: Markdown(Dialog),
   modal: Markdown(Modal),
   checkbox: Markdown(Checkbox),
+  'input-item': Markdown(InputItem),
+  'number-keyboard': Markdown(NumberKeyboard),
 };

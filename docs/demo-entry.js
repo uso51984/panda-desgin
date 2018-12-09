@@ -8,6 +8,8 @@ import NavBar from 'src/components/nav-bar/demo';
 import Dialog from 'src/components/dialog/demo';
 import Modal from 'src/components/modal/demo';
 import Checkbox from 'src/components/checkbox/demo';
+import InputItem from 'src/components/input-item/demo';
+import NumberKeyboard from 'src/components/number-keyboard/demo';
 
 export default {
   button: Button,
@@ -19,4 +21,6 @@ export default {
   dialog: Dialog,
   modal: Modal,
   checkbox: Checkbox,
+  'input-item': InputItem,
+  'number-keyboard': NumberKeyboard,
 };

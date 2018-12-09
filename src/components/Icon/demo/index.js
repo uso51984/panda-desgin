@@ -9,7 +9,7 @@ const list = [
   'cross-circle', 'cross', 'cross-circle-o',
   'up', 'down', 'left',
   'right', 'ellipsis',
-  'loading',
+  'loading', 'user'
 ];
 
 export default () => (
