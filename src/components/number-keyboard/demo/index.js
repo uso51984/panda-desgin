@@ -2,6 +2,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Button from '../../Button';
 import PopupNumberKeyboard from '../PopupNumberKeyboard';
+import Toast from '../../toast';
 
 export default class Demo extends React.PureComponent {
   state = {
@@ -9,6 +10,7 @@ export default class Demo extends React.PureComponent {
   }
 
   onKeyboardClick = (value) => {
+    Toast.info(value, 1, null, false);
     if (value === 'confirm') {
       this.setState({ showKeyboard: false });
     }
