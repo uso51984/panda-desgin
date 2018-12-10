@@ -89,6 +89,14 @@ module.exports = {
                 path: '/modal',
                 title: 'Modal 对话框'
               },
+              {
+                path: '/toast',
+                title: 'Toast 通知'
+              },
+              // {
+              //   path: '/notification',
+              //   title: 'Notification 通知'
+              // },
             ]
           },
         ]

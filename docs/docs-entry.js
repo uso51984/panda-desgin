@@ -11,6 +11,8 @@ import Modal from 'src/components/modal/zh-CN.md';
 import Checkbox from 'src/components/checkbox/zh-CN.md';
 import InputItem from 'src/components/input-item/zh-CN.md';
 import NumberKeyboard from 'src/components/number-keyboard/zh-CN.md';
+import Notification from 'src/components/notification/zh-CN.md';
+import Toast from 'src/components/toast/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -30,4 +32,6 @@ export default {
   checkbox: Markdown(Checkbox),
   'input-item': Markdown(InputItem),
   'number-keyboard': Markdown(NumberKeyboard),
+  notification: Markdown(Notification),
+  toast: Markdown(Toast),
 };

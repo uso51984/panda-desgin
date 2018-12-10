@@ -10,6 +10,8 @@ import Modal from 'src/components/modal/demo';
 import Checkbox from 'src/components/checkbox/demo';
 import InputItem from 'src/components/input-item/demo';
 import NumberKeyboard from 'src/components/number-keyboard/demo';
+import Notification from 'src/components/notification/demo';
+import Toast from 'src/components/toast/demo';
 
 export default {
   button: Button,
@@ -23,4 +25,6 @@ export default {
   checkbox: Checkbox,
   'input-item': InputItem,
   'number-keyboard': NumberKeyboard,
+  notification: Notification,
+  toast: Toast,
 };

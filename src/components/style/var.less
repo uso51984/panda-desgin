@@ -83,9 +83,20 @@
 @radius-lg: 7 * @hd;
 @radius-circle: 50%;
 
+// z-index
+@progress-zindex: 2000;
+@popover-zindex: 1999;
+@toast-zindex: 1999;
+@action-sheet-zindex: 1000; // actonsheet 会放到 popup / modal 中
+@picker-zindex: 1000;
+@popup-zindex: 999;
+@modal-zindex: 999; // modal.alert 应该最大，其他应该较小
+@tabs-pagination-zindex: 999;
+
+// toast
+@toast-fill: rgba(58, 58, 58, 0.9); // toast, activity-indicator 的背景颜色
 
 // modal
-@modal-zindex: 999;
 @fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
 @radius-lg: 7 * @hd;
 @v-spacing-lg: 15 * @hd;
