@@ -57955,6 +57955,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var docs_mobileComponents_DemoBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! docs/mobileComponents/DemoBlock */ "./docs/mobileComponents/DemoBlock/index.js");
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Button */ "./src/components/Button/index.js");
 /* harmony import */ var _PopupNumberKeyboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../PopupNumberKeyboard */ "./src/components/number-keyboard/PopupNumberKeyboard.js");
+/* harmony import */ var _toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../toast */ "./src/components/toast/index.js");
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57962,6 +57963,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -57985,6 +57987,7 @@ var Demo = function (_React$PureComponent) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Demo.__proto__ || Object.getPrototypeOf(Demo)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       showKeyboard: false
     }, _this.onKeyboardClick = function (value) {
+      _toast__WEBPACK_IMPORTED_MODULE_4__["default"].info(value, 1, null, false);
       if (value === 'confirm') {
         _this.setState({ showKeyboard: false });
       }
@@ -58341,6 +58344,22 @@ var ToastExample = function (_React$PureComponent) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent);
 
 /* harmony default export */ __webpack_exports__["default"] = (ToastExample);
+
+/***/ }),
+
+/***/ "./src/components/toast/index.js":
+/*!***************************************!*\
+  !*** ./src/components/toast/index.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Toast */ "./src/components/toast/Toast.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_Toast__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
