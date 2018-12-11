@@ -12,6 +12,8 @@ import InputItem from 'src/components/input-item/demo';
 import NumberKeyboard from 'src/components/number-keyboard/demo';
 import Notification from 'src/components/notification/demo';
 import Toast from 'src/components/toast/demo';
+import Radio from 'src/components/radio/demo';
+
 
 export default {
   button: Button,
@@ -27,4 +29,5 @@ export default {
   'number-keyboard': NumberKeyboard,
   notification: Notification,
   toast: Toast,
+  radio: Radio,
 };

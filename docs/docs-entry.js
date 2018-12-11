@@ -13,6 +13,7 @@ import InputItem from 'src/components/input-item/zh-CN.md';
 import NumberKeyboard from 'src/components/number-keyboard/zh-CN.md';
 import Notification from 'src/components/notification/zh-CN.md';
 import Toast from 'src/components/toast/zh-CN.md';
+import Radio from 'src/components/radio/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -34,4 +35,5 @@ export default {
   'number-keyboard': Markdown(NumberKeyboard),
   notification: Markdown(Notification),
   toast: Markdown(Toast),
+  radio: Markdown(Radio),
 };

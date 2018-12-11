@@ -2,22 +2,22 @@
 
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import Checkbox from '../Checkbox';
-import CheckboxGroup from '../CheckboxGroup';
+import Radio from '../index';
+import RadioGroup from '../RadioGroup';
 import Cell from '../../Cell';
 import './index.less';
 
 function onChange(e) {
-  console.log('Checkbox checked:', (e.target.checked));
+  console.log('Radio checked:', (e.target.checked));
 }
 
-function groupChange(value) {
-  console.log('groupChange checked:', value);
+function groupChange(e) {
+  console.log('groupChange checked:', (e.target.value));
 }
 
 export default class Demo extends React.Component {
   state = {
-    value: false,
+    value: 1,
   }
   render() {
     const optionsWithDisabled = [
@@ -26,59 +26,53 @@ export default class Demo extends React.Component {
       { label: 'Orange', value: 'Orange', disabled: true },
     ];
     return (
-      <div className="demo-checkbox">
+      <div className="demo-radio">
         <DemoBlock title="基础用法" className="has-padding">
-          <Checkbox
-            checked
+          <Radio
             onChange={onChange}
           >
-            复选框(受控)
-          </Checkbox>
-          <br />
-          <Checkbox
-            defaultChecked
-            onChange={onChange}
-          >
-            复选框(非受控)
-          </Checkbox>
+            Radio
+          </Radio>
         </DemoBlock>
         <DemoBlock title="禁用状态" className="has-padding">
-          <Checkbox
+          <Radio
             onChange={onChange}
             disabled
           >
-            复选框
-          </Checkbox>
+            单选框
+          </Radio>
           <br />
-          <Checkbox
+          <Radio
             defaultChecked
             onChange={onChange}
             disabled
           >
-            复选框
-          </Checkbox>
+            单选框
+          </Radio>
         </DemoBlock>
 
         <DemoBlock title="自定义样式" className="has-padding">
-          <Checkbox
+          <Radio
             defaultChecked
-            className="selected-green"
+            className="selected-red"
             onChange={onChange}
           >
-            复选框
-          </Checkbox>
+            单选框
+          </Radio>
         </DemoBlock>
 
-        <DemoBlock title="复选框组" className="has-padding">
-          <CheckboxGroup
+        <DemoBlock title="单选框组" className="has-padding">
+          <RadioGroup
+            name="test"
             options={optionsWithDisabled}
-            defaultValue={['Apple']}
+            defaultValue="Pear"
             onChange={groupChange}
           />
         </DemoBlock>
 
         <DemoBlock title="搭配单元格组件使用" className="has-padding">
-          <Cell title="单元格" onClick={() => { this.setState({ value: !this.state.value }); }} value={<Checkbox checked={this.state.value} />} />
+          <Cell title="单元格" onClick={() => { this.setState({ value: 1 }); }} value={<Radio checked={this.state.value === 1} />} />
+          <Cell title="单元格" onClick={() => { this.setState({ value: 2 }); }} value={<Radio checked={this.state.value === 2} />} />
         </DemoBlock>
       </div>
     );

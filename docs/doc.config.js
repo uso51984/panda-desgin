@@ -46,6 +46,10 @@ module.exports = {
                 title: 'Checkbox 复选框'
               },
               {
+                path: '/radio',
+                title: 'Radio 复选框'
+              },
+              {
                 path: '/input-item',
                 title: 'InputItem 输入'
               },

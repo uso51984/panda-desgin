@@ -69,7 +69,6 @@ export default class CheckboxGroup extends React.Component {
     const { prefixCls, className, style, options } = props;
 
     let children = props.children;
-    console.log('options', options)
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
         <Checkbox
