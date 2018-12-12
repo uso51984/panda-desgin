@@ -3,14 +3,14 @@ import classNames from 'classnames';
 
 export default class CellGroup extends React.PureComponent {
   static defaultProps = {
-    prefixCls: 'vant-cell',
+    prefixCls: 'panda-cell',
     border: false,
   }
   render() {
     const { children, prefixCls, border } = this.props;
     const cls = classNames({
       [`${prefixCls}-group`]: true,
-      'van-hairline--top-bottom': border,
+      'panda-hairline--top-bottom': border,
     });
     return (
       <div className={cls}>

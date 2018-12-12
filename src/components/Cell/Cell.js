@@ -5,7 +5,7 @@ import Icon from '../Icon';
 
 export default class Cell extends React.PureComponent {
   static defaultProps = {
-    prefixCls: 'van-cell',
+    prefixCls: 'panda-cell',
     border: true,
   }
 
