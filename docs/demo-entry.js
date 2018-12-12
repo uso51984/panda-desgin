@@ -13,7 +13,7 @@ import NumberKeyboard from 'src/components/number-keyboard/demo';
 import Notification from 'src/components/notification/demo';
 import Toast from 'src/components/toast/demo';
 import Radio from 'src/components/radio/demo';
-
+import Switch from 'src/components/switch/demo';
 
 export default {
   button: Button,
@@ -30,4 +30,5 @@ export default {
   notification: Notification,
   toast: Toast,
   radio: Radio,
+  switch: Switch,
 };

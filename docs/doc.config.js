@@ -57,6 +57,10 @@ module.exports = {
                 path: '/number-keyboard',
                 title: 'NumberKeyboard 数字键盘'
               },
+              {
+                path: '/switch',
+                title: 'Switch 滑动开关'
+              }
             ]
           },
           {

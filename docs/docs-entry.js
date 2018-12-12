@@ -14,6 +14,7 @@ import NumberKeyboard from 'src/components/number-keyboard/zh-CN.md';
 import Notification from 'src/components/notification/zh-CN.md';
 import Toast from 'src/components/toast/zh-CN.md';
 import Radio from 'src/components/radio/zh-CN.md';
+import Switch from 'src/components/switch/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -36,4 +37,5 @@ export default {
   notification: Markdown(Notification),
   toast: Markdown(Toast),
   radio: Markdown(Radio),
+  switch: Markdown(Switch),
 };
