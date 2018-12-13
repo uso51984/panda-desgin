@@ -14,6 +14,7 @@ import Notification from 'src/components/notification/demo';
 import Toast from 'src/components/toast/demo';
 import Radio from 'src/components/radio/demo';
 import Switch from 'src/components/switch/demo';
+import FabButton from 'src/components/fab-button/demo';
 
 export default {
   button: Button,
@@ -31,4 +32,5 @@ export default {
   toast: Toast,
   radio: Radio,
   switch: Switch,
+  'fab-button': FabButton,
 };

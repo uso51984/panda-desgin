@@ -101,6 +101,10 @@ module.exports = {
                 path: '/toast',
                 title: 'Toast 通知'
               },
+              {
+                path: '/fab-button',
+                title: 'FabButton'
+              }
               // {
               //   path: '/notification',
               //   title: 'Notification 通知'
