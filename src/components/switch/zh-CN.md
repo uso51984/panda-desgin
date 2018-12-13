@@ -1,75 +1,58 @@
-## 单选框 Radio
+## Switch 滑动开关
 
+### 代码演示
 #### 基础用法
-```javascript
-function onChange(e) {
-  console.log('Checkbox checked:', (e.target.checked));
-}
-```
-#### 禁用状态
 ```jsx
-<Radio
-  onChange={onChange}
-  disabled
->
-  单选框
-</Radio>
-<Radio
+<Switch
   defaultChecked
-  onChange={onChange}
-  disabled
->
-  单选框
-</Radio>
-```
-#### 自定义样式
-```jsx
-<Radio
-  defaultChecked
-  className="selected-red"
-  onChange={onChange}
->
-  单选框
-</Radio>
-```
-#### 单选框组
-
-```javascript
-function groupChange(e) {
-  console.log('groupChange checked:', (e.target.value));
-}
-```
-```jsx
-const optionsWithDisabled = [
-  { label: 'Apple', value: 'Apple' },
-  { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange', disabled: true },
-];
-<RadioGroup
-  name="test"
-  options={optionsWithDisabled}
-  defaultValue="Pear"
-  onChange={groupChange}
+  checked={this.state.checked}
+  onChange={() => {
+    this.setState({
+      checked: !this.state.checked,
+    });
+  }}
 />
 ```
 
-## API
+#### 自定义color
+```jsx
+<Switch
+  defaultChecked
+  color="red"
+  onChange={() => {}}
+/>
+```
 
-### Radio
+#### 禁用状态
+```jsx
+<Switch defaultChecked disabled />
+```
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| checked | 指定当前是否选中 | boolean | false |
-| defaultChecked | 初始是否选中 | boolean | false |
+#### 主题二
+```jsx
+<Switch defaultChecked disabled />
+```
 
-### RadioGroup
 
-单选框组合，用于包裹一组 `Radio`。
+#### loading状态
+```jsx
+<Switch loading />
+```
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| defaultValue | 默认选中的值 | any | 无 |
-| name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | 无 |
-| options | 以配置形式设置子元素 | `Array` `{ label: string value: string disabled: boolean` } | 无 |
-| value | 用于设置当前选中的值 | any | 无 |
-| onChange | 选项变化时的回调函数 | Function(e:Event) | 无 |
+#### 配合cell
+```jsx
+<Cell title="单元格" value={<Switch onChange={value => console.log(value)} />} />
+```
+
+### API
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| defaultChecked  | 是否默认选中    | Boolean       |   false  |
+| checked    | 是否选中(如果传该值，则为受控组件)    | Boolean       |   false  |
+| disabled   | 是否不可修改    | Boolean       |   false  |
+| onChange   | change 事件触发的回调函数 | (checked: bool): void |  无  |
+| color | 开关打开后的颜色 | String | #4dd865 |
+| name | switch 的 name    | String   |      |
+| platform |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
+| onClick   | click事件触发的回调函数，当switch为disabled时，入参的值始终是默认传入的checked值。 | (checked: bool): void |  无  |

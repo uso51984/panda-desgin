@@ -70,7 +70,7 @@ export default class Demo extends React.Component {
           />
         </DemoBlock>
 
-        <DemoBlock title="搭配单元格组件使用" className="has-padding">
+        <DemoBlock title="搭配单元格组件使用">
           <Cell title="单元格" onClick={() => { this.setState({ value: 1 }); }} value={<Radio checked={this.state.value === 1} />} />
           <Cell title="单元格" onClick={() => { this.setState({ value: 2 }); }} value={<Radio checked={this.state.value === 2} />} />
         </DemoBlock>
