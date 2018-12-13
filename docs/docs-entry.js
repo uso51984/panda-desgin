@@ -16,7 +16,7 @@ import Toast from 'src/components/toast/zh-CN.md';
 import Radio from 'src/components/radio/zh-CN.md';
 import Switch from 'src/components/switch/zh-CN.md';
 import FabButton from 'src/components/fab-button/zh-CN.md';
-
+import Picker from 'src/components/picker/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -41,4 +41,5 @@ export default {
   radio: Markdown(Radio),
   switch: Markdown(Switch),
   'fab-button': Markdown(FabButton),
+  picker: Markdown(Picker),
 };

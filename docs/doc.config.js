@@ -5,7 +5,7 @@ module.exports = {
   'zh-CN': {
     nav: [
       {
-        name: '开发指南',
+        name: '指南',
         groups: [
           {
             list: [
@@ -60,6 +60,10 @@ module.exports = {
               {
                 path: '/switch',
                 title: 'Switch 滑动开关'
+              },
+              {
+                path: '/picker',
+                title: 'Picker 选择器'
               }
             ]
           },
