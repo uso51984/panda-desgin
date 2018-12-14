@@ -15,6 +15,7 @@ import Toast from 'src/components/toast/demo';
 import Radio from 'src/components/radio/demo';
 import Switch from 'src/components/switch/demo';
 import FabButton from 'src/components/fab-button/demo';
+import PickerView from 'src/components/picker-view/demo';
 import Picker from 'src/components/picker/demo';
 
 export default {
@@ -34,5 +35,6 @@ export default {
   radio: Radio,
   switch: Switch,
   'fab-button': FabButton,
+  'picker-view': PickerView,
   picker: Picker,
 };

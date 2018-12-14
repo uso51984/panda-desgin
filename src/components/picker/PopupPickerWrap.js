@@ -1,40 +1,7 @@
 import React from 'react';
-import Touchable from 'react-tap-feedback';
-import Modal from '../modal';
+import getPopupModal from './getPopupModal';
 
-const getModal = (props, visible, { getContent, hide, onDismiss, onOk }) => {
-  const { prefixCls } = props;
-  return (
-    <Modal
-      className={props.className}
-      visible={visible}
-      closable={false}
-      animationType="slide-up"
-      popup
-      onClose={hide}
-      style={props.style}
-    >
-      <div>
-        <div className={`${prefixCls}-header`}>
-          <Touchable activeClassName={`${prefixCls}-item-active`}>
-            <div className={`${prefixCls}-item ${prefixCls}-header-left`} onClick={onDismiss}>
-              {props.dismissText}
-            </div>
-          </Touchable>
-          <div className={`${prefixCls}-item ${prefixCls}-title`}>{props.title}</div>
-          <Touchable activeClassName={`${prefixCls}-item-active`}>
-            <div className={`${prefixCls}-item ${prefixCls}-header-right`} onClick={onOk}>
-              {props.okText}
-            </div>
-          </Touchable>
-        </div>
-        {getContent()}
-      </div>
-    </Modal>
-  );
-};
-
-export default class extends React.Component {
+export default class Picker extends React.Component {
   static defaultProps = {
     onVisibleChange() { },
     okText: '确定',
@@ -68,6 +35,7 @@ export default class extends React.Component {
   }
 
   onPickerChange = (pickerValue) => {
+    console.log('pickerValue', pickerValue);
     if (this.state.pickerValue !== pickerValue) {
       this.setState({
         pickerValue,
@@ -113,7 +81,7 @@ export default class extends React.Component {
   }
 
   onOk = () => {
-    this.props.onOk(this.state.pickerValue);
+    this.props.onOk(this.picker && this.picker.getValue());
     this.fireVisibleChange(false);
   }
 
@@ -145,7 +113,7 @@ export default class extends React.Component {
     const props = this.props;
     const children = props.children;
     if (!children) {
-      return getModal(props, this.state.visible, {
+      return getPopupModal(props, this.state.visible, {
         getContent: this.getContent,
         onOk: this.onOk,
         hide: this.hide,
@@ -162,7 +130,7 @@ export default class extends React.Component {
       <WrapComponent style={props.wrapStyle}>
         {React.cloneElement(child, newChildProps)}
         {
-        getModal(props, this.state.visible, {
+        getPopupModal(props, this.state.visible, {
           getContent: this.getContent,
           onOk: this.onOk,
           hide: this.hide,
