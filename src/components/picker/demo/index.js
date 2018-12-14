@@ -4,6 +4,7 @@ import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Picker from '../Picker';
 import MultiPicker from '../MultiPicker';
 import Toast from '../../toast';
+import Popup from '../Popup';
 
 const count = 0;
 const len = 10;
@@ -11,6 +12,8 @@ const len = 10;
 class DemoMultiPicker extends React.Component {
   state = {
     value: ['1', '11'],
+    disabled: false,
+    value: null,
   };
 
   onChange = (value) => {
@@ -81,7 +84,23 @@ export default class PickerDemo extends React.Component {
     return items;
   }
 
+  onOk = (value) => {
+    console.log('onOk', value);
+    this.setState({
+      value,
+    });
+  }
+
+  onDismiss = () => {
+    console.log('onDismiss');
+  }
+
   render() {
+    const popupContent = (
+      <div style={{ height: 160, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        popup content
+      </div>
+    );
     return (
       <div>
         <DemoBlock title="单列选择">
@@ -95,6 +114,19 @@ export default class PickerDemo extends React.Component {
         </DemoBlock>
         <DemoBlock title="多列选择">
           <DemoMultiPicker />
+        </DemoBlock>
+        <DemoBlock title="popup">
+          <Popup
+            className="fortest"
+            picker={<Picker>{this.state.items}</Picker>}
+            title="Picker"
+            disabled={this.state.disabled}
+            onDismiss={this.onDismiss}
+            onOk={this.onOk}
+            value={this.state.value}
+          >
+            <button>open</button>
+          </Popup>
         </DemoBlock>
       </div>
     );
