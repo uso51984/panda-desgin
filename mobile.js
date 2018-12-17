@@ -59443,6 +59443,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _picker_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../picker-view */ "./src/components/picker-view/index.js");
 /* harmony import */ var _toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../toast */ "./src/components/toast/index.js");
 /* harmony import */ var _Picker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Picker */ "./src/components/picker/Picker.js");
+/* harmony import */ var _input_item__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../input-item */ "./src/components/input-item/index.js");
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59450,6 +59451,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -59486,9 +59488,9 @@ var Demo = function (_React$Component) {
       console.log('onScrollChange', value);
     }, _this.onOk = function (value) {
       console.log('onOk', value);
-      // this.setState({
-      //   value,
-      // });
+      _this.setState({
+        inputValue: [value[0]]
+      });
     }, _this.onDismiss = function () {
       console.log('onDismiss');
     }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -59524,7 +59526,7 @@ var Demo = function (_React$Component) {
         null,
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
           docs_mobileComponents_DemoBlock__WEBPACK_IMPORTED_MODULE_1__["default"],
-          { title: 'picker', className: 'has-padding' },
+          { title: '\u57FA\u672C\u7528\u6CD5', className: 'has-padding' },
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
             _Picker__WEBPACK_IMPORTED_MODULE_4__["default"],
             {
@@ -59536,11 +59538,12 @@ var Demo = function (_React$Component) {
               onDismiss: this.onDismiss,
               onOk: this.onOk
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              'button',
-              null,
-              'open'
-            )
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_input_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              label: '\u5E74\u4EFD',
+              readOnly: true,
+              value: this.state.inputValue,
+              placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84'
+            })
           )
         )
       );
@@ -59633,7 +59636,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "## Picker 选择器\n\n### 代码演示\n\n#### 单列\n```jsx\n\nstate = {\n  items: this.getItems(count),\n  value: `${count + (len / 2)}`,\n};\n\nonChange = (value) => {\n  Toast.info(value, 1);\n  this.setState({\n    value,\n  });\n}\n\nonScrollChange = (value) => {\n  console.log('onScrollChange', value);\n}\n\ngetItems(start) {\n  const items = [];\n  for (let i = start; i < start + len; i++) {\n    items.push((\n      <Picker.Item value={`${i}`} key={i}>\n        {count} {i}\n      </Picker.Item>\n    ));\n  }\n  return items;\n}\n\n<Picker\n  selectedValue={this.state.value}\n  onValueChange={this.onChange}\n  onScrollChange={this.onScrollChange}\n>\n  {this.state.items}\n</Picker>\n```\n\n#### 多列\n```jsx\n\nstate = {\n  value: ['1', '11'],\n};\n\nonChange = (value) => {\n  Toast.info(value, 1);\n  this.setState({\n    value,\n  });\n}\n\nonScrollChange = (value) => {\n  console.log('onScrollChange', value);\n}\n\n<MultiPicker\n  selectedValue={this.state.value}\n  onValueChange={this.onChange}\n  onScrollChange={this.onScrollChange}\n>\n  <Picker indicatorClassName=\"my-picker-indicator\">\n    <Picker.Item value=\"1\">一</Picker.Item>\n    <Picker.Item value=\"2\">二</Picker.Item>\n    <Picker.Item value=\"3\">三</Picker.Item>\n    <Picker.Item value=\"4\">四</Picker.Item>\n\n  </Picker>\n  <Picker indicatorClassName=\"my-picker-indicator\">\n    <Picker.Item value=\"5\">五</Picker.Item>\n    <Picker.Item value=\"6\">六</Picker.Item>\n    <Picker.Item value=\"7\">七</Picker.Item>\n    <Picker.Item value=\"8\">八</Picker.Item>\n    <Picker.Item value=\"9\">九</Picker.Item>\n  </Picker>\n</MultiPicker>\n\n```\n\n\n## API\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| data  | 数据源     | `Array<{value, label}>` / `Array<Array<{value, label}>>` | -   |\n| value  | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层 value  | Array  | -   |\n| cols     | 列数    | Number | `3` |\n| onChange | 选中后的回调| (val): void      | -   |\n| prefixCls    | prefix class         | string | am-picker     |\n| pickerPrefixCls  | picker prefix class  | string | am-picker-col |\n| itemStyle| 每列样式   | Object | -   |\n| indicatorStyle  | indicator 样式  | Object | -  |\n"
+module.exports = "## Picker 选择器\n\n### 代码演示\n\n#### 单列\n```jsx\n\nonOk = (value) => {\n  this.setState({\n    inputValue:[value[0]],\n  });\n}\n\nconst district = [\n  [\n    {\n      label: '2013',\n      value: '2013',\n    },\n    {\n      label: '2014',\n      value: '2014',\n    },\n  ],\n];\nreturn (\n  <div>\n    <DemoBlock title=\"基本用法\" className=\"has-padding\">\n      <Picker\n        className=\"fortest\"\n        data={district}\n        cols={1}\n        title=\"Picker\"\n        disabled={this.state.disabled}\n        onDismiss={this.onDismiss}\n        onOk={this.onOk}\n      >\n        <InputItem\n          label=\"年份\"\n          readOnly\n          value={this.state.inputValue}\n          placeholder=\"请输入年龄\"\n        />\n      </Picker>\n```\n\n## API\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| data  | 数据源     | `Array<{value, label}>` / `Array<Array<{value, label}>>` | -   |\n| value  | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层 value  | Array  | -   |\n| cols     | 列数    | Number | `3` |\n| onChange | 选中后的回调| (val): void      | -   |\n| prefixCls    | prefix class         | string | am-picker     |\n| pickerPrefixCls  | picker prefix class  | string | am-picker-col |\n| itemStyle| 每列样式   | Object | -   |\n| indicatorStyle  | indicator 样式  | Object | -  |\n"
 
 /***/ }),
 
