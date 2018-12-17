@@ -3,6 +3,7 @@ import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import PickerView from '../../picker-view';
 import Toast from '../../toast';
 import Picker from '../Picker';
+import InputItem from '../../input-item';
 
 const count = 0;
 const len = 10;
@@ -38,9 +39,9 @@ export default class Demo extends React.Component {
 
   onOk = (value) => {
     console.log('onOk', value);
-    // this.setState({
-    //   value,
-    // });
+    this.setState({
+      inputValue:[value[0]],
+    });
   }
 
   onDismiss = () => {
@@ -62,7 +63,7 @@ export default class Demo extends React.Component {
     ];
     return (
       <div>
-        <DemoBlock title="picker" className="has-padding">
+        <DemoBlock title="基本用法" className="has-padding">
           <Picker
             className="fortest"
             data={district}
@@ -72,7 +73,12 @@ export default class Demo extends React.Component {
             onDismiss={this.onDismiss}
             onOk={this.onOk}
           >
-            <button>open</button>
+            <InputItem
+              label="年份"
+              readOnly
+              value={this.state.inputValue}
+              placeholder="请输入年龄"
+            />
           </Picker>
         </DemoBlock>
       </div>

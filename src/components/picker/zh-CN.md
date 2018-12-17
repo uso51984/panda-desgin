@@ -5,84 +5,44 @@
 #### 单列
 ```jsx
 
-state = {
-  items: this.getItems(count),
-  value: `${count + (len / 2)}`,
-};
-
-onChange = (value) => {
-  Toast.info(value, 1);
+onOk = (value) => {
   this.setState({
-    value,
+    inputValue:[value[0]],
   });
 }
 
-onScrollChange = (value) => {
-  console.log('onScrollChange', value);
-}
-
-getItems(start) {
-  const items = [];
-  for (let i = start; i < start + len; i++) {
-    items.push((
-      <Picker.Item value={`${i}`} key={i}>
-        {count} {i}
-      </Picker.Item>
-    ));
-  }
-  return items;
-}
-
-<Picker
-  selectedValue={this.state.value}
-  onValueChange={this.onChange}
-  onScrollChange={this.onScrollChange}
->
-  {this.state.items}
-</Picker>
+const district = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+];
+return (
+  <div>
+    <DemoBlock title="基本用法" className="has-padding">
+      <Picker
+        className="fortest"
+        data={district}
+        cols={1}
+        title="Picker"
+        disabled={this.state.disabled}
+        onDismiss={this.onDismiss}
+        onOk={this.onOk}
+      >
+        <InputItem
+          label="年份"
+          readOnly
+          value={this.state.inputValue}
+          placeholder="请输入年龄"
+        />
+      </Picker>
 ```
-
-#### 多列
-```jsx
-
-state = {
-  value: ['1', '11'],
-};
-
-onChange = (value) => {
-  Toast.info(value, 1);
-  this.setState({
-    value,
-  });
-}
-
-onScrollChange = (value) => {
-  console.log('onScrollChange', value);
-}
-
-<MultiPicker
-  selectedValue={this.state.value}
-  onValueChange={this.onChange}
-  onScrollChange={this.onScrollChange}
->
-  <Picker indicatorClassName="my-picker-indicator">
-    <Picker.Item value="1">一</Picker.Item>
-    <Picker.Item value="2">二</Picker.Item>
-    <Picker.Item value="3">三</Picker.Item>
-    <Picker.Item value="4">四</Picker.Item>
-
-  </Picker>
-  <Picker indicatorClassName="my-picker-indicator">
-    <Picker.Item value="5">五</Picker.Item>
-    <Picker.Item value="6">六</Picker.Item>
-    <Picker.Item value="7">七</Picker.Item>
-    <Picker.Item value="8">八</Picker.Item>
-    <Picker.Item value="9">九</Picker.Item>
-  </Picker>
-</MultiPicker>
-
-```
-
 
 ## API
 
