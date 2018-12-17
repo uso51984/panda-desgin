@@ -269,7 +269,7 @@ class Picker extends React.Component {
     if ('selectedValue' in this.props) {
       return this.props.selectedValue;
     }
-    const children: any = React.Children.toArray(this.props.children);
+    const children = React.Children.toArray(this.props.children);
     return children && children[0] && children[0].props.value;
   }
 

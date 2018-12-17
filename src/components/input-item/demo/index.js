@@ -82,6 +82,7 @@ export default class Demo extends React.PureComponent {
           <InputItem
             label="邮箱"
             error
+            onErrorClick={() => console.log('click error')}
             defaultValue="gith@"
           />
         </DemoBlock>
