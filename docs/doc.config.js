@@ -62,6 +62,10 @@ module.exports = {
                 title: 'Switch 滑动开关'
               },
               {
+                path: '/picker-view',
+                title: 'PickerView 选择器'
+              },
+              {
                 path: '/picker',
                 title: 'Picker 选择器'
               }
