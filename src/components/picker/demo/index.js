@@ -2,6 +2,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Picker from '../Picker';
 import InputItem from '../../input-item';
+import data from './data';
 
 const seasons = [
   [
@@ -86,8 +87,10 @@ export default class Demo extends React.Component {
             data={seasons}
             cols={2}
             title="选择季节"
+            cascade={false}
             disabled={this.state.disabled}
             onDismiss={this.onDismiss}
+            value={this.state.inputValue2}
             onOk={(value) => { this.setState({ inputValue2: value }); }}
           >
             <InputItem
@@ -95,6 +98,25 @@ export default class Demo extends React.Component {
               readOnly
               value={this.state.inputValue2.join('-')}
               placeholder="请输入季节"
+            />
+          </Picker>
+        </DemoBlock>
+        <DemoBlock title="级联">
+          <Picker
+            className="fortest"
+            data={data}
+            title="选择省份"
+            cascade
+            disabled={this.state.disabled}
+            onDismiss={this.onDismiss}
+            value={this.state.inputValue3 || []}
+            onOk={(value, valueLabel) => { this.setState({ inputValue3: value, valueLabel }); }}
+          >
+            <InputItem
+              label="省份"
+              readOnly
+              value={this.state.valueLabel}
+              placeholder="请选择地区"
             />
           </Picker>
         </DemoBlock>

@@ -1,5 +1,5 @@
 import React from 'react';
-import arrayTreeFilter from '../utils';
+import arrayTreeFilter from '../utils/arrayTreeFilter';
 import MultiPicker from '../picker-view/MultiPicker';
 import PickerView from '../picker-view/PickerView';
 
@@ -15,6 +15,7 @@ class Cascader extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
+    console.log('this.getValue(nextProps.data, nextProps.value)', this.getValue(nextProps.data, nextProps.value))
     if ('value' in nextProps) {
       this.setState({
         value: this.getValue(nextProps.data, nextProps.value),
@@ -31,6 +32,7 @@ class Cascader extends React.Component {
       value[i] = data.value;
     }
     value.length = i;
+    console.log('value2323', value)
     if (!('value' in this.props)) {
       this.setState({
         value,

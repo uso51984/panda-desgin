@@ -3,6 +3,7 @@ import PopupPickerWrap from './PopupPickerWrap';
 import MultiPicker from '../picker-view/MultiPicker';
 import PickerView from '../picker-view/PickerView';
 import Cascader from './Cascader';
+import arrayTreeFilter from '../utils/arrayTreeFilter';
 
 export function getDefaultProps() {
   const defaultFormat = (values) => {
@@ -22,7 +23,40 @@ export function getDefaultProps() {
 
 export default class Picker extends React.Component {
   static defaultProps = {
-    value: [],
+    ...getDefaultProps(),
+  }
+
+  constructor(props) {
+    super(props);
+
+    let value = [];
+    if ('value' in props) {
+      value = props.value;
+    }
+
+    this.state = {
+      value,
+    };
+  }
+
+  componentWillReceiveProps(nextprops) {
+    if ('value' in nextprops) {
+      this.setState({ value: nextprops.value });
+    }
+  }
+
+  getSel = (value) => {
+    let treeChildren;
+    const { data } = this.props;
+    if (this.props.cascade) {
+      treeChildren = arrayTreeFilter(data, (c, level) => c.value === value[level]);
+    } else {
+      treeChildren = value.map((v, i) => data[i].filter(d => d.value === v)[0]);
+    }
+    return (
+      this.props.format &&
+      this.props.format(treeChildren.map(v => v.label))
+    );
   }
 
   getPickerCol = () => {
@@ -44,15 +78,16 @@ export default class Picker extends React.Component {
     ));
   }
 
-  onOk = (v) => {
-    // if (this.scrollValue !== undefined) {
-    //   v = this.scrollValue;
-    // }
+  onOk = (value) => {
+    if (this.scrollValue !== undefined) {
+      value = this.scrollValue;
+    }
+    const valueLabel = this.getSel(value);
     if (this.props.onChange) {
-      this.props.onChange(v);
+      this.props.onChange(value, valueLabel);
     }
     if (this.props.onOk) {
-      this.props.onOk(v);
+      this.props.onOk(value, valueLabel);
     }
   }
 
@@ -76,6 +111,7 @@ export default class Picker extends React.Component {
 
   onPickerChange = (v) => {
     this.setScrollValue(v);
+    this.setState({ value: v });
     if (this.props.onPickerChange) {
       this.props.onPickerChange(v);
     }
@@ -89,9 +125,11 @@ export default class Picker extends React.Component {
   }
 
   render() {
-    const { children, value, popupPrefixCls, itemStyle, indicatorStyle, okText, dismissText,
+    const { children, popupPrefixCls, itemStyle, indicatorStyle, okText, dismissText,
       extra, cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps
     } = this.props;
+
+    const { value } = this.state;
 
     let cascader;
 
@@ -102,6 +140,7 @@ export default class Picker extends React.Component {
           pickerPrefixCls={pickerPrefixCls}
           data={data}
           cols={cols}
+          value={value}
           onChange={this.onPickerChange}
           onScrollChange={this.setCasecadeScrollValue}
           pickerItemStyle={itemStyle}
