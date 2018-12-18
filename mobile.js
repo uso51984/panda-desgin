@@ -56199,10 +56199,9 @@ var InputItem = function (_React$Component) {
     value: function getErrorNode() {
       var _props2 = this.props,
           prefixCls = _props2.prefixCls,
-          error = _props2.error,
-          onErrorClick = _props2.onErrorClick;
+          error = _props2.error;
 
-      return error && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', { onClick: onErrorClick, className: prefixCls + '-error-extra' });
+      return error && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', { className: prefixCls + '-error-extra' });
     }
   }, {
     key: 'render',
@@ -56295,8 +56294,7 @@ InputItem.defaultProps = {
   error: false,
   onChange: noop,
   onBlur: noop,
-  onFocus: noop,
-  onErrorClick: noop
+  onFocus: noop
 };
 
 
@@ -56449,9 +56447,6 @@ var Demo = function (_React$PureComponent) {
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index__WEBPACK_IMPORTED_MODULE_3__["default"], {
             label: '\u90AE\u7BB1',
             error: true,
-            onErrorClick: function onErrorClick() {
-              return console.log('click error');
-            },
             defaultValue: 'gith@'
           })
         )
@@ -58531,6 +58526,7 @@ var Picker = function (_React$Component) {
   }, {
     key: 'getValue',
     value: function getValue() {
+      console.log('this.props.selectedValue', this.props.selectedValue);
       if ('selectedValue' in this.props) {
         return this.props.selectedValue;
       }
@@ -58571,6 +58567,8 @@ var Picker = function (_React$Component) {
           item.children || item.props.children
         );
       };
+
+      console.log('999999999', selectedValue);
 
       var items = react__WEBPACK_IMPORTED_MODULE_0___default.a.Children.map(children, map);
 
@@ -59037,27 +59035,6 @@ var PickerDemo = function (_React$Component2) {
 
 /***/ }),
 
-/***/ "./src/components/picker-view/index.js":
-/*!*********************************************!*\
-  !*** ./src/components/picker-view/index.js ***!
-  \*********************************************/
-/*! exports provided: MultiPicker, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PickerView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PickerView */ "./src/components/picker-view/PickerView.js");
-/* harmony import */ var _MultiPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MultiPicker */ "./src/components/picker-view/MultiPicker.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MultiPicker", function() { return _MultiPicker__WEBPACK_IMPORTED_MODULE_1__["default"]; });
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_PickerView__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-/***/ }),
-
 /***/ "./src/components/picker-view/zh-CN.md":
 /*!*********************************************!*\
   !*** ./src/components/picker-view/zh-CN.md ***!
@@ -59066,6 +59043,193 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 module.exports = "## Picker 选择器\n\n### 代码演示\n\n#### 单列\n```jsx\n\nstate = {\n  items: this.getItems(count),\n  value: `${count + (len / 2)}`,\n};\n\nonChange = (value) => {\n  Toast.info(value, 1);\n  this.setState({\n    value,\n  });\n}\n\nonScrollChange = (value) => {\n  console.log('onScrollChange', value);\n}\n\ngetItems(start) {\n  const items = [];\n  for (let i = start; i < start + len; i++) {\n    items.push((\n      <Picker.Item value={`${i}`} key={i}>\n        {count} {i}\n      </Picker.Item>\n    ));\n  }\n  return items;\n}\n\n<Picker\n  selectedValue={this.state.value}\n  onValueChange={this.onChange}\n  onScrollChange={this.onScrollChange}\n>\n  {this.state.items}\n</Picker>\n```\n\n#### 多列\n```jsx\n\nstate = {\n  value: ['1', '11'],\n};\n\nonChange = (value) => {\n  Toast.info(value, 1);\n  this.setState({\n    value,\n  });\n}\n\nonScrollChange = (value) => {\n  console.log('onScrollChange', value);\n}\n\n<MultiPicker\n  selectedValue={this.state.value}\n  onValueChange={this.onChange}\n  onScrollChange={this.onScrollChange}\n>\n  <Picker indicatorClassName=\"my-picker-indicator\">\n    <Picker.Item value=\"1\">一</Picker.Item>\n    <Picker.Item value=\"2\">二</Picker.Item>\n    <Picker.Item value=\"3\">三</Picker.Item>\n    <Picker.Item value=\"4\">四</Picker.Item>\n\n  </Picker>\n  <Picker indicatorClassName=\"my-picker-indicator\">\n    <Picker.Item value=\"5\">五</Picker.Item>\n    <Picker.Item value=\"6\">六</Picker.Item>\n    <Picker.Item value=\"7\">七</Picker.Item>\n    <Picker.Item value=\"8\">八</Picker.Item>\n    <Picker.Item value=\"9\">九</Picker.Item>\n  </Picker>\n</MultiPicker>\n\n```\n\n\n## API\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| data  | 数据源     | `Array<{value, label}>` / `Array<Array<{value, label}>>` | -   |\n| value  | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层 value  | Array  | -   |\n| cols     | 列数    | Number | `3` |\n| onChange | 选中后的回调| (val): void      | -   |\n| prefixCls    | prefix class         | string | am-picker     |\n| pickerPrefixCls  | picker prefix class  | string | am-picker-col |\n| itemStyle| 每列样式   | Object | -   |\n| indicatorStyle  | indicator 样式  | Object | -  |\n"
+
+/***/ }),
+
+/***/ "./src/components/picker/Cascader.js":
+/*!*******************************************!*\
+  !*** ./src/components/picker/Cascader.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_arrayTreeFilter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/arrayTreeFilter */ "./src/components/utils/arrayTreeFilter.js");
+/* harmony import */ var _picker_view_MultiPicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../picker-view/MultiPicker */ "./src/components/picker-view/MultiPicker.js");
+/* harmony import */ var _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../picker-view/PickerView */ "./src/components/picker-view/PickerView.js");
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var Cascader = function (_React$Component) {
+  _inherits(Cascader, _React$Component);
+
+  function Cascader() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Cascader);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Cascader.__proto__ || Object.getPrototypeOf(Cascader)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      value: _this.getValue(_this.props.data, _this.props.defaultValue || _this.props.value)
+    }, _this.onValueChange = function (value, index) {
+      var children = Object(_utils_arrayTreeFilter__WEBPACK_IMPORTED_MODULE_1__["default"])(_this.props.data, function (c, level) {
+        return level <= index && c.value === value[level];
+      });
+      var data = children[index];
+      var i = void 0;
+      for (i = index + 1; data && data.children && data.children.length && i < _this.props.cols; i++) {
+        data = data.children[0];
+        value[i] = data.value;
+      }
+      value.length = i;
+      console.log('value2323', value);
+      if (!('value' in _this.props)) {
+        _this.setState({
+          value: value
+        });
+      }
+      if (_this.props.onChange) {
+        _this.props.onChange(value);
+      }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Cascader, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      console.log('this.getValue(nextProps.data, nextProps.value)', this.getValue(nextProps.data, nextProps.value));
+      if ('value' in nextProps) {
+        this.setState({
+          value: this.getValue(nextProps.data, nextProps.value)
+        });
+      }
+    }
+  }, {
+    key: 'getValue',
+    value: function getValue(d, val) {
+      var data = d || this.props.data;
+      var value = val || this.props.value || this.props.defaultValue;
+      if (!value || !value.length || value.indexOf(undefined) > -1) {
+        value = [];
+        for (var i = 0; i < this.props.cols; i++) {
+          if (data && data.length) {
+            value[i] = data[0].value;
+            data = data[0].children;
+          }
+        }
+      }
+      return value;
+    }
+  }, {
+    key: 'getCols',
+    value: function getCols() {
+      var _props = this.props,
+          data = _props.data,
+          cols = _props.cols,
+          pickerPrefixCls = _props.pickerPrefixCls,
+          disabled = _props.disabled,
+          pickerItemStyle = _props.pickerItemStyle,
+          indicatorStyle = _props.indicatorStyle;
+
+      var value = this.state.value;
+      var childrenTree = Object(_utils_arrayTreeFilter__WEBPACK_IMPORTED_MODULE_1__["default"])(data, function (c, level) {
+        return c.value === value[level];
+      }).map(function (c) {
+        return c.children;
+      });
+
+      var needPad = cols - childrenTree.length;
+      if (needPad > 0) {
+        for (var i = 0; i < needPad; i++) {
+          childrenTree.push([]);
+        }
+      }
+      childrenTree.length = cols - 1;
+      childrenTree.unshift(data);
+      return childrenTree.map(function () {
+        var children = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+        var level = arguments[1];
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__["default"],
+          {
+            key: level,
+            prefixCls: pickerPrefixCls,
+            style: { flex: 1 },
+            disabled: disabled,
+            itemStyle: pickerItemStyle,
+            indicatorStyle: indicatorStyle
+          },
+          children.map(function (item) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+              _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__["default"].Item,
+              { value: item.value, key: item.value },
+              item.label
+            );
+          })
+        );
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var props = this.props;
+      var prefixCls = props.prefixCls,
+          className = props.className,
+          rootNativeProps = props.rootNativeProps,
+          style = props.style;
+
+      var cols = this.getCols();
+      var multiStyle = _extends({
+        flexDirection: 'row',
+        alignItems: 'center'
+      }, style);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        _picker_view_MultiPicker__WEBPACK_IMPORTED_MODULE_2__["default"],
+        {
+          style: multiStyle,
+          prefixCls: prefixCls,
+          className: className,
+          selectedValue: this.state.value,
+          rootNativeProps: rootNativeProps,
+          onValueChange: this.onValueChange,
+          onScrollChange: props.onScrollChange
+        },
+        cols
+      );
+    }
+  }]);
+
+  return Cascader;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+Cascader.defaultProps = {
+  cols: 3,
+  data: [],
+  disabled: false
+};
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Cascader);
 
 /***/ }),
 
@@ -59084,6 +59248,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PopupPickerWrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PopupPickerWrap */ "./src/components/picker/PopupPickerWrap.js");
 /* harmony import */ var _picker_view_MultiPicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../picker-view/MultiPicker */ "./src/components/picker-view/MultiPicker.js");
 /* harmony import */ var _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../picker-view/PickerView */ "./src/components/picker-view/PickerView.js");
+/* harmony import */ var _Cascader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Cascader */ "./src/components/picker/Cascader.js");
+/* harmony import */ var _utils_arrayTreeFilter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/arrayTreeFilter */ "./src/components/utils/arrayTreeFilter.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -59096,7 +59262,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* tslint:disable:jsx-no-multiline-js */
+
+
 
 
 
@@ -59111,9 +59278,6 @@ function getDefaultProps() {
   };
   return {
     triggerType: 'onClick',
-    prefixCls: 'am-picker',
-    pickerPrefixCls: 'am-picker-col',
-    popupPrefixCls: 'am-picker-popup',
     format: defaultFormat,
     cols: 3,
     cascade: true,
@@ -59124,77 +59288,36 @@ function getDefaultProps() {
 var Picker = function (_React$Component) {
   _inherits(Picker, _React$Component);
 
-  function Picker() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function Picker(props) {
     _classCallCheck(this, Picker);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+    var _this = _possibleConstructorReturn(this, (Picker.__proto__ || Object.getPrototypeOf(Picker)).call(this, props));
+
+    _initialiseProps.call(_this);
+
+    var value = [];
+    if ('value' in props) {
+      value = props.value;
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Picker.__proto__ || Object.getPrototypeOf(Picker)).call.apply(_ref, [this].concat(args))), _this), _this.getPickerCol = function () {
-      var _this$props = _this.props,
-          data = _this$props.data,
-          pickerPrefixCls = _this$props.pickerPrefixCls,
-          itemStyle = _this$props.itemStyle,
-          indicatorStyle = _this$props.indicatorStyle;
-
-      return data.map(function (col, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__["default"],
-          {
-            key: index,
-            prefixCls: pickerPrefixCls,
-            style: { flex: 1 },
-            itemStyle: itemStyle,
-            indicatorStyle: indicatorStyle
-          },
-          col.map(function (item) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__["default"].Item,
-              { key: item.value, value: item.value },
-              item.label
-            );
-          })
-        );
-      });
-    }, _this.onOk = function (v) {
-      console.log('v', v);
-
-      // if (this.scrollValue !== undefined) {
-      //   v = this.scrollValue;
-      // }
-      if (_this.props.onChange) {
-        _this.props.onChange(v);
-      }
-      if (_this.props.onOk) {
-        _this.props.onOk(v);
-      }
-    }, _this.setScrollValue = function (v) {
-      _this.scrollValue = v;
-    }, _this.onPickerChange = function (v) {
-      _this.setScrollValue(v);
-      if (_this.props.onPickerChange) {
-        _this.props.onPickerChange(v);
-      }
-    }, _this.onVisibleChange = function (visible) {
-      _this.setScrollValue(undefined);
-      if (_this.props.onVisibleChange) {
-        _this.props.onVisibleChange(visible);
-      }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    _this.state = {
+      value: value
+    };
+    return _this;
   }
 
   _createClass(Picker, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextprops) {
+      if ('value' in nextprops) {
+        this.setState({ value: nextprops.value });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           children = _props.children,
-          _props$value = _props.value,
-          value = _props$value === undefined ? [] : _props$value,
           popupPrefixCls = _props.popupPrefixCls,
           itemStyle = _props.itemStyle,
           indicatorStyle = _props.indicatorStyle,
@@ -59207,18 +59330,37 @@ var Picker = function (_React$Component) {
           data = _props.data,
           cols = _props.cols,
           onOk = _props.onOk,
-          restProps = _objectWithoutProperties(_props, ['children', 'value', 'popupPrefixCls', 'itemStyle', 'indicatorStyle', 'okText', 'dismissText', 'extra', 'cascade', 'prefixCls', 'pickerPrefixCls', 'data', 'cols', 'onOk']);
+          restProps = _objectWithoutProperties(_props, ['children', 'popupPrefixCls', 'itemStyle', 'indicatorStyle', 'okText', 'dismissText', 'extra', 'cascade', 'prefixCls', 'pickerPrefixCls', 'data', 'cols', 'onOk']);
 
-      console.log('this.getPickerCol()', this.getPickerCol());
-      var cascader = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        _picker_view_MultiPicker__WEBPACK_IMPORTED_MODULE_2__["default"],
-        {
-          style: { flexDirection: 'row', alignItems: 'center' },
+      var value = this.state.value;
+
+
+      var cascader = void 0;
+
+      if (cascade) {
+        cascader = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Cascader__WEBPACK_IMPORTED_MODULE_4__["default"], {
           prefixCls: prefixCls,
-          onScrollChange: this.setScrollValue
-        },
-        this.getPickerCol()
-      );
+          pickerPrefixCls: pickerPrefixCls,
+          data: data,
+          cols: cols,
+          value: value,
+          onChange: this.onPickerChange,
+          onScrollChange: this.setCasecadeScrollValue,
+          pickerItemStyle: itemStyle,
+          indicatorStyle: indicatorStyle
+        });
+      } else {
+        cascader = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          _picker_view_MultiPicker__WEBPACK_IMPORTED_MODULE_2__["default"],
+          {
+            style: { flexDirection: 'row', alignItems: 'center' },
+            prefixCls: prefixCls,
+            onScrollChange: this.setScrollValue
+          },
+          this.getPickerCol()
+        );
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
         _PopupPickerWrap__WEBPACK_IMPORTED_MODULE_1__["default"],
         _extends({
@@ -59238,6 +59380,103 @@ var Picker = function (_React$Component) {
 
   return Picker;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+Picker.defaultProps = _extends({}, getDefaultProps());
+
+var _initialiseProps = function _initialiseProps() {
+  var _this2 = this;
+
+  this.getSel = function (value) {
+    var treeChildren = void 0;
+    var data = _this2.props.data;
+
+    if (_this2.props.cascade) {
+      treeChildren = Object(_utils_arrayTreeFilter__WEBPACK_IMPORTED_MODULE_5__["default"])(data, function (c, level) {
+        return c.value === value[level];
+      });
+    } else {
+      treeChildren = value.map(function (v, i) {
+        return data[i].filter(function (d) {
+          return d.value === v;
+        })[0];
+      });
+    }
+    return _this2.props.format && _this2.props.format(treeChildren.map(function (v) {
+      return v.label;
+    }));
+  };
+
+  this.getPickerCol = function () {
+    var _props2 = _this2.props,
+        data = _props2.data,
+        pickerPrefixCls = _props2.pickerPrefixCls,
+        itemStyle = _props2.itemStyle,
+        indicatorStyle = _props2.indicatorStyle;
+
+    return data.map(function (col, index) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__["default"],
+        {
+          key: index,
+          prefixCls: pickerPrefixCls,
+          style: { flex: 1 },
+          itemStyle: itemStyle,
+          indicatorStyle: indicatorStyle
+        },
+        col.map(function (item) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            _picker_view_PickerView__WEBPACK_IMPORTED_MODULE_3__["default"].Item,
+            { key: item.value, value: item.value },
+            item.label
+          );
+        })
+      );
+    });
+  };
+
+  this.onOk = function (value) {
+    if (_this2.scrollValue !== undefined) {
+      value = _this2.scrollValue;
+    }
+    var valueLabel = _this2.getSel(value);
+    if (_this2.props.onChange) {
+      _this2.props.onChange(value, valueLabel);
+    }
+    if (_this2.props.onOk) {
+      _this2.props.onOk(value, valueLabel);
+    }
+  };
+
+  this.setScrollValue = function (v) {
+    _this2.scrollValue = v;
+  };
+
+  this.setCasecadeScrollValue = function (v) {
+    // 级联情况下保证数据正确性，滚动过程中只有当最后一级变化时才变更数据
+    if (v && _this2.scrollValue) {
+      var length = _this2.scrollValue.length;
+      if (length === v.length && _this2.scrollValue[length - 1] === v[length - 1]) {
+        return;
+      }
+    }
+    _this2.setScrollValue(v);
+  };
+
+  this.onPickerChange = function (v) {
+    _this2.setScrollValue(v);
+    _this2.setState({ value: v });
+    if (_this2.props.onPickerChange) {
+      _this2.props.onPickerChange(v);
+    }
+  };
+
+  this.onVisibleChange = function (visible) {
+    _this2.setScrollValue(undefined);
+    if (_this2.props.onVisibleChange) {
+      _this2.props.onVisibleChange(visible);
+    }
+  };
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Picker);
 
@@ -59275,7 +59514,6 @@ var Picker = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Picker.__proto__ || Object.getPrototypeOf(Picker)).call(this, props));
 
     _this.onPickerChange = function (pickerValue) {
-      console.log('pickerValue', pickerValue);
       if (_this.state.pickerValue !== pickerValue) {
         _this.setState({
           pickerValue: pickerValue
@@ -59428,6 +59666,1283 @@ Picker.defaultProps = {
 
 /***/ }),
 
+/***/ "./src/components/picker/demo/data.js":
+/*!********************************************!*\
+  !*** ./src/components/picker/demo/data.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  value: '340000',
+  label: '安徽省',
+  children: [{
+    value: '341500',
+    label: '六安市',
+    children: [{
+      value: '341522',
+      label: '霍邱县',
+      children: []
+    }, {
+      value: '341525',
+      label: '霍山县',
+      children: []
+    }, {
+      value: '341502',
+      label: '金安区',
+      children: []
+    }, {
+      value: '341524',
+      label: '金寨县',
+      children: []
+    }, {
+      value: '341526',
+      label: '其它区',
+      children: []
+    }, {
+      value: '341521',
+      label: '寿县',
+      children: []
+    }, {
+      value: '341523',
+      label: '舒城县',
+      children: []
+    }, {
+      value: '341503',
+      label: '裕安区',
+      children: []
+    }]
+  }, {
+    value: '340500',
+    label: '马鞍山市',
+    children: [{
+      value: '340506',
+      label: '博望区',
+      children: []
+    }]
+  }, {
+    value: '341800',
+    label: '宣城市',
+    children: [{
+      value: '341822',
+      label: '广德县',
+      children: []
+    }, {
+      value: '341824',
+      label: '绩溪县',
+      children: []
+    }, {
+      value: '341825',
+      label: '旌德县',
+      children: []
+    }]
+  }]
+}, {
+  value: '820000',
+  label: '澳门特别行政区',
+  children: [{
+    value: '820100',
+    label: '澳门半岛',
+    children: []
+  }, {
+    value: '820200',
+    label: '离岛',
+    children: []
+  }]
+}, {
+  value: '110000',
+  label: '北京',
+  children: [{
+    value: '110100',
+    label: '北京市',
+    children: [{
+      value: '110114',
+      label: '昌平区',
+      children: []
+    }, {
+      value: '110105',
+      label: '朝阳区',
+      children: []
+    }, {
+      value: '110103',
+      label: '崇文区',
+      children: []
+    }, {
+      value: '110115',
+      label: '大兴区',
+      children: []
+    }, {
+      value: '110101',
+      label: '东城区',
+      children: []
+    }, {
+      value: '110111',
+      label: '房山区',
+      children: []
+    }, {
+      value: '110106',
+      label: '丰台区',
+      children: []
+    }, {
+      value: '110108',
+      label: '海淀区',
+      children: []
+    }, {
+      value: '110116',
+      label: '怀柔区',
+      children: []
+    }, {
+      value: '110109',
+      label: '门头沟区',
+      children: []
+    }, {
+      value: '110228',
+      label: '密云县',
+      children: []
+    }, {
+      value: '110117',
+      label: '平谷区',
+      children: []
+    }, {
+      value: '110230',
+      label: '其它区',
+      children: []
+    }, {
+      value: '110107',
+      label: '石景山区',
+      children: []
+    }, {
+      value: '110113',
+      label: '顺义区',
+      children: []
+    }, {
+      value: '110112',
+      label: '通州区',
+      children: []
+    }, {
+      value: '110102',
+      label: '西城区',
+      children: []
+    }, {
+      value: '110104',
+      label: '宣武区',
+      children: []
+    }, {
+      value: '110229',
+      label: '延庆县',
+      children: []
+    }]
+  }]
+}, {
+  value: '450000',
+  label: '广西壮族自治区',
+  children: [{
+    value: '450500',
+    label: '北海市',
+    children: [{
+      value: '450502',
+      label: '海城区',
+      children: []
+    }, {
+      value: '450521',
+      label: '合浦县',
+      children: []
+    }, {
+      value: '450522',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450512',
+      label: '铁山港区',
+      children: []
+    }, {
+      value: '450503',
+      label: '银海区',
+      children: []
+    }]
+  }, {
+    value: '451000',
+    label: '百色市',
+    children: [{
+      value: '451024',
+      label: '德保县',
+      children: []
+    }, {
+      value: '451025',
+      label: '靖西县',
+      children: []
+    }, {
+      value: '451028',
+      label: '乐业县',
+      children: []
+    }, {
+      value: '451027',
+      label: '凌云县',
+      children: []
+    }, {
+      value: '451031',
+      label: '隆林各族自治县',
+      children: []
+    }, {
+      value: '451026',
+      label: '那坡县',
+      children: []
+    }, {
+      value: '451023',
+      label: '平果县',
+      children: []
+    }, {
+      value: '451032',
+      label: '其它区',
+      children: []
+    }, {
+      value: '451022',
+      label: '田东县',
+      children: []
+    }, {
+      value: '451029',
+      label: '田林县',
+      children: []
+    }, {
+      value: '451021',
+      label: '田阳县',
+      children: []
+    }, {
+      value: '451030',
+      label: '西林县',
+      children: []
+    }, {
+      value: '451002',
+      label: '右江区',
+      children: []
+    }]
+  }, {
+    value: '451400',
+    label: '崇左市',
+    children: [{
+      value: '451424',
+      label: '大新县',
+      children: []
+    }, {
+      value: '451421',
+      label: '扶绥县',
+      children: []
+    }, {
+      value: '451402',
+      label: '江州区',
+      children: []
+    }, {
+      value: '451423',
+      label: '龙州县',
+      children: []
+    }, {
+      value: '451422',
+      label: '宁明县',
+      children: []
+    }, {
+      value: '451481',
+      label: '凭祥市',
+      children: []
+    }, {
+      value: '451482',
+      label: '其它区',
+      children: []
+    }, {
+      value: '451425',
+      label: '天等县',
+      children: []
+    }]
+  }, {
+    value: '450600',
+    label: '防城港市',
+    children: [{
+      value: '450681',
+      label: '东兴市',
+      children: []
+    }, {
+      value: '450603',
+      label: '防城区',
+      children: []
+    }, {
+      value: '450602',
+      label: '港口区',
+      children: []
+    }, {
+      value: '450682',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450621',
+      label: '上思县',
+      children: []
+    }]
+  }, {
+    value: '450800',
+    label: '贵港市',
+    children: [{
+      value: '450802',
+      label: '港北区',
+      children: []
+    }, {
+      value: '450803',
+      label: '港南区',
+      children: []
+    }, {
+      value: '450881',
+      label: '桂平市',
+      children: []
+    }, {
+      value: '450821',
+      label: '平南县',
+      children: []
+    }, {
+      value: '450882',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450804',
+      label: '覃塘区',
+      children: []
+    }]
+  }, {
+    value: '450300',
+    label: '桂林市',
+    children: [{
+      value: '450303',
+      label: '叠彩区',
+      children: []
+    }, {
+      value: '450332',
+      label: '恭城瑶族自治县',
+      children: []
+    }, {
+      value: '450327',
+      label: '灌阳县',
+      children: []
+    }, {
+      value: '450331',
+      label: '荔浦县',
+      children: []
+    }, {
+      value: '450322',
+      label: '临桂区',
+      children: []
+    }, {
+      value: '450323',
+      label: '灵川县',
+      children: []
+    }, {
+      value: '450328',
+      label: '龙胜各族自治县',
+      children: []
+    }, {
+      value: '450330',
+      label: '平乐县',
+      children: []
+    }, {
+      value: '450333',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450305',
+      label: '七星区',
+      children: []
+    }, {
+      value: '450324',
+      label: '全州县',
+      children: []
+    }, {
+      value: '450304',
+      label: '象山区',
+      children: []
+    }, {
+      value: '450325',
+      label: '兴安县',
+      children: []
+    }, {
+      value: '450302',
+      label: '秀峰区',
+      children: []
+    }, {
+      value: '450311',
+      label: '雁山区',
+      children: []
+    }, {
+      value: '450321',
+      label: '阳朔县',
+      children: []
+    }, {
+      value: '450326',
+      label: '永福县',
+      children: []
+    }, {
+      value: '450329',
+      label: '资源县',
+      children: []
+    }]
+  }, {
+    value: '451200',
+    label: '河池市',
+    children: [{
+      value: '451227',
+      label: '巴马瑶族自治县',
+      children: []
+    }, {
+      value: '451229',
+      label: '大化瑶族自治县',
+      children: []
+    }, {
+      value: '451224',
+      label: '东兰县',
+      children: []
+    }, {
+      value: '451228',
+      label: '都安瑶族自治县',
+      children: []
+    }, {
+      value: '451223',
+      label: '凤山县',
+      children: []
+    }, {
+      value: '451226',
+      label: '环江毛南族自治县',
+      children: []
+    }, {
+      value: '451202',
+      label: '金城江区',
+      children: []
+    }, {
+      value: '451225',
+      label: '罗城仫佬族自治县',
+      children: []
+    }, {
+      value: '451221',
+      label: '南丹县',
+      children: []
+    }, {
+      value: '451282',
+      label: '其它区',
+      children: []
+    }, {
+      value: '451222',
+      label: '天峨县',
+      children: []
+    }, {
+      value: '451281',
+      label: '宜州市',
+      children: []
+    }]
+  }, {
+    value: '451100',
+    label: '贺州市',
+    children: [{
+      value: '451102',
+      label: '八步区',
+      children: []
+    }, {
+      value: '451123',
+      label: '富川瑶族自治县',
+      children: []
+    }, {
+      value: '451119',
+      label: '平桂管理区',
+      children: []
+    }, {
+      value: '451124',
+      label: '其它区',
+      children: []
+    }, {
+      value: '451121',
+      label: '昭平县',
+      children: []
+    }, {
+      value: '451122',
+      label: '钟山县',
+      children: []
+    }]
+  }, {
+    value: '451300',
+    label: '来宾市',
+    children: [{
+      value: '451381',
+      label: '合山市',
+      children: []
+    }, {
+      value: '451324',
+      label: '金秀瑶族自治县',
+      children: []
+    }, {
+      value: '451382',
+      label: '其它区',
+      children: []
+    }, {
+      value: '451323',
+      label: '武宣县',
+      children: []
+    }, {
+      value: '451322',
+      label: '象州县',
+      children: []
+    }, {
+      value: '451321',
+      label: '忻城县',
+      children: []
+    }, {
+      value: '451302',
+      label: '兴宾区',
+      children: []
+    }]
+  }, {
+    value: '450200',
+    label: '柳州市',
+    children: [{
+      value: '450202',
+      label: '城中区',
+      children: []
+    }, {
+      value: '450205',
+      label: '柳北区',
+      children: []
+    }, {
+      value: '450222',
+      label: '柳城县',
+      children: []
+    }, {
+      value: '450221',
+      label: '柳江县',
+      children: []
+    }, {
+      value: '450204',
+      label: '柳南区',
+      children: []
+    }, {
+      value: '450223',
+      label: '鹿寨县',
+      children: []
+    }, {
+      value: '450227',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450224',
+      label: '融安县',
+      children: []
+    }, {
+      value: '450225',
+      label: '融水苗族自治县',
+      children: []
+    }, {
+      value: '450226',
+      label: '三江侗族自治县',
+      children: []
+    }, {
+      value: '450203',
+      label: '鱼峰区',
+      children: []
+    }]
+  }, {
+    value: '450100',
+    label: '南宁市',
+    children: [{
+      value: '450126',
+      label: '宾阳县',
+      children: []
+    }, {
+      value: '450127',
+      label: '横县',
+      children: []
+    }, {
+      value: '450105',
+      label: '江南区',
+      children: []
+    }, {
+      value: '450108',
+      label: '良庆区',
+      children: []
+    }, {
+      value: '450123',
+      label: '隆安县',
+      children: []
+    }, {
+      value: '450124',
+      label: '马山县',
+      children: []
+    }, {
+      value: '450128',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450103',
+      label: '青秀区',
+      children: []
+    }, {
+      value: '450125',
+      label: '上林县',
+      children: []
+    }, {
+      value: '450122',
+      label: '武鸣区',
+      children: []
+    }, {
+      value: '450107',
+      label: '西乡塘区',
+      children: []
+    }, {
+      value: '450102',
+      label: '兴宁区',
+      children: []
+    }, {
+      value: '450109',
+      label: '邕宁区',
+      children: []
+    }]
+  }, {
+    value: '450700',
+    label: '钦州市',
+    children: [{
+      value: '450721',
+      label: '灵山县',
+      children: []
+    }, {
+      value: '450722',
+      label: '浦北县',
+      children: []
+    }, {
+      value: '450723',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450703',
+      label: '钦北区',
+      children: []
+    }, {
+      value: '450702',
+      label: '钦南区',
+      children: []
+    }]
+  }, {
+    value: '450400',
+    label: '梧州市',
+    children: [{
+      value: '450421',
+      label: '苍梧县',
+      children: []
+    }, {
+      value: '450481',
+      label: '岑溪市',
+      children: []
+    }, {
+      value: '450405',
+      label: '长洲区',
+      children: []
+    }, {
+      value: '450404',
+      label: '蝶山区',
+      children: []
+    }, {
+      value: '450406',
+      label: '龙圩区',
+      children: []
+    }, {
+      value: '450423',
+      label: '蒙山县',
+      children: []
+    }, {
+      value: '450482',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450422',
+      label: '藤县',
+      children: []
+    }, {
+      value: '450403',
+      label: '万秀区',
+      children: []
+    }]
+  }, {
+    value: '450900',
+    label: '玉林市',
+    children: [{
+      value: '450981',
+      label: '北流市',
+      children: []
+    }, {
+      value: '450923',
+      label: '博白县',
+      children: []
+    }, {
+      value: '450903',
+      label: '福绵区',
+      children: []
+    }, {
+      value: '450922',
+      label: '陆川县',
+      children: []
+    }, {
+      value: '450982',
+      label: '其它区',
+      children: []
+    }, {
+      value: '450921',
+      label: '容县',
+      children: []
+    }, {
+      value: '450924',
+      label: '兴业县',
+      children: []
+    }, {
+      value: '450902',
+      label: '玉州区',
+      children: []
+    }]
+  }]
+}, {
+  value: '810000',
+  label: '香港特别行政区',
+  children: [{
+    value: '810200',
+    label: '九龙',
+    children: [{
+      value: '810205',
+      label: '观塘区',
+      children: []
+    }, {
+      value: '810204',
+      label: '黄大仙区',
+      children: []
+    }, {
+      value: '810201',
+      label: '九龙城区',
+      children: []
+    }, {
+      value: '810203',
+      label: '深水埗区',
+      children: []
+    }, {
+      value: '810202',
+      label: '油尖旺区',
+      children: []
+    }]
+  }, {
+    value: '810100',
+    label: '香港岛',
+    children: [{
+      value: '810103',
+      label: '东区',
+      children: []
+    }, {
+      value: '810104',
+      label: '南区',
+      children: []
+    }, {
+      value: '810102',
+      label: '湾仔',
+      children: []
+    }, {
+      value: '810101',
+      label: '中西区',
+      children: []
+    }]
+  }, {
+    value: '810300',
+    label: '新界',
+    children: [{
+      value: '810301',
+      label: '北区',
+      children: []
+    }, {
+      value: '810302',
+      label: '大埔区',
+      children: []
+    }, {
+      value: '810308',
+      label: '葵青区',
+      children: []
+    }, {
+      value: '810309',
+      label: '离岛区',
+      children: []
+    }, {
+      value: '810307',
+      label: '荃湾区',
+      children: []
+    }, {
+      value: '810303',
+      label: '沙田区',
+      children: []
+    }, {
+      value: '810306',
+      label: '屯门区',
+      children: []
+    }, {
+      value: '810304',
+      label: '西贡区',
+      children: []
+    }, {
+      value: '810305',
+      label: '元朗区',
+      children: []
+    }]
+  }]
+}, {
+  value: '330000',
+  label: '浙江省',
+  children: [{
+    value: '330100',
+    label: '杭州市',
+    children: [{
+      value: '330108',
+      label: '滨江区',
+      children: []
+    }, {
+      value: '330127',
+      label: '淳安县',
+      children: []
+    }, {
+      value: '330183',
+      label: '富阳区',
+      children: []
+    }, {
+      value: '330105',
+      label: '拱墅区',
+      children: []
+    }, {
+      value: '330182',
+      label: '建德市',
+      children: []
+    }, {
+      value: '330104',
+      label: '江干区',
+      children: []
+    }, {
+      value: '330185',
+      label: '临安市',
+      children: []
+    }, {
+      value: '330186',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330102',
+      label: '上城区',
+      children: []
+    }, {
+      value: '330122',
+      label: '桐庐县',
+      children: []
+    }, {
+      value: '330106',
+      label: '西湖区',
+      children: []
+    }, {
+      value: '330103',
+      label: '下城区',
+      children: []
+    }, {
+      value: '330109',
+      label: '萧山区',
+      children: []
+    }, {
+      value: '330110',
+      label: '余杭区',
+      children: []
+    }]
+  }, {
+    value: '330500',
+    label: '湖州市',
+    children: [{
+      value: '330523',
+      label: '安吉县',
+      children: []
+    }, {
+      value: '330522',
+      label: '长兴县',
+      children: []
+    }, {
+      value: '330521',
+      label: '德清县',
+      children: []
+    }, {
+      value: '330503',
+      label: '南浔区',
+      children: []
+    }, {
+      value: '330524',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330502',
+      label: '吴兴区',
+      children: []
+    }]
+  }, {
+    value: '330400',
+    label: '嘉兴市',
+    children: [{
+      value: '330481',
+      label: '海宁市',
+      children: []
+    }, {
+      value: '330424',
+      label: '海盐县',
+      children: []
+    }, {
+      value: '330421',
+      label: '嘉善县',
+      children: []
+    }, {
+      value: '330402',
+      label: '南湖区',
+      children: []
+    }, {
+      value: '330482',
+      label: '平湖市',
+      children: []
+    }, {
+      value: '330484',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330483',
+      label: '桐乡市',
+      children: []
+    }, {
+      value: '330411',
+      label: '秀洲区',
+      children: []
+    }]
+  }, {
+    value: '330700',
+    label: '金华市',
+    children: [{
+      value: '330783',
+      label: '东阳市',
+      children: []
+    }, {
+      value: '330703',
+      label: '金东区',
+      children: []
+    }, {
+      value: '330781',
+      label: '兰溪市',
+      children: []
+    }, {
+      value: '330727',
+      label: '磐安县',
+      children: []
+    }, {
+      value: '330726',
+      label: '浦江县',
+      children: []
+    }, {
+      value: '330785',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330702',
+      label: '婺城区',
+      children: []
+    }, {
+      value: '330723',
+      label: '武义县',
+      children: []
+    }, {
+      value: '330782',
+      label: '义乌市',
+      children: []
+    }, {
+      value: '330784',
+      label: '永康市',
+      children: []
+    }]
+  }, {
+    value: '331100',
+    label: '丽水市',
+    children: [{
+      value: '331122',
+      label: '缙云县',
+      children: []
+    }, {
+      value: '331127',
+      label: '景宁畲族自治县',
+      children: []
+    }, {
+      value: '331102',
+      label: '莲都区',
+      children: []
+    }, {
+      value: '331181',
+      label: '龙泉市',
+      children: []
+    }, {
+      value: '331182',
+      label: '其它区',
+      children: []
+    }, {
+      value: '331121',
+      label: '青田县',
+      children: []
+    }, {
+      value: '331126',
+      label: '庆元县',
+      children: []
+    }, {
+      value: '331124',
+      label: '松阳县',
+      children: []
+    }, {
+      value: '331123',
+      label: '遂昌县',
+      children: []
+    }, {
+      value: '331125',
+      label: '云和县',
+      children: []
+    }]
+  }, {
+    value: '330200',
+    label: '宁波市',
+    children: [{
+      value: '330206',
+      label: '北仑区',
+      children: []
+    }, {
+      value: '330282',
+      label: '慈溪市',
+      children: []
+    }, {
+      value: '330283',
+      label: '奉化市',
+      children: []
+    }, {
+      value: '330203',
+      label: '海曙区',
+      children: []
+    }, {
+      value: '330205',
+      label: '江北区',
+      children: []
+    }, {
+      value: '330204',
+      label: '江东区',
+      children: []
+    }, {
+      value: '330226',
+      label: '宁海县',
+      children: []
+    }, {
+      value: '330284',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330225',
+      label: '象山县',
+      children: []
+    }, {
+      value: '330212',
+      label: '鄞州区',
+      children: []
+    }, {
+      value: '330281',
+      label: '余姚市',
+      children: []
+    }, {
+      value: '330211',
+      label: '镇海区',
+      children: []
+    }]
+  }, {
+    value: '330800',
+    label: '衢州市',
+    children: [{
+      value: '330822',
+      label: '常山县',
+      children: []
+    }, {
+      value: '330881',
+      label: '江山市',
+      children: []
+    }, {
+      value: '330824',
+      label: '开化县',
+      children: []
+    }, {
+      value: '330802',
+      label: '柯城区',
+      children: []
+    }, {
+      value: '330825',
+      label: '龙游县',
+      children: []
+    }, {
+      value: '330882',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330803',
+      label: '衢江区',
+      children: []
+    }]
+  }, {
+    value: '330600',
+    label: '绍兴市',
+    children: [{
+      value: '330621',
+      label: '柯桥区',
+      children: []
+    }, {
+      value: '330684',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330682',
+      label: '上虞区',
+      children: []
+    }, {
+      value: '330683',
+      label: '嵊州市',
+      children: []
+    }, {
+      value: '330624',
+      label: '新昌县',
+      children: []
+    }, {
+      value: '330602',
+      label: '越城区',
+      children: []
+    }, {
+      value: '330681',
+      label: '诸暨市',
+      children: []
+    }]
+  }, {
+    value: '331000',
+    label: '台州市',
+    children: [{
+      value: '331003',
+      label: '黄岩区',
+      children: []
+    }, {
+      value: '331002',
+      label: '椒江区',
+      children: []
+    }, {
+      value: '331082',
+      label: '临海市',
+      children: []
+    }, {
+      value: '331004',
+      label: '路桥区',
+      children: []
+    }, {
+      value: '331083',
+      label: '其它区',
+      children: []
+    }, {
+      value: '331022',
+      label: '三门县',
+      children: []
+    }, {
+      value: '331023',
+      label: '天台县',
+      children: []
+    }, {
+      value: '331081',
+      label: '温岭市',
+      children: []
+    }, {
+      value: '331024',
+      label: '仙居县',
+      children: []
+    }, {
+      value: '331021',
+      label: '玉环县',
+      children: []
+    }]
+  }, {
+    value: '330300',
+    label: '温州市',
+    children: [{
+      value: '330327',
+      label: '苍南县',
+      children: []
+    }, {
+      value: '330322',
+      label: '洞头县',
+      children: []
+    }, {
+      value: '330303',
+      label: '龙湾区',
+      children: []
+    }, {
+      value: '330302',
+      label: '鹿城区',
+      children: []
+    }, {
+      value: '330304',
+      label: '瓯海区',
+      children: []
+    }, {
+      value: '330326',
+      label: '平阳县',
+      children: []
+    }, {
+      value: '330383',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330381',
+      label: '瑞安市',
+      children: []
+    }, {
+      value: '330329',
+      label: '泰顺县',
+      children: []
+    }, {
+      value: '330328',
+      label: '文成县',
+      children: []
+    }, {
+      value: '330324',
+      label: '永嘉县',
+      children: []
+    }, {
+      value: '330382',
+      label: '乐清市',
+      children: []
+    }]
+  }, {
+    value: '330900',
+    label: '舟山市',
+    children: [{
+      value: '330921',
+      label: '岱山县',
+      children: []
+    }, {
+      value: '330902',
+      label: '定海区',
+      children: []
+    }, {
+      value: '330903',
+      label: '普陀区',
+      children: []
+    }, {
+      value: '330923',
+      label: '其它区',
+      children: []
+    }, {
+      value: '330922',
+      label: '嵊泗县',
+      children: []
+    }]
+  }]
+}]);
+
+/***/ }),
+
 /***/ "./src/components/picker/demo/index.js":
 /*!*********************************************!*\
   !*** ./src/components/picker/demo/index.js ***!
@@ -59440,10 +60955,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var docs_mobileComponents_DemoBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! docs/mobileComponents/DemoBlock */ "./docs/mobileComponents/DemoBlock/index.js");
-/* harmony import */ var _picker_view__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../picker-view */ "./src/components/picker-view/index.js");
-/* harmony import */ var _toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../toast */ "./src/components/toast/index.js");
-/* harmony import */ var _Picker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Picker */ "./src/components/picker/Picker.js");
-/* harmony import */ var _input_item__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../input-item */ "./src/components/input-item/index.js");
+/* harmony import */ var _Picker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Picker */ "./src/components/picker/Picker.js");
+/* harmony import */ var _input_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../input-item */ "./src/components/input-item/index.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data */ "./src/components/picker/demo/data.js");
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59458,9 +60972,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var seasons = [[{
+  label: '2013',
+  value: '2013'
+}, {
+  label: '2014',
+  value: '2014'
+}], [{
+  label: '春',
+  value: '春'
+}, {
+  label: '夏',
+  value: '夏'
+}]];
 
-var count = 0;
-var len = 10;
+var district = [[{
+  label: '2013',
+  value: '2013'
+}, {
+  label: '2014',
+  value: '2014'
+}]];
 
 var Demo = function (_React$Component) {
   _inherits(Demo, _React$Component);
@@ -59477,13 +61009,7 @@ var Demo = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Demo.__proto__ || Object.getPrototypeOf(Demo)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      items: _this.getItems(count),
-      value: '' + (count + len / 2)
-    }, _this.onChange = function (value) {
-      _toast__WEBPACK_IMPORTED_MODULE_3__["default"].info(value, 1);
-      _this.setState({
-        value: value
-      });
+      inputValue2: []
     }, _this.onScrollChange = function (value) {
       console.log('onScrollChange', value);
     }, _this.onOk = function (value) {
@@ -59497,52 +61023,83 @@ var Demo = function (_React$Component) {
   }
 
   _createClass(Demo, [{
-    key: 'getItems',
-    value: function getItems(start) {
-      var items = [];
-      for (var i = start; i < start + len; i++) {
-        items.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          _picker_view__WEBPACK_IMPORTED_MODULE_2__["default"].Item,
-          { value: '' + i, key: i },
-          count,
-          ' ',
-          i
-        ));
-      }
-      return items;
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var district = [[{
-        label: '2013',
-        value: '2013'
-      }, {
-        label: '2014',
-        value: '2014'
-      }]];
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
         'div',
         null,
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
           docs_mobileComponents_DemoBlock__WEBPACK_IMPORTED_MODULE_1__["default"],
-          { title: '\u57FA\u672C\u7528\u6CD5', className: 'has-padding' },
+          { title: '\u5355\u5217' },
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            _Picker__WEBPACK_IMPORTED_MODULE_4__["default"],
+            _Picker__WEBPACK_IMPORTED_MODULE_2__["default"],
             {
               className: 'fortest',
               data: district,
               cols: 1,
-              title: 'Picker',
+              title: '\u9009\u62E9\u5E74\u4EFD',
               disabled: this.state.disabled,
               onDismiss: this.onDismiss,
               onOk: this.onOk
             },
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_input_item__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_input_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
               label: '\u5E74\u4EFD',
               readOnly: true,
               value: this.state.inputValue,
               placeholder: '\u8BF7\u8F93\u5165\u5E74\u9F84'
+            })
+          )
+        ),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          docs_mobileComponents_DemoBlock__WEBPACK_IMPORTED_MODULE_1__["default"],
+          { title: '\u591A\u5217' },
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            _Picker__WEBPACK_IMPORTED_MODULE_2__["default"],
+            {
+              className: 'fortest',
+              data: seasons,
+              cols: 2,
+              title: '\u9009\u62E9\u5B63\u8282',
+              cascade: false,
+              disabled: this.state.disabled,
+              onDismiss: this.onDismiss,
+              value: this.state.inputValue2,
+              onOk: function onOk(value) {
+                _this2.setState({ inputValue2: value });
+              }
+            },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_input_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              label: '\u5B63\u8282',
+              readOnly: true,
+              value: this.state.inputValue2.join('-'),
+              placeholder: '\u8BF7\u8F93\u5165\u5B63\u8282'
+            })
+          )
+        ),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          docs_mobileComponents_DemoBlock__WEBPACK_IMPORTED_MODULE_1__["default"],
+          { title: '\u7EA7\u8054' },
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            _Picker__WEBPACK_IMPORTED_MODULE_2__["default"],
+            {
+              className: 'fortest',
+              data: _data__WEBPACK_IMPORTED_MODULE_4__["default"],
+              title: '\u9009\u62E9\u7701\u4EFD',
+              cascade: true,
+              disabled: this.state.disabled,
+              onDismiss: this.onDismiss,
+              value: this.state.inputValue3 || [],
+              onOk: function onOk(value, valueLabel) {
+                _this2.setState({ inputValue3: value, valueLabel: valueLabel });
+              }
+            },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_input_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              label: '\u7701\u4EFD',
+              readOnly: true,
+              value: this.state.valueLabel,
+              placeholder: '\u8BF7\u9009\u62E9\u5730\u533A'
             })
           )
         )
@@ -59636,7 +61193,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "## Picker 选择器\n\n### 代码演示\n\n#### 单列\n```jsx\n\nonOk = (value) => {\n  this.setState({\n    inputValue:[value[0]],\n  });\n}\n\nconst district = [\n  [\n    {\n      label: '2013',\n      value: '2013',\n    },\n    {\n      label: '2014',\n      value: '2014',\n    },\n  ],\n];\nreturn (\n  <div>\n    <DemoBlock title=\"基本用法\" className=\"has-padding\">\n      <Picker\n        className=\"fortest\"\n        data={district}\n        cols={1}\n        title=\"Picker\"\n        disabled={this.state.disabled}\n        onDismiss={this.onDismiss}\n        onOk={this.onOk}\n      >\n        <InputItem\n          label=\"年份\"\n          readOnly\n          value={this.state.inputValue}\n          placeholder=\"请输入年龄\"\n        />\n      </Picker>\n```\n\n## API\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| data  | 数据源     | `Array<{value, label}>` / `Array<Array<{value, label}>>` | -   |\n| value  | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层 value  | Array  | -   |\n| cols     | 列数    | Number | `3` |\n| onChange | 选中后的回调| (val): void      | -   |\n| prefixCls    | prefix class         | string | am-picker     |\n| pickerPrefixCls  | picker prefix class  | string | am-picker-col |\n| itemStyle| 每列样式   | Object | -   |\n| indicatorStyle  | indicator 样式  | Object | -  |\n"
+module.exports = "## Picker 选择器\n\n### 代码演示\n\n```jsx\nimport React from 'react';\nimport DemoBlock from 'docs/mobileComponents/DemoBlock';\nimport Picker from '../Picker';\nimport InputItem from '../../input-item';\n\nconst seasons = [\n  [\n    {\n      label: '2013',\n      value: '2013',\n    },\n    {\n      label: '2014',\n      value: '2014',\n    },\n  ],\n  [\n    {\n      label: '春',\n      value: '春',\n    },\n    {\n      label: '夏',\n      value: '夏',\n    },\n  ],\n];\n\nconst district = [\n  [\n    {\n      label: '2013',\n      value: '2013',\n    },\n    {\n      label: '2014',\n      value: '2014',\n    },\n  ],\n];\n\nexport default class Demo extends React.Component {\n  state = {\n    inputValue2: [],\n  }\n\n  onScrollChange = (value) => {\n    console.log('onScrollChange', value);\n  }\n\n  onOk = (value) => {\n    console.log('onOk', value);\n    this.setState({\n      inputValue: [value[0]],\n    });\n  }\n\n  onDismiss = () => {\n    console.log('onDismiss');\n  }\n\n  render() {\n    return (\n      <div>\n        <DemoBlock title=\"单列\" className=\"has-padding\">\n          <Picker\n            className=\"fortest\"\n            data={district}\n            cols={1}\n            title=\"Picker\"\n            disabled={this.state.disabled}\n            onDismiss={this.onDismiss}\n            onOk={this.onOk}\n          >\n            <InputItem\n              label=\"年份\"\n              readOnly\n              value={this.state.inputValue}\n              placeholder=\"请输入年龄\"\n            />\n          </Picker>\n        </DemoBlock>\n        <DemoBlock title=\"多列\" className=\"has-padding\">\n          <Picker\n            className=\"fortest\"\n            data={seasons}\n            cols={2}\n            title=\"Picker\"\n            disabled={this.state.disabled}\n            onDismiss={this.onDismiss}\n            onOk={(value) => { this.setState({ inputValue2: value }); }}\n          >\n            <InputItem\n              label=\"季节\"\n              readOnly\n              value={this.state.inputValue2.join('-')}\n              placeholder=\"请输入季节\"\n            />\n          </Picker>\n        </DemoBlock>\n      </div>\n    );\n  }\n}\n\n```\n\n## API\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| data  | 数据源     | `Array<{value, label}>` / `Array<Array<{value, label}>>` | -   |\n| value  | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层 value  | Array  | -   |\n| cols     | 列数    | Number | `3` |\n| onChange | 选中后的回调| (val): void      | -   |\n| prefixCls    | prefix class         | string | am-picker     |\n| pickerPrefixCls  | picker prefix class  | string | am-picker-col |\n| itemStyle| 每列样式   | Object | -   |\n| indicatorStyle  | indicator 样式  | Object | -  |\n"
 
 /***/ }),
 
@@ -60634,6 +62191,40 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 module.exports = "## Toast 轻提示\n\n## API\n```jsx\nToast.success(content, duration, onClose, mask)\nToast.fail(content, duration, onClose, mask)\nToast.info(content, duration, onClose, mask)\nToast.loading(content, duration, onClose, mask)\nToast.offline(content, duration, onClose, mask)\n```\n组件提供了五个静态方法，参数如下：\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| content    | 提示内容       | React.Element or String    | 无           |\n| duration   | 自动关闭的延时，单位秒 | number                 | 3          |\n| onClose    | 关闭后回调 |  Function                 | 无          |\n| mask    | 是否显示透明蒙层，防止触摸穿透 |  Boolean  | true          |\n\n> **注：**  duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide\n\n还提供了全局配置和全局销毁方法：\n\n- `Toast.hide()`\n"
+
+/***/ }),
+
+/***/ "./src/components/utils/arrayTreeFilter.js":
+/*!*************************************************!*\
+  !*** ./src/components/utils/arrayTreeFilter.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function arrayTreeFilter(data, filterFn, options) {
+  options = options || {};
+  options.childrenKeyName = options.childrenKeyName || 'children';
+
+  var children = data || [];
+  var result = [];
+  var level = 0;
+  do {
+    var foundItem = children.filter(function (item) {
+      return filterFn(item, level);
+    })[0];
+    if (!foundItem) {
+      break;
+    }
+    result.push(foundItem);
+    children = foundItem[options.childrenKeyName] || [];
+    level += 1;
+  } while (children.length > 0);
+  return result;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (arrayTreeFilter);
 
 /***/ }),
 
