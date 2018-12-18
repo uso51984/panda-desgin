@@ -2,87 +2,113 @@
 
 ### 代码演示
 
-#### 单列
 ```jsx
+import React from 'react';
+import DemoBlock from 'docs/mobileComponents/DemoBlock';
+import Picker from '../Picker';
+import InputItem from '../../input-item';
 
-state = {
-  items: this.getItems(count),
-  value: `${count + (len / 2)}`,
-};
+const seasons = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+  [
+    {
+      label: '春',
+      value: '春',
+    },
+    {
+      label: '夏',
+      value: '夏',
+    },
+  ],
+];
 
-onChange = (value) => {
-  Toast.info(value, 1);
-  this.setState({
-    value,
-  });
-}
+const district = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+];
 
-onScrollChange = (value) => {
-  console.log('onScrollChange', value);
-}
-
-getItems(start) {
-  const items = [];
-  for (let i = start; i < start + len; i++) {
-    items.push((
-      <Picker.Item value={`${i}`} key={i}>
-        {count} {i}
-      </Picker.Item>
-    ));
+export default class Demo extends React.Component {
+  state = {
+    inputValue2: [],
   }
-  return items;
+
+  onScrollChange = (value) => {
+    console.log('onScrollChange', value);
+  }
+
+  onOk = (value) => {
+    console.log('onOk', value);
+    this.setState({
+      inputValue: [value[0]],
+    });
+  }
+
+  onDismiss = () => {
+    console.log('onDismiss');
+  }
+
+  render() {
+    return (
+      <div>
+        <DemoBlock title="单列" className="has-padding">
+          <Picker
+            className="fortest"
+            data={district}
+            cols={1}
+            title="Picker"
+            disabled={this.state.disabled}
+            onDismiss={this.onDismiss}
+            onOk={this.onOk}
+          >
+            <InputItem
+              label="年份"
+              readOnly
+              value={this.state.inputValue}
+              placeholder="请输入年龄"
+            />
+          </Picker>
+        </DemoBlock>
+        <DemoBlock title="多列" className="has-padding">
+          <Picker
+            className="fortest"
+            data={seasons}
+            cols={2}
+            title="Picker"
+            disabled={this.state.disabled}
+            onDismiss={this.onDismiss}
+            onOk={(value) => { this.setState({ inputValue2: value }); }}
+          >
+            <InputItem
+              label="季节"
+              readOnly
+              value={this.state.inputValue2.join('-')}
+              placeholder="请输入季节"
+            />
+          </Picker>
+        </DemoBlock>
+      </div>
+    );
+  }
 }
 
-<Picker
-  selectedValue={this.state.value}
-  onValueChange={this.onChange}
-  onScrollChange={this.onScrollChange}
->
-  {this.state.items}
-</Picker>
 ```
-
-#### 多列
-```jsx
-
-state = {
-  value: ['1', '11'],
-};
-
-onChange = (value) => {
-  Toast.info(value, 1);
-  this.setState({
-    value,
-  });
-}
-
-onScrollChange = (value) => {
-  console.log('onScrollChange', value);
-}
-
-<MultiPicker
-  selectedValue={this.state.value}
-  onValueChange={this.onChange}
-  onScrollChange={this.onScrollChange}
->
-  <Picker indicatorClassName="my-picker-indicator">
-    <Picker.Item value="1">一</Picker.Item>
-    <Picker.Item value="2">二</Picker.Item>
-    <Picker.Item value="3">三</Picker.Item>
-    <Picker.Item value="4">四</Picker.Item>
-
-  </Picker>
-  <Picker indicatorClassName="my-picker-indicator">
-    <Picker.Item value="5">五</Picker.Item>
-    <Picker.Item value="6">六</Picker.Item>
-    <Picker.Item value="7">七</Picker.Item>
-    <Picker.Item value="8">八</Picker.Item>
-    <Picker.Item value="9">九</Picker.Item>
-  </Picker>
-</MultiPicker>
-
-```
-
 
 ## API
 

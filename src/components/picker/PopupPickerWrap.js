@@ -35,7 +35,6 @@ export default class Picker extends React.Component {
   }
 
   onPickerChange = (pickerValue) => {
-    console.log('pickerValue', pickerValue);
     if (this.state.pickerValue !== pickerValue) {
       this.setState({
         pickerValue,

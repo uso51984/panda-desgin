@@ -22,7 +22,6 @@ class InputItem extends React.Component {
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
-    onErrorClick: noop,
   }
 
   constructor(props) {
@@ -129,8 +128,8 @@ class InputItem extends React.Component {
   }
 
   getErrorNode() {
-    const { prefixCls, error, onErrorClick } = this.props;
-    return (error && (<div onClick={onErrorClick} className={`${prefixCls}-error-extra`} />))
+    const { prefixCls, error } = this.props;
+    return (error && (<div className={`${prefixCls}-error-extra`} />));
   }
 
   render() {
