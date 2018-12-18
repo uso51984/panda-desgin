@@ -80,7 +80,6 @@ export default class Picker extends React.Component {
       extra, cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps
     } = this.props;
 
-    console.log('this.getPickerCol()', this.getPickerCol());
     const cascader = (
       <MultiPicker
         style={{ flexDirection: 'row', alignItems: 'center' }}

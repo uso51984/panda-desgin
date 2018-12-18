@@ -7,6 +7,29 @@ import Picker from '../Picker';
 const count = 0;
 const len = 10;
 
+const seasons = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+  [
+    {
+      label: '春',
+      value: '春',
+    },
+    {
+      label: '夏',
+      value: '夏',
+    },
+  ],
+];
+
 export default class Demo extends React.Component {
   state = {
     items: this.getItems(count),
@@ -62,11 +85,24 @@ export default class Demo extends React.Component {
     ];
     return (
       <div>
-        <DemoBlock title="picker" className="has-padding">
+        <DemoBlock title="单例" className="has-padding">
           <Picker
             className="fortest"
             data={district}
             cols={1}
+            title="Picker"
+            disabled={this.state.disabled}
+            onDismiss={this.onDismiss}
+            onOk={this.onOk}
+          >
+            <button>open</button>
+          </Picker>
+        </DemoBlock>
+        <DemoBlock title="多列" className="has-padding">
+          <Picker
+            className="fortest"
+            data={seasons}
+            cols={2}
             title="Picker"
             disabled={this.state.disabled}
             onDismiss={this.onDismiss}
