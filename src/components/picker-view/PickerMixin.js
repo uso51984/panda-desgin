@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Item = (_props) => null;
+const Item = () => null;
 
 export default function (ComposedComponent) {
   return class extends React.Component {

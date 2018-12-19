@@ -18,6 +18,7 @@ import Switch from 'src/components/switch/zh-CN.md';
 import FabButton from 'src/components/fab-button/zh-CN.md';
 import PickerView from 'src/components/picker-view/zh-CN.md';
 import Picker from 'src/components/picker/zh-CN.md';
+import Stepper from 'src/components/stepper/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -44,5 +45,5 @@ export default {
   'fab-button': Markdown(FabButton),
   'picker-view': Markdown(PickerView),
   picker: Markdown(Picker),
-
+  stepper: Markdown(Stepper),
 };

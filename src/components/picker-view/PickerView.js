@@ -266,7 +266,6 @@ class Picker extends React.Component {
   })()
 
   getValue() {
-    console.log('this.props.selectedValue', this.props.selectedValue)
     if ('selectedValue' in this.props) {
       return this.props.selectedValue;
     }
@@ -291,8 +290,6 @@ class Picker extends React.Component {
         </div>
       );
     };
-
-    console.log('999999999', selectedValue)
 
     const items = React.Children.map(children, map);
 

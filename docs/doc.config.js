@@ -69,6 +69,11 @@ module.exports = {
                 path: '/picker',
                 title: 'Picker 选择器'
               }
+              ,
+              {
+                path: '/stepper',
+                title: 'Stepper 步进器'
+              }
             ]
           },
           {

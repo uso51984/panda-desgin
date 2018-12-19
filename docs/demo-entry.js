@@ -17,6 +17,7 @@ import Switch from 'src/components/switch/demo';
 import FabButton from 'src/components/fab-button/demo';
 import PickerView from 'src/components/picker-view/demo';
 import Picker from 'src/components/picker/demo';
+import Stepper from 'src/components/stepper/demo';
 
 export default {
   button: Button,
@@ -37,4 +38,5 @@ export default {
   'fab-button': FabButton,
   'picker-view': PickerView,
   picker: Picker,
+  stepper: Stepper,
 };
