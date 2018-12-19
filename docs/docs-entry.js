@@ -19,6 +19,7 @@ import FabButton from 'src/components/fab-button/zh-CN.md';
 import PickerView from 'src/components/picker-view/zh-CN.md';
 import Picker from 'src/components/picker/zh-CN.md';
 import Stepper from 'src/components/stepper/zh-CN.md';
+import Rate from 'src/components/rate/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -46,4 +47,5 @@ export default {
   'picker-view': Markdown(PickerView),
   picker: Markdown(Picker),
   stepper: Markdown(Stepper),
+  rate: Markdown(Rate),
 };

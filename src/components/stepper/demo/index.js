@@ -21,7 +21,6 @@ export default class Demo extends React.PureComponent {
         <DemoBlock title="基础用法" className="has-padding">
           <Stepper
             style={{ width: '100%', minWidth: '100px' }}
-            showNumber
             max={10}
             min={1}
             value={this.state.val}
@@ -30,11 +29,27 @@ export default class Demo extends React.PureComponent {
 
           <Stepper
             style={{ width: '100%', minWidth: '100px' }}
-            showNumber
             max={10}
             min={1}
             defaultValue={3}
             disabled
+          />
+
+          <Stepper
+            style={{ width: '100%', minWidth: '100px' }}
+            max={10}
+            min={1}
+            step={0.4}
+            value={this.state.val}
+            onChange={this.onChange}
+          />
+
+          <Stepper
+            style={{ width: '100%', minWidth: '100px' }}
+            max={10}
+            min={1}
+            readOnly
+            defaultValue={3}
           />
         </DemoBlock>
       </div>

@@ -21,10 +21,6 @@ const DELAY = 600;
 
 const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
-function preventDefault(e) {
-  e.preventDefault();
-}
-
 export default class InputNumber extends React.PureComponent {
   static defaultProps = {
     focusOnUpDown: false,
@@ -106,7 +102,7 @@ export default class InputNumber extends React.PureComponent {
     const { parser, onChange } = this.props;
     const input = parser && parser(this.getValueFromEvent(e).trim());
     this.setState({ inputValue: input });
-    onChange && onChange(this.toNumberWhenUserInput(input)); // valid number or invalid string
+    onChange(this.toNumberWhenUserInput(input));
   }
 
   onFocus = (...args) => {
@@ -114,7 +110,7 @@ export default class InputNumber extends React.PureComponent {
       focused: true,
     });
     const { onFocus } = this.props;
-    onFocus && onFocus(...args);
+    onFocus(...args);
   }
 
   onBlur = (e, ...args) => {
@@ -125,7 +121,7 @@ export default class InputNumber extends React.PureComponent {
     e.persist(); // fix https://github.com/react-component/input-number/issues/51
     this.setValue(value, () => {
       const { onBlur } = this.props;
-      onBlur && onBlur(e, ...args);
+      onBlur(e, ...args);
     });
   }
 
@@ -174,7 +170,7 @@ export default class InputNumber extends React.PureComponent {
     }
     if (changed) {
       const { onChange } = this.props;
-      onChange && onChange(newValue);
+      onChange(newValue);
     }
   }
 
