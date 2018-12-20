@@ -126,7 +126,7 @@ export default class Picker extends React.Component {
 
   render() {
     const { children, popupPrefixCls, itemStyle, indicatorStyle, okText, dismissText,
-      extra, cascade, prefixCls, pickerPrefixCls, data, cols, onOk, picker, ...restProps
+      extra, cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps
     } = this.props;
 
     const { value } = this.state;

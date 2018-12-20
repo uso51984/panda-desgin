@@ -1,6 +1,7 @@
 import React from 'react';
 import PopupPicker from '../picker/PopupPickerWrap';
 import DatePicker from './DatePicker';
+import formatFn from './utils';
 
 class PopupDatePicker extends React.Component {
   static defaultProps = {
@@ -69,7 +70,12 @@ class PopupDatePicker extends React.Component {
         onOk={this.onOk}
         onVisibleChange={this.onVisibleChange}
       >
-        {children}
+        {
+          children &&
+          React.isValidElement(children) &&
+          React.cloneElement(children, {
+            value: value ? formatFn(this, value) : this.props.value,
+          })}
       </PopupPicker>
     );
   }

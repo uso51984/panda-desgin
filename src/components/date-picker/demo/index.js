@@ -5,6 +5,8 @@ import zhCn from '../locale/zh_CN';
 import enUs from '../locale/en_US';
 import { cn, format, minDate, maxDate, now } from './utils';
 
+const TestChild = props => <h1 onClick={props.onClick}>{props.value}</h1>;
+
 export default class Demo extends React.Component {
   static defaultProps = {
     locale: cn ? zhCn : enUs,
@@ -95,7 +97,7 @@ export default class Demo extends React.Component {
             value={this.state.date}
             onChange={this.onDateChange}
           >
-            <button>d</button>
+            <TestChild />
           </PopDatePicker>
         </div>
       </div>);

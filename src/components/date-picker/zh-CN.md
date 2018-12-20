@@ -1,77 +1,34 @@
-## Collapse 折叠面板
-### 代码演示
-
-#### 基础用法
-可以通过`defaultActiveKey`、`activeKey`控制展开的面板列表，`Pannel`key默认值是索引字符串
-
-```jsx
-<Collapse defaultActiveKey="0">
-  <Panel header="微商城" >
-    提供多样店铺模板，快速搭建网上商城
-  </Panel>
-  <Panel header="零售">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
-  </Panel>
-  <Panel header="美业" disabled>
-    线上拓客，随时预约，贴心顺手的开单收银
-  </Panel>
-</Collapse>
-```
-
-#### 手风琴
-通过`accordion`可以设置为手风琴模式，最多展开一个面板
-
-```jsx
-<Collapse
-  accordion
-  className="demo-collapse"
->
-  <Panel
-    header={<span className="demo-collapse-header">微商城 <Icon type="check-circle-o" /></span>}
-    key="1"
-  >
-    提供多样店铺模板，快速搭建网上商城
-  </Panel>
-  <Panel header="零售" key="2">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
-  </Panel>
-  <Panel header="美业" key="3" disabled>
-    线上拓客，随时预约，贴心顺手的开单收银
-  </Panel>
-</Collapse>
-```
-
-#### 受控组件
-
-```jsx
-<Collapse activeKey=["1"]>
-  <Panel header="微商城" >
-    提供多样店铺模板，快速搭建网上商城
-  </Panel>
-  <Panel header="零售">
-    网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
-  </Panel>
-  <Panel header="美业" disabled>
-    线上拓客，随时预约，贴心顺手的开单收银
-  </Panel>
-</Collapse>
-```
+### DatePicker 日期选择
 
 
+用于选择日期或者时间。
 
-### Collapse API
+### 规则
+- 最多展示 5 个独立滚轮，每个滚轮表示一个不同的值。
+
+
+## API
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| activeKey        | 当前激活 tab 面板的 key| Array/String   | 默认无，accordion模式下默认第一个元素|
-| defaultActiveKey | 初始化选中面板的 key | String   | 无 |
-| onChange      |   切换面板的回调   | (key: string): void |  noop  |
-| accordion    | `手风琴`模式 | Boolean | false  |
-| openAnimation  |  设置自定义切换动画，禁止动画可设为`{}` | Object | 参考 openAnimationFactory.js 文件  |
+| mode  | 日期选择的类型, 可以是日期`date`,时间`time`,日期+时间`datetime`,年`year`,月`month` | String | `date` |
+| value | 当前选中时间 | Date | 无 |
+| minDate   | 最小可选日期 | Date  | `new Date(2000, 1, 1, 0, 0, 0)` |
+| maxDate   | 最大可选日期 | Date  | `new Date(2030, 1, 1, 23, 59, 59)` |
+| use12Hours | 12小时制 | Boolean | false |
+| minuteStep |  分钟数递增步长设置   | Number | 1 |
+| locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置 | Object: {DatePickerLocale: {year, month, day, hour, minute, am?, pm?}, okText, dismissText } | - |
+| disabled   | 是否不可用      | Boolean |    false  |
+| onChange   | 时间发生变化的回调函数  | (date: Object): void | - |
+| onValueChange | 每列 picker 改变时的回调 | (vals: any, index: number) => void | - |
+| format  | 格式化选中的值 | `(value: Date) => date string` / `format string`(对应 mode 下格式分别为:`YYYY-MM-DD`,`HH:mm`,`YYYY-MM-DD HH:mm`) | - |
+| title  | 弹框的标题 | string/React.ReactElement |  无  |
+| extra   | 显示文案 | String  |  `请选择`  |
+| prefixCls |  class前缀 | string | `am-picker` |
+| className |  样式类名 | string | - |
+| onOk  | 点击选中时执行的回调 | (val): void  |  无 |
+| onDismiss  | 点击取消时执行的回调 | (): void  |  无  |
 
-### Collapse.Panel
+注意：日期字符串在不同浏览器有不同的实现，例如 `new Date('2017-1-1')` 在 Safari 上是 Invalid Date，而在 Chrome 上是能正常解析的。
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| key  | 对应 activeKey   | String          | 无     |
-| header | 面板头内容 | React.Element or String | 无  |
+注意：`DatePicker` children 建议是 `List.Item`, 如果不是，需要是自定义组件(组件内需处理 `onClick` / `extra` / `children` 属性，详情请看 [demo](https://mobile.ant.design/components/date-picker)

@@ -49,8 +49,10 @@ export default class Demo extends React.Component {
     console.log('onScrollChange', value);
   }
 
-  onOk = (value) => {
+  onOk = (value, labelValue) => {
     console.log('onOk', value);
+    console.log('labelValue', labelValue);
+
     this.setState({
       inputValue: [value[0]],
     });
@@ -68,6 +70,7 @@ export default class Demo extends React.Component {
             className="fortest"
             data={district}
             cols={1}
+            cascade={false}
             title="选择年份"
             disabled={this.state.disabled}
             onDismiss={this.onDismiss}
