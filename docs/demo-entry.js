@@ -19,6 +19,7 @@ import PickerView from 'src/components/picker-view/demo';
 import Picker from 'src/components/picker/demo';
 import Stepper from 'src/components/stepper/demo';
 import Rate from 'src/components/rate/demo';
+import DatePicker from 'src/components/date-picker/demo';
 
 export default {
   button: Button,
@@ -41,4 +42,5 @@ export default {
   picker: Picker,
   stepper: Stepper,
   rate: Rate,
+  'date-picker': DatePicker,
 };

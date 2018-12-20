@@ -20,6 +20,7 @@ import PickerView from 'src/components/picker-view/zh-CN.md';
 import Picker from 'src/components/picker/zh-CN.md';
 import Stepper from 'src/components/stepper/zh-CN.md';
 import Rate from 'src/components/rate/zh-CN.md';
+import DatePicker from 'src/components/date-picker/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -48,4 +49,5 @@ export default {
   picker: Markdown(Picker),
   stepper: Markdown(Stepper),
   rate: Markdown(Rate),
+  'date-picker': Markdown(DatePicker),
 };

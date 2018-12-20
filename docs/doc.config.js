@@ -54,6 +54,10 @@ module.exports = {
                 title: 'InputItem 输入'
               },
               {
+                path: '/date-picker',
+                title: 'DatePicker 日期选择'
+              },
+              {
                 path: '/number-keyboard',
                 title: 'NumberKeyboard 数字键盘'
               },
