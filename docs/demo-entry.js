@@ -20,6 +20,7 @@ import Picker from 'src/components/picker/demo';
 import Stepper from 'src/components/stepper/demo';
 import Rate from 'src/components/rate/demo';
 import DatePicker from 'src/components/date-picker/demo';
+import Badge from 'src/components/badge/demo';
 
 export default {
   button: Button,
@@ -43,4 +44,5 @@ export default {
   stepper: Stepper,
   rate: Rate,
   'date-picker': DatePicker,
+  badge: Badge,
 };

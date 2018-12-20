@@ -107,6 +107,10 @@ module.exports = {
                 path: '/collapse',
                 title: 'Collapse 单元格'
               },
+              {
+                path: '/badge',
+                title: 'Badge 徽章'
+              },
             ]
           },
 
