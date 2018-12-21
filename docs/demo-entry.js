@@ -21,6 +21,9 @@ import Stepper from 'src/components/stepper/demo';
 import Rate from 'src/components/rate/demo';
 import DatePicker from 'src/components/date-picker/demo';
 import Badge from 'src/components/badge/demo';
+import TextareaItem from 'src/components/textarea-item/demo';
+import Progress from 'src/components/progress/demo';
+
 
 export default {
   button: Button,
@@ -45,4 +48,6 @@ export default {
   rate: Rate,
   'date-picker': DatePicker,
   badge: Badge,
+  'textarea-item': TextareaItem,
+  progress: Progress,
 };

@@ -54,6 +54,10 @@ module.exports = {
                 title: 'InputItem 输入'
               },
               {
+                path: '/textarea-item',
+                title: 'TextareaItem 输入'
+              },
+              {
                 path: '/date-picker',
                 title: 'DatePicker 日期选择'
               },
@@ -128,6 +132,10 @@ module.exports = {
               {
                 path: '/fab-button',
                 title: 'FabButton'
+              },
+              {
+                path: '/progress',
+                title: 'Progress 进度条'
               }
               // {
               //   path: '/notification',

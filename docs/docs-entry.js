@@ -22,6 +22,7 @@ import Stepper from 'src/components/stepper/zh-CN.md';
 import Rate from 'src/components/rate/zh-CN.md';
 import DatePicker from 'src/components/date-picker/zh-CN.md';
 import Badge from 'src/components/badge/zh-CN.md';
+import TextareaItem from 'src/components/textarea-item/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -52,4 +53,5 @@ export default {
   rate: Markdown(Rate),
   'date-picker': Markdown(DatePicker),
   badge: Markdown(Badge),
+  'textarea-item': Markdown(TextareaItem),
 };

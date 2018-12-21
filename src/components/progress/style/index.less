@@ -1,0 +1,150 @@
+@pickerPrefixClass: panda-progress;
+
+.@{pickerPrefixClass} {
+  display: inline-block;
+
+  &-line {
+    width: 100%;
+    font-size: @font-size-base;
+    position: relative;
+  }
+
+  &-outer {
+    display: inline-block;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    .@{pickerPrefixClass}-show-info & {
+      padding-right: ~"calc(2em + 8px)";
+      margin-right: ~"calc(-2em - 8px)";
+    }
+  }
+
+  &-inner {
+    display: inline-block;
+    width: 100%;
+    background-color: @border-color-base;
+    border-radius: 100px;
+    vertical-align: middle;
+  }
+
+  &-circle-trail {
+    stroke: @border-color-base;
+  }
+
+  &-circle-path {
+    animation: panda-progress-active .3s;
+  }
+
+  &-bg {
+    border-radius: 100px;
+    background-color: @brand-primary;
+    transition: all .4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+    position: relative;
+  }
+
+  &-text {
+    word-break: normal;
+    width: 2em;
+    text-align: left;
+    font-size: 1em;
+    margin-left: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    color: fade(#000, 43%);
+    line-height: 1;
+    // .@{iconfont-css-prefix} {
+    //   font-size: @font-size-base;
+    // }
+  }
+
+  &-status-active {
+    .@{pickerPrefixClass}-bg:before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-radius: 10px;
+      animation: 'panda-progress-active' 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+    }
+  }
+
+  &-status-exception {
+    .@{pickerPrefixClass}-bg {
+      background-color: @red;
+    }
+    .@{pickerPrefixClass}-text {
+      color: @red;
+    }
+    .@{pickerPrefixClass}-circle-path {
+      stroke: @red;
+    }
+  }
+
+  &-status-success {
+    .@{pickerPrefixClass}-bg {
+      background-color: @green;
+    }
+    .@{pickerPrefixClass}-text {
+      color: @green;
+    }
+    .@{pickerPrefixClass}-circle-path {
+      stroke: @green;
+    }
+  }
+
+  &-circle &-inner {
+    position: relative;
+    line-height: 1;
+    background-color: transparent;
+  }
+
+  &-circle &-text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin: 0;
+    color: @text-color;
+
+    // .@{iconfont-css-prefix} {
+    //   font-size: 14 / 12em;
+    // }
+  }
+
+  &-circle&-status-exception {
+    .@{pickerPrefixClass}-text {
+      color: @red;
+    }
+  }
+  &-circle&-status-success {
+    .@{pickerPrefixClass}-text {
+      color: @green;
+    }
+  }
+}
+
+@keyframes "panda-progress-active" {
+  0% {
+    opacity: 0.1;
+    width: 0;
+  }
+
+  20% {
+    opacity: 0.5;
+    width: 0;
+  }
+
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
