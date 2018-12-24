@@ -122,6 +122,10 @@ module.exports = {
               {
                 path: '/list',
                 title: 'List 列表'
+              },
+              {
+                path: '/lazyload',
+                title: 'Lazyload 懒加载'
               }
             ]
           },

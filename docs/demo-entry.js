@@ -25,6 +25,8 @@ import TextareaItem from 'src/components/textarea-item/demo';
 import Progress from 'src/components/progress/demo';
 import SwipeoutAction from 'src/components/swipeout-action/demo';
 import List from 'src/components/list/demo';
+import Lazyload from 'src/components/lazyload/demo';
+
 
 export default {
   button: Button,
@@ -53,4 +55,5 @@ export default {
   progress: Progress,
   'swipeout-action': SwipeoutAction,
   list: List,
+  lazyload: Lazyload,
 };
