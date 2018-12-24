@@ -115,6 +115,14 @@ module.exports = {
                 path: '/badge',
                 title: 'Badge 徽章'
               },
+              {
+                path: '/swipeout-action',
+                title: 'SwipeoutAction 滑动操作'
+              },
+              {
+                path: '/list',
+                title: 'List 列表'
+              }
             ]
           },
 

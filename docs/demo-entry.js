@@ -23,7 +23,8 @@ import DatePicker from 'src/components/date-picker/demo';
 import Badge from 'src/components/badge/demo';
 import TextareaItem from 'src/components/textarea-item/demo';
 import Progress from 'src/components/progress/demo';
-
+import SwipeoutAction from 'src/components/swipeout-action/demo';
+import List from 'src/components/list/demo';
 
 export default {
   button: Button,
@@ -50,4 +51,6 @@ export default {
   badge: Badge,
   'textarea-item': TextareaItem,
   progress: Progress,
+  'swipeout-action': SwipeoutAction,
+  list: List,
 };

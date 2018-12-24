@@ -24,6 +24,7 @@ import DatePicker from 'src/components/date-picker/zh-CN.md';
 import Badge from 'src/components/badge/zh-CN.md';
 import TextareaItem from 'src/components/textarea-item/zh-CN.md';
 import Progress from 'src/components/progress/zh-CN.md';
+import List from 'src/components/list/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -56,4 +57,5 @@ export default {
   badge: Markdown(Badge),
   'textarea-item': Markdown(TextareaItem),
   progress: Markdown(Progress),
+  list: Markdown(List),
 };
