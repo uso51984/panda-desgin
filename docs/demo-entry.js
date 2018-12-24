@@ -23,6 +23,7 @@ import DatePicker from 'src/components/date-picker/demo';
 import Badge from 'src/components/badge/demo';
 import TextareaItem from 'src/components/textarea-item/demo';
 import Progress from 'src/components/progress/demo';
+import Lazyload from 'src/components/lazyload/demo';
 
 
 export default {
@@ -50,4 +51,5 @@ export default {
   badge: Badge,
   'textarea-item': TextareaItem,
   progress: Progress,
+  lazyload: Lazyload,
 };

@@ -115,6 +115,10 @@ module.exports = {
                 path: '/badge',
                 title: 'Badge 徽章'
               },
+              {
+                path: '/lazyload',
+                title: 'Lazyload 懒加载'
+              }
             ]
           },
 
