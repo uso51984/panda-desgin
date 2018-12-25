@@ -207,7 +207,7 @@ class Picker extends React.Component {
       if (scrollDisabled || !isMoving) {
         return;
       }
-      scrollY = lastY - y + startY;
+      scrollY = (lastY - y) + startY;
 
       Velocity.record(scrollY);
 
@@ -225,7 +225,7 @@ class Picker extends React.Component {
 
       const velocity = Velocity.getVelocity(targetY) * 4;
       if (velocity) {
-        targetY = velocity * 40 + targetY;
+        targetY = (velocity * 40) + targetY;
         time = Math.abs(velocity) * 0.1;
       }
 

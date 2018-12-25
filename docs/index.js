@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 
 import 'codemirror/mode/jsx/jsx';
 import 'codemirror/mode/css/css';
-// import 'codemirror/lib/codemirror.css';
-
 import 'src/components/style/index.less';
+
 import DocsApp from './DocsApp';
 import './style/index.less';
 // window.CodeMirror = CodeMirror;

@@ -26,7 +26,7 @@ import Progress from 'src/components/progress/demo';
 import SwipeoutAction from 'src/components/swipeout-action/demo';
 import List from 'src/components/list/demo';
 import Lazyload from 'src/components/lazyload/demo';
-
+import Carousel from 'src/components/carousel/demo';
 
 export default {
   button: Button,
@@ -56,4 +56,5 @@ export default {
   'swipeout-action': SwipeoutAction,
   list: List,
   lazyload: Lazyload,
+  carousel: Carousel,
 };

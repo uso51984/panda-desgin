@@ -32,9 +32,12 @@
   "dependencies": {
     "bee-build-tools": "0.0.11",
     "classnames": "^2.2.6",
+    "d3-ease": "^1.0.5",
     "dom-animation": "^1.0.2",
+    "exenv": "^1.2.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-move": "^2.8.0",
     "react-tap-feedback": "^1.0.0"
   },
   "devDependencies": {

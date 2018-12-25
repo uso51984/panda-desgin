@@ -116,6 +116,10 @@ module.exports = {
                 title: 'Badge 徽章'
               },
               {
+                path: '/carousel',
+                title: 'Carousel 走马灯'
+              },
+              {
                 path: '/swipeout-action',
                 title: 'SwipeoutAction 滑动操作'
               },
