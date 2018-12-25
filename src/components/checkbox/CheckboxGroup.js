@@ -7,19 +7,20 @@ export default class CheckboxGroup extends React.Component {
   static propTypes = {
     defaultValue: PropTypes.array,
     value: PropTypes.array,
-    options: PropTypes.array.isRequired,
+    options: PropTypes.array,
     onChange: PropTypes.func,
   };
 
   static defaultProps = {
     options: [],
+    defaultValue: [],
     prefixCls: 'panda-checkbox-group',
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || props.defaultValue || [],
+      value: props.value || props.defaultValue,
     };
   }
 

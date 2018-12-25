@@ -20,14 +20,14 @@ class Button extends React.PureComponent {
 
     const iconType = loading ? 'loading' : icon;
     const wrapCls = classnames(prefixCls, className, {
-      [`${prefixCls}-primary`]: type === 'primary',
-      [`${prefixCls}-ghost`]: type === 'ghost',
-      [`${prefixCls}-warning`]: type === 'warning',
-      [`${prefixCls}-small`]: size === 'small',
-      [`${prefixCls}-inline`]: inline,
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-icon`]: !!iconType,
+      [`${prefixCls}--primary`]: type === 'primary',
+      [`${prefixCls}--ghost`]: type === 'ghost',
+      [`${prefixCls}--warning`]: type === 'warning',
+      [`${prefixCls}--small`]: size === 'small',
+      [`${prefixCls}--inline`]: inline,
+      [`${prefixCls}--disabled`]: disabled,
+      [`${prefixCls}--loading`]: loading,
+      [`${prefixCls}--icon`]: !!iconType,
     });
 
     let iconEl;
@@ -43,18 +43,18 @@ class Button extends React.PureComponent {
     } else if (iconType) {
       const rawCls = iconType.props && iconType.props.className;
       const cls = classnames(
-        'am-icon',
+        'panda-icon',
         `${prefixCls}-icon`,
-        size === 'small' ? 'am-icon-xxs' : 'am-icon-md',
+        size === 'small' ? 'panda-icon-xxs' : 'panda-icon-md',
       );
       iconEl = React.cloneElement(iconType, {
-        className: rawCls ? `${rawCls} ${cls}` : cls,
+        className: rawCls ? `${cls} ${rawCls}` : cls,
       });
     }
     return (
       <TapFeedback
         activeClassName={
-          activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
+          activeClassName || (activeStyle ? `${prefixCls}--active` : undefined)}
         disabled={disabled}
         activeStyle={activeStyle}
       >

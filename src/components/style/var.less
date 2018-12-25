@@ -1,4 +1,5 @@
-// color variables
+@hd: 1px; // 基本单位
+
 @black: #000;
 @white: #fff;
 @red: #f44;
@@ -12,6 +13,23 @@
 @gray-darker: #666;
 @gray-dark: #999;
 
+// 全局/品牌色
+@brand-primary: #108ee9;
+@brand-primary-tap: #0e80d2;
+@brand-success: #6abf47;
+@brand-warning: #ffc600;
+@brand-error: #f4333c;
+@brand-important: #ff5b05;  // 用于小红点
+@brand-wait: #108ee9;
+
+// default colors
+@text-color: #333;
+@border-color: #ccc;
+@active-color: #e8e8e8;
+@background-color: #f8f8f8;
+@background-color-light: #fafafa;
+
+
 // 文字色
 @color-text-base: #000;                  // 基本
 @color-text-base-inverse: #fff;          // 基本 - 反色
@@ -20,32 +38,26 @@
 @color-text-disabled: #bbb;              // 失效
 @color-text-caption: #888;               // 辅助描述
 @color-text-paragraph: #333;             // 段落
-@color-link: @brand-primary;             // 链接
+@color-link: @blue;             // 链接
 
-// default colors
-@text-color: #333;
-@border-color: #eee;
-@active-color: #e8e8e8;
-@background-color: #f8f8f8;
-@background-color-light: #fafafa;
 
 // button
-@button-default-color: @text-color;
-@button-default-background-color: @white;
-@button-default-border-color: @border-color;
-@button-primary-color: @white;
-@button-primary-background-color: @green;
-@button-primary-border-color: @green;
-@button-danger-color: @white;
-@button-danger-background-color: @red;
-@button-danger-border-color: @red;
-@button-warning-color: @white;
-@button-warning-background-color: @orange;
-@button-warning-border-color: @orange;
-@button-bottom-action-default-color: @white;
-@button-bottom-action-default-background-color: @orange;
-@button-bottom-action-primary-color: @white;
-@button-bottom-action-primary-background-color: @red;
+@button-height: 40 * @hd;
+@button-font-size: 16 * @hd;
+
+@button-height-sm: 30 * @hd;
+@button-font-size-sm: 13 * @hd;
+
+@primary-button-fill: @blue;
+@primary-button-fill-tap: @brand-primary-tap;
+
+@ghost-button-color: @blue;    // 同时应用于背景、文字颜色、边框色
+@ghost-button-fill-tap: fade(@blue, 60%);
+
+@warning-button-fill: @red;
+@warning-button-fill-tap: @brand-error;
+
+
 
 // checkbox
 @checkbox-size: 20px;
@@ -65,7 +77,7 @@
 @number-keyboard-key-background: #eBedf0;
 
 
-@hd: 1px; // 基本单位
+
 // 图标尺寸
 // ---
 @icon-size-xxs: 15 * @hd;
@@ -73,8 +85,6 @@
 @icon-size-sm: 20 * @hd;
 @icon-size-md: 22 * @hd;       // 导航条上的图标、grid的图标大小
 @icon-size-lg: 36 * @hd;
-
-
 
 // 圆角
 // ---
@@ -108,28 +118,17 @@
 @v-spacing-sm: 6 * @hd;
 @fill-base: #fff;
 @font-size-subhead: 15 * @hd;
-@color-text-caption: #888;
 @line-height-paragraph: 1.5;    // 多行行高
 @color-link: #108ee9;
 @modal-button-font-size: 18 * @hd; // 按钮字号
 @modal-button-height: 50 * @hd; // 按钮高度
 @fill-tap: #ddd;
-// 边框色
 @border-color-base: #ddd;
 @radius-sm: 3 * @hd;
 @v-spacing-md: 9 * @hd;
 @font-size-base: 14 * @hd;
 @h-spacing-md: 8 * @hd;
 
-
-// 全局/品牌色
-@brand-primary: #108ee9;
-@brand-primary-tap: #0e80d2;
-@brand-success: #6abf47;
-@brand-warning: #ffc600;
-@brand-error: #f4333c;
-@brand-important: #ff5b05;  // 用于小红点
-@brand-wait: #108ee9;
 
 // 字体尺寸
 // ---
@@ -139,26 +138,6 @@
 @font-size-subhead: 15 * @hd;
 @font-size-caption: 16 * @hd;
 @font-size-heading: 17 * @hd;
-
-
-// button
-@button-height: 40 * @hd;
-@button-font-size: 16 * @hd;
-
-@button-height-sm: 30 * @hd;
-@button-font-size-sm: 13 * @hd;
-
-@primary-button-fill: @brand-primary;
-@primary-button-fill-tap: @brand-primary-tap;
-
-@ghost-button-color: @brand-primary;    // 同时应用于背景、文字颜色、边框色
-@ghost-button-fill-tap: fade(@brand-primary, 60%);
-
-@warning-button-fill: #e94f4f;
-@warning-button-fill-tap: #d24747;
-
-@link-button-fill-tap: #ddd;
-@link-button-font-size: 16 * @hd;
 
 // 透明度
 @opacity-disabled: 0.3;   // switch checkbox radio 等组件禁用的透明度

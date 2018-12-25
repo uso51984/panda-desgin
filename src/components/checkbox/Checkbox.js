@@ -82,12 +82,12 @@ export default class Checkbox extends React.PureComponent {
 
     const wrapperCls = classNames({
       [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-disabled`]: disabled,
-    })
+      [`${prefixCls}-wrapper--disabled`]: disabled,
+    });
 
     const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-checked`]: checked,
-      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}--checked`]: checked,
+      [`${prefixCls}--disabled`]: disabled,
     });
 
     return (

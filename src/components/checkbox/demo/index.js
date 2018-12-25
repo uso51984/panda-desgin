@@ -1,5 +1,3 @@
-/* eslint no-console:0 */
-
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Checkbox from '../Checkbox';

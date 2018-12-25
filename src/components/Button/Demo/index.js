@@ -1,20 +1,32 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
+import { Row, Col } from '../../Grid';
 import Button from '../index';
+
 import './index.less';
 
 export default () => (
-  <div className="button-demo">
-    <DemoBlock title="默认">
-      <div className="button-demo">
-        <Button>default</Button>
-        <Button disabled>default disabled</Button>
-        <Button type="primary">primary</Button>
-        <Button type="primary" disabled>primary disabled</Button>
-        <Button type="warning" >warning</Button>
-        <Button type="warning" disabled >warning disabled</Button>
-        <Button icon="check-circle-o">with icon</Button>
-      </div>
+  <div className="button-demo ">
+    <DemoBlock title="默认" className="has-padding">
+      <Row gutter="15">
+        <Col span="12"><Button>default</Button></Col>
+        <Col span="12"><Button disabled>disabled</Button></Col>
+      </Row>
+    </DemoBlock>
+    <DemoBlock title="primary" className="has-padding">
+      <Row gutter="15">
+        <Col span="12"><Button type="primary">primary</Button></Col>
+        <Col span="12"><Button type="primary" disabled>disabled</Button></Col>
+      </Row>
+    </DemoBlock>
+    <DemoBlock title="warning" className="has-padding">
+      <Row gutter="15">
+        <Col span="12"><Button type="warning" >warning</Button></Col>
+        <Col span="12"><Button type="warning" disabled >disabled</Button></Col>
+      </Row>
+    </DemoBlock>
+    <DemoBlock title="with icon" className="has-padding">
+      <Button icon="check-circle-o">with icon</Button>
     </DemoBlock>
     <DemoBlock title="inline and small">
       <div className="button-demo">
