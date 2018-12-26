@@ -9,7 +9,6 @@ class Input extends React.PureComponent {
   }
 
   onInputFocus = (e) => {
-    // here should have a value definition but none.
     const value = e.target.value;
     if (this.props.onFocus) {
       this.props.onFocus(value);

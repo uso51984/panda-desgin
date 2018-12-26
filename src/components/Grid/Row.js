@@ -45,7 +45,7 @@ export default class Row extends React.PureComponent {
     const cls = classNames({
       [prefixCls]: true,
       [`${prefixCls}--flex`]: isFlex,
-      [`${prefixCls}-align--${align}`]: isFlex && align,
+      [`${prefixCls}--align-${align}`]: isFlex && align,
       [`${prefixCls}--justify-${justify}`]: isFlex && justify,
     });
     return (

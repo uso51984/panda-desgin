@@ -47,8 +47,8 @@
 
     .@{prefixCls}-clear {
       display: none;
-      width: @icon-size-sm;
-      height: @icon-size-sm;
+      min-width: @icon-size-sm;
+      min-height: @icon-size-sm;
       border-radius: @radius-circle;
       overflow: hidden;
       font-style: normal;
@@ -61,7 +61,7 @@
       background-position: 2 * @hd 2 * @hd;
 
       &-active {
-        background-color: @input-color-icon-tap;
+        background-color: @blue;
       }
     }
   }
@@ -74,13 +74,13 @@
 
   &.@{prefixCls}-disabled {
     color: @color-text-disabled;
-    background-color: #fff;
+    background-color: @white;
   }
 
   &.@{prefixCls}-error {
     .@{prefixCls}-control {
       input {
-        color: #f50;
+        color: @red;
       }
     }
 

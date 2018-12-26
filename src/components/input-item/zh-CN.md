@@ -81,7 +81,7 @@
 | placeholder      | placeholder        | String | ''  |
 | readOnly    | 是否可编辑        | bool |  true  |
 | disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
+| clear      |  是否带清除功能(仅`readOnly`为`false`,`disabled`为`false`才生效) | bool | false  |
 | maxLength      |  最大长度      | number |  无  |
 | onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
 | onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |

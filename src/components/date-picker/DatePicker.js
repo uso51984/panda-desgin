@@ -136,9 +136,9 @@ class DatePicker extends React.Component {
 
   setAmPm(date, index) {
     if (index === 0) {
-      date.setTime(+date - ONE_DAY / 2);
+      date.setTime(+date - (ONE_DAY / 2));
     } else {
-      date.setTime(+date + ONE_DAY / 2);
+      date.setTime(+date + (ONE_DAY / 2));
     }
   }
 

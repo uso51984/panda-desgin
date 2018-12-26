@@ -1,11 +1,14 @@
 import React from 'react';
+import DemoBlock from 'docs/mobileComponents/DemoBlock';
+import { Row, Col } from '../../Grid';
+import { Cell } from '../../Cell';
+import { RadioGroup } from '../../radio';
+import Checkbox from '../../checkbox';
 import DatePicker from '../index';
-import PopDatePicker from '../PopupPicker';
+import PopupDatePicker from '../PopupDatePicker';
 import zhCn from '../locale/zh_CN';
 import enUs from '../locale/en_US';
-import { cn, format, minDate, maxDate, now } from './utils';
-
-const TestChild = props => <h1 onClick={props.onClick}>{props.value}</h1>;
+import { cn, minDate, maxDate, now } from './utils';
 
 export default class Demo extends React.Component {
   static defaultProps = {
@@ -17,14 +20,12 @@ export default class Demo extends React.Component {
     this.state = {
       date: new Date(2017, 2, 31, 15, 1, 1),
       mode: 'datetime',
+      use12Hours: true,
     };
   }
 
   onDateChange = (date) => {
-    console.log('onChange', format(date));
-    this.setState({
-      date,
-    });
+    this.setState({ date });
   }
 
   onDismiss = () => {
@@ -50,56 +51,62 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const props = this.props;
     const { date, mode } = this.state;
+    const optionsWithDisabled = [
+      { label: 'datetime', value: 'datetime' },
+      { label: 'date', value: 'date' },
+      { label: 'month', value: 'month' },
+      { label: 'year', value: 'year' },
+    ];
 
-    const datePicker = (
-      <DatePicker
-        rootNativeProps={{ 'data-xx': 'yy' }}
-        minDate={minDate}
-        maxDate={maxDate}
-        defaultDate={now}
-        onValueChange={this.onValueChange}
-        onDateChange={this.onDateChange}
-        mode={props.mode}
-        locale={props.locale}
-      />
-    );
 
     return (
-      <div style={{ margin: '10px 30px' }}>
-        <h2>date picker</h2>
+      <div>
+        <DemoBlock title="date picker view">
+          <Row gutter="10" type="flex" align="center">
+            <Col span="3">模式</Col>
+            <Col span="21">
+              <RadioGroup
+                style={{ padding: 10 }}
+                options={optionsWithDisabled}
+                defaultValue="datetime"
+                onChange={e => this.setState({ mode: e.target.value })}
+              />
+            </Col>
+          </Row>
 
-        <select value={this.state.mode} onChange={this.changeMode}>
-          <option>datetime</option>
-          <option>date</option>
-          <option>time</option>
-          <option>month</option>
-          <option>year</option>
-        </select>
+          <Row gutter="10" type="flex" align="center">
+            <Col span="6">12小时制</Col>
+            <Col span="20">
+              <Checkbox
+                defaultChecked
+                onChange={(e) => { this.setState({ use12Hours: e.target.checked }); }}
+              />
+            </Col>
+          </Row>
 
-        <div>
-          <span>{(date && format(date)) || format(now)}</span>
           <DatePicker
             rootNativeProps={{ 'data-xx': 'yy' }}
             defaultDate={date || now}
             mode={mode}
-            locale={props.locale}
+            locale={zhCn}
             maxDate={maxDate}
             minDate={minDate}
             onDateChange={this.onDateChange}
             onValueChange={this.onValueChange}
             onScrollChange={this.onScrollChange}
-            use12Hours
+            use12Hours={this.state.use12Hours}
           />
-
-          <PopDatePicker
+        </DemoBlock>
+        <DemoBlock title="Popup date picker">
+          <PopupDatePicker
             value={this.state.date}
             onChange={this.onDateChange}
+            mode={mode}
           >
-            <TestChild />
-          </PopDatePicker>
-        </div>
+            <Cell title="日期" value={this.state.date} />
+          </PopupDatePicker>
+        </DemoBlock>
       </div>);
   }
 }
