@@ -1,9 +1,9 @@
-import classnames from 'classnames';
 import React from 'react';
+import classnames from 'classnames';
 
 export default class Badge extends React.PureComponent {
   static defaultProps = {
-    prefixCls: 'am-badge',
+    prefixCls: 'panda-badge',
     size: 'small',
     overflowCount: 99,
     dot: false,
@@ -30,12 +30,12 @@ export default class Badge extends React.PureComponent {
       [`${prefixCls}-corner-large`]: corner && size === 'large',
     });
 
-    const badgeCls = classnames(prefixCls, className, {
+    const badgeCls = classnames(prefixCls, {
       [`${prefixCls}-not-a-wrapper`]: !children,
       [`${prefixCls}-corner-wrapper`]: corner,
       [`${prefixCls}-hot`]: !!hot,
       [`${prefixCls}-corner-wrapper-large`]: corner && size === 'large',
-    });
+    }, className);
 
     return (
       <span className={badgeCls}>

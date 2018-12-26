@@ -1,43 +1,48 @@
-## Button 按钮
+## Badge 徽章
 
 ### 代码演示
 
-#### 默认
 ```jsx
-<Button>default</Button>
-<Button disabled>default disabled</Button>
+import React from 'react';
+import DemoBlock from 'docs/mobileComponents/DemoBlock';
+import Badge from '../index';
 
-<Button type="primary">primary</Button>
-<Button type="primary" disabled>primary disabled</Button>
-
-<Button type="warning" >warning</Button>
-<Button type="warning" disabled >warning disabled</Button>
-
-<Button icon="check-circle-o">with icon</Button>
+export default () => (
+  <div>
+    <DemoBlock title="基本" className="has-padding">
+      <Badge dot>
+        <span style={{ width: '26px', height: '26px', background: '#ddd', display: 'inline-block' }} />
+      </Badge>
+      <span style={{ marginRight: 30 }} />
+      <Badge text={66} overflowCount={33} />
+      <Badge text="新" style={{ marginLeft: 12 }} />
+      <Badge text="好" hot style={{ marginLeft: 12 }} />
+    </DemoBlock>
+    <DemoBlock title="其他颜色" className="has-padding">
+      <Badge text="热血" style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#f19736', borderRadius: 2 }} />
+      <Badge text="玄幻" style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#21b68a', borderRadius: 2 }} />
+      <Badge text="科幻"
+        style={{
+            marginLeft: 12,
+            padding: '0 3px',
+            backgroundColor: '#fff',
+            borderRadius: 2,
+            color: '#f19736',
+            border: '1px solid #f19736',
+          }}
+      />
+    </DemoBlock>
+  </div>
+）
 ```
 
-#### small and line
-```jsx
-<Button loading inline size="small">loading button</Button>
-<Button icon="check-circle-o" inline size="small" >with icon and inline</Button>
-
-<Button type="ghost" inline size="small">inline ghost</Button>
-<Button type="primary" inline size="small" disabled>primary  disabled</Button>
-```
-
-## API
+### API
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| type    | 按钮类型，可选值为`primary`/`ghost`/`warning`或者不设  |   string   |   -  |
-| size    | 按钮大小，可选值为`large`、`small` | string | `large`|
-| activeStyle  | 点击反馈的自定义样式 (设为 false 时表示禁止点击反馈) | {}/false | {} |
-| activeClassName  | 点击反馈的自定义类名 | string |  |
-| disabled   | 设置禁用  | boolean |    false  |
-| onClick    | 点击按钮的点击回调函数 | (e: Object): void |   无  |
-| style    | 自定义样式 |   Object  | 无 |
-| inline     | 是否设置为行内按钮  | boolean |   false  |
-| loading	   | 设置按钮载入状态	  | boolean	 | false |
-| icon  | 可以是组件里内置的某个 icon 的 type 值，也可以是任意合法的 ReactElement (注意: `loading`设置后此项设置失效) | `string`, `React.Element` | -  |
-| prefixCls |  class前缀 | string | `panda-button` |
-| className |  样式类名 | string | 无 |
+size | 大小，可选 `large` `small` | string | `small`
+text | 展示的数字或文案，当为数字时候，大于 overflowCount <br/> 时显示为 ${overflowCount}+，为 0 时隐藏 | string\|number | -
+corner | 置于角落 | boolean | `false`
+dot | 不展示数字，只有一个小红点 | boolean | `false`
+overflowCount | 展示封顶的数字值 | number | `99`
+hot | 营销样式 | boolean | `false`
