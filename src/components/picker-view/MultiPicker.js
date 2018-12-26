@@ -23,7 +23,7 @@ const MultiPicker = (props) => {
     <div
       {...rootNativeProps}
       style={style}
-      className={classnames(className, prefixCls)}
+      className={classnames(prefixCls, className)}
     >
       {colElements}
     </div>

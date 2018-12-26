@@ -12,14 +12,14 @@
   font-style: normal;
   outline: none;
 
-  &-disabled &-star {
+  &--disabled &__star {
     &:before,
     &-content:before {
       cursor: default;
     }
   }
 
-  &-star {
+  &__star {
     margin: 0;
     padding: 0;
     display: inline-block;
@@ -45,13 +45,13 @@
       opacity: 0;
     }
 
-    &-half &-first,
-    &-half &-second {
+    &--half &-first,
+    &--half &-second {
       opacity: 1;
     }
 
-    &-half &-first,
-    &-full &-second {
+    &--half &-first,
+    &--full &-second {
       color: @rate-star-color;
     }
   }

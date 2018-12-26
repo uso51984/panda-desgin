@@ -1,98 +1,80 @@
-## Picker 选择器
+## Stepper 步进器
+
+用作增加或者减少当前数值。
 
 ### 代码演示
-
-#### 单列
 ```jsx
+import React from 'react';
+import DemoBlock from 'docs/mobileComponents/DemoBlock';
+import Stepper from '../index';
 
-state = {
-  items: this.getItems(count),
-  value: `${count + (len / 2)}`,
-};
-
-onChange = (value) => {
-  Toast.info(value, 1);
-  this.setState({
-    value,
-  });
-}
-
-onScrollChange = (value) => {
-  console.log('onScrollChange', value);
-}
-
-getItems(start) {
-  const items = [];
-  for (let i = start; i < start + len; i++) {
-    items.push((
-      <Picker.Item value={`${i}`} key={i}>
-        {count} {i}
-      </Picker.Item>
-    ));
+export default class Demo extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      val: 3,
+    };
   }
-  return items;
+  onChange = (val) => {
+    console.log(val);
+    this.setState({ val });
+  }
+  render() {
+    return (
+      <div className="demo-radio">
+        <DemoBlock title="基础用法" className="has-padding">
+          <Stepper
+            style={{ width: '100%', minWidth: '100px' }}
+            max={10}
+            min={1}
+            value={this.state.val}
+            onChange={this.onChange}
+          />
+        </DemoBlock>
+        <DemoBlock title="disabled" className="has-padding">
+          <Stepper
+            style={{ width: '100%', minWidth: '100px' }}
+            max={10}
+            min={1}
+            defaultValue={3}
+            disabled
+          />
+        </DemoBlock>
+        <DemoBlock title="设置step" className="has-padding">
+          <Stepper
+            style={{ width: '100%', minWidth: '100px' }}
+            max={10}
+            min={1}
+            step={0.4}
+            value={this.state.val}
+            onChange={this.onChange}
+          />
+        </DemoBlock>
+        <DemoBlock title="readOnly" className="has-padding">
+          <Stepper
+            style={{ width: '100%', minWidth: '100px' }}
+            max={10}
+            min={1}
+            readOnly
+            defaultValue={3}
+          />
+        </DemoBlock>
+      </div>
+    );
+  }
 }
 
-<Picker
-  selectedValue={this.state.value}
-  onValueChange={this.onChange}
-  onScrollChange={this.onScrollChange}
->
-  {this.state.items}
-</Picker>
 ```
 
-#### 多列
-```jsx
-
-state = {
-  value: ['1', '11'],
-};
-
-onChange = (value) => {
-  Toast.info(value, 1);
-  this.setState({
-    value,
-  });
-}
-
-onScrollChange = (value) => {
-  console.log('onScrollChange', value);
-}
-
-<MultiPicker
-  selectedValue={this.state.value}
-  onValueChange={this.onChange}
-  onScrollChange={this.onScrollChange}
->
-  <Picker indicatorClassName="my-picker-indicator">
-    <Picker.Item value="1">一</Picker.Item>
-    <Picker.Item value="2">二</Picker.Item>
-    <Picker.Item value="3">三</Picker.Item>
-    <Picker.Item value="4">四</Picker.Item>
-
-  </Picker>
-  <Picker indicatorClassName="my-picker-indicator">
-    <Picker.Item value="5">五</Picker.Item>
-    <Picker.Item value="6">六</Picker.Item>
-    <Picker.Item value="7">七</Picker.Item>
-    <Picker.Item value="8">八</Picker.Item>
-    <Picker.Item value="9">九</Picker.Item>
-  </Picker>
-</MultiPicker>
-
-```
-
-
-## API
+### API
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| data  | 数据源     | `Array<{value, label}>` / `Array<Array<{value, label}>>` | -   |
-| value  | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层 value  | Array  | -   |
-| cols     | 列数    | Number | `3` |
-| onChange | 选中后的回调| (val): void      | -   |
-| prefixCls    | prefix class         | string | am-picker     |
-| pickerPrefixCls  | picker prefix class  | string | am-picker-col |
-| itemStyle| 每列样式   | Object | -   |
-| indicatorStyle  | indicator 样式  | Object | -  |
+| min     | 最小值   | Number | -Infinity        |
+| max     | 最大值       | Number      | Infinity           |
+| value     | 当前值       | Number      |            |
+| step     | 每次改变步数，可以为小数  | Number or String      |  1      |
+| defaultValue     | 初始值       | Number      |            |
+| onChange     | 变化时回调函数      | (): void      |            |
+| disabled     | 禁用       | Boolean      |      false      |
+| readOnly     | input 只读       | Boolean      |      false      |

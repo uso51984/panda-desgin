@@ -7,6 +7,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Picker from '../Picker';
 import InputItem from '../../input-item';
+import data from './data';
 
 const seasons = [
   [
@@ -46,6 +47,7 @@ const district = [
 
 export default class Demo extends React.Component {
   state = {
+    inputValue: [],
     inputValue2: [],
   }
 
@@ -53,8 +55,10 @@ export default class Demo extends React.Component {
     console.log('onScrollChange', value);
   }
 
-  onOk = (value) => {
+  onOk = (value, labelValue) => {
     console.log('onOk', value);
+    console.log('labelValue', labelValue);
+
     this.setState({
       inputValue: [value[0]],
     });
@@ -67,12 +71,14 @@ export default class Demo extends React.Component {
   render() {
     return (
       <div>
-        <DemoBlock title="单列" className="has-padding">
+        <DemoBlock title="单列">
           <Picker
             className="fortest"
             data={district}
+            value={this.state.inputValue}
             cols={1}
-            title="Picker"
+            cascade={false}
+            title="选择年份"
             disabled={this.state.disabled}
             onDismiss={this.onDismiss}
             onOk={this.onOk}
@@ -85,14 +91,16 @@ export default class Demo extends React.Component {
             />
           </Picker>
         </DemoBlock>
-        <DemoBlock title="多列" className="has-padding">
+        <DemoBlock title="多列">
           <Picker
             className="fortest"
             data={seasons}
             cols={2}
-            title="Picker"
+            title="选择季节"
+            cascade={false}
             disabled={this.state.disabled}
             onDismiss={this.onDismiss}
+            value={this.state.inputValue2}
             onOk={(value) => { this.setState({ inputValue2: value }); }}
           >
             <InputItem
@@ -100,6 +108,25 @@ export default class Demo extends React.Component {
               readOnly
               value={this.state.inputValue2.join('-')}
               placeholder="请输入季节"
+            />
+          </Picker>
+        </DemoBlock>
+        <DemoBlock title="级联">
+          <Picker
+            className="fortest"
+            data={data}
+            title="选择省份"
+            cascade
+            disabled={this.state.disabled}
+            onDismiss={this.onDismiss}
+            value={this.state.inputValue3 || []}
+            onOk={(value, valueLabel) => { this.setState({ inputValue3: value, valueLabel }); }}
+          >
+            <InputItem
+              label="省份"
+              readOnly
+              value={this.state.valueLabel}
+              placeholder="请选择地区"
             />
           </Picker>
         </DemoBlock>

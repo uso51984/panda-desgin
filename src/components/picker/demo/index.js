@@ -42,6 +42,7 @@ const district = [
 
 export default class Demo extends React.Component {
   state = {
+    inputValue: [],
     inputValue2: [],
   }
 
@@ -69,6 +70,7 @@ export default class Demo extends React.Component {
           <Picker
             className="fortest"
             data={district}
+            value={this.state.inputValue}
             cols={1}
             cascade={false}
             title="选择年份"

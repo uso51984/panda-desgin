@@ -1,4 +1,3 @@
-/* tslint:disable:no-console */
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import PickerView from '../PickerView';
@@ -11,12 +10,10 @@ const len = 10;
 class DemoMultiPicker extends React.Component {
   state = {
     value: ['1', '11'],
-    disabled: false,
-    value: null,
   };
 
   onChange = (value) => {
-    Toast.info(value, 1);
+    Toast.info(value, 0.5);
     this.setState({
       value,
     });
@@ -83,23 +80,7 @@ export default class PickerDemo extends React.Component {
     return items;
   }
 
-  onOk = (value) => {
-    console.log('onOk', value);
-    this.setState({
-      value,
-    });
-  }
-
-  onDismiss = () => {
-    console.log('onDismiss');
-  }
-
   render() {
-    const popupContent = (
-      <div style={{ height: 160, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        popup content
-      </div>
-    );
     return (
       <div>
         <DemoBlock title="单列选择">
@@ -112,7 +93,7 @@ export default class PickerDemo extends React.Component {
           </PickerView>
         </DemoBlock>
         <DemoBlock title="多列选择">
-          <DemoMultiPicker onValueChange={(value)=>{console.log('value', value)}} />
+          <DemoMultiPicker onValueChange={(value) => { console.log('value', value); }} />
         </DemoBlock>
       </div>
     );

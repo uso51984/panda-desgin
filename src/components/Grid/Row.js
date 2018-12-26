@@ -8,12 +8,13 @@ export default class Row extends React.PureComponent {
     prefixCls: 'panda-row',
   }
   getStyle() {
-    const { gutter } = this.props;
+    const { gutter, style } = this.props;
     if (!gutter) {
       return {};
     }
     const margin = `${Number(gutter) / -2}px`;
     return {
+      ...style,
       marginLeft: margin,
       marginRight: margin,
     };

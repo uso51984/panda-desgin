@@ -8,19 +8,33 @@ import DatePicker from '../index';
 import PopupDatePicker from '../PopupDatePicker';
 import zhCn from '../locale/zh_CN';
 import enUs from '../locale/en_US';
-import { cn, minDate, maxDate, now } from './utils';
+import { minDate, maxDate, now } from './utils';
 
+const locale = {
+  zhCn,
+  enUs,
+};
+
+const optionsWithDisabled = [
+  { label: 'datetime', value: 'datetime' },
+  { label: 'date', value: 'date' },
+  { label: 'month', value: 'month' },
+  { label: 'year', value: 'year' },
+];
+
+const optionsI18n = [
+  { label: '中文', value: 'zhCn' },
+  { label: '英文', value: 'enUs' },
+];
 export default class Demo extends React.Component {
-  static defaultProps = {
-    locale: cn ? zhCn : enUs,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
       date: new Date(2017, 2, 31, 15, 1, 1),
       mode: 'datetime',
       use12Hours: true,
+      localeType: 'zhCn',
+      disabled: false,
     };
   }
 
@@ -51,23 +65,15 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { date, mode } = this.state;
-    const optionsWithDisabled = [
-      { label: 'datetime', value: 'datetime' },
-      { label: 'date', value: 'date' },
-      { label: 'month', value: 'month' },
-      { label: 'year', value: 'year' },
-    ];
-
+    const { date, mode, localeType, disabled } = this.state;
 
     return (
       <div>
         <DemoBlock title="date picker view">
-          <Row gutter="10" type="flex" align="center">
+          <Row gutter="10" type="flex" align="center" style={{ padding: 10 }}>
             <Col span="3">模式</Col>
             <Col span="21">
               <RadioGroup
-                style={{ padding: 10 }}
                 options={optionsWithDisabled}
                 defaultValue="datetime"
                 onChange={e => this.setState({ mode: e.target.value })}
@@ -75,7 +81,7 @@ export default class Demo extends React.Component {
             </Col>
           </Row>
 
-          <Row gutter="10" type="flex" align="center">
+          <Row gutter="10" type="flex" align="center" style={{ padding: 10 }}>
             <Col span="6">12小时制</Col>
             <Col span="20">
               <Checkbox
@@ -85,17 +91,37 @@ export default class Demo extends React.Component {
             </Col>
           </Row>
 
+          <Row gutter="10" type="flex" align="center" style={{ padding: 10 }}>
+            <Col span="4">国际化</Col>
+            <Col span="20">
+              <RadioGroup
+                options={optionsI18n}
+                defaultValue="zhCn"
+                onChange={e => this.setState({ localeType: e.target.value })}
+              />
+            </Col>
+          </Row>
+
+          <Row gutter="10" type="flex" align="center" style={{ padding: 10 }}>
+            <Col span="6">disabled</Col>
+            <Col span="20">
+              <Checkbox
+                onChange={(e) => { this.setState({ disabled: e.target.checked }); }}
+              />
+            </Col>
+          </Row>
+
           <DatePicker
-            rootNativeProps={{ 'data-xx': 'yy' }}
             defaultDate={date || now}
             mode={mode}
-            locale={zhCn}
+            locale={locale[localeType]}
             maxDate={maxDate}
             minDate={minDate}
             onDateChange={this.onDateChange}
             onValueChange={this.onValueChange}
             onScrollChange={this.onScrollChange}
             use12Hours={this.state.use12Hours}
+            disabled={disabled}
           />
         </DemoBlock>
         <DemoBlock title="Popup date picker">

@@ -1,5 +1,3 @@
-/* eslint no-console:0 */
-
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Stepper from '../index';
@@ -26,7 +24,8 @@ export default class Demo extends React.PureComponent {
             value={this.state.val}
             onChange={this.onChange}
           />
-
+        </DemoBlock>
+        <DemoBlock title="disabled" className="has-padding">
           <Stepper
             style={{ width: '100%', minWidth: '100px' }}
             max={10}
@@ -34,7 +33,8 @@ export default class Demo extends React.PureComponent {
             defaultValue={3}
             disabled
           />
-
+        </DemoBlock>
+        <DemoBlock title="设置step" className="has-padding">
           <Stepper
             style={{ width: '100%', minWidth: '100px' }}
             max={10}
@@ -43,7 +43,8 @@ export default class Demo extends React.PureComponent {
             value={this.state.val}
             onChange={this.onChange}
           />
-
+        </DemoBlock>
+        <DemoBlock title="readOnly" className="has-padding">
           <Stepper
             style={{ width: '100%', minWidth: '100px' }}
             max={10}

@@ -92,10 +92,10 @@ export default class Rate extends React.Component {
 
   render() {
     const { count, allowHalf, style, prefixCls, disabled,
-      className, character } = this.props;
+      className, character, color } = this.props;
     const { value } = this.state;
     const stars = [];
-    const disabledClass = disabled ? `${prefixCls}-disabled` : '';
+    const disabledClass = disabled ? `${prefixCls}--disabled` : '';
 
     for (let index = 0; index < count; index++) {
       stars.push(<Star
@@ -103,8 +103,9 @@ export default class Rate extends React.Component {
         index={index}
         count={count}
         disabled={disabled}
-        prefixCls={`${prefixCls}-star`}
+        prefixCls={`${prefixCls}__star`}
         allowHalf={allowHalf}
+        color={color}
         value={value}
         onClick={this.onClick}
         key={index}

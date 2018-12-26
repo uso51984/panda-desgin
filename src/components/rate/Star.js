@@ -11,16 +11,18 @@ export default class Star extends React.Component {
     const starValue = index + 1;
     let className = prefixCls;
     if (allowHalf && value + 0.5 === starValue) {
-      className += ` ${prefixCls}-half ${prefixCls}-active`;
+      className += ` ${prefixCls}--half ${prefixCls}--active`;
     } else {
-      className += starValue <= value ? ` ${prefixCls}-full` : ` ${prefixCls}-zero`;
+      className += starValue <= value ? ` ${prefixCls}--full` : ` ${prefixCls}--zero`;
     }
     return className;
   }
 
+
   render() {
     const { onClick } = this;
     const { disabled, prefixCls, character } = this.props;
+
     return (
       <li
         className={this.getClassName()}

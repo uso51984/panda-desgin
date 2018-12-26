@@ -28,27 +28,24 @@ class Picker extends React.Component {
   componentDidMount() {
     const { contentRef, indicatorRef, maskRef, rootRef } = this;
 
-    setTimeout(() => {
-      const rootHeight = rootRef.getBoundingClientRect().height;
-      const itemHeight = indicatorRef.getBoundingClientRect().height;
-      this.itemHeight = itemHeight;
-      let num = Math.floor(rootHeight / itemHeight);
-      if (num % 2 === 0) {
-        num--;
-      }
+    const rootHeight = rootRef.getBoundingClientRect().height;
+    const itemHeight = indicatorRef.getBoundingClientRect().height;
+    this.itemHeight = itemHeight;
+    let num = Math.floor(rootHeight / itemHeight);
+    if (num % 2 === 0) {
       num--;
-      num /= 2;
-      contentRef.style.padding = `${itemHeight * num}px 0`;
-      indicatorRef.style.top = `${itemHeight * num}px`;
-      maskRef.style.backgroundSize = `100% ${itemHeight * num}px`;
+    }
+    num--;
+    num /= 2;
+    contentRef.style.padding = `${itemHeight * num}px 0`;
+    indicatorRef.style.top = `${itemHeight * num}px`;
+    maskRef.style.backgroundSize = `100% ${itemHeight * num}px`;
 
-      this.props.select(this.state.selectedValue, this.itemHeight, this.scrollTo);
-      Object.keys(this.scrollHanders).forEach((key) => {
-        if (key.indexOf('touch') === 0 || key.indexOf('mouse') === 0) {
-          // const pd = key.indexOf('move') >= 0 ? willPreventDefault : willNotPreventDefault;
-          rootRef.addEventListener(key, this.scrollHanders[key], false);
-        }
-      });
+    this.props.select(this.state.selectedValue, this.itemHeight, this.scrollTo);
+    Object.keys(this.scrollHanders).forEach((key) => {
+      if (key.indexOf('touch') === 0 || key.indexOf('mouse') === 0) {
+        rootRef.addEventListener(key, this.scrollHanders[key], false);
+      }
     });
   }
 
@@ -273,17 +270,24 @@ class Picker extends React.Component {
     return children && children[0] && children[0].props.value;
   }
 
-  render() {
-    const { prefixCls, className, indicatorClassName, style, indicatorStyle, children } = this.props;
+  getItems() {
+    const { children, prefixCls, itemStyle } = this.props;
     const { selectedValue } = this.state;
     const itemClassName = `${prefixCls}-item`;
     const selectedItemClassName = `${itemClassName} ${prefixCls}-item-selected`;
-    const map = (item) => {
-      const { className, style, value, itemStyle } = item.props;
+
+    const mapFunc = (item) => {
+      const { value, className, style } = item.props;
+      const isSelectedValue = selectedValue === value;
+      const itemcls = classNames({
+        [selectedItemClassName]: isSelectedValue,
+        [itemClassName]: !isSelectedValue,
+      }, className);
+
       return (
         <div
           style={{ ...itemStyle, ...style }}
-          className={`${selectedValue === value ? selectedItemClassName : itemClassName} ${className}`}
+          className={itemcls}
           key={value}
         >
           {item.children || item.props.children}
@@ -291,22 +295,29 @@ class Picker extends React.Component {
       );
     };
 
-    const items = React.Children.map(children, map);
+    return React.Children.map(children, mapFunc);
+  }
+
+  render() {
+    const { prefixCls, className, indicatorClassName, disabled, style, indicatorStyle } = this.props;
 
     const pickerCls = classNames({
       [prefixCls]: !!prefixCls,
+      [`${prefixCls}--disabled`]: disabled,
       className,
     });
+
+    const indicatorCls = classNames(`${prefixCls}__indicator`, indicatorClassName);
     return (
       <div className={pickerCls} ref={el => this.rootRef = el} style={style}>
-        <div className={`${prefixCls}-mask`} ref={el => this.maskRef = el} />
+        <div className={`${prefixCls}__mask`} ref={el => this.maskRef = el} />
         <div
-          className={`${prefixCls}-indicator ${indicatorClassName}`}
+          className={indicatorCls}
           ref={el => this.indicatorRef = el}
           style={indicatorStyle}
         />
-        <div className={`${prefixCls}-content`} ref={el => this.contentRef = el}>
-          {items}
+        <div className={`${prefixCls}__content`} ref={el => this.contentRef = el}>
+          {this.getItems()}
         </div>
       </div>
     );

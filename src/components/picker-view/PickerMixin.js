@@ -2,7 +2,7 @@ import React from 'react';
 
 const Item = () => null;
 
-export default function (ComposedComponent) {
+export default function (Component) {
   return class extends React.Component {
     static Item = Item;
 
@@ -35,14 +35,12 @@ export default function (ComposedComponent) {
       const child = children[index];
       if (child) {
         fireValueChange(child.props.value);
-      } else if (console.warn) {
-        console.warn('child not found', children, index);
       }
     }
 
     render() {
       return (
-        <ComposedComponent
+        <Component
           {...this.props}
           doScrollingComplete={this.doScrollingComplete}
           computeChildIndex={this.computeChildIndex}
