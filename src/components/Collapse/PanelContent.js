@@ -6,9 +6,9 @@ class PanelContent extends React.PureComponent {
   render() {
     const { prefixCls, isActive, children, destroyInactivePanel } = this.props;
     const contentCls = classnames({
-      [`${prefixCls}-content`]: true,
-      [`${prefixCls}-content-active`]: isActive,
-      [`${prefixCls}-content-inactive`]: !isActive,
+      [`${prefixCls}__item-content`]: true,
+      [`${prefixCls}__item-content--active`]: isActive,
+      [`${prefixCls}__item-content--inactive`]: !isActive,
     });
 
     return (
@@ -17,7 +17,7 @@ class PanelContent extends React.PureComponent {
       >
         {
           !isActive && destroyInactivePanel ? null :
-          <div className={`${prefixCls}-content-box`}>{children}</div>
+          <div className={`${prefixCls}__item-content-box`}>{children}</div>
         }
       </div>
     );

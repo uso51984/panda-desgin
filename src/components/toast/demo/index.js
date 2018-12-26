@@ -29,28 +29,26 @@ function loadingToast() {
   });
 }
 
-export default class ToastExample extends React.PureComponent {
-  render() {
-    return (
-      <div>
-        <DemoBlock title="基本文字提示" className="has-padding">
-          <Button inline onClick={showToast}>文字提示</Button>
-          <Button inline onClick={showToastNoMask}>无mask</Button>
-        </DemoBlock>
+export default() =>
+  (
+    <div>
+      <DemoBlock title="基本文字提示" className="has-padding">
+        <Button inline onClick={showToast} style={{ marginRight: 20 }}>文字提示</Button>
+        <Button inline onClick={showToastNoMask}>无mask</Button>
+      </DemoBlock>
 
-        <DemoBlock title="成功/失败" className="has-padding">
-          <Button inline onClick={successToast}>成功提示</Button>
-          <Button inline onClick={failToast}>失败提示</Button>
-        </DemoBlock>
+      <DemoBlock title="成功/失败" className="has-padding">
+        <Button inline onClick={successToast} style={{ marginRight: 20 }}>成功提示</Button>
+        <Button inline onClick={failToast}>失败提示</Button>
+      </DemoBlock>
 
-        <DemoBlock title="网络离线状态" className="has-padding">
-          <Button onClick={offline}>网络离线状态</Button>
-        </DemoBlock>
+      <DemoBlock title="网络离线状态" className="has-padding">
+        <Button onClick={offline}>网络离线状态</Button>
+      </DemoBlock>
 
-        <DemoBlock title="loading" className="has-padding">
-          <Button onClick={loadingToast}>loading</Button>
-        </DemoBlock>
-      </div>
-    );
-  }
-}
+      <DemoBlock title="loading" className="has-padding">
+        <Button onClick={loadingToast}>loading</Button>
+      </DemoBlock>
+    </div>
+  );
+

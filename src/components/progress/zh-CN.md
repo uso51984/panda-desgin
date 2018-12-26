@@ -1,4 +1,4 @@
-## Picker 选择器
+## Progress 进度条
 
 ### 代码演示
 ```jsx
@@ -7,6 +7,7 @@ import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import { Row, Col } from '../../Grid';
 import Progress from '../Progress';
 import Button from '../../Button';
+import './index.less';
 
 export default class Demo extends React.PureComponent {
   state = {
@@ -85,9 +86,9 @@ export default class Demo extends React.PureComponent {
     );
   }
 }
-
 ```
-## API
+
+### API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

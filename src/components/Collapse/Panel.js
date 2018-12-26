@@ -20,15 +20,15 @@ class CollapsePanel extends React.Component {
     } = this.props;
 
     const itemCls = classNames({
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-active`]: isActive,
-      [`${prefixCls}-item-disabled`]: disabled,
+      [`${prefixCls}__item`]: true,
+      [`${prefixCls}__item--active`]: isActive,
+      [`${prefixCls}__item--disabled`]: disabled,
     }, className);
 
     return (
       <div className={itemCls} style={style}>
         <div
-          className={`${prefixCls}-header`}
+          className={`${prefixCls}__item-header`}
           onClick={this.handleItemClick}
           role={accordion ? 'tab' : 'button'}
           aria-expanded={isActive}

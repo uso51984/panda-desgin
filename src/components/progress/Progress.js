@@ -2,12 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import CircleProgress from './CircleProgress';
 
-const statusColorMap = {
-  normal: '#108ee9',
-  exception: '#ff5500',
-  success: '#87d068',
-};
-
 export default class Progress extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'panda-progress',

@@ -7,8 +7,8 @@
     transition: all .2s ease-out;
   }
 
-  & &-item {
-    .@{accordionPrefixCls}-header {
+  &__item {
+    &-header {
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -42,24 +42,24 @@
       }
     }
 
-    &-disabled {
-      .@{accordionPrefixCls}-header{
+    &--disabled {
+      .@{accordionPrefixCls}__item-header{
         color: @gray;
       }
     }
 
-    .@{accordionPrefixCls}-content {
+    .@{accordionPrefixCls}__item-content {
       background-color: @white;
       overflow: hidden;
 
-      .@{accordionPrefixCls}-content-box {
+      .@{accordionPrefixCls}__item-content-box {
         padding: 15px;
         font-size: 12px;
         position: relative;
         border-bottom: 1px solid @border-color;
       }
 
-      &.@{accordionPrefixCls}-content-inactive {
+      &.@{accordionPrefixCls}__item-content--inactive {
         display: none;
       }
     }

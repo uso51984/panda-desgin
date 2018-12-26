@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-export default class NavBar extends React.Component {
+export default class NavBar extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'panda-navbar',
     onLeftClick: () => {},
@@ -18,19 +18,19 @@ export default class NavBar extends React.Component {
         className={classnames(prefixCls, className)}
       >
         <div
-          className={`${prefixCls}-left`}
+          className={`${prefixCls}__left`}
           role="button"
           onClick={onLeftClick}
         >
           {icon ? (
-            <span className={`${prefixCls}-left-icon`} aria-hidden="true">
+            <span className={`${prefixCls}__left-icon`}>
               {icon}
             </span>
           ) : null}
           {leftContent}
         </div>
-        <div className={`${prefixCls}-title`}>{children}</div>
-        <div className={`${prefixCls}-right`}>{rightContent}</div>
+        <div className={`${prefixCls}__title`}>{children}</div>
+        <div className={`${prefixCls}__right`}>{rightContent}</div>
       </div>
     );
   }
