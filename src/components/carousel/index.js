@@ -55,6 +55,8 @@ class Carousel extends React.PureComponent {
       const rect = this.carouselEl.getBoundingClientRect();
       this.computedWidth = this.props.width || rect.width;
       this.computedHeight = this.props.height || rect.height;
+    console.log('const rect', rect);
+
     }
 
     this.size = this[vertical ? 'computedHeight' : 'computedWidth'];
@@ -71,6 +73,7 @@ class Carousel extends React.PureComponent {
   getSwipeItem() {
     const { children, prefixCls, vertical } = this.props;
     this.swipeItemEl = [];
+    console.log('this.size', this.size)
     const mainAxis = vertical ? 'height' : 'width';
     const mapFunc = (child, index) => (
       <div
