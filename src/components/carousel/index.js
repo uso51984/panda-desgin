@@ -16,30 +16,76 @@ class Carousel extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'van-swipe',
     vertical: false,
+    autoplay: 2000,
     duration: 500,
+    initialSwipe: 0,
+    loop: true,
+    touchable: true,
+    style: {},
   }
 
   constructor(props) {
     super(props);
 
+    const { children } = this.props;
+    this.count = React.Children.count(children);
+    this.swipes = [];
+    React.Children.forEach(children, () => {
+      this.swipes.push({ offset: 0 });
+    });
+
     this.state = {
-      direction: '',
+      active: 0,
     };
   }
 
   componentDidMount() {
+    this.initialize();
+    const styleObj = this.getTrackStyle();
+    for (const key in styleObj) {
+      this.el.style[key] = styleObj[key];
+    }
 
+    console.log('this.computedWidth', this.computedWidth);
+
+    this.swipeItemEl.forEach((el) => {
+      el.style.transform = `translate${this.props.vertical ? 'Y' : 'X'} 0px`;
+      console.log('el.style', el.style)
+    });
+  }
+
+
+  initialize(active = this.props.initialSwipe) {
+    const { vertical } = this.props;
+    if (this.carouselEl) {
+      const rect = this.carouselEl.getBoundingClientRect();
+      this.computedWidth = this.props.width || rect.width;
+      this.computedHeight = this.props.height || rect.height;
+    }
+
+    this.size = this[vertical ? 'computedHeight' : 'computedWidth'];
+    this.trackSize = this.count * this.size;
+
+    this.swiping = true;
+    this.active = active;
+    this.setState({ active });
+    this.offset = this.count > 1 ? -this.size * active : 0;
+
+    this.autoPlay();
   }
 
   getSwipeItem() {
     const { children, prefixCls } = this.props;
-    const mapFunc = (child, index) => {
-      return (
-        <div key={index} className={`${prefixCls}-item`}>
-          {child}
-        </div>
-      );
-    };
+    this.swipeItemEl = [];
+    const mapFunc = (child, index) => (
+      <div
+        key={index}
+        className={`${prefixCls}-item`}
+        ref={el => this.swipeItemEl[index] = el}
+      >
+        {child}
+      </div>
+    );
 
     return React.Children.map(children, mapFunc);
   }
@@ -52,23 +98,26 @@ class Carousel extends React.PureComponent {
       [mainAxis]: `${this.trackSize}px`,
       [crossAxis]: this[crossAxis] ? `${this[crossAxis]}px` : '',
       transitionDuration: `${this.swiping ? 0 : duration}ms`,
-      transform: `translate${vertical ? 'Y' : 'X'}(${0}px)`
+      transform: `translate${vertical ? 'Y' : 'X'}(${this.offset}px)`,
     };
   }
 
-  onTouchStart(event) {
+  touchStart(event) {
     this.resetTouchStatus();
     this.startX = event.touches[0].clientX;
     this.startY = event.touches[0].clientY;
   }
 
-  onTouchMove(event) {
+  touchMove(event) {
     const touch = event.touches[0];
     this.deltaX = touch.clientX - this.startX;
     this.deltaY = touch.clientY - this.startY;
     this.offsetX = Math.abs(this.deltaX);
     this.offsetY = Math.abs(this.deltaY);
     this.direction = this.direction || getDirection(this.offsetX, this.offsetY);
+    const expect = this.props.vertical ? 'vertical' : 'horizontal';
+
+    this.isCorrectDirection = this.direction === expect;
   }
 
   resetTouchStatus() {
@@ -79,19 +128,147 @@ class Carousel extends React.PureComponent {
     this.offsetY = 0;
   }
 
-  onTouchEnd() {
+  onTouchStart = (event) => {
+    if (!this.props.touchable) return;
 
+    this.el.style.transitionDuration = '0ms';
+    this.clear();
+    this.swiping = true;
+    this.touchStart(event);
+    this.correctPosition();
+  }
+
+  onTouchMove = (event) => {
+    if (!this.props.touchable || !this.swiping) return;
+
+    this.touchMove(event);
+    this.delta = this.props.vertical ? this.deltaY : this.deltaX;
+    if (this.isCorrectDirection) {
+      event.stopPropagation();
+      this.move(0, Math.min(Math.max(this.delta, -this.size), this.size));
+    }
+  }
+
+  resetTouchStatus = () => {
+    this.direction = '';
+    this.deltaX = 0;
+    this.deltaY = 0;
+    this.offsetX = 0;
+    this.offsetY = 0;
+  }
+
+  onTouchEnd = () => {
+    if (!this.props.touchable || !this.swiping) return;
+
+    if (this.delta && this.isCorrectDirection) {
+      const offset = this.props.vertical ? this.offsetY : this.offsetX;
+      this.move(offset > 0 ? (this.delta > 0 ? -1 : 1) : 0, 0, true);
+    }
+
+    const { duration } = this.props;
+
+    this.el.style.transitionDuration = `${duration}ms`;
+    this.setState({ active: this.active }, () => {
+      console.log('');
+    });
+    this.swiping = false;
+    this.autoPlay();
+  }
+
+  move(move = 0, offset = 0, istest) {
+    let { active } = this;
+    const { delta, count, swipes, trackSize } = this;
+
+    const atFirst = active === 0;
+    const atLast = active === count - 1;
+    const outOfBounds =
+      !this.props.loop &&
+      ((atFirst && (offset > 0 || move < 0)) ||
+        (atLast && (offset < 0 || move > 0)));
+
+
+    if (outOfBounds || count <= 1) {
+      return;
+    }
+
+    swipes[0].offset = atLast && (delta < 0 || move > 0) ? trackSize : 0;
+
+    swipes[count - 1].offset =
+      atFirst && (delta > 0 || move < 0) ? -trackSize : 0;
+
+    if (move && active + move >= -1 && active + move <= count) {
+      active += move;
+    }
+    if (istest) {
+      console.log('active', active);
+    }
+    this.active = active;
+    this.offset = offset - (active * this.size);
+
+    const { vertical } = this.props;
+    this.swipeItemEl[0].style.transform = `translate${vertical ? 'Y' : 'X'}(${swipes[0].offset}px)`;
+    this.swipeItemEl[count - 1].style.transform = `translate${vertical ? 'Y' : 'X'}(${swipes[count - 1].offset}px)`;
+
+    this.el.style.transform = `translate${vertical ? 'Y' : 'X'}(${this.offset}px)`;
+  }
+
+  correctPosition() {
+    const { active } = this;
+    if (active <= -1) {
+      this.move(this.count);
+    }
+    if (active >= this.count) {
+      this.move(-this.count);
+    }
+  }
+
+  clear() {
+    clearTimeout(this.timer);
+  }
+
+  autoPlay() {
+    const { autoplay, duration } = this.props;
+
+    if (autoplay && this.count > 1) {
+      this.clear();
+      this.timer = setTimeout(() => {
+        this.swiping = true;
+        this.resetTouchStatus();
+        this.correctPosition();
+        this.el.style.transitionDuration = `${0}ms`;
+
+        setTimeout(() => {
+          this.swiping = false;
+          this.el.style.transitionDuration = `${duration}ms`;
+          this.move(1, 0, true);
+          this.setState({ active: this.active });
+          this.autoPlay();
+        }, 30);
+      }, autoplay);
+    }
   }
 
   render() {
-    const { prefixCls, className } = this.props;
-    const carouselCls = classNames(prefixCls, className);
+    const { prefixCls, className, vertical, style } = this.props;
+    const { active } = this.state;
+    const carouselCls = classNames(prefixCls, {
+      [`${prefixCls}--vertical`]: vertical,
+    }, className);
+
+    const indicatorsCls = classNames({
+      [`${prefixCls}__indicators`]: true,
+      [`${prefixCls}__indicators--vertical`]: vertical,
+    });
+
+    const getIndicatorCls = index => classNames({
+      [`${prefixCls}__indicator`]: true,
+      [`${prefixCls}__indicator--active`]: (active + this.count) % this.count === index,
+    });
 
     return (
-      <div className={carouselCls}>
+      <div className={carouselCls} ref={el => this.carouselEl = el} style={style}>
         <div
-          style={this.getTrackStyle()}
-          ref={(el)=> this.el = el}
+          ref={el => this.el = el}
           className={`${prefixCls}__track`}
           onTouchStart={this.onTouchStart}
           onTouchMove={this.onTouchMove}
@@ -99,6 +276,13 @@ class Carousel extends React.PureComponent {
           onTouchCancel={this.onTouchEnd}
         >
           {this.getSwipeItem()}
+        </div>
+        <div className={indicatorsCls}>
+          {
+            this.swipes.map((_, index) => (
+              <i key={index} className={getIndicatorCls(index)} />
+            ))
+          }
         </div>
       </div>
     );

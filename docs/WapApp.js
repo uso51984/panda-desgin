@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import registerRoute from './routers';
-import './mobileComponents/touch-simulator';
+// import './mobileComponents/touch-simulator';
 
 
 export default class WapApp extends React.Component {

@@ -17,14 +17,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Carousel
-          autoplay={false}
-          wrapAround
-        >
+        <Carousel >
           {this.state.data.map(val => (
             <a
               key={val}
-              href="http://www.alipay.com"
               style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >
               <img
@@ -41,12 +37,9 @@ export default class App extends React.Component {
           ))}
         </Carousel>
         <Carousel className="my-carousel"
+          style={{ height: 20 }}
           vertical
-          withoutControls
-          dragging={false}
-          swiping={false}
-          autoplay
-          wrapAround
+          height={20}
         >
           <div className="v-item">carousel 1</div>
           <div className="v-item">carousel 2</div>
