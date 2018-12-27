@@ -143,6 +143,7 @@ class Carousel extends React.PureComponent {
     this.touchMove(event);
     this.delta = this.props.vertical ? this.deltaY : this.deltaX;
     if (this.isCorrectDirection) {
+      console.log('e', event.preventDefault())
       event.stopPropagation();
       this.move(0, Math.min(Math.max(this.delta, -this.size), this.size));
     }
