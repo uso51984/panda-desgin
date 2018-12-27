@@ -18,6 +18,7 @@ class Carousel extends React.PureComponent {
     vertical: false,
     autoplay: 2000,
     duration: 500,
+    showIndicators: true,
     initialSwipe: 0,
     loop: true,
     touchable: true,
@@ -45,13 +46,6 @@ class Carousel extends React.PureComponent {
     for (const key in styleObj) {
       this.el.style[key] = styleObj[key];
     }
-
-    console.log('this.computedWidth', this.computedWidth);
-
-    this.swipeItemEl.forEach((el) => {
-      el.style.transform = `translate${this.props.vertical ? 'Y' : 'X'} 0px`;
-      console.log('el.style', el.style)
-    });
   }
 
 
@@ -75,10 +69,12 @@ class Carousel extends React.PureComponent {
   }
 
   getSwipeItem() {
-    const { children, prefixCls } = this.props;
+    const { children, prefixCls, vertical } = this.props;
     this.swipeItemEl = [];
+    const mainAxis = vertical ? 'height' : 'width';
     const mapFunc = (child, index) => (
       <div
+        style={{ [mainAxis]: this.size }}
         key={index}
         className={`${prefixCls}-item`}
         ref={el => this.swipeItemEl[index] = el}
@@ -168,9 +164,7 @@ class Carousel extends React.PureComponent {
     const { duration } = this.props;
 
     this.el.style.transitionDuration = `${duration}ms`;
-    this.setState({ active: this.active }, () => {
-      console.log('');
-    });
+    this.setState({ active: this.active });
     this.swiping = false;
     this.autoPlay();
   }
@@ -249,7 +243,7 @@ class Carousel extends React.PureComponent {
   }
 
   render() {
-    const { prefixCls, className, vertical, style } = this.props;
+    const { prefixCls, className, vertical, showIndicators, style } = this.props;
     const { active } = this.state;
     const carouselCls = classNames(prefixCls, {
       [`${prefixCls}--vertical`]: vertical,
@@ -277,13 +271,18 @@ class Carousel extends React.PureComponent {
         >
           {this.getSwipeItem()}
         </div>
-        <div className={indicatorsCls}>
-          {
-            this.swipes.map((_, index) => (
-              <i key={index} className={getIndicatorCls(index)} />
-            ))
-          }
-        </div>
+        {
+          showIndicators && (
+            <div className={indicatorsCls}>
+              {
+                this.swipes.map((_, index) => (
+                  <i key={index} className={getIndicatorCls(index)} />
+                ))
+              }
+            </div>
+          )
+        }
+
       </div>
     );
   }

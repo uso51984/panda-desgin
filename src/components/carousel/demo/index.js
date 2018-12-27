@@ -39,6 +39,7 @@ export default class App extends React.Component {
         <Carousel className="my-carousel"
           style={{ height: 20 }}
           vertical
+          showIndicators={false}
           height={20}
         >
           <div className="v-item">carousel 1</div>
