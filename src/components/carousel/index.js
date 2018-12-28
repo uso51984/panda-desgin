@@ -46,6 +46,11 @@ class Carousel extends React.PureComponent {
     for (const key in styleObj) {
       this.el.style[key] = styleObj[key];
     }
+
+    this.el.addEventListener('touchstart', this.onTouchStart);
+    this.el.addEventListener('touchmove', this.onTouchMove);
+    this.el.addEventListener('touchend', this.onTouchEnd);
+    this.el.addEventListener('touchcancel', this.onTouchEnd);
   }
 
 
@@ -55,8 +60,6 @@ class Carousel extends React.PureComponent {
       const rect = this.carouselEl.getBoundingClientRect();
       this.computedWidth = this.props.width || rect.width;
       this.computedHeight = this.props.height || rect.height;
-    console.log('const rect', rect);
-
     }
 
     this.size = this[vertical ? 'computedHeight' : 'computedWidth'];
@@ -73,7 +76,6 @@ class Carousel extends React.PureComponent {
   getSwipeItem() {
     const { children, prefixCls, vertical } = this.props;
     this.swipeItemEl = [];
-    console.log('this.size', this.size)
     const mainAxis = vertical ? 'height' : 'width';
     const mapFunc = (child, index) => (
       <div
@@ -143,7 +145,7 @@ class Carousel extends React.PureComponent {
     this.touchMove(event);
     this.delta = this.props.vertical ? this.deltaY : this.deltaX;
     if (this.isCorrectDirection) {
-      console.log('e', event.preventDefault())
+      event.preventDefault();
       event.stopPropagation();
       this.move(0, Math.min(Math.max(this.delta, -this.size), this.size));
     }
@@ -162,7 +164,8 @@ class Carousel extends React.PureComponent {
 
     if (this.delta && this.isCorrectDirection) {
       const offset = this.props.vertical ? this.offsetY : this.offsetX;
-      this.move(offset > 0 ? (this.delta > 0 ? -1 : 1) : 0, 0, true);
+      const direction = this.delta > 0 ? -1 : 1;
+      this.move(offset > 0 ? direction : 0, 0, true);
     }
 
     const { duration } = this.props;
@@ -197,9 +200,7 @@ class Carousel extends React.PureComponent {
     if (move && active + move >= -1 && active + move <= count) {
       active += move;
     }
-    if (istest) {
-      console.log('active', active);
-    }
+
     this.active = active;
     this.offset = offset - (active * this.size);
 
@@ -268,10 +269,6 @@ class Carousel extends React.PureComponent {
         <div
           ref={el => this.el = el}
           className={`${prefixCls}__track`}
-          onTouchStart={this.onTouchStart}
-          onTouchMove={this.onTouchMove}
-          onTouchEnd={this.onTouchEnd}
-          onTouchCancel={this.onTouchEnd}
         >
           {this.getSwipeItem()}
         </div>
