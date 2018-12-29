@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import NavBar from 'src/components/nav-bar';
+import Icon from 'src/components/Icon';
 import docConfig from './doc.config';
 import DemoList from './mobileComponents/DemoList';
 import componentDocs, { Markdown } from './docs-entry';
@@ -41,7 +43,17 @@ const registerRoute = (isDemo) => {
           component={(props) => {
             window.g_history = props.history;
             window.g_location = props.location;
-            return <Component {...props} />;
+            return (
+              <div>
+                <NavBar
+                  icon={<Icon type="left" />}
+                  onLeftClick={() => props.history.push('/')}
+                >
+                  {page.title}
+                </NavBar>
+                <Component {...props} />
+              </div>
+              );
           }}
         />));
       }

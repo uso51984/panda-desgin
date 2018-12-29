@@ -14,9 +14,9 @@ function getDirection(x, y) {
 
 class Carousel extends React.PureComponent {
   static defaultProps = {
-    prefixCls: 'van-swipe',
+    prefixCls: 'panda-swipe',
     vertical: false,
-    autoplay: 2000,
+    autoplay: 0,
     duration: 500,
     showIndicators: true,
     initialSwipe: 0,
@@ -36,7 +36,7 @@ class Carousel extends React.PureComponent {
     });
 
     this.state = {
-      active: 0,
+      active: props.initialSwipe,
     };
   }
 

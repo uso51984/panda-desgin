@@ -5,7 +5,6 @@ import Carousel from '../index';
 export default class App extends React.Component {
   state = {
     data: ['1', '2', '3'],
-    imgHeight: 176,
   }
   componentDidMount() {
     setTimeout(() => {
@@ -20,21 +19,17 @@ export default class App extends React.Component {
         <DemoBlock title="水平">
           <Carousel>
             {this.state.data.map(val => (
-              <a
+              <span
                 key={val}
-                style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+                style={{ display: 'inline-block', width: '100%' }}
               >
                 <img
                   src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                  onDragStart={(e) => { e.preventDefault(); }}
                   alt=""
-                  style={{ width: '100%', verticalAlign: 'top' }}
-                  onLoad={() => {
-                    // fire window resize event to change height
-                    window.dispatchEvent(new Event('resize'));
-                    this.setState({ imgHeight: 'auto' });
-                  }}
+                  style={{ width: '100%', height: '100%', verticalAlign: 'top' }}
                 />
-              </a>
+              </span>
             ))}
           </Carousel>
         </DemoBlock>
@@ -43,17 +38,13 @@ export default class App extends React.Component {
             {this.state.data.map(val => (
               <a
                 key={val}
-                style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+                style={{ display: 'inline-block', width: '100%', height: '100%' }}
               >
                 <img
                   src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                  onDragStart={(e) => { e.preventDefault(); }}
                   alt=""
-                  style={{ width: '100%', verticalAlign: 'top' }}
-                  onLoad={() => {
-                    // fire window resize event to change height
-                    window.dispatchEvent(new Event('resize'));
-                    this.setState({ imgHeight: 'auto' });
-                  }}
+                  style={{ width: '100%', height: '100%', verticalAlign: 'top' }}
                 />
               </a>
             ))}
@@ -63,6 +54,8 @@ export default class App extends React.Component {
           <Carousel className="my-carousel"
             style={{ height: 20 }}
             vertical
+            autoplay={2000}
+
             showIndicators={false}
             height={20}
           >

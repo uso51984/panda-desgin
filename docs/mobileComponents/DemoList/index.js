@@ -16,20 +16,21 @@ export default class DemoList extends React.PureComponent {
           <span>panda</span>
         </h1>
         <h2 className="zanui-desc">轻量、可靠的移动端 react 组件库</h2>
+        <Collapse>
 
-        {
+          {
           DocConfig['zh-CN'].nav[1].groups.map((item, index) => (
-            <Collapse key={index}>
-              <Collapse.Panel header={item.groupName}>
-                {
+            <Collapse.Panel header={item.groupName}>
+              {
                   item.list.map((listItem, Lindex) => (
                     <Cell key={Lindex} title={listItem.title} onClick={() => { this.handleClick(listItem); }} arrow="right" />
                   ))
                 }
-              </Collapse.Panel>
-            </Collapse>
+            </Collapse.Panel>
           ))
-        }
+          }
+        </Collapse>
+
       </div>);
   }
 }

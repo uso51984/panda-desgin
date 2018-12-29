@@ -1,4 +1,4 @@
-.van-swipe {
+.panda-swipe {
   overflow: hidden;
   position: relative;
   user-select: none;
@@ -8,7 +8,7 @@
   }
 
   &--vertical {
-    .van-swipe-item {
+    .panda-swipe-item {
       float: none;
       height: auto;
     }
@@ -28,7 +28,7 @@
       flex-direction: column;
       transform: translateY(-50%);
 
-      .van-swipe__indicator:not(:last-child) {
+      .panda-swipe__indicator:not(:last-child) {
         margin-bottom: @swipe-indicator;
       }
     }
@@ -45,13 +45,13 @@
     }
 
     &--active {
-      background-color: @orange;
+      background-color: @white;
     }
   }
 }
 
 
-.van-swipe-item {
+.panda-swipe-item {
   float: left;
   height: 100%;
 }
