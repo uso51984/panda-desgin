@@ -1249,7 +1249,7 @@ var registerRoute = function registerRoute(isDemo) {
       if (path) {
         path = path.replace('/', '');
 
-        var Component = isDemo ? _demo_entry__WEBPACK_IMPORTED_MODULE_7__["default"][path] : _docs_entry__WEBPACK_IMPORTED_MODULE_6__["default"][path];;
+        var Component = isDemo ? _demo_entry__WEBPACK_IMPORTED_MODULE_7__["default"][path] : _docs_entry__WEBPACK_IMPORTED_MODULE_6__["default"][path];
 
         if (!Component) {
           return;
@@ -1264,7 +1264,7 @@ var registerRoute = function registerRoute(isDemo) {
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
               'div',
               null,
-              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+              isDemo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
                 src_components_nav_bar__WEBPACK_IMPORTED_MODULE_2__["default"],
                 {
                   icon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(src_components_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], { type: 'left' }),
