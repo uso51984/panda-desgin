@@ -1030,7 +1030,7 @@ var registerRoute = function registerRoute(isDemo) {
             window.g_history = props.history;
             window.g_location = props.location;
             return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              'div',
+              react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
               null,
               isDemo && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
                 src_components_nav_bar__WEBPACK_IMPORTED_MODULE_2__["default"],
