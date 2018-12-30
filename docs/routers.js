@@ -31,7 +31,7 @@ const registerRoute = (isDemo) => {
       if (path) {
         path = path.replace('/', '');
 
-        const Component = isDemo ? componentDemos[path] : componentDocs[path];;
+        const Component = isDemo ? componentDemos[path] : componentDocs[path];
 
         if (!Component) {
           return;
@@ -45,12 +45,15 @@ const registerRoute = (isDemo) => {
             window.g_location = props.location;
             return (
               <div>
-                <NavBar
-                  icon={<Icon type="left" />}
-                  onLeftClick={() => props.history.push('/')}
-                >
-                  {page.title}
-                </NavBar>
+                {
+                  isDemo &&
+                  <NavBar
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => props.history.push('/')}
+                  >
+                    {page.title}
+                  </NavBar>
+                }
                 <Component {...props} />
               </div>
               );
