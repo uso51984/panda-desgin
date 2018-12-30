@@ -29,7 +29,6 @@ export default class Demo extends React.PureComponent {
   render() {
     return (
       <div>
-        <h1>asdfasfasdfsadf</h1>
         <List
           load={this.load}
           loading={this.state.loading}
