@@ -6,45 +6,35 @@ export default class Demo extends React.Component {
     return (
       <div>
         <TextareaItem
-          title="标题"
-          placeholder="auto focus in Alipay client"
-          data-seed="logId"
-          ref={el => this.autoFocusInst = el}
-          autoHeight
+          placeholder="请输入描述"
         />
         <TextareaItem
-          title="标题"
-          placeholder="click the button below to focus"
-          data-seed="logId"
-          autoHeight
-          ref={el => this.customFocusInst = el}
+          label="地址"
+          rows={3}
+          placeholder="请输入地址"
         />
 
         <TextareaItem
-          title="受控组件"
+          label="受控组件"
+          value="受控组件的值"
           placeholder="controlled"
         />
         <TextareaItem
-          title="非受控组件"
+          label="非受控组件"
           placeholder="please input content"
-          clear
         />
         <TextareaItem
-          title="高度自适应"
+          label="高度自适应"
           autoHeight
-          labelNumber={5}
-        />
-        <TextareaItem
-          rows={3}
-          placeholder="fixed number of lines"
+          rows={2}
         />
         <TextareaItem
           clear
-          title="标题"
-          placeholder="displayed clear while typing"
+          label="标题"
+          placeholder="显示clear按钮"
         />
         <TextareaItem
-          title={<img src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png" style={{ width: '28px', height: '28px' }} alt="" />}
+          label={<img src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png" style={{ width: '28px', height: '28px' }} alt="" />}
           placeholder="title can be customized"
         />
         <TextareaItem
@@ -55,13 +45,20 @@ export default class Demo extends React.Component {
         />
 
         <TextareaItem
-          title="姓名"
-          editable={false}
+          label="error"
+          error
+          defaultValue="has error"
         />
 
         <TextareaItem
-          value="disabled style"
-          title="姓名"
+          label="readOnly"
+          readOnly
+          defaultValue="只读"
+        />
+
+        <TextareaItem
+          value="禁用"
+          label="姓名"
           disabled
         />
       </div>

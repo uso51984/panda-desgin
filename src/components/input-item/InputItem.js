@@ -22,6 +22,7 @@ class InputItem extends React.Component {
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
+    clear: false,
   }
 
   constructor(props) {
@@ -136,6 +137,7 @@ class InputItem extends React.Component {
     const { prefixCls, className, label, suffix, type,
       readOnly, disabled, error, maxLength, ...restProps } = this.props;
     delete restProps.defaultValue;
+    delete restProps.clear;
 
     const { value, focus } = this.state;
     const wrapCls = classNames(

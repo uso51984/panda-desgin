@@ -1,5 +1,5 @@
-@prefixCls: panda-input;
-.@{prefixCls}-wrapper {
+@prefixInputCls: panda-input;
+.@{prefixInputCls}-wrapper {
   width: 100%;
   display: flex;
   padding: 10px 15px;
@@ -15,16 +15,16 @@
     .hairline-bottom(@border-color, 15px);
   }
 
-  .@{prefixCls}-label,
-  .@{prefixCls}-control {
+  .@{prefixInputCls}-label,
+  .@{prefixInputCls}-control {
     flex: 1;
   }
 
-  .@{prefixCls}-label {
+  .@{prefixInputCls}-label {
     max-width: 90px;
   }
 
-  .@{prefixCls}-control {
+  .@{prefixInputCls}-control {
     display: flex;
     align-items: center;
 
@@ -40,12 +40,12 @@
       background-color: transparent;
     }
 
-    .@{prefixCls}-suffix {
+    .@{prefixInputCls}-suffix {
       color: #1989fa;
       height: 22px;
     }
 
-    .@{prefixCls}-clear {
+    .@{prefixInputCls}-clear {
       display: none;
       min-width: @icon-size-sm;
       min-height: @icon-size-sm;
@@ -66,25 +66,25 @@
     }
   }
 
-  &.@{prefixCls}-focus {
-    .@{prefixCls}-clear {
+  &.@{prefixInputCls}-focus {
+    .@{prefixInputCls}-clear {
       display: block;
     }
   }
 
-  &.@{prefixCls}-disabled {
+  &.@{prefixInputCls}-disabled {
     color: @color-text-disabled;
     background-color: @white;
   }
 
-  &.@{prefixCls}-error {
-    .@{prefixCls}-control {
+  &.@{prefixInputCls}-error {
+    .@{prefixInputCls}-control {
       input {
         color: @red;
       }
     }
 
-    .@{prefixCls}-error-extra {
+    .@{prefixInputCls}-error-extra {
       height: 23px;
       width: 23px;
       margin-left: @v-spacing-sm;

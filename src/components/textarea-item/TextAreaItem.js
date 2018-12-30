@@ -1,10 +1,8 @@
-/* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
 import React from 'react';
 import TouchFeedback from 'react-tap-feedback';
 
 function noop() {}
-const IS_IOS = false;
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -22,9 +20,8 @@ function countSymbols(text = '') {
 export default class TextareaItem extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'am-textarea',
-    prefixListCls: 'am-list',
     autoHeight: false,
-    editable: true,
+    readOnly: false,
     disabled: false,
     placeholder: '',
     clear: false,
@@ -70,7 +67,7 @@ export default class TextareaItem extends React.PureComponent {
   }
   reAlignHeight = () => {
     const textareaDom = this.textareaRef;
-    textareaDom.style.height = ''; // 字数减少时能自动减小高度
+    textareaDom.style.height = '';
     textareaDom.style.height = `${textareaDom.scrollHeight}px`;
   }
   componentWillUnmount() {
@@ -110,7 +107,6 @@ export default class TextareaItem extends React.PureComponent {
   }
 
   onFocus = (e) => {
-    console.log('-----------232323')
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
@@ -125,81 +121,58 @@ export default class TextareaItem extends React.PureComponent {
   }
 
   onErrorClick = () => {
-    if (this.props.onErrorClick) {
-      this.props.onErrorClick();
-    }
+    this.props.onErrorClick();
   }
 
   clearInput = () => {
-    this.setState({
-      value: '',
-    });
+    this.setState({ value: '' });
 
-    if (this.props.onChange) {
-      this.props.onChange('');
-    }
+    this.props.onChange('');
   }
 
   render() {
-    const { prefixCls, prefixListCls, editable, style, clear, children, error, className, count,
-      labelNumber, title, onErrorClick, autoHeight, defaultValue, ...otherProps } = this.props;
+    const { prefixCls, readOnly, style, clear, children, error, className, count,
+      labelNumber, label, autoHeight, defaultValue, ...otherProps } = this.props;
     const { disabled } = otherProps;
     const { value, focus } = this.state;
     const hasCount = count > 0 && this.props.rows > 1;
 
     const wrapCls = classnames(
-      className,
-      `${prefixListCls}-item`,
-      `${prefixCls}-item`,
+      `${prefixCls}-wrapper`,
       {
-        [`${prefixCls}-disabled`]: disabled,
-        [`${prefixCls}-item-single-line`]: this.props.rows === 1 && !autoHeight,
-        [`${prefixCls}-error`]: error,
-        [`${prefixCls}-focus`]: focus,
+        [`${prefixCls}--disabled`]: disabled,
+        [`${prefixCls}-wrapper-single-line`]: this.props.rows === 1 && !autoHeight,
+        [`${prefixCls}--error`]: error,
+        [`${prefixCls}--focus`]: focus,
         [`${prefixCls}-has-count`]: hasCount,
       },
+      className,
     );
 
-    const labelCls = classnames(`${prefixCls}-label`, {
-      [`${prefixCls}-label-2`]: labelNumber === 2,
-      [`${prefixCls}-label-3`]: labelNumber === 3,
-      [`${prefixCls}-label-4`]: labelNumber === 4,
-      [`${prefixCls}-label-5`]: labelNumber === 5,
-      [`${prefixCls}-label-6`]: labelNumber === 6,
-      [`${prefixCls}-label-7`]: labelNumber === 7,
-    });
+    const labelCls = classnames(`${prefixCls}-label`);
+
     const characterLength = countSymbols(value);
-    const lengthCtrlProps = {};
-    if (count > 0) {
-      // Note: If in the iOS environment of dev-tools, It will fail.
-      if (!IS_IOS) {
-        const entValue = value ? value.replace(regexAstralSymbols, '_') : '';
-        const entLen = entValue ? entValue.split('_').length - 1 : 0;
-        lengthCtrlProps.maxLength =
-          ((count + entLen) - characterLength) + (value ? value.length : 0);
-      } else {
-        lengthCtrlProps.maxLength =
-          (count - characterLength) + (value ? value.length : 0);
-      }
-    }
+
+    delete otherProps.onErrorClick;
+
     return (
       <div className={wrapCls}>
-        {title && <div className={labelCls}>{title}</div>}
+        {label && <div className={labelCls}>{label}</div>}
         <div className={`${prefixCls}-control`}>
           <textarea
             ref={el => (this.textareaRef = el)}
-            {...lengthCtrlProps}
             {...otherProps}
             value={value}
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
-            readOnly={!editable}
+            readOnly={readOnly}
             style={style}
           />
         </div>
-        {clear &&
-          editable &&
+        {
+          clear &&
+          !readOnly &&
           value &&
           characterLength > 0 && (
             <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>

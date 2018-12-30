@@ -1,78 +1,66 @@
-@textareaPrefixCls: am-textarea;
+@prefixTextareCls: am-textarea;
 
-.@{textareaPrefixCls}-label {
-  align-self: flex-start;
-  color: @color-text-base;
-  text-align: left;
-  min-height: @list-item-height;
-  font-size: @font-size-heading;
-  line-height: @list-item-height;
-  margin-left: 0;
-  margin-right: @h-spacing-sm;
-  white-space: nowrap;
+.@{prefixTextareCls}-wrapper {
+  width: 100%;
+  display: flex;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  line-height: 24px;
+  position: relative;
+  background-color: @white;
+  color: @text-color;
+  font-size: 14px;
   overflow: hidden;
 
-  &.@{textareaPrefixCls}-label-2 {
-    width: 2 * @input-label-width;
+  &:not(:last-child)::after {
+    .hairline-bottom(@border-color, 15px);
   }
 
-  &.@{textareaPrefixCls}-label-3 {
-    width: 3 * @input-label-width;
+  .@{prefixTextareCls}-label,
+  .@{prefixTextareCls}-control {
+    flex: 1;
   }
 
-  &.@{textareaPrefixCls}-label-4 {
-    width: 4 * @input-label-width;
+  .@{prefixTextareCls}-label {
+    max-width: 90px;
   }
 
-  &.@{textareaPrefixCls}-label-5 {
-    width: 5 * @input-label-width;
-  }
+  .@{prefixTextareCls}-control {
+    display: flex;
+    align-items: center;
 
-  &.@{textareaPrefixCls}-label-6 {
-    width: 6 * @input-label-width;
-  }
+    textarea {
+      color: @color-text-base;
+      font-size: @font-size-base;
+      line-height: @line-height-paragraph * @font-size-heading;
+      appearance: none;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+      overflow: visible;
+      display: block;
+      resize: none;
+      word-break: break-all;
+      word-wrap: break-word;
 
-  &.@{textareaPrefixCls}-label-7 {
-    width: 7 * @input-label-width;
-  }
-}
+      &::placeholder {
+        color: @color-text-placeholder;
+      }
 
-.@{textareaPrefixCls}-control {
-  flex: 1;
-  padding-top: 10 * @hd;
-  padding-bottom: 9 * @hd;
-
-  textarea {
-    color: @color-text-base;
-    background-color: @white;
-    font-size: @font-size-heading;
-    line-height: @line-height-paragraph * @font-size-heading;
-    appearance: none;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    overflow: visible;
-    display: block;
-    resize: none;
-    word-break: break-all;
-    word-wrap: break-word;
-
-    &::placeholder {
-      color: @color-text-placeholder;
-    }
-
-    &:disabled {
-      color: @color-text-disabled;
-      background-color: @white;
+      &:disabled {
+        color: @color-text-disabled;
+        background-color: #fff;
+      }
     }
   }
 }
 
-.@{textareaPrefixCls}-clear {
+.@{prefixTextareCls}-clear {
   display: none;
   width: @icon-size-sm;
   height: @icon-size-sm;
-  margin-top: 12 * @hd;
+  margin-top: 4 * @hd;
   border-radius: @radius-circle;
   overflow: hidden;
   font-style: normal;
@@ -87,18 +75,18 @@
   }
 }
 
-&.@{textareaPrefixCls}-focus {
-  .@{textareaPrefixCls}-clear {
+&.@{prefixTextareCls}--focus {
+  .@{prefixTextareCls}-clear {
     display: block;
   }
 }
 
-.@{textareaPrefixCls}-has-count {
+.@{prefixTextareCls}-has-count {
   padding-bottom: 14px;
   position: relative;
 }
 
-.@{textareaPrefixCls}-count {
+.@{prefixTextareCls}-count {
   position: absolute;
   bottom: @v-spacing-sm;
   right: @h-spacing-sm;
@@ -110,15 +98,15 @@
   }
 }
 
-&.@{textareaPrefixCls}-error {
-  .@{textareaPrefixCls}-control {
+&.@{prefixTextareCls}--error {
+  .@{prefixTextareCls}-control {
     textarea {
-      color: #f50;
+      color: @red;
     }
   }
 
-  .@{textareaPrefixCls}-error-extra {
-    margin-top: 12 * @hd;
+  .@{prefixTextareCls}-error-extra {
+    margin-top: 4 * @hd;
     width: @icon-size-sm;
     height: @icon-size-sm;
     margin-left: @h-spacing-md;
@@ -127,8 +115,8 @@
   }
 }
 
-&.@{textareaPrefixCls}-disabled {
-  .@{textareaPrefixCls}-label {
+&.@{prefixTextareCls}--disabled {
+  .@{prefixTextareCls}-label {
     color: @color-text-disabled;
   }
 }

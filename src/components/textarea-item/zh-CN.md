@@ -15,7 +15,7 @@
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
-| editable    | 是否可编辑        | bool |  true  |
+| readOnly    | 是否可编辑        | bool |  false  |
 | disabled    | 是否禁用        | bool |  false  |
 | clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
 | rows      |   显示几行      | number |   1 |
