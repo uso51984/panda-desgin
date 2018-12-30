@@ -59827,11 +59827,6 @@ var Demo = function (_React$PureComponent) {
         'div',
         null,
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          'h1',
-          null,
-          'asdfasfasdfsadf'
-        ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
           _List__WEBPACK_IMPORTED_MODULE_2__["default"],
           {
             load: this.load,
