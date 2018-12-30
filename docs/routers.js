@@ -44,7 +44,7 @@ const registerRoute = (isDemo) => {
             window.g_history = props.history;
             window.g_location = props.location;
             return (
-              <div>
+              <React.Fragment>
                 {
                   isDemo &&
                   <NavBar
@@ -55,7 +55,7 @@ const registerRoute = (isDemo) => {
                   </NavBar>
                 }
                 <Component {...props} />
-              </div>
+              </React.Fragment>
               );
           }}
         />));
