@@ -1,0 +1,56 @@
+{
+  "browser": true,
+  "cacheDirectory": "./node_modules/.cache",
+  "verbose": true,
+  "globals": {
+    "__STATIC__": true,
+    "__DEV__": false,
+    "__TESTING__": true,
+    "__TESTINGHOST__": "localhost",
+    "__TESTINGPORT__": 3332
+  },
+  "modulePaths": [
+    "<rootDir>/"
+  ],
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
+    "\\.(css|less|scss)$": "<rootDir>/test/__mocks__/styleMock.js"
+  },
+  "testRegex": "(\\.(test|spec))\\.(jsx|js)$",
+  "moduleFileExtensions": [
+    "json",
+    "jsx",
+    "js"
+  ],
+  "moduleDirectories": [
+    "node_modules",
+    "<rootDir>/src",
+    "<rootDir>/test"
+  ],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}",
+    "!**/demo/**",
+    "!**/__mocks__/**"
+  ],
+  "coverageReporters": [
+    "json-summary",
+    "text",
+    "html",
+    "cobertura"
+  ],
+  "coverageDirectory": "test/coverage",
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  "testPathIgnorePatterns": [
+    "<rootDir>/build/",
+    "<rootDir>/doc/",
+    "<rootDir>/examples/",
+    "<rootDir>/lib/",
+    "<rootDir>/node_modules/"
+  ],
+  "setupFiles": [
+    "<rootDir>/setup.jest.js"
+  ]
+}

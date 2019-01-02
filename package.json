@@ -12,7 +12,10 @@
     "lint": "bee-tools run js-lint",
     "compile": "bee-tools run compile --babel-runtime",
     "gh-pages": "bee-tools run gh-pages",
-    "buildExample": "bee-tools run buildExample"
+    "buildExample": "bee-tools run buildExample",
+    "test": "jest --config=jest.config.json --coverage",
+    "test:watch": "jest --config=jest.config.json --watch",
+    "test:update": "jest --config=jest.config.json --updateSnapshot"
   },
   "config": {
     "demo": {
@@ -41,7 +44,12 @@
     "react-tap-feedback": "^1.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.6.0",
     "codemirror": "^5.42.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "jest": "^23.6.0",
     "react-markdown": "^4.0.4",
     "react-router-dom": "^4.3.1"
   }
