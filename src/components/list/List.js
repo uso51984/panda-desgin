@@ -31,7 +31,6 @@ export default class List extends React.PureComponent {
 
     const { scroller } = this;
     const scrollerHeight = utils.getVisibleHeight(scroller);
-    /* istanbul ignore next */
     if (!scrollerHeight || utils.getComputedStyle(el).display === 'none' || el.offsetParent === null) {
       return;
     }

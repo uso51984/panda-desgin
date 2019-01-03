@@ -3,16 +3,23 @@ import Cell from '../../Cell';
 import List from '../List';
 import './index.less';
 
-const data = [];
-for (let i = 0; i < 40; i++) {
-  data.push('1');
-}
 
 export default class Demo extends React.PureComponent {
-  state = {
-    data,
-    loading: false,
+  constructor(props) {
+    super(props);
+
+
+    const data = [];
+    for (let i = 0; i < 40; i++) {
+      data.push('1');
+    }
+
+    this.state = {
+      data,
+      loading: false,
+    };
   }
+
   load = () => {
     this.setState({ loading: true });
     setTimeout(() => {
@@ -26,6 +33,7 @@ export default class Demo extends React.PureComponent {
       this.setState({ data, loading: false });
     }, 1000);
   }
+
   render() {
     return (
       <div>
@@ -37,7 +45,7 @@ export default class Demo extends React.PureComponent {
             {
               this.state.data.map((value, index) => (
                 <Cell title={value} key={index} />
-                ))
+              ))
             }
           </div>
 

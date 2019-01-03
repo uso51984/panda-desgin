@@ -10,7 +10,6 @@ class Button extends React.PureComponent {
     inline: false,
     disabled: false,
     loading: false,
-    activeStyle: {},
   };
 
   render() {
@@ -53,8 +52,7 @@ class Button extends React.PureComponent {
     }
     return (
       <TapFeedback
-        activeClassName={
-          activeClassName || (activeStyle ? `${prefixCls}--active` : undefined)}
+        activeClassName={activeClassName || `${prefixCls}--active`}
         disabled={disabled}
         activeStyle={activeStyle}
       >

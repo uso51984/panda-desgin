@@ -1,4 +1,3 @@
-/* tslint:disable:no-console */
 import React from 'react';
 import {
   calcRotation,
@@ -22,8 +21,6 @@ export default class Gesture extends React.Component {
     direction: 'all',
   };
 
-
-
   constructor(props) {
     super(props);
     this.directionSetting = directionMap[props.direction];
@@ -42,6 +39,7 @@ export default class Gesture extends React.Component {
     this.triggerSubEvent(mainEventName, eventStatus, ...args);
 
   }
+
   triggerSubEvent = (mainEventName, eventStatus, ...args) => {
     if (eventStatus) {
       const subEventName = getEventName(mainEventName, eventStatus);
