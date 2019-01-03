@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import cssAnimate, { isCssAnimationSupported } from 'dom-animation';
-import animUtil from './util/animate';
+import animUtil from './utils';
 
 const transitionMap = {
   enter: 'transitionEnter',

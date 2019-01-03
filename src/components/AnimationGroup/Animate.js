@@ -7,7 +7,7 @@ import {
   isSameChildren,
 } from './ChildrenUtils';
 
-import animUtil from './util/animate';
+import animUtil from './utils';
 import AnimateChild from './AnimateChild';
 
 const noop = () => { };
