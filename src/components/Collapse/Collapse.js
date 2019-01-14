@@ -4,13 +4,7 @@ import classNames from 'classnames';
 import CollapsePanel from './Panel';
 import openAnimation from './openAnimation';
 
-function toArray(activeKey) {
-  let currentActiveKey = activeKey;
-  if (!Array.isArray(currentActiveKey)) {
-    currentActiveKey = currentActiveKey ? [currentActiveKey] : [];
-  }
-  return currentActiveKey;
-}
+const toArray = activeKey => (Array.isArray(activeKey) ? activeKey : [activeKey]);
 
 class Collapse extends React.Component {
   static defaultProps = {
@@ -18,6 +12,7 @@ class Collapse extends React.Component {
     onChange() {},
     accordion: false,
     destroyInactivePanel: false,
+    defaultActiveKey: '',
   }
 
   constructor(props) {
@@ -48,7 +43,11 @@ class Collapse extends React.Component {
     }
   }
 
-  onClickItem(key) {
+  onClickItem(key, disabled) {
+    if (disabled) {
+      return;
+    }
+
     let activeKey = this.state.activeKey;
     if (this.props.accordion) {
       activeKey = activeKey[0] === key ? [] : [key];
@@ -71,11 +70,7 @@ class Collapse extends React.Component {
     const newChildren = [];
 
     React.Children.forEach(this.props.children, (child, index) => {
-      if (!child) {
-        return;
-      }
-
-      const key = child.key || String(index);
+      const key = child.key || `${index}`;
       const { disabled } = child.props;
       let isActive = false;
 
@@ -93,7 +88,7 @@ class Collapse extends React.Component {
         openAnimation: this.state.openAnimation,
         accordion,
         children: child.props.children,
-        onItemClick: disabled ? null : () => this.onClickItem(key),
+        onItemClick: this.onClickItem(key, disabled),
         expandIcon,
       };
 
@@ -111,13 +106,10 @@ class Collapse extends React.Component {
   }
 
   render() {
-    const { prefixCls, className, style, accordion } = this.props;
-    const collapseClassName = classNames({
-      [prefixCls]: true,
-      [className]: !!className,
-    });
+    const { prefixCls, className, style } = this.props;
+    const cls = classNames(prefixCls, className);
     return (
-      <div className={collapseClassName} style={style} role={accordion ? 'tablist' : null}>
+      <div className={cls} style={style}>
         {this.getItems()}
       </div>
     );

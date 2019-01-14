@@ -6,11 +6,7 @@ import Animate from '../AnimationGroup';
 
 class CollapsePanel extends React.Component {
   handleItemClick = () => {
-    const { onItemClick } = this.props;
-
-    if (onItemClick) {
-      onItemClick();
-    }
+    this.props.onItemClick();
   }
 
   render() {
