@@ -7,13 +7,11 @@ export default class Cell extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'panda-cell',
     border: true,
+    onClick() {},
   }
 
   handleClick = () => {
-    const { onClick } = this.props;
-    if (onClick) {
-      onClick();
-    }
+    this.props.onClick();
   }
 
   render() {
