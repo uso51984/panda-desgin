@@ -24,9 +24,6 @@ export default class Row extends React.PureComponent {
     const { gutter, children } = this.props;
     const padding = `${Number(gutter) / 2}px`;
     const cols = React.Children.map(children, (col) => {
-      if (!col) {
-        return null;
-      }
       if (col.props && (gutter) > 0) {
         return React.cloneElement(col, {
           style: {
