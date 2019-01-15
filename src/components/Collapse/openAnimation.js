@@ -12,6 +12,7 @@ function animate(node, show, transitionName, done) {
       }
     },
     active() {
+      /* istanbul ignore next */
       node.style.height = `${show ? height : 0}px`;
     },
     end() {

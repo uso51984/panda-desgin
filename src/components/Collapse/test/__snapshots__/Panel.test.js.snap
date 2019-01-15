@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Panel Panel renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "test__item test__item--active",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "aria-expanded": "true",
+          "class": "test__item-header",
+          "role": "button",
+        },
+        "children": Array [
+          Object {
+            "data": "test",
+            "next": Object {
+              "attribs": Object {
+                "class": "arrow",
+              },
+              "children": Array [],
+              "name": "i",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+          Object {
+            "attribs": Object {
+              "class": "arrow",
+            },
+            "children": Array [],
+            "name": "i",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "data": "test",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "test__item-content test__item-content--active",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "test__item-content-box",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "aria-expanded": undefined,
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "aria-expanded": undefined,
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "test__item-content test__item-content--active",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "test__item-content-box",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "aria-expanded": "true",
+            "class": "test__item-header",
+            "role": "button",
+          },
+          "children": Array [
+            Object {
+              "data": "test",
+              "next": Object {
+                "attribs": Object {
+                  "class": "arrow",
+                },
+                "children": Array [],
+                "name": "i",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+            Object {
+              "attribs": Object {
+                "class": "arrow",
+              },
+              "children": Array [],
+              "name": "i",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "data": "test",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "aria-expanded": undefined,
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "aria-expanded": undefined,
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
