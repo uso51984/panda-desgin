@@ -21,7 +21,9 @@ describe('Collapse', () => {
     expect(wrapper.find('.panda-collapse')).toHaveLength(1);
     const collapseHeader = wrapper.find('.panda-collapse__item-header');
     expect(collapseHeader).toHaveLength(2);
-    instance.onClickItem('0');
+    collapseHeader.at(0).simulate('click');
+    expect(instance.state.activeKey).toEqual(['0']);
+    collapseHeader.at(1).simulate('click');
     expect(instance.state.activeKey).toEqual(['0']);
     instance.onClickItem('-2');
 
@@ -32,11 +34,13 @@ describe('Collapse', () => {
   });
 
   it('Collapse accordion is true renders correctly', () => {
-    const wrapper = mount(<Collapse accordion />);
+    const wrapper = mount(<Collapse accordion >
+      <Panel header="微商城"> 提供多样店铺模板，快速搭建网上商城</Panel>
+    </Collapse>);
     const instance = wrapper.instance();
 
     wrapper.setProps({ a: '3' });
-    expect(instance.state.activeKey).toEqual(['']);
+    expect(instance.state.activeKey).toEqual([undefined]);
     instance.onClickItem('0');
     expect(instance.state.activeKey).toEqual(['0']);
     instance.onClickItem('0');

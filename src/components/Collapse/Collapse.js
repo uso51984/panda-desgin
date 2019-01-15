@@ -4,6 +4,14 @@ import classNames from 'classnames';
 import CollapsePanel from './Panel';
 import openAnimation from './openAnimation';
 
+// function toArray(activeKey) {
+//   let currentActiveKey = activeKey;
+//   if (!Array.isArray(currentActiveKey)) {
+//     currentActiveKey = currentActiveKey ? [currentActiveKey] : [];
+//   }
+//   return currentActiveKey;
+// }
+
 const toArray = activeKey => (Array.isArray(activeKey) ? activeKey : [activeKey]);
 
 class Collapse extends React.Component {
@@ -12,7 +20,6 @@ class Collapse extends React.Component {
     onChange() {},
     accordion: false,
     destroyInactivePanel: false,
-    defaultActiveKey: '',
   }
 
   constructor(props) {
@@ -70,7 +77,7 @@ class Collapse extends React.Component {
     const newChildren = [];
 
     React.Children.forEach(this.props.children, (child, index) => {
-      const key = child.key || `${index}`;
+      const key = child.key || String(index);
       const { disabled } = child.props;
       let isActive = false;
 
@@ -88,7 +95,7 @@ class Collapse extends React.Component {
         openAnimation: this.state.openAnimation,
         accordion,
         children: child.props.children,
-        onItemClick: this.onClickItem(key, disabled),
+        onItemClick: () => this.onClickItem(key, disabled),
         expandIcon,
       };
 
@@ -106,10 +113,13 @@ class Collapse extends React.Component {
   }
 
   render() {
-    const { prefixCls, className, style } = this.props;
-    const cls = classNames(prefixCls, className);
+    const { prefixCls, className, style, accordion } = this.props;
+    const cls = classNames({
+      [prefixCls]: true,
+      [className]: !!className,
+    });
     return (
-      <div className={cls} style={style}>
+      <div className={cls} style={style} role={accordion ? 'tablist' : null}>
         {this.getItems()}
       </div>
     );
