@@ -2,7 +2,7 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import { NumberKeyboard } from '../index';
 
-describe('NumberKeyboard and CellGroup', () => {
+describe('NumberKeyboard', () => {
   it('theme is custom renders correctly', () => {
     const wrapper = render(<NumberKeyboard theme="custom" />);
     expect(wrapper).toMatchSnapshot();

@@ -2,17 +2,17 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import KeyboardItem from '../KeyboardItem';
 
-describe('NumberKeyboard and CellGroup', () => {
-  it('NumberKeyboard renders correctly', () => {
-    const wrapper = render(<KeyboardItem />);
+describe('KeyboardItem and CellGroup', () => {
+  it('KeyboardItem renders correctly', () => {
+    const wrapper = render(<KeyboardItem prefixCls="test" />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('NumberKeyboard click event should renders correctly', () => {
+  it('KeyboardItem click event should renders correctly', () => {
     const onClick = jest.fn();
-    const wrapper = mount(<KeyboardItem onClick={onClick} />);
+    const wrapper = mount(<KeyboardItem prefixCls="test" onClick={onClick} />);
 
-    wrapper.find('.panda-number-keyboard-item').simulate('click');
+    wrapper.find('.test-item').simulate('click');
     expect(onClick).toBeCalled();
   });
 });

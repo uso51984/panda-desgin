@@ -21,6 +21,7 @@ export default class KeyboardItem extends React.PureComponent {
       [`${prefixCls}-item--gray`]: type === 'gray',
       [`${prefixCls}-item--middle`]: type === 'middle',
     }, className);
+
     return (
       <TouchFeedback activeClassName={`${prefixCls}-item--active`}>
         <span
