@@ -8,6 +8,7 @@ import Cell from '../../Cell';
 export default class Demo extends React.Component {
   state = {
     checked: false,
+    cellChecked: false,
   }
   render() {
     return (
@@ -44,7 +45,11 @@ export default class Demo extends React.Component {
           />
         </DemoBlock>
         <DemoBlock title="配合cell">
-          <Cell title="单元格" value={<Switch onChange={value => console.log(value)} />} />
+          <Cell
+            title="单元格"
+            onClick={() => { this.setState({ cellChecked: !this.state.cellChecked }); }}
+            value={<Switch checked={this.state.cellChecked} />}
+          />
         </DemoBlock>
       </div>
     );

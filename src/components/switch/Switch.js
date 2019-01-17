@@ -63,17 +63,6 @@ export default class Switch extends React.PureComponent {
       'checkbox-disabled': disabled,
     });
 
-    const globalProps = Object.keys(restProps).reduce((prev, key) => {
-      if (
-        key.substr(0, 5) === 'aria-' ||
-        key.substr(0, 5) === 'data-' ||
-        key === 'role'
-      ) {
-        prev[key] = restProps[key];
-      }
-      return prev;
-    }, {});
-
     const style = this.props.style || {};
     if (color && checked) {
       style.backgroundColor = color;
@@ -90,7 +79,6 @@ export default class Switch extends React.PureComponent {
           onChange={this.onChange}
           value={checked ? 'on' : 'off'}
           {...(!disabled ? { onClick: this.onClick } : {})}
-          {...globalProps}
         />
         {
           loading && <Icon type="loading" className={`${prefixCls}-loading-icon`} />

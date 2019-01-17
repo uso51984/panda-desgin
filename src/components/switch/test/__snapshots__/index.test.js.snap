@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkbox Switch renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-switch panda-switch-checked",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "checked": "",
+          "class": "panda-switch-checkbox",
+          "name": "",
+          "type": "checkbox",
+          "value": "on",
+        },
+        "children": Array [],
+        "name": "input",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-switch-loading-icon pan-icon pan-icon-loading pan-icon-md",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "href": "#loading",
+              },
+              "children": Array [],
+              "name": "use",
+              "namespace": "http://www.w3.org/2000/svg",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "href": "http://www.w3.org/1999/xlink",
+              },
+              "x-attribsPrefix": Object {
+                "href": "xlink",
+              },
+            },
+          ],
+          "name": "svg",
+          "namespace": "http://www.w3.org/2000/svg",
+          "next": Object {
+            "attribs": Object {
+              "class": "checkbox",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "checked": undefined,
+          "class": undefined,
+          "name": undefined,
+          "type": undefined,
+          "value": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "checked": undefined,
+          "class": undefined,
+          "name": undefined,
+          "type": undefined,
+          "value": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-switch-loading-icon pan-icon pan-icon-loading pan-icon-md",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "href": "#loading",
+            },
+            "children": Array [],
+            "name": "use",
+            "namespace": "http://www.w3.org/2000/svg",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "href": "http://www.w3.org/1999/xlink",
+            },
+            "x-attribsPrefix": Object {
+              "href": "xlink",
+            },
+          },
+        ],
+        "name": "svg",
+        "namespace": "http://www.w3.org/2000/svg",
+        "next": Object {
+          "attribs": Object {
+            "class": "checkbox",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "checked": "",
+            "class": "panda-switch-checkbox",
+            "name": "",
+            "type": "checkbox",
+            "value": "on",
+          },
+          "children": Array [],
+          "name": "input",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "checked": undefined,
+            "class": undefined,
+            "name": undefined,
+            "type": undefined,
+            "value": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "checked": undefined,
+            "class": undefined,
+            "name": undefined,
+            "type": undefined,
+            "value": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "checkbox",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-switch-loading-icon pan-icon pan-icon-loading pan-icon-md",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "href": "#loading",
+              },
+              "children": Array [],
+              "name": "use",
+              "namespace": "http://www.w3.org/2000/svg",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "href": "http://www.w3.org/1999/xlink",
+              },
+              "x-attribsPrefix": Object {
+                "href": "xlink",
+              },
+            },
+          ],
+          "name": "svg",
+          "namespace": "http://www.w3.org/2000/svg",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Object {
+            "attribs": Object {
+              "checked": "",
+              "class": "panda-switch-checkbox",
+              "name": "",
+              "type": "checkbox",
+              "value": "on",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "checked": undefined,
+              "class": undefined,
+              "name": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "checked": undefined,
+              "class": undefined,
+              "name": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "label",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
