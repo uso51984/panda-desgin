@@ -25,4 +25,26 @@ describe('CheckboxGroup', () => {
     wrapper.setProps({ value: ['Apple'] });
     expect(instance.state.value).toEqual(['Apple']);
   });
+
+  it('if options equal to [] should work fine', () => {
+    const props = {
+      options: [],
+      onChange: jest.fn(),
+    };
+    const wrapper = mount(<CheckboxGroup {...props} />);
+    expect(wrapper.find('input')).toHaveLength(0);
+  });
+
+  it('if option value is object should work fine', () => {
+    const props = {
+      options: [{ label: 'Apple', value: 'Apple' },
+        { label: 'Pear', value: 'Pear' },
+        { label: 'Orange', value: 'Orange', disabled: true }],
+      onChange: jest.fn(),
+    };
+    const wrapper = mount(<CheckboxGroup value={['Apple']} {...props} />);
+    expect(wrapper.find('.panda-checkbox--disabled')).toHaveLength(1);
+    wrapper.find('input').at(0).simulate('change');
+    expect(props.onChange).toBeCalledWith([]);
+  });
 });
