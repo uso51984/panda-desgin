@@ -7,6 +7,7 @@ export default class RadioGroup extends React.Component {
     disabled: false,
     prefixCls: 'panda-radio-group',
     className: '',
+    onChange() {},
   }
 
   constructor(props) {
@@ -38,10 +39,8 @@ export default class RadioGroup extends React.Component {
       this.setState({ value });
     }
 
-    const { onChange } = this.props;
-
-    if (onChange && value !== lastValue) {
-      onChange(ev);
+    if (value !== lastValue) {
+      this.props.onChange(ev);
     }
   }
 
@@ -53,20 +52,18 @@ export default class RadioGroup extends React.Component {
     let { children } = this.props;
 
     if (options && options.length > 0) {
-      children = options.map((option, index) => {
-        return (
-          <Radio
-            key={index}
-            disabled={option.disabled || disabled}
-            value={option.value}
-            onChange={this.onRadioChange}
-            checked={this.state.value === option.value}
-            name={name}
-          >
-            {option.label}
-          </Radio>
-        );
-      });
+      children = options.map((option, index) => (
+        <Radio
+          key={index}
+          disabled={option.disabled || disabled}
+          value={option.value}
+          onChange={this.onRadioChange}
+          checked={this.state.value === option.value}
+          name={name}
+        >
+          {option.label}
+        </Radio>
+      ));
     }
 
     return (
