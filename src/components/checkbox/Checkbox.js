@@ -9,8 +9,6 @@ export default class Checkbox extends React.PureComponent {
     style: {},
     type: 'checkbox',
     defaultChecked: false,
-    onFocus() {},
-    onBlur() {},
     onChange() {},
   };
   constructor(props) {
@@ -30,13 +28,6 @@ export default class Checkbox extends React.PureComponent {
       });
     }
   }
-  focus() {
-    this.input.focus();
-  }
-
-  blur() {
-    this.input.blur();
-  }
 
   handleChange = (e) => {
     const { props } = this;
@@ -48,19 +39,7 @@ export default class Checkbox extends React.PureComponent {
         checked: e.target.checked,
       });
     }
-    props.onChange({
-      target: {
-        ...props,
-        checked: e.target.checked,
-      },
-      stopPropagation() {
-        e.stopPropagation();
-      },
-      preventDefault() {
-        e.preventDefault();
-      },
-      nativeEvent: e.nativeEvent,
-    });
+    props.onChange(e);
   };
 
   saveInput = (node) => {
@@ -68,15 +47,8 @@ export default class Checkbox extends React.PureComponent {
   }
 
   render() {
-    const { prefixCls, className, style, name, id, type, disabled, readOnly, tabIndex, onClick,
-      onFocus, onBlur, autoFocus, value, children, ...others } = this.props;
-
-    const globalProps = Object.keys(others).reduce((prev, key) => {
-      if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
-        prev[key] = others[key];
-      }
-      return prev;
-    }, {});
+    const { prefixCls, className, style, name, id, type, disabled, readOnly,
+      tabIndex, value, children } = this.props;
 
     const { checked } = this.state;
 
@@ -91,7 +63,7 @@ export default class Checkbox extends React.PureComponent {
     });
 
     return (
-      <label className={wrapperCls} style={style}>
+      <label className={wrapperCls} style={style} htmlFor="checkbox">
         <span className={classString}>
           <input
             name={name}
@@ -102,14 +74,9 @@ export default class Checkbox extends React.PureComponent {
             tabIndex={tabIndex}
             className={`${prefixCls}-input`}
             checked={!!checked}
-            onClick={onClick}
-            onFocus={onFocus}
-            onBlur={onBlur}
             onChange={this.handleChange}
-            autoFocus={autoFocus}
             ref={this.saveInput}
             value={value}
-            {...globalProps}
           />
           <span className={`${prefixCls}-inner`} />
         </span>

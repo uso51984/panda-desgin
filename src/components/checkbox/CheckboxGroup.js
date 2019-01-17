@@ -15,6 +15,7 @@ export default class CheckboxGroup extends React.Component {
     options: [],
     defaultValue: [],
     prefixCls: 'panda-checkbox-group',
+    onChange() {},
   };
 
   constructor(props) {
@@ -59,11 +60,8 @@ export default class CheckboxGroup extends React.Component {
       this.setState({ value });
     }
 
-    const { onChange } = this.props;
 
-    if (onChange) {
-      onChange(value);
-    }
+    this.props.onChange(value);
   }
   render() {
     const { props, state } = this;
