@@ -1,7 +1,3 @@
-function getScroll(w, top) {
-  return top ? w.pageYOffset : w.pageXOffset;
-}
-
 function getClientPosition(elem) {
   let x;
   let y;
@@ -22,8 +18,9 @@ function getClientPosition(elem) {
 export default function getOffsetLeft(el) {
   const pos = getClientPosition(el);
   const doc = el.ownerDocument;
+  /* istanbul ignore next */
   const w = doc.defaultView || doc.parentWindow;
-  pos.left += getScroll(w);
+  pos.left += w.pageXOffset;
 
   return pos.left;
 }
