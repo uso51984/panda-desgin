@@ -88,7 +88,6 @@ class Circle extends React.Component {
           stroke={strokeColor}
           strokeWidth={this.props.percent === 0 ? 0 : strokeWidth}
           fillOpacity="0"
-          ref={(path) => { this.path = path; }}
           style={strokePathStyle}
         />
       </svg>
