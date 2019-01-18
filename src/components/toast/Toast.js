@@ -57,6 +57,7 @@ function notice(content, type, duration = 3, onClose, mask = true) {
       ),
       closable: true,
       onClose() {
+        /* istanbul ignore else */
         if (onClose) {
           onClose();
         }
@@ -90,6 +91,7 @@ export default {
     return notice(content, 'loading', duration, onClose, mask);
   },
   hide() {
+    /* istanbul ignore else */
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;

@@ -24,12 +24,12 @@ function createChainedFunction(...reset) {
 }
 
 function getUuid() {
-  return `rcNotification_${now}_${seed++}`;
+  return `pandaNotification_${now}_${seed++}`;
 }
 
 class Notification extends Component {
   static defaultProps = {
-    prefixCls: 'rmc-notification',
+    prefixCls: 'panda-notification',
     animation: 'fade',
     style: {
       top: 65,

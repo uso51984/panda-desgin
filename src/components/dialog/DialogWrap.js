@@ -7,7 +7,7 @@ const IS_REACT_16 = !!ReactDOM.createPortal;
 export default class DialogWrap extends React.Component {
   static defaultProps = {
     visible: false,
-    prefixCls: 'rmc-dialog',
+    prefixCls: 'panda-dialog',
     onClose() {},
   };
 
@@ -89,7 +89,7 @@ export default class DialogWrap extends React.Component {
   render() {
     const { visible } = this.props;
     if (IS_REACT_16 && (visible || this.component)) {
-      return (ReactDOM).createPortal(this.getComponent(visible), this.getContainer());
+      return ReactDOM.createPortal(this.getComponent(visible), this.getContainer());
     }
     return null;
   }
