@@ -29,20 +29,10 @@ export default class Rate extends React.Component {
     this.state = { value };
   }
 
-  componentDidMount() {
-    if (this.props.autoFocus && !this.props.disabled) {
-      this.focus();
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      let value = nextProps.value;
-      if (value === undefined) {
-        value = nextProps.defaultValue;
-      }
       this.setState({
-        value,
+        value: nextProps.value,
       });
     }
   }
@@ -57,11 +47,13 @@ export default class Rate extends React.Component {
   }
 
   getStarDOM(index) {
+    /* istanbul ignore next */
     return ReactDOM.findDOMNode(this.stars[index]);
   }
 
   getStarValue(index, x) {
     let value = index + 1;
+    /* istanbul ignore if */
     if (this.props.allowHalf) {
       const starEle = this.getStarDOM(index);
       const leftDis = getOffsetLeft(starEle);
