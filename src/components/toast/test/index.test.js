@@ -8,7 +8,6 @@ describe('Toast', () => {
   });
 
   afterEach(() => {
-    // Toast.destroy();
     jest.useRealTimers();
   });
 

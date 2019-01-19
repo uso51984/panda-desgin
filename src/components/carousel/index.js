@@ -6,9 +6,13 @@ function getDirection(x, y) {
   if (x > y && x > MIN_DISTANCE) {
     return 'horizontal';
   }
+
+  /* istanbul ignore else */
   if (y > x && y > MIN_DISTANCE) {
     return 'vertical';
   }
+
+  /* istanbul ignore next */
   return '';
 }
 
@@ -56,11 +60,9 @@ class Carousel extends React.PureComponent {
 
   initialize(active = this.props.initialSwipe) {
     const { vertical } = this.props;
-    if (this.carouselEl) {
-      const rect = this.carouselEl.getBoundingClientRect();
-      this.computedWidth = this.props.width || rect.width;
-      this.computedHeight = this.props.height || rect.height;
-    }
+    const rect = this.carouselEl.getBoundingClientRect();
+    this.computedWidth = this.props.width || rect.width;
+    this.computedHeight = this.props.height || rect.height;
 
     this.size = this[vertical ? 'computedHeight' : 'computedWidth'];
     this.trackSize = this.count * this.size;
@@ -68,6 +70,7 @@ class Carousel extends React.PureComponent {
     this.swiping = true;
     this.active = active;
     this.setState({ active });
+    /* istanbul ignore next */
     this.offset = this.count > 1 ? -this.size * active : 0;
 
     this.autoPlay();
@@ -95,6 +98,8 @@ class Carousel extends React.PureComponent {
     const { vertical, duration } = this.props;
     const mainAxis = vertical ? 'height' : 'width';
     const crossAxis = vertical ? 'width' : 'height';
+
+    /* istanbul ignore next */
     return {
       [mainAxis]: `${this.trackSize}px`,
       [crossAxis]: this[crossAxis] ? `${this[crossAxis]}px` : '',
@@ -121,14 +126,6 @@ class Carousel extends React.PureComponent {
     this.isCorrectDirection = this.direction === expect;
   }
 
-  resetTouchStatus() {
-    this.direction = '';
-    this.deltaX = 0;
-    this.deltaY = 0;
-    this.offsetX = 0;
-    this.offsetY = 0;
-  }
-
   onTouchStart = (event) => {
     if (!this.props.touchable) return;
 
@@ -144,6 +141,7 @@ class Carousel extends React.PureComponent {
 
     this.touchMove(event);
     this.delta = this.props.vertical ? this.deltaY : this.deltaX;
+    /* istanbul ignore else */
     if (this.isCorrectDirection) {
       event.preventDefault();
       event.stopPropagation();
@@ -162,6 +160,7 @@ class Carousel extends React.PureComponent {
   onTouchEnd = () => {
     if (!this.props.touchable || !this.swiping) return;
 
+    /* istanbul ignore next */
     if (this.delta && this.isCorrectDirection) {
       const offset = this.props.vertical ? this.offsetY : this.offsetX;
       const direction = this.delta > 0 ? -1 : 1;
@@ -176,24 +175,29 @@ class Carousel extends React.PureComponent {
     this.autoPlay();
   }
 
-  move(move = 0, offset = 0, istest) {
+  move(move, offset = 0) {
     let { active } = this;
     const { delta, count, swipes, trackSize } = this;
 
     const atFirst = active === 0;
     const atLast = active === count - 1;
+
+    /* istanbul ignore next */
     const outOfBounds =
       !this.props.loop &&
       ((atFirst && (offset > 0 || move < 0)) ||
         (atLast && (offset < 0 || move > 0)));
 
 
+    /* istanbul ignore if */
     if (outOfBounds || count <= 1) {
       return;
     }
 
+    /* istanbul ignore next */
     swipes[0].offset = atLast && (delta < 0 || move > 0) ? trackSize : 0;
 
+    /* istanbul ignore next */
     swipes[count - 1].offset =
       atFirst && (delta > 0 || move < 0) ? -trackSize : 0;
 
@@ -216,6 +220,8 @@ class Carousel extends React.PureComponent {
     if (active <= -1) {
       this.move(this.count);
     }
+
+    /* istanbul ignore if */
     if (active >= this.count) {
       this.move(-this.count);
     }
