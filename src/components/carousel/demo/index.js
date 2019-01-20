@@ -17,7 +17,7 @@ export default class App extends React.Component {
     return (
       <div>
         <DemoBlock title="水平">
-          <Carousel>
+          <Carousel autoplay={1000}>
             {this.state.data.map(val => (
               <span
                 key={val}

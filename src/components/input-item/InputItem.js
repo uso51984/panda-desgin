@@ -80,6 +80,7 @@ class InputItem extends React.Component {
     }
     onChange(value, e);
   }
+
   onInputFocus = (value) => {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -91,15 +92,12 @@ class InputItem extends React.Component {
   }
 
   onInputBlur = (value) => {
-    if (this.inputRef) {
-      this.debounceTimeout = window.setTimeout(() => {
-        if (
-          document.activeElement !== (this.inputRef && this.inputRef.inputRef)
-        ) {
-          this.setState({ focus: false });
-        }
-      }, 200);
-    }
+    this.debounceTimeout = setTimeout(() => {
+      /* istanbul ignore next */
+      if (document.activeElement !== (this.inputRef && this.inputRef.inputRef)) {
+        this.setState({ focus: false });
+      }
+    }, 200);
     this.props.onBlur(value);
   }
 
@@ -113,9 +111,7 @@ class InputItem extends React.Component {
   }
 
   focus = () => {
-    if (this.inputRef) {
-      this.inputRef.focus();
-    }
+    this.inputRef.focus();
   }
 
   getClearNode() {

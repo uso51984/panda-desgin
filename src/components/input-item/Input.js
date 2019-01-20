@@ -1,24 +1,22 @@
 import React from 'react';
 
 class Input extends React.PureComponent {
+  static defaultProps = {
+    onBlur() { },
+    onFocus() { },
+  }
   onInputBlur = (e) => {
     const value = e.target.value;
-    if (this.props.onBlur) {
-      this.props.onBlur(value);
-    }
+    this.props.onBlur(value);
   }
 
   onInputFocus = (e) => {
     const value = e.target.value;
-    if (this.props.onFocus) {
-      this.props.onFocus(value);
-    }
+    this.props.onFocus(value);
   }
 
   focus = () => {
-    if (this.inputRef) {
-      this.inputRef.focus();
-    }
+    this.inputRef.focus();
   }
 
   render() {

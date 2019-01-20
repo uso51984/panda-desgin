@@ -1,0 +1,1646 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputItem InputItem should renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-label",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "data": "label",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-input-control",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "text",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "text",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-input-label",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "data": "label",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`InputItem InputItem type="bankCard" should renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-label",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "data": "label",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-input-control",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "tel",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "tel",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-input-label",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "data": "label",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`InputItem InputItem type="number" should renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper panda-input-error",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "text",
+              "value": "00",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "panda-input-suffix",
+              },
+              "children": Array [
+                Object {
+                  "data": "icon",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "panda-input-clear",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "panda-input-error-extra",
+                  },
+                  "children": Array [],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "panda-input-suffix",
+            },
+            "children": Array [
+              Object {
+                "data": "icon",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "panda-input-clear",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "panda-input-error-extra",
+                },
+                "children": Array [],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "text",
+                "value": "00",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "panda-input-clear",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "panda-input-error-extra",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "panda-input-suffix",
+              },
+              "children": Array [
+                Object {
+                  "data": "icon",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "placeholder": "",
+                  "type": "text",
+                  "value": "00",
+                },
+                "children": Array [],
+                "name": "input",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "placeholder": undefined,
+                  "type": undefined,
+                  "value": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "placeholder": undefined,
+                  "type": undefined,
+                  "value": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "panda-input-error-extra",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "panda-input-clear",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "panda-input-suffix",
+                },
+                "children": Array [
+                  Object {
+                    "data": "icon",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "placeholder": "",
+                    "type": "text",
+                    "value": "00",
+                  },
+                  "children": Array [],
+                  "name": "input",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "placeholder": undefined,
+                    "type": undefined,
+                    "value": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "placeholder": undefined,
+                    "type": undefined,
+                    "value": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`InputItem InputItem type="other" should renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-label",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "data": "label",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-input-control",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "other",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "other",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-input-label",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "data": "label",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`InputItem InputItem type="password" should renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-label",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "data": "label",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-input-control",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "password",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "password",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-input-label",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "data": "label",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`InputItem InputItem type="password" should renders correctly 2`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-label",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "data": "label",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-input-control",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "number",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "number",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-input-label",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "data": "label",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`InputItem InputItem type="phone" should renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-input-wrapper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-input-label",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {},
+            "children": Array [
+              Object {
+                "data": "label",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "panda-input-control",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "placeholder": "",
+                "type": "tel",
+                "value": "",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "placeholder": undefined,
+                "type": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "panda-input-control",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "placeholder": "",
+              "type": "tel",
+              "value": "",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "placeholder": undefined,
+              "type": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "panda-input-label",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {},
+              "children": Array [
+                Object {
+                  "data": "label",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
