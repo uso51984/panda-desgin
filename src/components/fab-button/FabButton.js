@@ -2,18 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon';
 
-function getOtherProperties(target, source) {
-  const obj = {};
-  for (const key in target) {
-    if (target.hasOwnProperty(key)) {
-      if (source.indexOf(key) === -1) {
-        obj[key] = target[key];
-      }
-    }
-  }
-  return obj;
-}
-
 class FabButton extends React.PureComponent {
   static defaultProps = {
     angle: 90,
@@ -27,10 +15,10 @@ class FabButton extends React.PureComponent {
     super(props);
 
     this.itemsStyle = [];
-  }
 
-  state = {
-    visible: false,
+    this.state = {
+      visible: false,
+    };
   }
 
   toggle = () => {
@@ -46,10 +34,10 @@ class FabButton extends React.PureComponent {
   }
 
   open() {
-    const { delay, distance, position, reverse } = this.props;
+    const { type, delay, distance, position, reverse } = this.props;
     const op = reverse ? '-' : '';
     this.itemWidth = this.btnNode.offsetWidth;
-    switch (this.props.type) {
+    switch (type) {
       case 'horizontal':
         for (let i = 0; i < this.items.length; i++) {
           const x = `${op + ((this.itemWidth + distance) * (i + 1))}px`;
@@ -94,6 +82,8 @@ class FabButton extends React.PureComponent {
     let y = Math.cos(angle) * radius;
     x = parseFloat(x.toFixed(3));
     y = parseFloat(y.toFixed(3));
+
+    /* istanbul ignore else */
     if (delay) {
       this.itemsStyle[i] = { 'transition-delay': `${delay * i}ms` };
     }
@@ -104,7 +94,6 @@ class FabButton extends React.PureComponent {
       transform: xy,
     };
   }
-
 
   close() {
     for (let i = 0; i < this.items.length; i++) {
@@ -145,10 +134,9 @@ class FabButton extends React.PureComponent {
       );
     });
 
-    const otherProps = getOtherProperties(restProps, ['angle', 'delay', 'distance', 'reverse', 'type']);
 
     return (
-      <div className={styleClass} {...otherProps}>
+      <div className={styleClass}>
         <button ref={this.getRef} className={`${prefixCls}-btn`} onClick={this.toggle}>
           <span className={`${prefixCls}-close`}>
             <span />
