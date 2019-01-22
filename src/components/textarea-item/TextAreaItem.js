@@ -13,13 +13,13 @@ function fixControlledValue(value) {
 
 const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]|\n/g;
 
-function countSymbols(text = '') {
+function countSymbols(text) {
   return text.replace(regexAstralSymbols, '_').length;
 }
 
 export default class TextareaItem extends React.PureComponent {
   static defaultProps = {
-    prefixCls: 'am-textarea',
+    prefixCls: 'panda-textarea',
     autoHeight: false,
     readOnly: false,
     disabled: false,
@@ -60,16 +60,19 @@ export default class TextareaItem extends React.PureComponent {
       this.reAlignHeight();
     }
   }
+
   componentDidUpdate() {
     if (this.props.autoHeight && this.state.focus) {
       this.reAlignHeight();
     }
   }
+
   reAlignHeight = () => {
     const textareaDom = this.textareaRef;
     textareaDom.style.height = '';
     textareaDom.style.height = `${textareaDom.scrollHeight}px`;
   }
+
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -84,10 +87,8 @@ export default class TextareaItem extends React.PureComponent {
     } else {
       this.setState({ value });
     }
-    const { onChange } = this.props;
-    if (onChange) {
-      onChange(value);
-    }
+
+    this.props.onChange(value);
     // 设置 defaultValue 时，用户输入不会触发 componentDidUpdate ，此处手工调用
     this.componentDidUpdate();
   }
@@ -101,9 +102,7 @@ export default class TextareaItem extends React.PureComponent {
       }
     }, 100);
     const value = e.currentTarget.value;
-    if (this.props.onBlur) {
-      this.props.onBlur(value);
-    }
+    this.props.onBlur(value);
   }
 
   onFocus = (e) => {
@@ -115,9 +114,7 @@ export default class TextareaItem extends React.PureComponent {
       focus: true,
     });
     const value = e.currentTarget.value;
-    if (this.props.onFocus) {
-      this.props.onFocus(value);
-    }
+    this.props.onFocus(value);
   }
 
   onErrorClick = () => {

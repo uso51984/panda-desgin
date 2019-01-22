@@ -1,7 +1,7 @@
 import React from 'react';
 import TextareaItem from '../TextAreaItem';
 
-export default class Demo extends React.Component {
+export default class Demo extends React.PureComponent {
   render() {
     return (
       <div>
