@@ -17,7 +17,8 @@ const ConfirmDialog = (props) => {
           .then(() => {
             close();
           })
-          .catch(() => {});
+          /* istanbul ignore next */
+          .catch(() => { });
       } else {
         close();
       }
@@ -25,13 +26,16 @@ const ConfirmDialog = (props) => {
     return button;
   });
 
-  const prefixCls = 'am-modal';
+  const prefixCls = 'panda-modal';
 
   function onWrapTouchStart(e) {
+    /* istanbul ignore next */
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
+    /* istanbul ignore next */
     const pNode = closest(e.target, `.${prefixCls}-footer`);
+    /* istanbul ignore next */
     if (!pNode) {
       e.preventDefault();
     }
@@ -70,8 +74,11 @@ export default function alert(options, actions = [{ text: '确定' }]) {
   const div = document.createElement('div');
   document.body.appendChild(div);
 
+  /* istanbul ignore next */
   function destroy() {
+    /* istanbul ignore next */
     ReactDOM.unmountComponentAtNode(div);
+    /* istanbul ignore next */
     if (div && div.parentNode) {
       div.parentNode.removeChild(div);
     }
@@ -82,6 +89,7 @@ export default function alert(options, actions = [{ text: '确定' }]) {
   }
 
   function close() {
+    /* istanbul ignore else */
     if (IS_REACT_16) {
       render({ close, visible: false, options, actions, afterClose: destroy.bind(this) });
     } else {
