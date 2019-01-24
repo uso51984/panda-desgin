@@ -2,7 +2,6 @@ import React from 'react';
 import Animate from '../AnimationGroup';
 import LazyRenderBox from './LazyRenderBox';
 
-
 export default class Dialog extends React.Component {
   static defaultProps = {
     afterClose() {},

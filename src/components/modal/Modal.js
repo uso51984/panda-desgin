@@ -20,14 +20,6 @@ export default class Modal extends React.Component {
     let buttonStyle = {};
     if (button.style) {
       buttonStyle = button.style;
-      if (typeof buttonStyle === 'string') {
-        const styleMap = {
-          cancel: {},
-          default: {},
-          destructive: { color: 'red' },
-        };
-        buttonStyle = styleMap[buttonStyle] || {};
-      }
     }
 
     const onClickFn = (e) => {
@@ -53,7 +45,7 @@ export default class Modal extends React.Component {
 
   render() {
     const { prefixCls, className, wrapClassName, transitionName, maskTransitionName, style,
-      footer = [], animated, transparent, popup, animationType, ...restProps
+      footer, animated, transparent, popup, animationType, ...restProps
     } = this.props;
 
     const btnGroupClass = classnames(`${prefixCls}-button-group-${
@@ -69,6 +61,7 @@ export default class Modal extends React.Component {
 
     let transName;
     let maskTransName;
+
     if (animated) {
       if (transparent) {
         transName = 'am-fade';
