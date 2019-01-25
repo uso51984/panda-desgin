@@ -1,0 +1,751 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stepper Stepper renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "am-stepper",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "am-stepper-handler-wrap",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "aria-disabled": "false",
+              "aria-label": "Increase Value",
+              "class": "am-stepper-handler am-stepper-handler-up ",
+              "role": "button",
+              "unselectable": "unselectable",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "pan-icon pan-icon-plus pan-icon-xxs",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "href": "#plus",
+                    },
+                    "children": Array [],
+                    "name": "use",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": "http://www.w3.org/1999/xlink",
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": "xlink",
+                    },
+                  },
+                ],
+                "name": "svg",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "aria-disabled": "true",
+                "aria-label": "Decrease Value",
+                "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+                "role": "button",
+                "unselectable": "unselectable",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "pan-icon pan-icon-minus pan-icon-xxs",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "#minus",
+                      },
+                      "children": Array [],
+                      "name": "use",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": "http://www.w3.org/1999/xlink",
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": "xlink",
+                      },
+                    },
+                  ],
+                  "name": "svg",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
+              "aria-label": undefined,
+              "class": undefined,
+              "role": undefined,
+              "unselectable": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
+              "aria-label": undefined,
+              "class": undefined,
+              "role": undefined,
+              "unselectable": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "aria-disabled": "true",
+              "aria-label": "Decrease Value",
+              "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+              "role": "button",
+              "unselectable": "unselectable",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "pan-icon pan-icon-minus pan-icon-xxs",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "href": "#minus",
+                    },
+                    "children": Array [],
+                    "name": "use",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": "http://www.w3.org/1999/xlink",
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": "xlink",
+                    },
+                  },
+                ],
+                "name": "svg",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "aria-disabled": "false",
+                "aria-label": "Increase Value",
+                "class": "am-stepper-handler am-stepper-handler-up ",
+                "role": "button",
+                "unselectable": "unselectable",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "pan-icon pan-icon-plus pan-icon-xxs",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "#plus",
+                      },
+                      "children": Array [],
+                      "name": "use",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": "http://www.w3.org/1999/xlink",
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": "xlink",
+                      },
+                    },
+                  ],
+                  "name": "svg",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "aria-disabled": undefined,
+              "aria-label": undefined,
+              "class": undefined,
+              "role": undefined,
+              "unselectable": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "aria-disabled": undefined,
+              "aria-label": undefined,
+              "class": undefined,
+              "role": undefined,
+              "unselectable": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "aria-valuemax": "10",
+            "aria-valuemin": "1",
+            "aria-valuenow": "1",
+            "class": "am-stepper-input-wrap",
+            "role": "spinbutton",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "autocomplete": "off",
+                "class": "am-stepper-input",
+                "max": "10",
+                "min": "1",
+                "step": "1",
+                "value": "1",
+              },
+              "children": Array [],
+              "name": "input",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "autocomplete": undefined,
+                "class": undefined,
+                "max": undefined,
+                "min": undefined,
+                "step": undefined,
+                "value": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "autocomplete": undefined,
+                "class": undefined,
+                "max": undefined,
+                "min": undefined,
+                "step": undefined,
+                "value": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "aria-valuemax": undefined,
+            "aria-valuemin": undefined,
+            "aria-valuenow": undefined,
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "aria-valuemax": undefined,
+            "aria-valuemin": undefined,
+            "aria-valuenow": undefined,
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "aria-valuemax": "10",
+          "aria-valuemin": "1",
+          "aria-valuenow": "1",
+          "class": "am-stepper-input-wrap",
+          "role": "spinbutton",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "autocomplete": "off",
+              "class": "am-stepper-input",
+              "max": "10",
+              "min": "1",
+              "step": "1",
+              "value": "1",
+            },
+            "children": Array [],
+            "name": "input",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "autocomplete": undefined,
+              "class": undefined,
+              "max": undefined,
+              "min": undefined,
+              "step": undefined,
+              "value": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "autocomplete": undefined,
+              "class": undefined,
+              "max": undefined,
+              "min": undefined,
+              "step": undefined,
+              "value": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "am-stepper-handler-wrap",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "aria-disabled": "false",
+                "aria-label": "Increase Value",
+                "class": "am-stepper-handler am-stepper-handler-up ",
+                "role": "button",
+                "unselectable": "unselectable",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "pan-icon pan-icon-plus pan-icon-xxs",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "#plus",
+                      },
+                      "children": Array [],
+                      "name": "use",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": "http://www.w3.org/1999/xlink",
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": "xlink",
+                      },
+                    },
+                  ],
+                  "name": "svg",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "aria-disabled": "true",
+                  "aria-label": "Decrease Value",
+                  "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+                  "role": "button",
+                  "unselectable": "unselectable",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "pan-icon pan-icon-minus pan-icon-xxs",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "href": "#minus",
+                        },
+                        "children": Array [],
+                        "name": "use",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": "http://www.w3.org/1999/xlink",
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": "xlink",
+                        },
+                      },
+                    ],
+                    "name": "svg",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
+                  "aria-label": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                  "unselectable": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
+                  "aria-label": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                  "unselectable": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "aria-disabled": "true",
+                "aria-label": "Decrease Value",
+                "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+                "role": "button",
+                "unselectable": "unselectable",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "pan-icon pan-icon-minus pan-icon-xxs",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "href": "#minus",
+                      },
+                      "children": Array [],
+                      "name": "use",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": "http://www.w3.org/1999/xlink",
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": "xlink",
+                      },
+                    },
+                  ],
+                  "name": "svg",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "aria-disabled": "false",
+                  "aria-label": "Increase Value",
+                  "class": "am-stepper-handler am-stepper-handler-up ",
+                  "role": "button",
+                  "unselectable": "unselectable",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "pan-icon pan-icon-plus pan-icon-xxs",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "href": "#plus",
+                        },
+                        "children": Array [],
+                        "name": "use",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": "http://www.w3.org/1999/xlink",
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": "xlink",
+                        },
+                      },
+                    ],
+                    "name": "svg",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "aria-disabled": undefined,
+                  "aria-label": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                  "unselectable": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "aria-disabled": undefined,
+                  "aria-label": undefined,
+                  "class": undefined,
+                  "role": undefined,
+                  "unselectable": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "aria-disabled": undefined,
+                "aria-label": undefined,
+                "class": undefined,
+                "role": undefined,
+                "unselectable": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "aria-valuemax": undefined,
+          "aria-valuemin": undefined,
+          "aria-valuenow": undefined,
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "aria-valuemax": undefined,
+          "aria-valuemin": undefined,
+          "aria-valuenow": undefined,
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
