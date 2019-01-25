@@ -21,7 +21,6 @@ export default class Demo extends React.PureComponent {
             style={{ width: '100%', minWidth: '100px' }}
             max={10}
             min={1}
-            value={this.state.val}
             onChange={this.onChange}
           />
         </DemoBlock>
