@@ -19,13 +19,14 @@ const SPEED = 200;
  */
 const DELAY = 600;
 
+/* istanbul ignore next */
 const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
 
 export default class InputNumber extends React.PureComponent {
   static defaultProps = {
     focusOnUpDown: false,
     useTouch: false,
-    prefixCls: 'am-stepper',
+    prefixCls: 'panda-stepper',
     max: MAX_SAFE_INTEGER,
     min: -MAX_SAFE_INTEGER,
     step: 1,
@@ -49,7 +50,6 @@ export default class InputNumber extends React.PureComponent {
     this.state = {
       inputValue: this.toPrecisionAsStep(value),
       value,
-      focused: props.autoFocus,
     };
   }
 
@@ -84,6 +84,7 @@ export default class InputNumber extends React.PureComponent {
   }
 
   componentDidUpdate() {
+    /* istanbul ignore if */
     if (this.props.focusOnUpDown && this.state.focused) {
       const selectionRange = this.input.setSelectionRange;
       if (selectionRange &&
@@ -100,17 +101,16 @@ export default class InputNumber extends React.PureComponent {
 
   onChange = (e) => {
     const { parser, onChange } = this.props;
-    const input = parser && parser(this.getValueFromEvent(e).trim());
-    this.setState({ inputValue: input });
-    onChange(this.toNumberWhenUserInput(input));
+    const inputValue = parser && parser(e.target.value.trim());
+    this.setState({ inputValue });
+    onChange(this.toNumberWhenUserInput(inputValue));
   }
 
-  onFocus = (...args) => {
+  onFocus = (e) => {
     this.setState({
       focused: true,
     });
-    const { onFocus } = this.props;
-    onFocus(...args);
+    this.props.onFocus(e);
   }
 
   onBlur = (e, ...args) => {
@@ -120,16 +120,13 @@ export default class InputNumber extends React.PureComponent {
     const value = this.getCurrentValidValue(this.state.inputValue);
     e.persist(); // fix https://github.com/react-component/input-number/issues/51
     this.setValue(value, () => {
-      const { onBlur } = this.props;
-      onBlur(e, ...args);
+      this.props.onBlur(e, ...args);
     });
   }
 
   getCurrentValidValue = (value) => {
     let val = value;
-    if (val === '') {
-      val = '';
-    } else if (!this.isNotCompleteNumber(val)) {
+    if (!this.isNotCompleteNumber(val)) {
       val = this.getValidValue(val);
     } else {
       val = this.state.value;
@@ -152,7 +149,7 @@ export default class InputNumber extends React.PureComponent {
     return val;
   }
 
-  setValue = (v, callback) => {
+  setValue = (v, callback = noop) => {
     // trigger onChange
     const newValue = this.isNotCompleteNumber(parseFloat(v)) ? undefined : parseFloat(v);
     const changed = newValue !== this.state.value ||
@@ -208,7 +205,7 @@ export default class InputNumber extends React.PureComponent {
     return Math.max(currentValuePrecision, ratioPrecision + stepPrecision);
   }
 
-  getPrecisionFactor = (currentValue, ratio = 1) => {
+  getPrecisionFactor = (currentValue, ratio) => {
     const precision = this.getMaxPrecision(currentValue, ratio);
     return Math.pow(10, precision);
   }
@@ -245,6 +242,7 @@ export default class InputNumber extends React.PureComponent {
   // '1.0' '1.00'  => may be a inputing number
   toNumberWhenUserInput = (num) => {
     // num.length > 16 => prevent input large number will became Infinity
+    console.log('---', num.lengt);
     if ((/\.\d*0$/.test(num) || num.length > 16) && this.state.focused) {
       return num;
     }
@@ -257,6 +255,7 @@ export default class InputNumber extends React.PureComponent {
     const precision = Math.abs(this.getMaxPrecision(val, rat));
     let result;
     const direct = type === 'up' ? 1 : -1;
+    /* istanbul ignore else */
     if (typeof val === 'number') {
       result =
         ((precisionFactor * val + direct * precisionFactor * +step * rat) /
@@ -268,14 +267,10 @@ export default class InputNumber extends React.PureComponent {
   }
 
   step = (type, e, ratio = 1) => {
-    if (e) {
-      e.preventDefault();
-    }
+    e.preventDefault();
     const props = this.props;
-    if (props.disabled) {
-      return false;
-    }
     const value = this.getCurrentValidValue(this.state.inputValue) || 0;
+    /* istanbul ignore if */
     if (this.isNotCompleteNumber(value)) {
       return false;
     }
@@ -323,20 +318,6 @@ export default class InputNumber extends React.PureComponent {
     this.input = input;
   }
 
-  getRatio(e) {
-    let ratio = 1;
-    if (e.metaKey || e.ctrlKey) {
-      ratio = 0.1;
-    } else if (e.shiftKey) {
-      ratio = 10;
-    }
-    return ratio;
-  }
-
-  getValueFromEvent(e) {
-    return e.target.value;
-  }
-
   focus() {
     this.input.focus();
   }
@@ -350,7 +331,7 @@ export default class InputNumber extends React.PureComponent {
 
   render() {
     const props = { ...this.props };
-    const { prefixCls = '', disabled, readOnly, max, min } = props;
+    const { prefixCls, disabled, readOnly, max, min, useTouch } = props;
     const classes = classNames({
       [prefixCls]: true,
       [props.className]: !!props.className,
@@ -377,8 +358,6 @@ export default class InputNumber extends React.PureComponent {
 
     const editable = !props.readOnly && !props.disabled;
 
-    // focus state, show input value
-    // unfocus state, show valid value
     let inputDisplayValue;
     if (this.state.focused) {
       inputDisplayValue = this.state.inputValue;
@@ -392,7 +371,6 @@ export default class InputNumber extends React.PureComponent {
 
     let upEvents;
     let downEvents;
-    const useTouch = false;
     if (useTouch) {
       upEvents = {
         onTouchStart: (editable && !upDisabledClass) ? this.up : noop,
@@ -462,7 +440,6 @@ export default class InputNumber extends React.PureComponent {
             autoComplete="off"
             onFocus={this.onFocus}
             onBlur={this.onBlur}
-            autoFocus={props.autoFocus}
             readOnly={props.readOnly}
             disabled={props.disabled}
             max={props.max}

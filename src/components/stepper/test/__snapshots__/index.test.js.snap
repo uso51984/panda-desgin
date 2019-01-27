@@ -4,19 +4,19 @@ exports[`Stepper Stepper renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "am-stepper",
+      "class": "panda-stepper",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "am-stepper-handler-wrap",
+          "class": "panda-stepper-handler-wrap",
         },
         "children": Array [
           Object {
             "attribs": Object {
               "aria-disabled": "false",
               "aria-label": "Increase Value",
-              "class": "am-stepper-handler am-stepper-handler-up ",
+              "class": "panda-stepper-handler panda-stepper-handler-up ",
               "role": "button",
               "unselectable": "unselectable",
             },
@@ -65,7 +65,7 @@ initialize {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Decrease Value",
-                "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+                "class": "panda-stepper-handler panda-stepper-handler-down panda-stepper-handler-down-disabled",
                 "role": "button",
                 "unselectable": "unselectable",
               },
@@ -151,7 +151,7 @@ initialize {
             "attribs": Object {
               "aria-disabled": "true",
               "aria-label": "Decrease Value",
-              "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+              "class": "panda-stepper-handler panda-stepper-handler-down panda-stepper-handler-down-disabled",
               "role": "button",
               "unselectable": "unselectable",
             },
@@ -202,7 +202,7 @@ initialize {
               "attribs": Object {
                 "aria-disabled": "false",
                 "aria-label": "Increase Value",
-                "class": "am-stepper-handler am-stepper-handler-up ",
+                "class": "panda-stepper-handler panda-stepper-handler-up ",
                 "role": "button",
                 "unselectable": "unselectable",
               },
@@ -290,14 +290,14 @@ initialize {
             "aria-valuemax": "10",
             "aria-valuemin": "1",
             "aria-valuenow": "1",
-            "class": "am-stepper-input-wrap",
+            "class": "panda-stepper-input-wrap",
             "role": "spinbutton",
           },
           "children": Array [
             Object {
               "attribs": Object {
                 "autocomplete": "off",
-                "class": "am-stepper-input",
+                "class": "panda-stepper-input",
                 "max": "10",
                 "min": "1",
                 "step": "1",
@@ -364,14 +364,14 @@ initialize {
           "aria-valuemax": "10",
           "aria-valuemin": "1",
           "aria-valuenow": "1",
-          "class": "am-stepper-input-wrap",
+          "class": "panda-stepper-input-wrap",
           "role": "spinbutton",
         },
         "children": Array [
           Object {
             "attribs": Object {
               "autocomplete": "off",
-              "class": "am-stepper-input",
+              "class": "panda-stepper-input",
               "max": "10",
               "min": "1",
               "step": "1",
@@ -408,14 +408,14 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "am-stepper-handler-wrap",
+            "class": "panda-stepper-handler-wrap",
           },
           "children": Array [
             Object {
               "attribs": Object {
                 "aria-disabled": "false",
                 "aria-label": "Increase Value",
-                "class": "am-stepper-handler am-stepper-handler-up ",
+                "class": "panda-stepper-handler panda-stepper-handler-up ",
                 "role": "button",
                 "unselectable": "unselectable",
               },
@@ -464,7 +464,7 @@ initialize {
                 "attribs": Object {
                   "aria-disabled": "true",
                   "aria-label": "Decrease Value",
-                  "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+                  "class": "panda-stepper-handler panda-stepper-handler-down panda-stepper-handler-down-disabled",
                   "role": "button",
                   "unselectable": "unselectable",
                 },
@@ -550,7 +550,7 @@ initialize {
               "attribs": Object {
                 "aria-disabled": "true",
                 "aria-label": "Decrease Value",
-                "class": "am-stepper-handler am-stepper-handler-down am-stepper-handler-down-disabled",
+                "class": "panda-stepper-handler panda-stepper-handler-down panda-stepper-handler-down-disabled",
                 "role": "button",
                 "unselectable": "unselectable",
               },
@@ -601,7 +601,7 @@ initialize {
                 "attribs": Object {
                   "aria-disabled": "false",
                   "aria-label": "Increase Value",
-                  "class": "am-stepper-handler am-stepper-handler-up ",
+                  "class": "panda-stepper-handler panda-stepper-handler-up ",
                   "role": "button",
                   "unselectable": "unselectable",
                 },
