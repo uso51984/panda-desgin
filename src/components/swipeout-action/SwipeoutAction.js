@@ -2,20 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import Gesture from '../touchGesture';
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
-// http://caniuse.com/#search=match
-function closest(el, selector) {
-  const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
-
-  while (el) {
-    if (matchesSelector.call(el, selector)) {
-      return el;
-    }
-    el = el.parentElement;
-  }
-  return null;
-}
+import closest from '../utils/closest';
 
 export default class Swipeout extends React.Component {
   static defaultProps = {
