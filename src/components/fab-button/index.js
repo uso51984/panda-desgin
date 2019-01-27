@@ -1,3 +1,3 @@
-import FabButton from './fabButton';
+import FabButton from './FabButton';
 
 export default FabButton;
