@@ -4,7 +4,7 @@ import Dialog from './Dialog';
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
 
-export default class DialogWrap extends React.PureComponent {
+export default class DialogWrap extends React.Component {
   static defaultProps = {
     visible: false,
     prefixCls: 'panda-dialog',
@@ -35,6 +35,10 @@ export default class DialogWrap extends React.PureComponent {
     if (!IS_REACT_16) {
       this.renderDialog(this.props.visible);
     }
+  }
+
+  shouldComponentUpdate({ visible }) {
+    return !!(this.props.visible || visible);
   }
 
   saveRef = (node) => {
