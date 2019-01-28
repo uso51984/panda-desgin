@@ -4,19 +4,21 @@ import LazyRenderBox from './LazyRenderBox';
 
 export default class Dialog extends React.Component {
   static defaultProps = {
-    afterClose() {},
     className: '',
     mask: true,
     visible: false,
     closable: true,
     maskClosable: true,
-    prefixCls: 'rmc-dialog',
-    onClose() {},
+    prefixCls: 'panda-dialog',
+    onClose() { },
+    onAnimateLeave() { },
+    afterClose() {},
   };
 
   componentWillUnmount() {
     // fix: react@16 no dismissing animation
     document.body.style.overflow = '';
+    /* istanbul ignore else */
     if (this.wrapRef) {
       this.wrapRef.style.display = 'none';
     }
@@ -110,7 +112,7 @@ export default class Dialog extends React.Component {
     let header;
     if (props.title) {
       header = (
-        <div className={`${prefixCls}-header`} ref={el => this.headerRef = el}>
+        <div className={`${prefixCls}-header`}>
           <div className={`${prefixCls}-title`}>
             {props.title}
           </div>
@@ -175,21 +177,17 @@ export default class Dialog extends React.Component {
 
   onAnimateLeave = () => {
     document.body.style.overflow = '';
+    /* istanbul ignore else */
     if (this.wrapRef) {
       this.wrapRef.style.display = 'none';
     }
-    if (this.props.onAnimateLeave) {
-      this.props.onAnimateLeave();
-    }
-    if (this.props.afterClose) {
-      this.props.afterClose();
-    }
+
+    this.props.onAnimateLeave();
+    this.props.afterClose();
   }
 
   close = (e) => {
-    if (this.props.onClose) {
-      this.props.onClose(e);
-    }
+    this.props.onClose(e);
   }
 
   onMaskClick = (e) => {

@@ -4,7 +4,7 @@ import Dialog from './Dialog';
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
 
-export default class DialogWrap extends React.Component {
+export default class DialogWrap extends React.PureComponent {
   static defaultProps = {
     visible: false,
     prefixCls: 'panda-dialog',
@@ -17,12 +17,9 @@ export default class DialogWrap extends React.Component {
     }
   }
 
-  shouldComponentUpdate({ visible }) {
-    return !!(this.props.visible || visible);
-  }
-
   componentWillUnmount() {
     if (this.props.visible) {
+      /* istanbul ignore if */
       if (!IS_REACT_16) {
         this.renderDialog(false);
       } else {
@@ -34,12 +31,14 @@ export default class DialogWrap extends React.Component {
   }
 
   componentDidUpdate() {
+    /* istanbul ignore if */
     if (!IS_REACT_16) {
       this.renderDialog(this.props.visible);
     }
   }
 
   saveRef = (node) => {
+    /* istanbul ignore else */
     if (IS_REACT_16) {
       this.component = node;
     }
@@ -59,6 +58,7 @@ export default class DialogWrap extends React.Component {
 
   removeContainer = () => {
     if (this.container) {
+      /* istanbul ignore if */
       if (!IS_REACT_16) {
         ReactDOM.unmountComponentAtNode(this.container);
       }
@@ -79,6 +79,7 @@ export default class DialogWrap extends React.Component {
   }
 
   renderDialog(visible) {
+    /* istanbul ignore next */
     ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
       this.getComponent(visible),

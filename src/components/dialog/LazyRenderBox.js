@@ -1,9 +1,6 @@
 import React from 'react';
 
-export default class LazyRenderBox extends React.Component {
-  shouldComponentUpdate(nextProps) {
-    return !!nextProps.hiddenClassName || !!nextProps.visible;
-  }
+export default class LazyRenderBox extends React.PureComponent {
   render() {
     let className = this.props.className;
     if (!!this.props.hiddenClassName && !this.props.visible) {

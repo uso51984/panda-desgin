@@ -31,7 +31,8 @@
   "collectCoverageFrom": [
     "src/**/*.{js,jsx}",
     "!**/demo/**",
-    "!**/__mocks__/**"
+    "!**/__mocks__/**",
+    "!src/components/rate/util.js"
   ],
   "coverageReporters": [
     "json-summary",
@@ -51,6 +52,9 @@
     "<rootDir>/node_modules/"
   ],
   "setupFiles": [
-    "<rootDir>/setup.jest.js"
+    "<rootDir>/test/setup.jest.js"
+  ],
+  "roots":[
+    "<rootDir>/src/"
   ]
 }

@@ -1,1 +1,3 @@
-export { default } from './DialogWrap';
+import DialogWrap from './DialogWrap';
+
+export default DialogWrap;
