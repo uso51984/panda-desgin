@@ -36,7 +36,6 @@ class DemoMultiPicker extends React.Component {
             <PickerView.Item value="2">二</PickerView.Item>
             <PickerView.Item value="3">三</PickerView.Item>
             <PickerView.Item value="4">四</PickerView.Item>
-
           </PickerView>
           <PickerView indicatorClassName="my-picker-indicator">
             <PickerView.Item value="5">五</PickerView.Item>

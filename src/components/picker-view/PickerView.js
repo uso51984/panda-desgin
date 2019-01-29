@@ -1,8 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import PickerMixin from './PickerMixin';
+import { setTransform, setTransition, Velocity } from './utils';
 
-class Picker extends React.Component {
+export class Picker extends React.Component {
   static defaultProps = {
     prefixCls: 'panda-picker-col',
   }
@@ -10,19 +11,21 @@ class Picker extends React.Component {
   constructor(props) {
     super(props);
 
-    let selectedValueState;
-
     const { selectedValue, defaultSelectedValue, children } = this.props;
-    if (selectedValue !== undefined) {
-      selectedValueState = selectedValue;
-    } else if (defaultSelectedValue !== undefined) {
-      selectedValueState = defaultSelectedValue;
-    } else {
+    let selectedValueState = selectedValue || defaultSelectedValue;
+
+    if (!selectedValueState) {
       const childrenList = React.Children.toArray(this.props.children);
       selectedValueState = childrenList && children[0] && children[0].props.value;
     }
 
     this.state = { selectedValue: selectedValueState };
+
+    this.scrollY = -1;
+    this.lastY = 0;
+    this.startY = 0;
+    this.scrollDisabled = false;
+    this.isMoving = false;
   }
 
   componentDidMount() {
@@ -42,10 +45,8 @@ class Picker extends React.Component {
     maskRef.style.backgroundSize = `100% ${itemHeight * num}px`;
 
     this.props.select(this.state.selectedValue, this.itemHeight, this.scrollTo);
-    Object.keys(this.scrollHanders).forEach((key) => {
-      if (key.indexOf('touch') === 0 || key.indexOf('mouse') === 0) {
-        rootRef.addEventListener(key, this.scrollHanders[key], false);
-      }
+    Object.keys(this.scrollHanders()).forEach((key) => {
+      rootRef.addEventListener(key, this.scrollHanders()[key], false);
     });
   }
 
@@ -64,7 +65,7 @@ class Picker extends React.Component {
         });
       }
     }
-    this.scrollHanders.setDisabled(nextProps.disabled);
+    this.setDisabled(nextProps.disabled);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -77,20 +78,86 @@ class Picker extends React.Component {
   }
 
   componentWillUnmount() {
-    Object.keys(this.scrollHanders).forEach((key) => {
-      if (key.indexOf('touch') === 0 || key.indexOf('mouse') === 0) {
-        (this.rootRef).removeEventListener(key, this.scrollHanders[key]);
-      }
+    Object.keys(this.scrollHanders()).forEach((key) => {
+      (this.rootRef).removeEventListener(key, this.scrollHanders()[key]);
     });
   }
 
+  scrollToFunc = (x, y, time = 0.3) => {
+    if (this.scrollY !== y) {
+      this.scrollY = y;
+      if (time && !this.props.noAnimate) {
+        setTransition(this.contentRef.style, `cubic-bezier(0,0,0.2,1.15) ${time}s`);
+      }
+      setTransform(this.contentRef.style, `translate3d(0,${-y}px,0)`);
+
+      setTimeout(() => {
+        this.scrollingComplete();
+        if (this.contentRef) {
+          setTransition(this.contentRef.style, '');
+        }
+      }, +time * 1000);
+    }
+  };
+
   scrollTo = (top) => {
-    this.scrollHanders.scrollTo(0, top);
+    this.scrollToFunc(0, top);
   }
 
   scrollToWithoutAnimation = (top) => {
-    this.scrollHanders.scrollTo(0, top, 0);
+    this.scrollToFunc(0, top, 0);
   }
+
+  onStart = (y) => {
+    if (this.scrollDisabled) {
+      return;
+    }
+
+    this.isMoving = true;
+    this.startY = y;
+    this.lastY = this.scrollY;
+  };
+
+  onMove = (y) => {
+    if (this.scrollDisabled || !this.isMoving) {
+      return;
+    }
+    this.scrollY = (this.lastY - y) + this.startY;
+
+    Velocity.record(this.scrollY);
+
+    this.onScrollChange();
+    setTransform(this.contentRef.style, `translate3d(0,${-this.scrollY}px,0)`);
+  };
+
+  onFinish = () => {
+    this.isMoving = false;
+    let targetY = this.scrollY;
+
+    const height = (this.props.children.length - 1) * this.itemHeight;
+
+    let time = 0.3;
+
+    const velocity = Velocity.getVelocity(targetY) * 4;
+    if (velocity) {
+      targetY = (velocity * 40) + targetY;
+      time = Math.abs(velocity) * 0.1;
+    }
+
+    if (targetY % this.itemHeight !== 0) {
+      targetY = Math.round(targetY / this.itemHeight) * this.itemHeight;
+    }
+
+    if (targetY < 0) {
+      targetY = 0;
+    } else if (targetY > height) {
+      targetY = height;
+    }
+
+    this.scrollToFunc(0, targetY, time < 0.3 ? 0.3 : time);
+
+    this.onScrollChange();
+  };
 
   fireValueChange = (selectedValue) => {
     if (selectedValue !== this.state.selectedValue) {
@@ -106,7 +173,7 @@ class Picker extends React.Component {
   }
 
   onScrollChange = () => {
-    const top = this.scrollHanders.getValue();
+    const top = this.getScrollY();
     if (top >= 0) {
       const children = React.Children.toArray(this.props.children);
       const index = this.props.computeChildIndex(top, this.itemHeight, children.length);
@@ -123,144 +190,33 @@ class Picker extends React.Component {
   }
 
   scrollingComplete = () => {
-    const top = this.scrollHanders.getValue();
+    const top = this.getScrollY();
     if (top >= 0) {
       this.props.doScrollingComplete(top, this.itemHeight, this.fireValueChange);
     }
   }
 
+  scrollHanders = () => ({
+    mousedown: e => this.onStart(e.screenY),
+    touchstart: e => this.onStart(e.touches[0].screenY),
+    touchmove: (e) => {
+      e.preventDefault();
+      this.onMove(e.touches[0].screenY);
+    },
+    mousemove: (e) => {
+      e.preventDefault();
+      this.onMove(e.screenY);
+    },
+    touchend: () => this.onFinish(),
+    touchcancel: () => this.onFinish(),
+    mouseup: () => this.onFinish(),
+  })
 
-  scrollHanders = (() => {
-    let scrollY = -1;
-    let lastY = 0;
-    let startY = 0;
-    let scrollDisabled = false;
-    let isMoving = false;
+  setDisabled = (disabled) => {
+    this.scrollDisabled = disabled;
+  }
 
-    const setTransform = (nodeStyle, value) => {
-      nodeStyle.transform = value;
-      nodeStyle.webkitTransform = value;
-    };
-
-    const setTransition = (nodeStyle, value) => {
-      nodeStyle.transition = value;
-      nodeStyle.webkitTransition = value;
-    };
-
-    const scrollTo = (_x, y, time = 0.3) => {
-      if (scrollY !== y) {
-        scrollY = y;
-        if (time && !this.props.noAnimate) {
-          setTransition(this.contentRef.style, `cubic-bezier(0,0,0.2,1.15) ${time}s`);
-        }
-        setTransform(this.contentRef.style, `translate3d(0,${-y}px,0)`);
-
-        setTimeout(() => {
-          this.scrollingComplete();
-          if (this.contentRef) {
-            setTransition(this.contentRef.style, '');
-          }
-        }, +time * 1000);
-      }
-    };
-
-    const Velocity = ((minInterval = 30, maxInterval = 100) => {
-      let _time = 0;
-      let _y = 0;
-      let _velocity = 0;
-
-      const recorder = {
-        record: (y) => {
-          const now = +new Date();
-          _velocity = (y - _y) / (now - _time);
-
-          if (now - _time >= minInterval) {
-            _velocity = now - _time <= maxInterval ? _velocity : 0;
-            _y = y;
-            _time = now;
-          }
-        },
-        getVelocity: (y) => {
-          if (y !== _y) {
-            recorder.record(y);
-          }
-          return _velocity;
-        },
-      };
-      return recorder;
-    })();
-
-    const onStart = (y) => {
-      if (scrollDisabled) {
-        return;
-      }
-
-      isMoving = true;
-      startY = y;
-      lastY = scrollY;
-    };
-
-    const onMove = (y) => {
-      if (scrollDisabled || !isMoving) {
-        return;
-      }
-      scrollY = (lastY - y) + startY;
-
-      Velocity.record(scrollY);
-
-      this.onScrollChange();
-      setTransform(this.contentRef.style, `translate3d(0,${-scrollY}px,0)`);
-    };
-
-    const onFinish = () => {
-      isMoving = false;
-      let targetY = scrollY;
-
-      const height = (this.props.children.length - 1) * this.itemHeight;
-
-      let time = 0.3;
-
-      const velocity = Velocity.getVelocity(targetY) * 4;
-      if (velocity) {
-        targetY = (velocity * 40) + targetY;
-        time = Math.abs(velocity) * 0.1;
-      }
-
-      if (targetY % this.itemHeight !== 0) {
-        targetY = Math.round(targetY / this.itemHeight) * this.itemHeight;
-      }
-
-      if (targetY < 0) {
-        targetY = 0;
-      } else if (targetY > height) {
-        targetY = height;
-      }
-
-      scrollTo(0, targetY, time < 0.3 ? 0.3 : time);
-
-      this.onScrollChange();
-    };
-    return {
-      mousedown: e => onStart(e.screenY),
-      touchstart: e => onStart(e.touches[0].screenY),
-      touchmove: (e) => {
-        e.preventDefault();
-        onMove(e.touches[0].screenY);
-      },
-      mousemove: (e) => {
-        e.preventDefault();
-        onMove(e.screenY);
-      },
-      scrollTo,
-      getValue: () => scrollY,
-      touchend: () => onFinish(),
-      touchcancel: () => onFinish(),
-      mouseup: () => onFinish(),
-      setDisabled: (disabled) => {
-        scrollDisabled = disabled;
-      },
-    };
-  })()
+  getScrollY = () => this.scrollY
 
   getValue() {
     if ('selectedValue' in this.props) {
@@ -301,8 +257,7 @@ class Picker extends React.Component {
   render() {
     const { prefixCls, className, indicatorClassName, disabled, style, indicatorStyle } = this.props;
 
-    const pickerCls = classNames({
-      [prefixCls]: !!prefixCls,
+    const pickerCls = classNames(prefixCls, {
       [`${prefixCls}--disabled`]: disabled,
       className,
     });
