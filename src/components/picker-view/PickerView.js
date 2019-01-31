@@ -6,6 +6,8 @@ import { setTransform, setTransition, Velocity } from './utils';
 export class Picker extends React.Component {
   static defaultProps = {
     prefixCls: 'panda-picker-col',
+    onScrollChange() { },
+    onValueChange() { },
   }
 
   constructor(props) {
@@ -35,6 +37,7 @@ export class Picker extends React.Component {
     const itemHeight = indicatorRef.getBoundingClientRect().height;
     this.itemHeight = itemHeight;
     let num = Math.floor(rootHeight / itemHeight);
+    /* istanbul ignore if */
     if (num % 2 === 0) {
       num--;
     }
@@ -93,9 +96,7 @@ export class Picker extends React.Component {
 
       setTimeout(() => {
         this.scrollingComplete();
-        if (this.contentRef) {
-          setTransition(this.contentRef.style, '');
-        }
+        setTransition(this.contentRef.style, '');
       }, +time * 1000);
     }
   };
@@ -139,36 +140,41 @@ export class Picker extends React.Component {
     let time = 0.3;
 
     const velocity = Velocity.getVelocity(targetY) * 4;
+    /* istanbul ignore if */
     if (velocity) {
       targetY = (velocity * 40) + targetY;
       time = Math.abs(velocity) * 0.1;
     }
 
+    /* istanbul ignore next */
     if (targetY % this.itemHeight !== 0) {
       targetY = Math.round(targetY / this.itemHeight) * this.itemHeight;
     }
 
+    /* istanbul ignore next */
     if (targetY < 0) {
       targetY = 0;
     } else if (targetY > height) {
       targetY = height;
     }
 
-    this.scrollToFunc(0, targetY, time < 0.3 ? 0.3 : time);
+    /* istanbul ignore next */
+    const scrolltoTiem = time < 0.3 ? 0.3 : time;
+
+    this.scrollToFunc(0, targetY, scrolltoTiem);
 
     this.onScrollChange();
   };
 
   fireValueChange = (selectedValue) => {
     if (selectedValue !== this.state.selectedValue) {
+      /* istanbul ignore else */
       if (!('selectedValue' in this.props)) {
         this.setState({
           selectedValue,
         });
       }
-      if (this.props.onValueChange) {
-        this.props.onValueChange(selectedValue);
-      }
+      this.props.onValueChange(selectedValue);
     }
   }
 
@@ -177,13 +183,13 @@ export class Picker extends React.Component {
     if (top >= 0) {
       const children = React.Children.toArray(this.props.children);
       const index = this.props.computeChildIndex(top, this.itemHeight, children.length);
+      /* istanbul ignore else */
       if (this.scrollValue !== index) {
         this.scrollValue = index;
         const child = children[index];
-        if (child && this.props.onScrollChange) {
+        /* istanbul ignore if */
+        if (child) {
           this.props.onScrollChange(child.props.value);
-        } else if (!child && console.warn) {
-          console.warn('child not found', children, index);
         }
       }
     }

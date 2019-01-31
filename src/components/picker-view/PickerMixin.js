@@ -9,6 +9,7 @@ export default function (Component) {
     select = (value, itemHeight, scrollTo) => {
       const children = React.Children.toArray(this.props.children);
       for (let i = 0, len = children.length; i < len; i++) {
+        /* istanbul ignore else */
         if (children[i].props.value === value) {
           this.selectByIndex(i, itemHeight, scrollTo);
           return;
