@@ -2,6 +2,7 @@ import React from 'react';
 import MultiPicker from '../picker-view/MultiPicker';
 import PickerView from '../picker-view/PickerView';
 import defaultLocale from './locale/zh_CN';
+import { DATETIME, DATE, TIME, MONTH, YEAR, ONE_DAY } from './const';
 
 function getDaysInMonth(date) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -19,13 +20,6 @@ function setMonth(date, month) {
   date.setDate(Math.min(date.getDate(), getDaysInMonth(new Date(date.getFullYear(), month))));
   date.setMonth(month);
 }
-
-const DATETIME = 'datetime';
-const DATE = 'date';
-const TIME = 'time';
-const MONTH = 'month';
-const YEAR = 'year';
-const ONE_DAY = 24 * 60 * 60 * 1000;
 
 class DatePicker extends React.Component {
   static defaultProps = {

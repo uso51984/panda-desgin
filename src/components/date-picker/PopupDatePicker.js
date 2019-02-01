@@ -8,6 +8,9 @@ class PopupDatePicker extends React.Component {
     mode: 'datetime',
     minuteStep: 1,
     use12Hours: false,
+    onChange() { },
+    onOk() { },
+    onVisibleChange() { },
   };
 
   setScrollValue = (v) => {
@@ -18,19 +21,13 @@ class PopupDatePicker extends React.Component {
     if (this.scrollValue !== undefined) {
       v = this.scrollValue;
     }
-    if (this.props.onChange) {
-      this.props.onChange(v);
-    }
-    if (this.props.onOk) {
-      this.props.onOk(v);
-    }
+    this.props.onChange(v);
+    this.props.onOk(v);
   }
 
   onVisibleChange = (visible) => {
     this.scrollValue = undefined;
-    if (this.props.onVisibleChange) {
-      this.props.onVisibleChange(visible);
-    }
+    this.props.onVisibleChange(visible);
   }
 
 

@@ -17,7 +17,7 @@ describe('MultiPickerMixin', () => {
       <Item>
         <Item value="1">2</Item>
       </Item>
-                          </WrapComponent>);
+      </WrapComponent>);
     const instance = wrapper.instance();
     expect(instance.getValue()).toEqual(['1']);
   });

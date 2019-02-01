@@ -32,7 +32,13 @@
     "src/**/*.{js,jsx}",
     "!**/demo/**",
     "!**/__mocks__/**",
-    "!src/components/rate/util.js"
+    "!src/components/rate/util.js",
+    "!src/components/lazyload/**",
+    "!src/components/list/**",
+    "!src/components/touchGesture/**",
+    "!src/components/date-picker/**",
+    "!src/components/swipeout-action/**",
+    "!src/components/picker/**"
   ],
   "coverageReporters": [
     "json-summary",
@@ -55,6 +61,6 @@
     "<rootDir>/test/setup.jest.js"
   ],
   "roots":[
-    "<rootDir>/src/"
+    "<rootDir>/src/components/"
   ]
 }
