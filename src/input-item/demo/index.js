@@ -15,7 +15,6 @@ export default class Demo extends React.PureComponent {
             placeholder="请输入姓名"
             clear
           />
-          <InputItem label={<i className="iconfont icon-user" />} placeholder="请输入账号" />
           <InputItem
             label="年龄"
             placeholder="请输入年龄"

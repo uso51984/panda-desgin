@@ -6,7 +6,6 @@
 #### 基本用法
 ```jsx
 <InputItem placeholder="请输入姓名" />
-<InputItem label={<i className="iconfont icon-user" />} placeholder="请输入账号" />
 <InputItem label="年龄" placeholder="请输入年龄" />
 ```
 

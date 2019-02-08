@@ -1,6 +1,6 @@
 import React from 'react';
-import { Cell } from 'src/components/Cell';
-import Collapse from 'src/components/Collapse';
+import { Cell } from 'src/Cell';
+import Collapse from 'src/Collapse';
 import DocConfig from '../../doc.config';
 
 export default class DemoList extends React.PureComponent {

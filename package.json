@@ -2,7 +2,6 @@
   "name": "panda-desgin",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
@@ -31,13 +30,16 @@
     }
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "dependencies": {
     "bee-build-tools": "0.0.11",
     "classnames": "^2.2.6",
     "d3-ease": "^1.0.5",
     "dom-animation": "^1.0.2",
     "exenv": "^1.2.2",
+    "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-move": "^2.8.0",

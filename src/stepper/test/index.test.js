@@ -110,7 +110,7 @@ describe('Stepper', () => {
     expect(onChange).not.toHaveBeenCalled();
   });
 
-  it('Stepper disabled components should work fine', () => {
+  it('Stepper disabled src should work fine', () => {
     const onChange = jest.fn();
     const wrapper = mount(<Stepper
       max={10}
@@ -126,7 +126,7 @@ describe('Stepper', () => {
     expect(instance.state.value).toEqual(undefined);
   });
 
-  it('Stepper contral components should work fine', () => {
+  it('Stepper contral src should work fine', () => {
     const onChange = jest.fn();
     const wrapper = mount(<Stepper
       max={10}

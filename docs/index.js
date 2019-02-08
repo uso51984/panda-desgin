@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import 'codemirror/mode/jsx/jsx';
 import 'codemirror/mode/css/css';
-import 'src/components/style/index.less';
+import 'src/index.less';
 
 import DocsApp from './DocsApp';
 import './style/index.less';
@@ -11,6 +10,8 @@ import './style/index.less';
 
 const ua = navigator.userAgent.toLowerCase();
 const isMobile = /ios|iphone|ipod|ipad|android/.test(ua);
+
+const { location } = window;
 
 if (isMobile) {
   location.replace(`mobile.html${location.hash}`);

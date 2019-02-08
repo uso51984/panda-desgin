@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import NavBar from 'src/components/nav-bar';
-import Icon from 'src/components/Icon';
+import NavBar from 'src/nav-bar';
+import Icon from 'src/Icon';
 import docConfig from './doc.config';
 import DemoList from './mobileComponents/DemoList';
 import componentDocs, { Markdown } from './docs-entry';

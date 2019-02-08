@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import closest from 'src/components/utils/closest';
+import closest from 'src/utils/closest';
 import Modal from './Modal';
 
 const IS_REACT_16 = !!ReactDOM.createPortal;

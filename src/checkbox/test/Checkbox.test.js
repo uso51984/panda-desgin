@@ -21,7 +21,7 @@ describe('checkbox', () => {
     expect(wrapper.state('checked')).toBe(false);
   });
 
-  it('Controlled Components should work fine', () => {
+  it('Controlled src should work fine', () => {
     const wrapper = mount(<Checkbox checked>apple</Checkbox>);
     wrapper.find('input').simulate('change', { target: { checked: true } });
     expect(wrapper.state('checked')).toBe(true);

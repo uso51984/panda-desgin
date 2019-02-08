@@ -1,16 +1,16 @@
-@keyframes van-slide-bottom-enter {
+@keyframes panda-slide-bottom-enter {
   from {
     transform: translate3d(0, 100%, 0);
   }
 }
 
-@keyframes van-slide-bottom-leave {
+@keyframes panda-slide-bottom-leave {
   to {
     transform: translate3d(0, 100%, 0);
   }
 }
 
-@keyframes van-fade-in {
+@keyframes panda-fade-in {
   from {
     opacity: 0;
   }
@@ -20,7 +20,7 @@
   }
 }
 
-@keyframes van-fade-out {
+@keyframes panda-fade-out {
   from {
     opacity: 1;
   }
@@ -30,7 +30,7 @@
   }
 }
 
-@keyframes van-rotate {
+@keyframes panda-rotate {
   from {
     transform: rotate(0deg);
   }
@@ -40,28 +40,28 @@
   }
 }
 
-.van-fade {
+.panda-fade {
   &-enter-active {
-    animation: .3s van-fade-in;
+    animation: .3s panda-fade-in;
   }
 
   &-leave-active {
-    animation: .3s van-fade-out;
+    animation: .3s panda-fade-out;
   }
 }
 
-.van-slide-bottom {
+.panda-slide-bottom {
   &-enter-active {
-    animation: van-slide-bottom-enter .3s both ease;
+    animation: panda-slide-bottom-enter .3s both ease;
   }
 
   &-leave-active {
-    animation: van-slide-bottom-leave .3s both ease;
+    animation: panda-slide-bottom-leave .3s both ease;
   }
 }
 
 
-/*do not import this file except components/style/index.less*/
+/*do not import this file except src/style/index.less*/
 .am {
   .effect() {
     animation-duration: .2s;
