@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.dev.js",
     "dist": "bee-tools run dist --babel-runtime",
-    "lint": "bee-tools run js-lint",
+    "lint": "eslint --ext .js,.jsx src",
+    "build:components": "node build/build-components.js --color",
     "compile": "bee-tools run compile --babel-runtime",
     "gh-pages": "bee-tools run gh-pages",
     "buildExample": "bee-tools run buildExample",
@@ -42,15 +43,20 @@
     "react-tap-feedback": "^1.0.0"
   },
   "devDependencies": {
-    "bee-build-tools": "0.0.11",
+    "@babel/core": "^7.3.3",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
+    "bee-build-tools": "0.0.11",
     "codemirror": "^5.42.0",
+    "cross-env": "^5.2.0",
     "enzyme": "^3.8.0",
-    "exenv": "^1.2.2",
     "enzyme-adapter-react-16": "^1.7.1",
+    "exenv": "^1.2.2",
+    "fs-extra": "^7.0.1",
     "jest": "^23.6.0",
     "react-markdown": "^4.0.4",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "signale": "^1.3.0"
   }
 }
