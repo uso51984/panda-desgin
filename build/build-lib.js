@@ -13,6 +13,7 @@ tasks.forEach(task => {
   const interactive = new Signale({ interactive: true });
   interactive.pending(task);
   const result = shell.exec(`npm run ${task} --silent`);
-  console.log('result', result);
-  interactive.success(task);
+  if (result.code !== 1) {
+    interactive.success(task);
+  }
 });

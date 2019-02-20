@@ -4,14 +4,6 @@ import classNames from 'classnames';
 import CollapsePanel from './Panel';
 import openAnimation from './openAnimation';
 
-// function toArray(activeKey) {
-//   let currentActiveKey = activeKey;
-//   if (!Array.isArray(currentActiveKey)) {
-//     currentActiveKey = currentActiveKey ? [currentActiveKey] : [];
-//   }
-//   return currentActiveKey;
-// }
-
 const toArray = activeKey => (Array.isArray(activeKey) ? activeKey : [activeKey]);
 
 class Collapse extends React.Component {

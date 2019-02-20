@@ -31,8 +31,6 @@ const webpackDocConfig = assign(config, {
 
 shelljs.rm('-rf', 'docs/dist');
 
-webpack(webpackDocConfig, (err, stats) => {
-  if (err) {
-    console.error('error', err);
-  }
-});
+module.exports = () => {
+  return webpackDocConfig
+}
