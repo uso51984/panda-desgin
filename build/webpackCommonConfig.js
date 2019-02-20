@@ -2,7 +2,7 @@
 'use strict';
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const getBabelCommonConfig = require('./babelCommonConfig');
+const getBabelCommonConfig = require('./getBabelCommonConfig');
 const assign = require('object-assign');
 const autoprefixer = require('autoprefixer');
 
@@ -102,9 +102,6 @@ module.exports = {
       const styleLoader = {
         loader: 'style',
       };
-
-      cssLoader.unshift(styleLoader);
-      lessLoader.unshift(styleLoader);
     if (extractCss) {
       const test = {
         loader: MiniCssExtractPlugin.loader,
@@ -115,6 +112,9 @@ module.exports = {
       }
       cssLoader.unshift(test);
       lessLoader.unshift(test);
+    } else {
+      cssLoader.unshift(styleLoader);
+      lessLoader.unshift(styleLoader);
     }
     return [
       {

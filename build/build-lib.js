@@ -3,6 +3,8 @@ const signale = require('signale');
 const { Signale } = signale;
 const tasks = [
   'build:components',
+  'build:panda',
+  'build:style',
 ];
 
 tasks.forEach(task => {
@@ -10,6 +12,7 @@ tasks.forEach(task => {
 
   const interactive = new Signale({ interactive: true });
   interactive.pending(task);
-  shell.exec(`npm run ${task} --silent`);
+  const result = shell.exec(`npm run ${task} --silent`);
+  console.log('result', result);
   interactive.success(task);
 });

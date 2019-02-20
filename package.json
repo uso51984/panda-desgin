@@ -6,13 +6,15 @@
     "doc": "docs"
   },
   "scripts": {
+    "bootstrap": "npm install",
     "dev": "webpack-dev-server --config ./webpack.dev.js",
-    "dist": "bee-tools run dist --babel-runtime",
     "lint": "eslint --ext .js,.jsx src",
-    "build:components": "node build/build-components.js --color",
-    "compile": "bee-tools run compile --babel-runtime",
-    "gh-pages": "bee-tools run gh-pages",
-    "buildExample": "bee-tools run buildExample",
+    "build:panda": "node build/webpack.build.js --babel-runtime",
+    "build:components": "node build/build-components.js --color --babel-runtime",
+    "build:lib": "node build/build-lib.js",
+    "build:style": "gulp --gulpfile ./build/build-style.js",
+    "gh-pages": "webpack --config build/webpack.doc.js && gh-pages -d docs/dist",
+    "build:doc": "node build/webpack.doc.js",
     "test": "jest --config=jest.config.json --coverage",
     "test:watch": "jest --config=jest.config.json --watch",
     "test:update": "jest --config=jest.config.json --updateSnapshot"
@@ -43,20 +45,27 @@
     "react-tap-feedback": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
+    "autoprefixer": "^9.4.8",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-jest": "^23.6.0",
-    "bee-build-tools": "0.0.11",
+    "babel-jest": "^24.1.0",
+    "bee-build-tools": "0.0.12",
     "codemirror": "^5.42.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "exenv": "^1.2.2",
     "fs-extra": "^7.0.1",
-    "jest": "^23.6.0",
+    "gulp-csso": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.1.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "progress-bar-webpack-plugin": "^1.12.1",
     "react-markdown": "^4.0.4",
     "react-router-dom": "^4.3.1",
-    "signale": "^1.3.0"
+    "shelljs": "^0.8.3",
+    "signale": "^1.3.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   }
 }

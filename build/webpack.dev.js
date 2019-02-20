@@ -42,8 +42,8 @@ module.exports = () => {
     resolveLoader: getWebpackCommonConfig.getResolveLoader(),
     entry,
     output: {
-      path: resolveCwd('dist'),
-      filename: '[name].js',
+      path: resolveCwd('docs/dist'),
+      filename: '[name].[hash:8].js'
     },
     module: {
       rules: getWebpackCommonConfig.getLoaders().concat(getWebpackCommonConfig.getCssLoaders(false)),
