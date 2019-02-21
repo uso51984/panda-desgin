@@ -1,0 +1,1246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress Progress is circle renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-progress panda-progress-circle panda-progress-show-info",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-progress-inner",
+          "style": "width:120px;height:120px;font-size:24px",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-circle ",
+              "viewBox": "0 0 100 100",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "panda-progress-circle-trail",
+                  "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                  "fill-opacity": "0",
+                  "stroke": "#f3f3f3",
+                  "stroke-width": "6",
+                  "style": "stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                },
+                "children": Array [],
+                "name": "path",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-path",
+                    "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                    "fill-opacity": "0",
+                    "stroke": "#2db7f5",
+                    "stroke-linecap": "round",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:35.437165132492865px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "panda-progress-circle-path",
+                  "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                  "fill-opacity": "0",
+                  "stroke": "#2db7f5",
+                  "stroke-linecap": "round",
+                  "stroke-width": "6",
+                  "style": "stroke-dasharray:35.437165132492865px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                },
+                "children": Array [],
+                "name": "path",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-trail",
+                    "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                    "fill-opacity": "0",
+                    "stroke": "#f3f3f3",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-linecap": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-linecap": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+              },
+            ],
+            "name": "svg",
+            "namespace": "http://www.w3.org/2000/svg",
+            "next": Object {
+              "attribs": Object {
+                "class": "panda-progress-text",
+              },
+              "children": Array [
+                Object {
+                  "data": "12%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "viewBox": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "viewBox": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-text",
+            },
+            "children": Array [
+              Object {
+                "data": "12%",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "panda-progress-circle ",
+                "viewBox": "0 0 100 100",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-trail",
+                    "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                    "fill-opacity": "0",
+                    "stroke": "#f3f3f3",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "panda-progress-circle-path",
+                      "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                      "fill-opacity": "0",
+                      "stroke": "#2db7f5",
+                      "stroke-linecap": "round",
+                      "stroke-width": "6",
+                      "style": "stroke-dasharray:35.437165132492865px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                    },
+                    "children": Array [],
+                    "name": "path",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-linecap": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-linecap": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-path",
+                    "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                    "fill-opacity": "0",
+                    "stroke": "#2db7f5",
+                    "stroke-linecap": "round",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:35.437165132492865px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "panda-progress-circle-trail",
+                      "d": "M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94",
+                      "fill-opacity": "0",
+                      "stroke": "#f3f3f3",
+                      "stroke-width": "6",
+                      "style": "stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                    },
+                    "children": Array [],
+                    "name": "path",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+              ],
+              "name": "svg",
+              "namespace": "http://www.w3.org/2000/svg",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "viewBox": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "viewBox": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress Progress is dashboard renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-progress panda-progress-circle panda-progress-show-info",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {
+          "class": "panda-progress-inner",
+          "style": "width:120px;height:120px;font-size:24px",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-circle ",
+              "viewBox": "0 0 100 100",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "panda-progress-circle-trail",
+                  "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                  "fill-opacity": "0",
+                  "stroke": "#f3f3f3",
+                  "stroke-width": "6",
+                  "style": "stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                },
+                "children": Array [],
+                "name": "path",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-path",
+                    "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                    "fill-opacity": "0",
+                    "stroke": "#2db7f5",
+                    "stroke-linecap": "round",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:26.43716513249287px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "panda-progress-circle-path",
+                  "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                  "fill-opacity": "0",
+                  "stroke": "#2db7f5",
+                  "stroke-linecap": "round",
+                  "stroke-width": "6",
+                  "style": "stroke-dasharray:26.43716513249287px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                },
+                "children": Array [],
+                "name": "path",
+                "namespace": "http://www.w3.org/2000/svg",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-trail",
+                    "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                    "fill-opacity": "0",
+                    "stroke": "#f3f3f3",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-linecap": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "d": undefined,
+                  "fill-opacity": undefined,
+                  "stroke": undefined,
+                  "stroke-linecap": undefined,
+                  "stroke-width": undefined,
+                  "style": undefined,
+                },
+              },
+            ],
+            "name": "svg",
+            "namespace": "http://www.w3.org/2000/svg",
+            "next": Object {
+              "attribs": Object {
+                "class": "panda-progress-text",
+              },
+              "children": Array [
+                Object {
+                  "data": "12%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "viewBox": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "viewBox": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-text",
+            },
+            "children": Array [
+              Object {
+                "data": "12%",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "panda-progress-circle ",
+                "viewBox": "0 0 100 100",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-trail",
+                    "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                    "fill-opacity": "0",
+                    "stroke": "#f3f3f3",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "panda-progress-circle-path",
+                      "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                      "fill-opacity": "0",
+                      "stroke": "#2db7f5",
+                      "stroke-linecap": "round",
+                      "stroke-width": "6",
+                      "style": "stroke-dasharray:26.43716513249287px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                    },
+                    "children": Array [],
+                    "name": "path",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-linecap": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-linecap": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "panda-progress-circle-path",
+                    "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                    "fill-opacity": "0",
+                    "stroke": "#2db7f5",
+                    "stroke-linecap": "round",
+                    "stroke-width": "6",
+                    "style": "stroke-dasharray:26.43716513249287px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s",
+                  },
+                  "children": Array [],
+                  "name": "path",
+                  "namespace": "http://www.w3.org/2000/svg",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "panda-progress-circle-trail",
+                      "d": "M 50,50 m 0,47
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94",
+                      "fill-opacity": "0",
+                      "stroke": "#f3f3f3",
+                      "stroke-width": "6",
+                      "style": "stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s",
+                    },
+                    "children": Array [],
+                    "name": "path",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "d": undefined,
+                      "fill-opacity": undefined,
+                      "stroke": undefined,
+                      "stroke-width": undefined,
+                      "style": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                    "d": undefined,
+                    "fill-opacity": undefined,
+                    "stroke": undefined,
+                    "stroke-linecap": undefined,
+                    "stroke-width": undefined,
+                    "style": undefined,
+                  },
+                },
+              ],
+              "name": "svg",
+              "namespace": "http://www.w3.org/2000/svg",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "viewBox": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "viewBox": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "style": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress Progress is line and showInfo is false renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-progress panda-progress-line",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-outer",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "panda-progress-inner",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "panda-progress-bg",
+                      "style": "width:12%;height:8px;background-color:red",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress Progress is line renders correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {
+      "class": "panda-progress panda-progress-line panda-progress-show-info",
+    },
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-outer",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "panda-progress-inner",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "panda-progress-bg",
+                      "style": "width:12%;height:8px",
+                    },
+                    "children": Array [],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "style": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "panda-progress-text",
+              },
+              "children": Array [
+                Object {
+                  "data": "12%",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "panda-progress-text",
+            },
+            "children": Array [
+              Object {
+                "data": "12%",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "panda-progress-outer",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "panda-progress-inner",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "panda-progress-bg",
+                        "style": "width:12%;height:8px",
+                      },
+                      "children": Array [],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "style": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "style": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "root": Object {
+      "attribs": Object {},
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-attribsNamespace": Object {},
+      "x-attribsPrefix": Object {},
+    },
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xml": false,
+  },
+}
+`;

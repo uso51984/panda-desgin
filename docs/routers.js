@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import NavBar from 'src/nav-bar';
+import Icon from 'src/icon';
 import docConfig from './doc.config';
 import DemoList from './mobileComponents/DemoList';
 import componentDocs, { Markdown } from './docs-entry';
 import componentDemos from './demo-entry';
 import intro from './markdown/intro.md';
-// import DemoPages from './components/DemoPages';
-// import './utils/iframe-router';
 
 const registerRoute = (isDemo) => {
   const route = [];
@@ -20,25 +20,18 @@ const registerRoute = (isDemo) => {
       />));
     } else {
       route.push((<Route
-        key={'index'}
+        key="index"
         exact
         path="/"
         component={Markdown(intro)}
       />));
     }
-    function addRoute(page, lang1) {
+    function addRoute(page) {
       let { path } = page;
       if (path) {
         path = path.replace('/', '');
 
-        let Component;
-        if (path === 'demo') {
-          component = DemoPages;
-        } else {
-          Component = isDemo ? componentDemos[path] : componentDocs[path];
-
-          // component = isDemo ? componentDemos[path] : componentDocs[`${path}.${lang}`];
-        }
+        const Component = isDemo ? componentDemos[path] : componentDocs[path];
 
         if (!Component) {
           return;
@@ -50,7 +43,20 @@ const registerRoute = (isDemo) => {
           component={(props) => {
             window.g_history = props.history;
             window.g_location = props.location;
-            return <Component {...props} />;
+            return (
+              <React.Fragment>
+                {
+                  isDemo && (
+                  <NavBar
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => props.history.push('/')}
+                  >
+                    {page.title}
+                  </NavBar>
+                  )}
+                <Component {...props} />
+              </React.Fragment>
+            );
           }}
         />));
       }

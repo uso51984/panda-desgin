@@ -1,8 +1,5 @@
-const getwebpackDevConfig = require('bee-build-tools/lib/getwebpackDevConfig');
+const getwebpackDevConfig = require('./build/webpack.dev.js');
 
 const config = getwebpackDevConfig({});
-
-
-console.log('config', config);
 
 module.exports = config;
