@@ -40,7 +40,7 @@ exec('npm run lint', { stage: 'linting' })
   .then(() => exec('git commit --allow-empty -m "npm run build"', { stage: 'committing' }))
   // npm version
   // [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
-  .then(() => exec(`npm version ${nextVersion} --force -m "Bump version to %s"`, { stage: 'bumping version' }))
+  .then(() => exec(`npm version ${nextVersion} --force -m "Release version to %s"`, { stage: 'bumping version' }))
   // 6) Push to the same branch on the git remote
   // Do this before we publish in case anyone has pushed since we last pulled
   .then(() => exec('git push origin HEAD:master', { stage: 'pushing to remote' }))
