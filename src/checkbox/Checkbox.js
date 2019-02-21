@@ -10,6 +10,7 @@ export default class Checkbox extends React.PureComponent {
     defaultChecked: false,
     onChange() {},
   };
+
   constructor(props) {
     super(props);
 

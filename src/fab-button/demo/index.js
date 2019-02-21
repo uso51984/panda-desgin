@@ -12,7 +12,7 @@ export default () =>
         <span>face</span>
         <span>mail</span>
       </FabButton>
-      <FabButton reverse >
+      <FabButton reverse>
         <span>checkout</span>
         <span>face</span>
         <span>mail</span>

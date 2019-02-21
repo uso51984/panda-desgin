@@ -70,9 +70,10 @@ export default class Swipeout extends React.Component {
         swiping: this.swiping,
       });
 
-      this._setStyle(deltaX);
+      this.setStyle(deltaX);
     }
   }
+
   onPanMove = (e) => {
     const { moveStatus, srcEvent } = e;
     const { x: deltaX } = moveStatus;
@@ -84,7 +85,7 @@ export default class Swipeout extends React.Component {
     if (srcEvent && srcEvent.preventDefault) {
       srcEvent.preventDefault();
     }
-    this._setStyle(deltaX);
+    this.setStyle(deltaX);
   }
 
   onPanEnd = (e) => {
@@ -120,6 +121,7 @@ export default class Swipeout extends React.Component {
   doOpenRight = () => {
     this.open(-this.btnsRightWidth, true, false);
   }
+
   // left & right button click
   onBtnClick(ev, btn) {
     const onPress = btn.onPress;
@@ -131,22 +133,22 @@ export default class Swipeout extends React.Component {
     }
   }
 
-  _getContentEasing(value, limit) {
+  getContentEasing(value, limit) {
     // limit content style left when value > actions width
     const delta = Math.abs(value) - Math.abs(limit);
     const isOverflow = delta > 0;
     const factor = limit > 0 ? 1 : -1;
     if (isOverflow) {
-      value = limit + Math.pow(delta, 0.85) * factor;
+      value = limit + Math.pow(delta, 0.85) * factor; // eslint-disable-line
       return Math.abs(value) > Math.abs(limit) ? limit : value;
     }
     return value;
   }
 
   // set content & actions style
-  _setStyle = (value) => {
+  setStyle = (value) => {
     const limit = value > 0 ? this.btnsLeftWidth : -this.btnsRightWidth;
-    const contentLeft = this._getContentEasing(value, limit);
+    const contentLeft = this.getContentEasing(value, limit);
     this.content.style.left = `${contentLeft}px`;
     if (this.cover) {
       this.cover.style.display = Math.abs(value) > 0 ? 'block' : 'none';
@@ -161,14 +163,14 @@ export default class Swipeout extends React.Component {
 
     this.openedLeft = openedLeft;
     this.openedRight = openedRight;
-    this._setStyle(value);
+    this.setStyle(value);
   }
 
   close = () => {
     if ((this.openedLeft || this.openedRight) && this.props.onClose) {
       this.props.onClose();
     }
-    this._setStyle(0);
+    this.setStyle(0);
     this.openedLeft = false;
     this.openedRight = false;
   }
@@ -184,7 +186,7 @@ export default class Swipeout extends React.Component {
         {
           buttons.map((btn, i) => (
             <div key={i}
-              className={`${prefixCls}-btn ${btn.hasOwnProperty('className') ? btn.className : ''}`}
+              className={`${prefixCls}-btn ${btn.className ? btn.className : ''}`}
               style={btn.style}
               role="button"
               onClick={e => this.onBtnClick(e, btn)}
@@ -217,7 +219,7 @@ export default class Swipeout extends React.Component {
     };
 
     return (left.length || right.length) && !disabled ? (
-      <div className={cls} {...divProps} >
+      <div className={cls} {...divProps}>
         {/* 保证 body touchStart 后不触发 pan */}
         <div className={`${prefixCls}-cover`} ref={el => this.cover = el} />
         { this.renderButtons(left, 'left') }

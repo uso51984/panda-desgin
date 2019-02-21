@@ -15,7 +15,6 @@ class Cascader extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    console.log('this.getValue(nextProps.data, nextProps.value)', this.getValue(nextProps.data, nextProps.value))
     if ('value' in nextProps) {
       this.setState({
         value: this.getValue(nextProps.data, nextProps.value),
@@ -32,7 +31,6 @@ class Cascader extends React.Component {
       value[i] = data.value;
     }
     value.length = i;
-    console.log('value2323', value)
     if (!('value' in this.props)) {
       this.setState({
         value,
@@ -80,8 +78,7 @@ class Cascader extends React.Component {
         itemStyle={pickerItemStyle}
         indicatorStyle={indicatorStyle}
       >
-        {children.map(item =>
-          <PickerView.Item value={item.value} key={item.value}>{item.label}</PickerView.Item>)
+        {children.map(item => <PickerView.Item value={item.value} key={item.value}>{item.label}</PickerView.Item>)
         }
       </PickerView>
     ));

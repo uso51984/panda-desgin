@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 class PanelContent extends React.PureComponent {
@@ -24,11 +24,11 @@ class PanelContent extends React.PureComponent {
   }
 }
 
-PanelContent.propTypes = {
-  prefixCls: PropTypes.string,
-  isActive: PropTypes.bool,
-  children: PropTypes.any,
-  destroyInactivePanel: PropTypes.bool,
-};
+// PanelContent.propTypes = {
+//   prefixCls: PropTypes.string,
+//   isActive: PropTypes.bool,
+//   children: PropTypes.any,
+//   destroyInactivePanel: PropTypes.bool,
+// };
 
 export default PanelContent;

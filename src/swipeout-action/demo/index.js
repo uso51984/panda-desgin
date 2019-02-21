@@ -38,7 +38,8 @@ const SwipeDemo = () => (
       borderTop: '1px solid #dedede',
       borderBottom: '1px solid #dedede',
     }}
-    >swipe out simple demo
+    >
+swipe out simple demo
     </div>
   </Swipeout>
 );
@@ -66,13 +67,14 @@ export default () => (
         console.log('emit an event on children element!');
       }}
         style={{
-        height: 44,
-        backgroundColor: 'white',
-        lineHeight: '44px',
-        borderTop: '1px solid #dedede',
-        borderBottom: '1px solid #dedede',
-      }}
-      >swipe out simple demo
+          height: 44,
+          backgroundColor: 'white',
+          lineHeight: '44px',
+          borderTop: '1px solid #dedede',
+          borderBottom: '1px solid #dedede',
+        }}
+      >
+swipe out simple demo
       </div>
     </Swipeout>
     <Swipeout
@@ -100,7 +102,8 @@ export default () => (
         borderTop: '1px solid #dedede',
         borderBottom: '1px solid #dedede',
       }}
-      >swipe out simple demo
+      >
+swipe out simple demo
       </div>
     </Swipeout>
   </div>

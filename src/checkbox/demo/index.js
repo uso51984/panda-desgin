@@ -2,7 +2,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Checkbox from '../Checkbox';
 import CheckboxGroup from '../CheckboxGroup';
-import Cell from '../../Cell';
+import { Cell } from '../../Cell';
 import './index.less';
 
 function onChange(e) {
@@ -17,6 +17,7 @@ export default class Demo extends React.Component {
   state = {
     value: false,
   }
+
   render() {
     const optionsWithDisabled = [
       { label: 'Apple', value: 'Apple' },

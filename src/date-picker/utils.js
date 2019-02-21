@@ -1,6 +1,6 @@
 function formatIt(date, form) {
   const pad = n => (n < 10 ? `0${n}` : n);
-  const dateStr = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate() )}`;
+  const dateStr = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
   const timeStr = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
   if (form === 'YYYY-MM-DD') {
     return dateStr;

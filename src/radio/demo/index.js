@@ -4,7 +4,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Radio from '../index';
 import RadioGroup from '../RadioGroup';
-import Cell from '../../Cell';
+import { Cell } from '../../Cell';
 import './index.less';
 
 function onChange(e) {
@@ -19,6 +19,7 @@ export default class Demo extends React.Component {
   state = {
     value: 1,
   }
+
   render() {
     const optionsWithDisabled = [
       { label: 'Apple', value: 'Apple' },

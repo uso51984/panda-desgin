@@ -79,7 +79,7 @@ class NumberKeyboard extends React.Component {
         </div>
 
         {
-          theme === 'custom' &&
+          theme === 'custom' && (
           <div className={`${prefixCls}__sidebar`}>
             <KeyboardItem
               prefixCls={prefixCls}
@@ -101,7 +101,7 @@ class NumberKeyboard extends React.Component {
               {confirm}
             </KeyboardItem>
           </div>
-        }
+          )}
       </div>
     );
   }

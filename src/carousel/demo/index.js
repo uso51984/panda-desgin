@@ -6,6 +6,7 @@ export default class App extends React.Component {
   state = {
     data: ['1', '2', '3'],
   }
+
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -13,6 +14,7 @@ export default class App extends React.Component {
       });
     }, 100);
   }
+
   render() {
     return (
       <div>

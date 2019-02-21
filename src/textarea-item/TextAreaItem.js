@@ -187,7 +187,9 @@ export default class TextareaItem extends React.PureComponent {
         )}
         {hasCount && (
           <span className={`${prefixCls}-count`}>
-            <span>{value ? characterLength : 0}</span>/{count}
+            <span>{value ? characterLength : 0}</span>
+            /
+            {count}
           </span>
         )}
       </div>

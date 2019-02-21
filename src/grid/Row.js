@@ -7,6 +7,7 @@ export default class Row extends React.PureComponent {
     gutter: 0,
     prefixCls: 'panda-row',
   }
+
   getStyle() {
     const { gutter, style } = this.props;
     if (!gutter) {
@@ -37,6 +38,7 @@ export default class Row extends React.PureComponent {
     });
     return cols;
   }
+
   render() {
     const { Tag, type, align, justify, prefixCls } = this.props;
     const isFlex = type === 'flex';

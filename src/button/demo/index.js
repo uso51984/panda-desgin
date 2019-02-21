@@ -21,8 +21,8 @@ export default () => (
     </DemoBlock>
     <DemoBlock title="warning" className="has-padding">
       <Row gutter="15">
-        <Col span="12"><Button type="warning" >warning</Button></Col>
-        <Col span="12"><Button type="warning" disabled >disabled</Button></Col>
+        <Col span="12"><Button type="warning">warning</Button></Col>
+        <Col span="12"><Button type="warning" disabled>disabled</Button></Col>
       </Row>
     </DemoBlock>
     <DemoBlock title="with icon" className="has-padding">
@@ -32,7 +32,7 @@ export default () => (
       <div className="button-demo">
         <Button loading inline size="small">loading button</Button>
         <br />
-        <Button icon="check-circle-o" inline size="small" >with icon and inline</Button>
+        <Button icon="check-circle-o" inline size="small">with icon and inline</Button>
         <br />
         <Button type="ghost" inline size="small">inline ghost</Button>
         <br />

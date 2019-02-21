@@ -1,16 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
 export default class CheckboxGroup extends React.Component {
-  static propTypes = {
-    defaultValue: PropTypes.array,
-    value: PropTypes.array,
-    options: PropTypes.array,
-    onChange: PropTypes.func,
-  };
-
   static defaultProps = {
     options: [],
     defaultValue: [],
@@ -63,6 +55,7 @@ export default class CheckboxGroup extends React.Component {
 
     this.props.onChange(value);
   }
+
   render() {
     const { props, state } = this;
     const { prefixCls, className, style, options } = props;

@@ -1,11 +1,11 @@
 /* tslint:disable:no-bitwise */
 import { SWIPE, DIRECTION_NONE, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN } from './config';
 
-function _calcTriangleDistance(x, y) {
+function calcTriangleDistance(x, y) {
   return Math.sqrt(x * x + y * y);
 }
 
-function _calcAngle(x, y) {
+function calcAngle(x, y) {
   const radian = Math.atan2(y, x);
   return 180 / (Math.PI / radian);
 }
@@ -25,8 +25,8 @@ export function calcMutliFingerStatus(touches) {
   return {
     x: deltaX,
     y: deltaY,
-    z: _calcTriangleDistance(deltaX, deltaY),
-    angle: _calcAngle(deltaX, deltaY),
+    z: calcTriangleDistance(deltaX, deltaY),
+    angle: calcAngle(deltaX, deltaY),
   };
 }
 
@@ -35,14 +35,14 @@ export function calcMoveStatus(startTouches, touches, time) {
   const { x: x2, y: y2 } = touches[0];
   const deltaX = x2 - x1;
   const deltaY = y2 - y1;
-  const deltaZ = _calcTriangleDistance(deltaX, deltaY);
+  const deltaZ = calcTriangleDistance(deltaX, deltaY);
   return {
     x: deltaX,
     y: deltaY,
     z: deltaZ,
     time,
     velocity: deltaZ / time,
-    angle: _calcAngle(deltaX, deltaY),
+    angle: calcAngle(deltaX, deltaY),
   };
 }
 export function calcRotation(startMutliFingerStatus, mutliFingerStatus) {
@@ -61,7 +61,7 @@ export function shouldTriggerSwipe(delta, velocity) {
 }
 
 export function shouldTriggerDirection(direction, directionSetting) {
-  if (directionSetting & direction) {
+  if (directionSetting & direction) { // eslint-disable-line
     return true;
   }
   return false;

@@ -8,8 +8,9 @@ import DatePicker from '../index';
 import PopupDatePicker from '../PopupDatePicker';
 import zhCn from '../locale/zh_CN';
 import enUs from '../locale/en_US';
-import { minDate, maxDate, now } from './utils';
+import { minDate, maxDate } from './utils';
 
+const now = new Date();
 const locale = {
   zhCn,
   enUs,
@@ -133,6 +134,7 @@ export default class Demo extends React.Component {
             <Cell title="日期" value={this.state.date} />
           </PopupDatePicker>
         </DemoBlock>
-      </div>);
+      </div>
+    );
   }
 }

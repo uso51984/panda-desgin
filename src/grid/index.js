@@ -5,3 +5,5 @@ export {
   Col,
   Row,
 };
+
+export default Col;

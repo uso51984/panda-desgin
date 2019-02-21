@@ -6,9 +6,11 @@ export default class Icon extends React.Component {
   static defaultProps = {
     size: 'md',
   };
+
   componentDidMount() {
     loadSprite();
   }
+
   render() {
     const { type, className, size, ...restProps } = this.props;
     const cls = classnames(

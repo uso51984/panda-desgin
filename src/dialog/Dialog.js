@@ -129,7 +129,8 @@ export default class Dialog extends React.Component {
           className={`${prefixCls}-close`}
         >
           <span className={`${prefixCls}-close-x`} />
-        </button>);
+        </button>
+      );
     }
 
     const transitionName = this.getTransitionName();

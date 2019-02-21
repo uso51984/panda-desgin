@@ -31,13 +31,13 @@ export default () => (
       <Badge text="玄幻" style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#21b68a', borderRadius: 2 }} />
       <Badge text="科幻"
         style={{
-            marginLeft: 12,
-            padding: '0 3px',
-            backgroundColor: '#fff',
-            borderRadius: 2,
-            color: '#f19736',
-            border: '1px solid #f19736',
-          }}
+          marginLeft: 12,
+          padding: '0 3px',
+          backgroundColor: '#fff',
+          borderRadius: 2,
+          color: '#f19736',
+          border: '1px solid #f19736',
+        }}
       />
     </DemoBlock>
 

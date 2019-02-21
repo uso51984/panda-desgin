@@ -70,10 +70,10 @@ export default class Demo extends React.PureComponent {
         <DemoBlock title="操作" className="has-padding">
           <Row>
             <Col span="10">
-              <Button type="warning" onClick={this.subtraction} >减少</Button>
+              <Button type="warning" onClick={this.subtraction}>减少</Button>
             </Col>
             <Col span="10" offset="4">
-              <Button type="primary" onClick={this.add} >增加</Button>
+              <Button type="primary" onClick={this.add}>增加</Button>
             </Col>
           </Row>
         </DemoBlock>

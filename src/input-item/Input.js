@@ -5,6 +5,7 @@ class Input extends React.PureComponent {
     onBlur() { },
     onFocus() { },
   }
+
   onInputBlur = (e) => {
     const value = e.target.value;
     this.props.onBlur(value);

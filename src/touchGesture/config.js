@@ -7,9 +7,9 @@ export const DIRECTION_RIGHT = 4; // 00100
 export const DIRECTION_UP = 8; // 01000
 export const DIRECTION_DOWN = 16; // 10000
 
-export const DIRECTION_HORIZONTAL = DIRECTION_LEFT | DIRECTION_RIGHT; // 00110 6
-export const DIRECTION_VERTICAL = DIRECTION_UP | DIRECTION_DOWN; // 11000 24
-export const DIRECTION_ALL = DIRECTION_HORIZONTAL | DIRECTION_VERTICAL; // 11110  30
+export const DIRECTION_HORIZONTAL = 6; // 00110 6
+export const DIRECTION_VERTICAL = 24; // 11000 24
+export const DIRECTION_ALL = 30; // 11110  30
 
 // http://hammerjs.github.io/recognizer-press/
 export const PRESS = {

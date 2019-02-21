@@ -397,10 +397,10 @@ class DatePicker extends React.Component {
       const minMinutes = minDate.getMinutes();
       const hour = date.getHours();
       const minutes = date.getMinutes();
-      if (hour < minHour || hour === minHour && minutes < minMinutes) {
+      if (hour < minHour || (hour === minHour && minutes < minMinutes)) {
         return cloneDate(minDate);
       }
-      if (hour > maxHour || hour === maxHour && minutes > maxMinutes) {
+      if (hour > maxHour || (hour === maxHour && minutes > maxMinutes)) {
         return cloneDate(maxDate);
       }
     }
@@ -439,7 +439,8 @@ class DatePicker extends React.Component {
       let dtValue = [`${hour}`, `${time.selMinute}`];
       let nhour = hour;
       if (use12Hours) {
-        nhour = hour === 0 ? 12 : (hour > 12 ? hour - 12 : hour);
+        const tmpHour = hour > 12 ? hour - 12 : hour;
+        nhour = hour === 0 ? 12 : tmpHour;
         dtValue = [`${nhour}`, `${time.selMinute}`, `${hour >= 12 ? 1 : 0}`];
       }
       value = value.concat(dtValue);
