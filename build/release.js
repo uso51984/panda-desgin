@@ -32,21 +32,18 @@ if (semver.lte(nextVersion, curVersion)) {
   process.exit(0);
 }
 
-// 1) Make sure the lint and tests pass
+// 1) Make sure the lint pass
 exec('npm run lint', { stage: 'linting' })
+  // 2) Make sure the test pass
   .then(() => exec('npm run test', { stage: 'test' }))
-  // .then(() => exec('npm run build:doc', { stage: 'documenting' }))
   .then(() => exec('npm run build:lib', { stage: 'building' }))
-  .then(() => exec('git add .', { stage: 'adding to repo' }))
-  // .then(() => exec('git commit --allow-empty -m "npm run build"', { stage: 'committing' }))
   // npm version
   // [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
   .then(() => exec(`npm version ${nextVersion} --force -m "Release version to %s"`, { stage: 'bumping version' }))
   // 6) Push to the same branch on the git remote
   // Do this before we publish in case anyone has pushed since we last pulled
   .then(() => exec('git push origin HEAD:master', { stage: 'pushing to remote' }))
-  // 7) Publish to nexus or npm. Use the "next" tag for pre-releases,
   // "latest" for all others
   // 8) Push the v* tag to GitLab
-  .then(() => exec(`git push -f --no-verify origin v${nextVersion}`))
+  .then(() => exec(`git push -f --no-verify origin v${nextVersion}`), {stage: `Push the v${nextVersion} tag`})
   .catch(error => console.error(error));

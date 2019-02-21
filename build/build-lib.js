@@ -1,19 +1,6 @@
-const shell = require('shelljs');
-// const signale = require('signale');
-// const { Signale } = signale;
-const tasks = [
-  'build:components',
-  'build:panda',
-  'build:style',
-];
+const exec = require('./utils/exec');
 
-tasks.forEach(task => {
-  // signale.start(task);
-
-  // const interactive = new Signale({ interactive: true });
-  // interactive.pending(task);
-  const result = shell.exec(`npm run ${task} --silent`);
-  // if (result.code !== 1) {
-  //   interactive.success(task);
-  // }
-});
+exec('npm run build:components', { stage: 'build:components' })
+  .then(() => exec('npm run build:panda', { stage: 'build:panda' }))
+  .then(() => exec('npm run build:style', { stage: 'build:style' }))
+  .catch(error => console.error(error));
