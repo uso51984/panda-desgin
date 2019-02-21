@@ -41,7 +41,7 @@ export default class MyControl extends React.Component {
     // } else {
     dialog = (
       <Dialog
-        ref={(dom: any) => this.dialog = dom}
+        ref={(dom) => this.dialog = dom}
         visible={this.state.visible}
         wrapClassName={wrapClassName}
         animation="zoom"
