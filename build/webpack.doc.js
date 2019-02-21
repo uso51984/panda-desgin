@@ -29,8 +29,8 @@ const webpackDocConfig = assign(config, {
   }
 });
 
-shelljs.rm('-rf', 'docs/dist');
 
 module.exports = () => {
+  shelljs.rm('-rf', 'docs/dist');
   return webpackDocConfig
 }
