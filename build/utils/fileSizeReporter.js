@@ -106,7 +106,6 @@ function printFileSizesAfterBuild(
     );
   });
   if (suggestBundleSplitting) {
-    console.log();
     console.log(chalk.yellow('The bundle size is significantly larger than recommended.'));
     console.log(chalk.yellow('Consider reducing it with code splitting: https://goo.gl/9VhYWB'));
     console.log(

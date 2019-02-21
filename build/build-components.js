@@ -16,16 +16,13 @@ function compile(dir, modules) {
 
   files.forEach(file => {
     const filePath = path.join(dir, file);
-    // reomve unnecessary files
     if (!isCode(file)) {
       return fs.removeSync(filePath);
     }
-    // scan dir
     if (isDir(filePath)) {
       return compile(filePath, modules);
     }
 
-    // compile js
     if (isJs(file)) {
       const { code } = babel.transformFileSync(filePath, getBabelCommonConfig(modules));
       fs.outputFileSync(filePath, code);
@@ -41,7 +38,6 @@ fs.emptyDirSync(libDir);
 fs.copySync(srcDir, esDir);
 compile(esDir, false);
 
-// // compile lib dir
-process.env.BABEL_MODULE = 'commonjs';
+// compile lib dir
 fs.copySync(srcDir, libDir);
 compile(libDir, 'commonjs');

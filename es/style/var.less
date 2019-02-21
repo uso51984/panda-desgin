@@ -1,0 +1,174 @@
+@hd: 1px; // 基本单位
+
+@black: #000;
+@white: #fff;
+@red: #f44;
+@blue: #1989fa;
+@orange: #ff976a;
+@orange-dark: #ed6a0c;
+@orange-light: #fffbe8;
+@green: #4b0;
+@gray: #ccc;
+@gray-light: #e5e5e5;
+@gray-darker: #666;
+@gray-dark: #999;
+
+// 全局/品牌色
+@brand-primary: @blue;
+@brand-primary-tap: #0e80d2;
+@brand-success: #6abf47;
+@brand-warning: #ffc600;
+@brand-error: #f4333c;
+@brand-important: #ff5b05;  // 用于小红点
+@brand-wait: @blue;
+
+// default colors
+@border-color: @gray;
+@active-color: #e8e8e8;
+@background-color: #f8f8f8;
+@background-color-light: #fafafa;
+
+
+// 文字色
+@text-color: #333;
+@color-text-base: #000;                  // 基本
+@color-text-base-inverse: #fff;          // 基本 - 反色
+@color-text-secondary: #a4a9b0;          // 辅助色
+@color-text-placeholder: #bbb;           // 文本框提示
+@color-text-disabled: #bbb;              // 失效
+@color-text-caption: #888;               // 辅助描述
+@color-text-paragraph: #333;             // 段落
+@color-link: @blue;             // 链接
+
+
+// button
+@button-height: 40 * @hd;
+@button-font-size: 16 * @hd;
+
+@button-height-sm: 30 * @hd;
+@button-font-size-sm: 13 * @hd;
+
+@primary-button-fill: @blue;
+@primary-button-fill-tap: @brand-primary-tap;
+
+@ghost-button-color: @blue;    // 同时应用于背景、文字颜色、边框色
+@ghost-button-fill-tap: fade(@blue, 60%);
+
+@warning-button-fill: @red;
+@warning-button-fill-tap: @brand-error;
+
+
+
+// checkbox
+@checkbox-size: 20px;
+
+// radio
+@radio-size: 20px;
+
+// swipe
+@swipe-indicator: 6px;
+
+// tab
+@tabs-line-height: 44px;
+@tabs-card-height: 30px;
+
+// number keyboard
+@number-keyboard-key-height: 54px;
+@number-keyboard-key-background: #eBedf0;
+
+
+
+// 图标尺寸
+// ---
+@icon-size-xxs: 15 * @hd;
+@icon-size-xs: 18 * @hd;
+@icon-size-sm: 20 * @hd;
+@icon-size-md: 22 * @hd;       // 导航条上的图标、grid的图标大小
+@icon-size-lg: 36 * @hd;
+
+// 圆角
+// ---
+@radius-xs: 2 * @hd;
+@radius-sm: 3 * @hd;
+@radius-md: 5 * @hd;
+@radius-lg: 7 * @hd;
+@radius-circle: 50%;
+
+// z-index
+@progress-zindex: 2000;
+@popover-zindex: 1999;
+@toast-zindex: 1999;
+@action-sheet-zindex: 1000; // actonsheet 会放到 popup / modal 中
+@picker-zindex: 1000;
+@popup-zindex: 999;
+@modal-zindex: 999; // modal.alert 应该最大，其他应该较小
+@tabs-pagination-zindex: 999;
+
+// toast
+@toast-fill: rgba(58, 58, 58, 0.9); // toast, activity-indicator 的背景颜色
+
+// modal
+@fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
+@radius-lg: 7 * @hd;
+@v-spacing-lg: 15 * @hd;
+@h-spacing-lg: 15 * @hd;
+@modal-font-size-heading: 18 * @hd;
+@line-height-base: 1;           // 单行行高
+@color-text-base: @text-color;
+@v-spacing-sm: 6 * @hd;
+@fill-base: #fff;
+@font-size-subhead: 15 * @hd;
+@line-height-paragraph: 1.5;    // 多行行高
+@color-link: #108ee9;
+@modal-button-font-size: 18 * @hd; // 按钮字号
+@modal-button-height: 50 * @hd; // 按钮高度
+@fill-tap: #ddd;
+@border-color-base: #ddd;
+@radius-sm: 3 * @hd;
+@v-spacing-md: 9 * @hd;
+@font-size-base: 14 * @hd;
+@h-spacing-md: 8 * @hd;
+
+
+// 字体尺寸
+// ---
+@font-size-icontext: 10 * @hd;
+@font-size-caption-sm: 12 * @hd;
+@font-size-base: 14 * @hd;
+@font-size-subhead: 15 * @hd;
+@font-size-caption: 16 * @hd;
+@font-size-heading: 17 * @hd;
+
+// 透明度
+@opacity-disabled: 0.3;   // switch checkbox radio 等组件禁用的透明度
+@list-item-height: 44 * @hd;
+
+// 间距
+// ---
+// 水平间距
+@h-spacing-sm: 5 * @hd;
+@h-spacing-md: 8 * @hd;
+@h-spacing-lg: 15 * @hd;
+
+// 垂直间距
+@v-spacing-xs: 3 * @hd;
+@v-spacing-sm: 6 * @hd;
+@v-spacing-md: 9 * @hd;
+@v-spacing-lg: 15 * @hd;
+@v-spacing-xl: 21 * @hd;
+
+// input
+@input-label-width: 17 * @hd;       // InputItem、TextareaItem 文字长度基础值
+@input-font-size: 17 * @hd;
+@input-color-icon: @gray; // input clear icon 的背景色
+@input-color-icon-tap: @brand-primary;
+
+// switch
+@switch-fill: #4dd865;
+@switch-fill-android: @brand-primary;
+
+// 边框尺寸
+// ---
+@border-width-sm: 1PX;
+@border-width-md: 1PX;
+@border-width-lg: 2 * @hd;

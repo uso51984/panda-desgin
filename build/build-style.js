@@ -2,12 +2,7 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 const csso = require('gulp-csso');
 const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-
-const autoprefixerConfig = autoprefixer({
-  remove: false,
-  browsers: ['Android >= 4.0', 'iOS >= 7']
-})
+const autoprefixerConfig = require('./autoprefixerConfig');
 
 gulp.task('compile', () => {
   return gulp

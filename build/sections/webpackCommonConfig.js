@@ -3,8 +3,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const getBabelCommonConfig = require('./getBabelCommonConfig');
-const assign = require('object-assign');
-const autoprefixer = require('autoprefixer');
+const autoprefixerConfig = require('./autoprefixerConfig');
 
 function getResolve() {
   const resolve = {
@@ -15,36 +14,25 @@ function getResolve() {
   return resolve;
 }
 
-const postcssLoader = {
-  loader: 'postcss',
-  options: { plugins: [autoprefixer({remove: false})] },
-};
-
 module.exports = {
   getResolve,
   getResolveLoader() {
     return {
       modules: [
         path.resolve(__dirname, '../node_modules'),
-        path.resolve(__dirname, '../../'),
+        path.resolve(__dirname, '../'),
       ],
       moduleExtensions: ['-loader'],
     };
   },
   getLoaders() {
-    const babelConfig = getBabelCommonConfig();
-    const babelLoader = {
-      loader: 'babel',
-      options: babelConfig,
-    };
     return [
-      assign(
-        {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-        },
-        babelLoader
-      ),
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        options: getBabelCommonConfig()
+      },
       {
         test: /\.svg$/,
         loader: 'svg-sprite',
@@ -81,7 +69,16 @@ module.exports = {
   },
 
   getCssLoaders(extractCss) {
-    let cssLoader = [
+    const styleLoader = {
+      loader: 'style',
+    };
+
+    const postcssLoader = {
+      loader: 'postcss',
+      options: { plugins: [autoprefixerConfig] },
+    };
+
+    const cssLoader = [
       {
         loader: 'css',
         options: {
@@ -91,7 +88,8 @@ module.exports = {
       },
       postcssLoader,
     ];
-    let lessLoader = cssLoader.concat([
+
+    const lessLoader = cssLoader.concat([
       {
         loader: 'less',
         options: {
@@ -100,19 +98,17 @@ module.exports = {
         },
       },
     ]);
-      const styleLoader = {
-        loader: 'style',
-      };
+
     if (extractCss) {
-      const test = {
+      const extractCssLoader = {
         loader: MiniCssExtractPlugin.loader,
         options: {
           // you can specify a publicPath here
           // by default it use publicPath in webpackOptions.output
         }
       }
-      cssLoader.unshift(test);
-      lessLoader.unshift(test);
+      cssLoader.unshift(extractCssLoader);
+      lessLoader.unshift(extractCssLoader);
     } else {
       cssLoader.unshift(styleLoader);
       lessLoader.unshift(styleLoader);

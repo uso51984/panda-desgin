@@ -1,0 +1,100 @@
+@import '../../style/var.less';
+@import '../../style/mixins/icon.less';
+@import "../../style/mixins/hairline.less";
+
+@prefixInputCls: panda-input;
+.@{prefixInputCls}-wrapper {
+  width: 100%;
+  display: flex;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  line-height: 24px;
+  position: relative;
+  background-color: @white;
+  color: @text-color;
+  font-size: 14px;
+  overflow: hidden;
+
+  &:not(:last-child)::after {
+    .hairline-bottom(@border-color, 15px);
+  }
+
+  .@{prefixInputCls}-label,
+  .@{prefixInputCls}-control {
+    flex: 1;
+  }
+
+  .@{prefixInputCls}-label {
+    max-width: 90px;
+  }
+
+  .@{prefixInputCls}-control {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      resize: none;
+      display: block;
+      box-sizing: border-box;
+      background-color: transparent;
+    }
+
+    .@{prefixInputCls}-suffix {
+      color: #1989fa;
+      height: 22px;
+    }
+
+    .@{prefixInputCls}-clear {
+      display: none;
+      min-width: @icon-size-sm;
+      min-height: @icon-size-sm;
+      border-radius: @radius-circle;
+      overflow: hidden;
+      font-style: normal;
+      color: @fill-base;
+      background-color: @input-color-icon;
+      background-repeat: no-repeat;
+      .encoded-svg-background('input_item_delete');
+
+      background-size: @icon-size-sm auto;
+      background-position: 2 * @hd 2 * @hd;
+
+      &-active {
+        background-color: @blue;
+      }
+    }
+  }
+
+  &.@{prefixInputCls}-focus {
+    .@{prefixInputCls}-clear {
+      display: block;
+    }
+  }
+
+  &.@{prefixInputCls}-disabled {
+    color: @color-text-disabled;
+    background-color: @white;
+  }
+
+  &.@{prefixInputCls}-error {
+    .@{prefixInputCls}-control {
+      input {
+        color: @red;
+      }
+    }
+
+    .@{prefixInputCls}-error-extra {
+      height: 23px;
+      width: 23px;
+      margin-left: @v-spacing-sm;
+      background-repeat: no-repeat;
+      .encoded-svg-background('error');
+      background-size: @icon-size-sm auto;
+    }
+  }
+}
