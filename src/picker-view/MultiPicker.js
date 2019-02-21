@@ -12,13 +12,12 @@ const MultiPicker = (props) => {
   } = props;
   const selectedValue = props.getValue();
 
-  const colElements = React.Children.map(children, (col, i) => {
-    return React.cloneElement(col, {
+  const colElements = React.Children.map(children, (col, i) =>
+    React.cloneElement(col, {
       selectedValue: selectedValue[i],
       onValueChange: /* istanbul ignore next */ (...args) => props.onValueChange(i, ...args),
       onScrollChange: /* istanbul ignore next */ props.onScrollChange && ((...args) => props.onScrollChange(i, ...args)),
-    });
-  });
+    }));
   return (
     <div
       {...rootNativeProps}

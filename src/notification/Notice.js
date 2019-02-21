@@ -51,10 +51,11 @@ export default class Notice extends Component {
       <div className={classNames(className)} style={props.style}>
         <div className={`${componentClass}-content`}>{props.children}</div>
         {
-          props.closable ?
+          props.closable ? (
             <a onClick={this.close} className={`${componentClass}-close`}>
               <span className={`${componentClass}-close-x`} />
-            </a> : null
+            </a>
+          ) : null
         }
       </div>
     );

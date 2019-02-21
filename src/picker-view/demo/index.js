@@ -72,7 +72,7 @@ export default class PickerDemo extends React.Component {
     for (let i = start; i < start + len; i++) {
       items.push((
         <PickerView.Item value={`${i}`} key={i}>
-          {count} {i}
+          {`${count} ${i}`}
         </PickerView.Item>
       ));
     }

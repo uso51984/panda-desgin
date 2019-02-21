@@ -22,9 +22,9 @@ export default function debounce(func, wait, immediate) {
     }
   };
 
-  return function debounced() {
+  return function debounced(...restParams) {
     context = this;
-    args = arguments;
+    args = restParams;
     timestamp = +(new Date());
 
     const callNow = immediate && !timeout;

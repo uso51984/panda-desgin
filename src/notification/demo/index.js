@@ -3,7 +3,7 @@ import React from 'react';
 import Notification from '../index';
 
 let notification = null;
-Notification.newInstance({}, (n) => notification = n);
+Notification.newInstance({}, n => notification = n);
 
 function simpleFn() {
   notification.notice({
@@ -39,20 +39,24 @@ function close(key) {
 function manualClose() {
   const key = Date.now();
   notification.notice({
-    content: <div>
-      <p>click below button to close</p>
-      <button onClick={close.bind(null, key)}>close</button>
-    </div>,
+    content: (
+      <div>
+        <p>click below button to close</p>
+        <button onClick={close.bind(null, key)}>close</button>
+      </div>
+    ),
     key,
     duration: null,
   });
 }
 
-export default ()=> (<div>
+export default () => (
   <div>
-    <button onClick={simpleFn}>simple show</button>
-    <button onClick={durationFn}>duration=0</button>
-    <button onClick={closableFn}>closable</button>
-    <button onClick={manualClose}>controlled close</button>
+    <div>
+      <button onClick={simpleFn}>simple show</button>
+      <button onClick={durationFn}>duration=0</button>
+      <button onClick={closableFn}>closable</button>
+      <button onClick={manualClose}>controlled close</button>
+    </div>
   </div>
-</div>)
+);

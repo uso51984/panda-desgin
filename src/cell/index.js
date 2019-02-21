@@ -7,4 +7,3 @@ export {
 };
 
 export default Cell;
-

@@ -15,23 +15,26 @@ export default class MyControl extends React.Component {
       visible: true,
     });
   }
-  onClose = (e) => {
+
+  onClose = () => {
     this.setState({
       visible: false,
     });
   }
+
   center = (e) => {
     this.setState({
       center: e.target.checked,
     });
   }
+
   showDialog2 = () => {
     this.setState({
       visible2: true,
     });
   }
+
   render() {
-    let dialog;
     let wrapClassName = '';
     if (this.state.center) {
       wrapClassName = 'center';
@@ -39,9 +42,9 @@ export default class MyControl extends React.Component {
     // if (!this.state.visible) {
     // dialog = null;
     // } else {
-    dialog = (
+    const dialog = (
       <Dialog
-        ref={(dom) => this.dialog = dom}
+        ref={dom => this.dialog = dom}
         visible={this.state.visible}
         wrapClassName={wrapClassName}
         animation="zoom"
@@ -91,7 +94,8 @@ export default class MyControl extends React.Component {
             show dialog
           </button>
           &nbsp;
-          <label>center
+          <label htmlFor="checkbox">
+            center
             <input
               type="checkbox"
               checked={this.state.center}

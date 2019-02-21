@@ -7,6 +7,9 @@ const eslintrc = {
     jest: true,
     es6: true,
   },
+  globals: {
+    location: true
+  },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -48,6 +51,7 @@ const eslintrc = {
     'prefer-destructuring': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'react/jsx-no-comment-textnodes': 0,
+    'react/no-access-state-in-setstate': 0,
     'object-curly-newline': 0,
     'no-case-declarations': 0,
     'no-plusplus': 0,
@@ -55,6 +59,13 @@ const eslintrc = {
     'jsx-a11y/interactive-supports-focus': 0,
     'jsx-a11y/label-has-for': 0,
     'operator-linebreak': 0,
+    'guard-for-in': 0,
+    'no-restricted-syntax': 0,
+    'no-unused-expressions': 0,
+    'consistent-return': 0,
+    'no-loop-func': 0,
+    'implicit-arrow-linebreak': 0,
+    'react/button-has-type': 0
   },
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Icon from '../index';
-import { Col } from '../../Grid';
+import { Col } from '../../grid';
 import './index.less';
 
 const list = [

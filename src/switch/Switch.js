@@ -50,7 +50,7 @@ export default class Switch extends React.PureComponent {
 
   render() {
     const {
-      prefixCls, name, disabled, className, platform, color, loading, ...restProps
+      prefixCls, name, disabled, className, platform, color, loading,
     } = this.props;
     const { checked } = this.state;
 
@@ -69,7 +69,7 @@ export default class Switch extends React.PureComponent {
     }
 
     return (
-      <label className={wrapCls}>
+      <label className={wrapCls} htmlFor="checkbox">
         <input
           type="checkbox"
           name={name}

@@ -37,7 +37,6 @@ export default class Gesture extends React.Component {
   triggerCombineEvent = (mainEventName, eventStatus, ...args) => {
     this.triggerEvent(mainEventName, ...args);
     this.triggerSubEvent(mainEventName, eventStatus, ...args);
-
   }
 
   triggerSubEvent = (mainEventName, eventStatus, ...args) => {
@@ -46,6 +45,7 @@ export default class Gesture extends React.Component {
       this.triggerEvent(subEventName, ...args);
     }
   }
+
   triggerPinchEvent = (mainEventName, eventStatus, ...args) => {
     const { scale } = this.gesture;
     if (eventStatus === 'move' && typeof scale === 'number') {
@@ -58,6 +58,7 @@ export default class Gesture extends React.Component {
     }
     this.triggerCombineEvent(mainEventName, eventStatus, ...args);
   }
+
   initPressTimer = () => {
     this.cleanPressTimer();
     this.pressTimer = setTimeout(() => {
@@ -67,9 +68,11 @@ export default class Gesture extends React.Component {
       this.triggerEvent('onPress');
     }, PRESS.time);
   }
+
   cleanPressTimer = () => {
     this.pressTimer && clearTimeout(this.pressTimer);
   }
+
   setGestureState = (params) => {
     if (!this.gesture) {
       this.gesture = {};
@@ -84,32 +87,34 @@ export default class Gesture extends React.Component {
       ...params,
     };
   }
+
   getGestureState = () => {
     if (!this.gesture) {
       return this.gesture;
-    } else {
-      // shallow copy
-      return {
-        ...this.gesture,
-      };
     }
+    // shallow copy
+    return {
+      ...this.gesture,
+    };
   }
+
   cleanGestureState = () => {
     delete this.gesture;
   }
-  getTouches = (e) => {
-    return Array.prototype.slice.call(e.touches).map(item => ({
-      x: item.screenX,
-      y: item.screenY,
-    }));
-  }
+
+  getTouches = e => Array.prototype.slice.call(e.touches).map(item => ({
+    x: item.screenX,
+    y: item.screenY,
+  }))
+
   triggerUserCb = (status, e) => {
     const cbName = getEventName('onTouch', status);
     if (cbName in this.props) {
       this.props[cbName](e);
     }
   }
-  _handleTouchStart = (e) => {
+
+  handleTouchStart = (e) => {
     this.triggerUserCb('start', e);
     this.event = e;
     if (e.touches.length > 1) {
@@ -119,6 +124,7 @@ export default class Gesture extends React.Component {
     this.initPressTimer();
     this.checkIfMultiTouchStart();
   }
+
   initGestureStatus = (e) => {
     this.cleanGestureState();
     // store the gesture start state
@@ -129,7 +135,7 @@ export default class Gesture extends React.Component {
       startTime,
       startTouches,
       startMutliFingerStatus,
-      /* copy for next time touch move cala convenient*/
+      /* copy for next time touch move cala convenient */
       time: startTime,
       touches: startTouches,
       mutliFingerStatus: startMutliFingerStatus,
@@ -163,7 +169,7 @@ export default class Gesture extends React.Component {
     }
   }
 
-  _handleTouchMove = (e) => {
+  handleTouchMove = (e) => {
     this.triggerUserCb('move', e);
     this.event = e;
     if (!this.gesture) {
@@ -179,6 +185,7 @@ export default class Gesture extends React.Component {
     this.checkIfSingleTouchMove();
     this.checkIfMultiTouchMove();
   }
+
   checkIfMultiTouchMove = () => {
     const { pinch, rotate, touches, startMutliFingerStatus, mutliFingerStatus } = this.gesture;
     if (!pinch && !rotate) {
@@ -210,9 +217,9 @@ export default class Gesture extends React.Component {
       this.triggerCombineEvent('onRotate', 'move');
     }
   }
-  allowGesture = () => {
-    return shouldTriggerDirection(this.gesture.direction, this.directionSetting);
-  }
+
+  allowGesture = () => shouldTriggerDirection(this.gesture.direction, this.directionSetting)
+
   checkIfSingleTouchMove = () => {
     const { pan, touches, moveStatus, preTouches, availablePan = true } = this.gesture;
     if (touches.length > 1) {
@@ -227,13 +234,13 @@ export default class Gesture extends React.Component {
     // add avilablePan condition to fix the case in scrolling, which will cause unavailable pan move.
     if (moveStatus && availablePan) {
       const direction = getMovingDirection(preTouches[0], touches[0]);
-      this.setGestureState({direction});
+      this.setGestureState({ direction });
 
       const eventName = getDirectionEventName(direction);
       if (!this.allowGesture()) {
         // if the first move is unavailable, then judge all of remaining touch movings are also invalid.
         if (!pan) {
-          this.setGestureState({availablePan: false});
+          this.setGestureState({ availablePan: false });
         }
         return;
       }
@@ -249,6 +256,7 @@ export default class Gesture extends React.Component {
       }
     }
   }
+
   checkIfMultiTouchEnd = (status) => {
     const { pinch, rotate } = this.gesture;
     if (pinch) {
@@ -258,6 +266,7 @@ export default class Gesture extends React.Component {
       this.triggerCombineEvent('onRotate', status);
     }
   }
+
   updateGestureStatus = (e) => {
     const time = now();
     this.setGestureState({
@@ -283,7 +292,8 @@ export default class Gesture extends React.Component {
 
     });
   }
-  _handleTouchEnd = (e) => {
+
+  handleTouchEnd = (e) => {
     this.triggerUserCb('end', e);
     this.event = e;
     if (!this.gesture) {
@@ -295,7 +305,7 @@ export default class Gesture extends React.Component {
     this.checkIfMultiTouchEnd('end');
   }
 
-  _handleTouchCancel = (e) => {
+  handleTouchCancel = (e) => {
     this.triggerUserCb('cancel', e);
     this.event = e;
     // Todo: wait to test cancel case
@@ -307,6 +317,7 @@ export default class Gesture extends React.Component {
     this.doSingleTouchEnd('cancel');
     this.checkIfMultiTouchEnd('cancel');
   }
+
   triggerAllowEvent = (type, status) => {
     if (this.allowGesture()) {
       this.triggerCombineEvent(type, status);
@@ -314,6 +325,7 @@ export default class Gesture extends React.Component {
       this.triggerSubEvent(type, status);
     }
   }
+
   doSingleTouchEnd = (status) => {
     const { moveStatus, pinch, rotate, press, pan, direction } = this.gesture;
 
@@ -349,6 +361,7 @@ export default class Gesture extends React.Component {
   componentWillUnmount() {
     this.cleanPressTimer();
   }
+
   getTouchAction = () => {
     const { enablePinch, enableRotate } = this.props;
     const { directionSetting } = this;
@@ -363,6 +376,7 @@ export default class Gesture extends React.Component {
     }
     return 'auto';
   }
+
   render() {
     const { children } = this.props;
 
@@ -370,10 +384,10 @@ export default class Gesture extends React.Component {
     const touchAction = this.getTouchAction();
 
     const events = {
-      onTouchStart: this._handleTouchStart,
-      onTouchMove: this._handleTouchMove,
-      onTouchCancel: this._handleTouchCancel,
-      onTouchEnd: this._handleTouchEnd,
+      onTouchStart: this.handleTouchStart,
+      onTouchMove: this.handleTouchMove,
+      onTouchCancel: this.handleTouchCancel,
+      onTouchEnd: this.handleTouchEnd,
     };
 
     return React.cloneElement(child, {

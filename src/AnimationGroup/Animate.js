@@ -79,9 +79,7 @@ export default class Animate extends React.Component {
     const showProp = props.showProp;
     const currentlyAnimatingKeys = this.currentlyAnimatingKeys;
     // last props children if exclusive
-    const currentChildren = props.exclusive ?
-      toArrayChildren(getChildrenFromProps(props)) :
-      this.state.children;
+    const currentChildren = props.exclusive ? toArrayChildren(getChildrenFromProps(props)) : this.state.children;
     // in case destroy in showProp mode
     let newChildren = [];
     if (showProp) {
@@ -180,7 +178,7 @@ export default class Animate extends React.Component {
   performAppear = (key) => {
     if (this.childrenRefs[key]) {
       this.currentlyAnimatingKeys[key] = true;
-      this.childrenRefs[key].componentWillAppear(this.handleDoneAdding.bind(this, key, 'appear') );
+      this.childrenRefs[key].componentWillAppear(this.handleDoneAdding.bind(this, key, 'appear'));
     }
   }
 

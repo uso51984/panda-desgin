@@ -5,6 +5,7 @@ initialize {
   "0": Object {
     "attribs": Object {
       "class": "panda-switch panda-switch-checked",
+      "for": "checkbox",
     },
     "children": Array [
       Object {
@@ -279,9 +280,11 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "for": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "for": undefined,
     },
   },
   "_root": [Circular],

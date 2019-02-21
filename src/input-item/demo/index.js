@@ -7,6 +7,7 @@ export default class Demo extends React.PureComponent {
   state = {
     value: '',
   }
+
   render() {
     return (
       <div>

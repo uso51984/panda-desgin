@@ -13,6 +13,7 @@ export default class Demo extends React.Component {
       animationType: 'slide-up',
     };
   }
+
   showModal = (key, value) => (e) => {
     e.preventDefault(); // 修复 Android 上点击穿透
 
@@ -21,6 +22,7 @@ export default class Demo extends React.Component {
       animationType: value,
     });
   }
+
   showModal2 = () => (e) => {
     e.preventDefault(); // 修复 Android 上点击穿透
     alert(
@@ -111,4 +113,3 @@ export default class Demo extends React.Component {
     );
   }
 }
-

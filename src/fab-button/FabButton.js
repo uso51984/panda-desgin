@@ -11,6 +11,7 @@ class FabButton extends React.PureComponent {
     type: 'horizontal',
     reverse: false,
   }
+
   constructor(props) {
     super(props);
 
@@ -111,7 +112,7 @@ class FabButton extends React.PureComponent {
   }
 
   render() {
-    const { className, children: childrenProp, icon, position, prefixCls, ...restProps } = this.props;
+    const { className, children: childrenProp, icon, position, prefixCls } = this.props;
     const styleClass = classNames(
       prefixCls,
       {

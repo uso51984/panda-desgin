@@ -6,6 +6,7 @@ export default class CellGroup extends React.PureComponent {
     prefixCls: 'panda-cell',
     border: false,
   }
+
   render() {
     const { children, prefixCls, border } = this.props;
     const cls = classNames({

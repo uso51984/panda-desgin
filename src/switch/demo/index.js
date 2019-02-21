@@ -3,13 +3,14 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Switch from '../index';
-import Cell from '../../Cell';
+import { Cell } from '../../Cell';
 
 export default class Demo extends React.Component {
   state = {
     checked: false,
     cellChecked: false,
   }
+
   render() {
     return (
       <div className="demo-radio">

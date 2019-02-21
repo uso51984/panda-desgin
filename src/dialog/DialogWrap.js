@@ -51,9 +51,7 @@ export default class DialogWrap extends React.Component {
   getComponent = (visible) => {
     const props = { ...this.props };
     ['visible', 'onAnimateLeave'].forEach((key) => {
-      if (props.hasOwnProperty(key)) {
-        delete props[key];
-      }
+      delete props[key];
     });
     return (
       <Dialog {...props} visible={visible} onAnimateLeave={this.removeContainer} ref={this.saveRef} />
