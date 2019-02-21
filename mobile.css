@@ -467,8 +467,8 @@ a {
 .am-fade-enter,
 .am-fade-appear {
   opacity: 0;
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -477,8 +477,8 @@ a {
           animation-play-state: paused;
 }
 .am-fade-leave {
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -539,8 +539,8 @@ a {
 .am-slide-up-enter,
 .am-slide-up-appear,
 .am-slide-up-leave {
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -608,8 +608,8 @@ a {
 .am-zoom-enter,
 .am-zoom-appear {
   opacity: 0;
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -620,8 +620,8 @@ a {
           animation-play-state: paused;
 }
 .am-zoom-leave {
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -716,8 +716,8 @@ a {
 .am-slide-down-enter,
 .am-slide-down-appear,
 .am-slide-down-leave {
-  -webkit-animation-duration: .2s;
-          animation-duration: .2s;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -845,6 +845,8 @@ a {
   padding: 0 15px;
 }
 .panda-button--inline.panda-button--icon {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: inline-flex;
 }
 .panda-button--small {
@@ -854,9 +856,15 @@ a {
   padding: 0 15px;
 }
 .panda-button--icon {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .panda-button > .panda-button-icon {
   margin-right: 10px;
@@ -1057,34 +1065,49 @@ a {
   clear: both;
 }
 .panda-row--flex {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
 }
 .panda-row--flex::after {
   display: none;
 }
 .panda-row--justify-center {
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .panda-row--justify-end {
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
 }
 .panda-row--justify-space-between {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .panda-row--justify-space-around {
-  justify-content: space-around;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
 }
 .panda-row--align-center {
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-row--align-bottom {
-  align-items: bottom;
+  -webkit-box-align: bottom;
+  -webkit-align-items: bottom;
+          align-items: bottom;
 }
 .panda-cell-group {
   background-color: #fff;
 }
 .panda-cell {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -1116,12 +1139,18 @@ a {
   color: #666;
 }
 .panda-cell__title {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-cell__title,
 .panda-cell__value {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
 .panda-cell__value {
   overflow: hidden;
@@ -1171,7 +1200,9 @@ a {
   color: #f44;
 }
 .panda-cell--center {
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-cell--large {
   padding-top: 12px;
@@ -1185,13 +1216,20 @@ a {
   border-top: 1px solid #ccc;
 }
 .panda-collapse-anim-active {
+  -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
 .panda-collapse__item-header {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   padding: 10px 15px;
   box-sizing: border-box;
   line-height: 24px;
@@ -1212,9 +1250,10 @@ a {
   background-position: 50% 50%;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  transition: -webkit-transform .2s ease;
-  transition: transform .2s ease;
-  transition: transform .2s ease, -webkit-transform .2s ease;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
 }
 .panda-collapse__item-header[aria-expanded~="true"] i {
   -webkit-transform: rotate(270deg);
@@ -1237,8 +1276,12 @@ a {
   display: none;
 }
 .panda-navbar {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   height: 46px;
   line-height: 46px;
   background-color: #fff;
@@ -1246,10 +1289,16 @@ a {
 .panda-navbar__left,
 .panda-navbar__title,
 .panda-navbar__right {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
   height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-navbar__left {
   padding-left: 15px;
@@ -1261,12 +1310,16 @@ a {
   color: #1989fa;
 }
 .panda-navbar__title {
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
   font-size: 16px;
   white-space: nowrap;
 }
 .panda-navbar__right {
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
   font-size: 14px;
   margin-right: 15px;
   color: #1989fa;
@@ -1313,11 +1366,11 @@ a {
   color: #000;
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
-  opacity: .2;
+  opacity: 0.2;
   text-decoration: none;
 }
 .panda-dialog-close-x:after {
-  content: '\D7';
+  content: '×';
 }
 .panda-dialog-close:hover {
   opacity: 1;
@@ -1540,9 +1593,15 @@ a {
   z-index: 999;
   -webkit-overflow-scrolling: touch;
   outline: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
   -webkit-transform: translateZ(1px);
           transform: translateZ(1px);
 }
@@ -1615,11 +1674,15 @@ a {
 .panda-modal-button-group-h {
   position: relative;
   border-top: 1px solid #ddd;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
 }
 .panda-modal-button-group-h .panda-modal-button {
   -webkit-touch-callout: none;
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
   box-sizing: border-box;
   text-align: center;
   text-decoration: none;
@@ -1700,7 +1763,7 @@ a {
   height: 11px;
   border-style: solid;
   border-width: 0 1px 1px 0;
-  content: ' ';
+  content: '\0020';
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
@@ -1715,7 +1778,6 @@ a {
   border: 0 none;
   margin: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 .panda-checkbox-wrapper .panda-checkbox.panda-checkbox--checked .panda-checkbox-inner {
@@ -1748,6 +1810,8 @@ a {
 }
 .panda-input-wrapper {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -1772,14 +1836,20 @@ a {
 }
 .panda-input-wrapper .panda-input-label,
 .panda-input-wrapper .panda-input-control {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
 .panda-input-wrapper .panda-input-label {
   max-width: 90px;
 }
 .panda-input-wrapper .panda-input-control {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-input-wrapper .panda-input-control input {
   border: 0;
@@ -1833,8 +1903,6 @@ a {
 .panda-number-keyboard {
   width: 100%;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   background-color: #fff;
   position: relative;
@@ -1948,11 +2016,11 @@ a {
   line-height: 1;
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
-  opacity: .2;
+  opacity: 0.2;
   text-decoration: none;
 }
 .panda-notification-notice-close-x:after {
-  content: '\D7';
+  content: '×';
 }
 .panda-notification-notice-close:hover {
   opacity: 1;
@@ -2028,9 +2096,15 @@ a {
 }
 .panda-toast.panda-toast-mask {
   height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   left: 0;
   top: 0;
   -webkit-transform: translateZ(1px);
@@ -2097,7 +2171,7 @@ a {
   height: 11px;
   border-style: solid;
   border-width: 0 1px 1px 0;
-  content: ' ';
+  content: '\0020';
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
@@ -2112,7 +2186,6 @@ a {
   border: 0 none;
   margin: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 .panda-radio-wrapper .panda-radio.panda-radio--checked .panda-radio-inner {
@@ -2148,7 +2221,8 @@ a {
   vertical-align: middle;
   box-sizing: border-box;
   position: relative;
-  align-self: center;
+  -webkit-align-self: center;
+          align-self: center;
 }
 .panda-switch .checkbox {
   width: 51px;
@@ -2160,10 +2234,10 @@ a {
   margin: 0;
   padding: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   border: 0;
   position: relative;
+  -webkit-transition: all 300ms;
   transition: all 300ms;
 }
 .panda-switch .checkbox:before {
@@ -2177,6 +2251,7 @@ a {
   box-sizing: border-box;
   background: #fff;
   z-index: 1;
+  -webkit-transition: all 200ms;
   transition: all 200ms;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -2193,6 +2268,7 @@ a {
   top: 1.5px;
   -webkit-transform: translateX(0);
           transform: translateX(0);
+  -webkit-transition: all 200ms;
   transition: all 200ms;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.21);
 }
@@ -2204,9 +2280,11 @@ a {
   z-index: 100;
   top: 5px;
   left: 5px;
+  -webkit-transition: all 200ms;
   transition: all 200ms;
 }
 .panda-switch-checked .panda-switch-loading-icon {
+  -webkit-transition: all 200ms;
   transition: all 200ms;
   left: 28px;
 }
@@ -2231,7 +2309,6 @@ a {
   z-index: 2;
   border: 0 none;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 .panda-switch input[type="checkbox"]:disabled + .checkbox {
@@ -2267,6 +2344,8 @@ a {
 }
 .bee-fab-button {
   position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: inline-flex;
 }
 .bee-fab-button.bee-fab-button-top-left,
@@ -2308,9 +2387,15 @@ a {
 }
 .bee-fab-button .bee-fab-button-btn,
 .bee-fab-button .bee-fab-button-item {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   border-radius: 100%;
   color: #fff;
   box-sizing: border-box;
@@ -2328,7 +2413,8 @@ a {
   height: 100%;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
-  transition: all .25s;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 .bee-fab-button.bee-fab-button-open .bee-fab-button-inner {
   opacity: 0;
@@ -2347,13 +2433,23 @@ a {
   z-index: 99;
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .bee-fab-button .bee-fab-button-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .bee-fab-button .bee-fab-button-inner .pan-icon-plus {
   width: 18px;
@@ -2363,7 +2459,9 @@ a {
   opacity: 0;
   -webkit-transform: scale(0.4) rotateZ(-45deg);
           transform: scale(0.4) rotateZ(-45deg);
+  -webkit-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
+  -webkit-transition-property: opacity,-webkit-transform;
   transition-property: opacity,-webkit-transform;
   transition-property: transform,opacity;
   transition-property: transform,opacity,-webkit-transform;
@@ -2398,7 +2496,9 @@ a {
   height: 238px;
   overflow: hidden;
   width: 100%;
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
 .panda-picker-col__content {
   position: absolute;
@@ -2429,6 +2529,7 @@ a {
   margin: 0 auto;
   width: 100%;
   z-index: 3;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
   background-position: top, bottom;
   background-size: 100% 102px;
@@ -2446,11 +2547,17 @@ a {
   border-bottom: 1px solid #ddd;
 }
 .panda-picker {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-picker-item {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
   text-align: center;
 }
 .panda-picker-popup-header {
@@ -2460,9 +2567,15 @@ a {
   background-size: 100% 1px;
   background-repeat: no-repeat;
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .panda-picker-popup-header-left,
 .panda-picker-popup-header-right {
@@ -2471,7 +2584,9 @@ a {
   padding-right: 5px;
 }
 .panda-picker-popup-title {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
 .panda-picker-popup-item {
   font-size: 16px;
@@ -2527,8 +2642,6 @@ a {
 .panda-stepper-handler-up-inner,
 .panda-stepper-handler-down-inner {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   right: 2px;
   color: #333;
@@ -2621,14 +2734,16 @@ a {
   display: inline-block;
   margin-right: 8px;
   position: relative;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   color: #e9e9e9;
   cursor: pointer;
   line-height: 1.5;
 }
 .panda-rate__star-first,
 .panda-rate__star-second {
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .panda-rate__star-first {
   position: absolute;
@@ -2729,6 +2844,8 @@ a {
 }
 .panda-textarea-wrapper {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -2753,21 +2870,26 @@ a {
 }
 .panda-textarea-wrapper .panda-textarea-label,
 .panda-textarea-wrapper .panda-textarea-control {
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
 .panda-textarea-wrapper .panda-textarea-label {
   max-width: 90px;
 }
 .panda-textarea-wrapper .panda-textarea-control {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .panda-textarea-wrapper .panda-textarea-control textarea {
   color: #333;
   font-size: 14px;
   line-height: 25.5px;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   width: 100%;
   padding: 0;
@@ -2780,12 +2902,6 @@ a {
   word-wrap: break-word;
 }
 .panda-textarea-wrapper .panda-textarea-control textarea::-webkit-input-placeholder {
-  color: #bbb;
-}
-.panda-textarea-wrapper .panda-textarea-control textarea:-ms-input-placeholder {
-  color: #bbb;
-}
-.panda-textarea-wrapper .panda-textarea-control textarea::-ms-input-placeholder {
   color: #bbb;
 }
 .panda-textarea-wrapper .panda-textarea-control textarea::placeholder {
@@ -2878,6 +2994,7 @@ a {
 .panda-progress-bg {
   border-radius: 100px;
   background-color: #1989fa;
+  -webkit-transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   position: relative;
 }
@@ -2994,15 +3111,19 @@ a {
 }
 .rc-swipeout .rc-swipeout-content,
 .rc-swipeout .rc-swipeout-actions {
+  -webkit-transition: all 250ms;
   transition: all 250ms;
 }
 .rc-swipeout-swiping .rc-swipeout-content {
+  -webkit-transition: none;
   transition: none;
 }
 .rc-swipeout-actions {
   position: absolute;
   top: 0;
   bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   overflow: hidden;
   white-space: nowrap;
@@ -3014,9 +3135,15 @@ a {
   right: 0;
 }
 .rc-swipeout-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
   position: relative;
   overflow: hidden;
 }
@@ -3045,8 +3172,6 @@ a {
   overflow: hidden;
   position: relative;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .panda-swipe__track {
@@ -3057,6 +3182,8 @@ a {
   height: auto;
 }
 .panda-swipe__indicators {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   position: absolute;
   left: 50%;
@@ -3068,7 +3195,10 @@ a {
   left: 10px;
   top: 50%;
   bottom: auto;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
@@ -3280,8 +3410,6 @@ a {
   text-align: center;
   font-weight: normal;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .side-nav .zanui-title {
