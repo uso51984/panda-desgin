@@ -10,12 +10,6 @@ if (process.cwd() !== resolvePath(__dirname, '..')) {
   process.exit(1);
 }
 
-
-// Get the next version, which may be specified as a semver
-// version number or anything `npm version` recognizes. This
-// is a "pre-release" if nextVersion is premajor, preminor,
-// prepatch, or prerelease
-
 const auto = !!argv['release-version'] || !!argv.auto;
 const pre = argv.pre;
 const preid = 'beta';
@@ -44,16 +38,10 @@ exec('git add .', { stage: 'linting' })
   // .then(() => exec('npm run build', { stage: 'building' }))
   // .then(() => exec('git add .', { stage: 'adding to repo' }))
   .then(() => exec('git commit --allow-empty -m "npm run build"', { stage: 'committing' }))
-  // .then(() => exec('changelog -p -u /..', { stage: 'generating CHANGELOG' }))
-  // .then(() => exec('git add CHANGELOG.md', { stage: 'adding CHANGELOG' }))
-  // .then(() => exec('git commit -m "updated CHANGELOG.md"', { stage: 'committing CHANGELOG' }))
-  // 3) Increment the package version in package.json
-  // 4) Create a new commit
-  // 5) Create a v* tag that points to that commit
   // npm version
   // [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
   .then(() => exec(`npm version ${nextVersion} --force -m "Bump version to %s"`, { stage: 'bumping version' }))
-  // 6) Push to the same branch on the git remote (GitLab).
+  // 6) Push to the same branch on the git remote
   // Do this before we publish in case anyone has pushed since we last pulled
   .then(() => exec('git push origin HEAD:master', { stage: 'pushing to remote' }))
   // 7) Publish to nexus or npm. Use the "next" tag for pre-releases,
