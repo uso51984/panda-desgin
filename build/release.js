@@ -59,5 +59,5 @@ exec('git add .', { stage: 'linting' })
   // 7) Publish to nexus or npm. Use the "next" tag for pre-releases,
   // "latest" for all others
   // 8) Push the v* tag to GitLab
-  .then(() => exec(`git push -f --no-verify origin v${getPackageVersion()}`))
+  .then(() => exec(`git push -f --no-verify origin v${nextVersion}`))
   .catch(error => console.error(error));
