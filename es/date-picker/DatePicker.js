@@ -584,7 +584,8 @@ function (_React$Component) {
         var nhour = hour;
 
         if (use12Hours) {
-          nhour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+          var tmpHour = hour > 12 ? hour - 12 : hour;
+          nhour = hour === 0 ? 12 : tmpHour;
           dtValue = ["".concat(nhour), "".concat(time.selMinute), "".concat(hour >= 12 ? 1 : 0)];
         }
 

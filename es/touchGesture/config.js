@@ -10,11 +10,11 @@ export var DIRECTION_UP = 8; // 01000
 
 export var DIRECTION_DOWN = 16; // 10000
 
-export var DIRECTION_HORIZONTAL = DIRECTION_LEFT | DIRECTION_RIGHT; // 00110 6
+export var DIRECTION_HORIZONTAL = 6; // 00110 6
 
-export var DIRECTION_VERTICAL = DIRECTION_UP | DIRECTION_DOWN; // 11000 24
+export var DIRECTION_VERTICAL = 24; // 11000 24
 
-export var DIRECTION_ALL = DIRECTION_HORIZONTAL | DIRECTION_VERTICAL; // 11110  30
+export var DIRECTION_ALL = 30; // 11110  30
 // http://hammerjs.github.io/recognizer-press/
 
 export var PRESS = {

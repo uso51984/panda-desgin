@@ -119,10 +119,10 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "getGestureState", function () {
       if (!_this.gesture) {
         return _this.gesture;
-      } else {
-        // shallow copy
-        return _objectSpread({}, _this.gesture);
-      }
+      } // shallow copy
+
+
+      return _objectSpread({}, _this.gesture);
     });
 
     _defineProperty(_assertThisInitialized(_this), "cleanGestureState", function () {
@@ -146,7 +146,7 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "_handleTouchStart", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "handleTouchStart", function (e) {
       _this.triggerUserCb('start', e);
 
       _this.event = e;
@@ -176,7 +176,7 @@ function (_React$Component) {
         startTouches: startTouches,
         startMutliFingerStatus: startMutliFingerStatus,
 
-        /* copy for next time touch move cala convenient*/
+        /* copy for next time touch move cala convenient */
         time: startTime,
         touches: startTouches,
         mutliFingerStatus: startMutliFingerStatus,
@@ -217,7 +217,7 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "_handleTouchMove", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "handleTouchMove", function (e) {
       _this.triggerUserCb('move', e);
 
       _this.event = e;
@@ -392,7 +392,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "_handleTouchEnd", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "handleTouchEnd", function (e) {
       _this.triggerUserCb('end', e);
 
       _this.event = e;
@@ -410,7 +410,7 @@ function (_React$Component) {
       _this.checkIfMultiTouchEnd('end');
     });
 
-    _defineProperty(_assertThisInitialized(_this), "_handleTouchCancel", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "handleTouchCancel", function (e) {
       _this.triggerUserCb('cancel', e);
 
       _this.event = e; // Todo: wait to test cancel case
@@ -522,10 +522,10 @@ function (_React$Component) {
       var child = React.Children.only(children);
       var touchAction = this.getTouchAction();
       var events = {
-        onTouchStart: this._handleTouchStart,
-        onTouchMove: this._handleTouchMove,
-        onTouchCancel: this._handleTouchCancel,
-        onTouchEnd: this._handleTouchEnd
+        onTouchStart: this.handleTouchStart,
+        onTouchMove: this.handleTouchMove,
+        onTouchCancel: this.handleTouchCancel,
+        onTouchEnd: this.handleTouchEnd
       };
       return React.cloneElement(child, _objectSpread({}, events, {
         style: _objectSpread({

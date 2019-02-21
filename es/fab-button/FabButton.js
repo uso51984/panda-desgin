@@ -1,4 +1,3 @@
-import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
@@ -8,7 +7,7 @@ import _inherits from "@babel/runtime/helpers/inherits";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 var FabButton =
 /*#__PURE__*/
@@ -148,9 +147,7 @@ function (_React$PureComponent) {
           childrenProp = _this$props2.children,
           icon = _this$props2.icon,
           position = _this$props2.position,
-          prefixCls = _this$props2.prefixCls,
-          restProps = _objectWithoutProperties(_this$props2, ["className", "children", "icon", "position", "prefixCls"]);
-
+          prefixCls = _this$props2.prefixCls;
       var styleClass = classNames(prefixCls, _defineProperty({}, "".concat(prefixCls, "-open"), this.state.visible), "".concat(prefixCls, "-").concat(position), className);
       this.items = React.Children.map(childrenProp, function (child, index) {
         if (!React.isValidElement(child)) {

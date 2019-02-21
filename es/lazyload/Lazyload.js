@@ -3,17 +3,14 @@ import _createClass from "@babel/runtime/helpers/createClass";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/inherits";
-
-/**
- * react-lazyload
- */
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import PropTypes from 'prop-types';
+import ReactDom from 'react-dom'; // import PropTypes from 'prop-types';
+
 import { on, off } from './utils/event';
 import scrollParent from './utils/scrollParent';
 import debounce from './utils/debounce';
 import throttle from './utils/throttle';
+import decorator from './decorator';
 var defaultBoundingClientRect = {
   top: 0,
   right: 0,
@@ -31,11 +28,13 @@ var passiveEventSupported = false;
 try {
   var opts = Object.defineProperty({}, 'passive', {
     get: function get() {
-      passiveEventSupported = true;
+      return passiveEventSupported = true;
     }
   });
   window.addEventListener('test', null, opts);
-} catch (e) {} // if they are supported, setup the optional params
+} catch (e) {
+  console.log('error', e);
+} // if they are supported, setup the optional params
 // IMPORTANT: FALSE doubles as the default CAPTURE value!
 
 
@@ -302,32 +301,33 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return this.visible ? this.props.children : this.props.placeholder ? this.props.placeholder : React.createElement("div", {
+      var placeholder = this.props.placeholder ? this.props.placeholder : React.createElement("div", {
         style: {
           height: this.props.height
         },
         className: "lazyload-placeholder"
       });
+      return this.visible ? this.props.children : placeholder;
     }
   }]);
 
   return LazyLoad;
-}(Component);
+}(Component); // LazyLoad.propTypes = {
+//   once: PropTypes.bool,
+//   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+//   offset: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+//   overflow: PropTypes.bool,
+//   resize: PropTypes.bool,
+//   scroll: PropTypes.bool,
+//   children: PropTypes.node,
+//   throttle: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+//   debounce: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+//   placeholder: PropTypes.node,
+//   scrollContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+//   unmountIfInvisible: PropTypes.bool,
+// };
 
-LazyLoad.propTypes = {
-  once: PropTypes.bool,
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-  overflow: PropTypes.bool,
-  resize: PropTypes.bool,
-  scroll: PropTypes.bool,
-  children: PropTypes.node,
-  throttle: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-  debounce: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-  placeholder: PropTypes.node,
-  scrollContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  unmountIfInvisible: PropTypes.bool
-};
+
 LazyLoad.defaultProps = {
   once: false,
   offset: 0,
@@ -336,7 +336,6 @@ LazyLoad.defaultProps = {
   scroll: true,
   unmountIfInvisible: false
 };
-import decorator from './decorator';
 export var lazyload = decorator;
 export default LazyLoad;
 export { lazyLoadHandler as forceCheck };

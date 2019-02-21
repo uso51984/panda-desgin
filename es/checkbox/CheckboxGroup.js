@@ -7,7 +7,6 @@ import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized
 import _inherits from "@babel/runtime/helpers/inherits";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
@@ -111,13 +110,6 @@ function (_React$Component) {
 
   return CheckboxGroup;
 }(React.Component);
-
-_defineProperty(CheckboxGroup, "propTypes", {
-  defaultValue: PropTypes.array,
-  value: PropTypes.array,
-  options: PropTypes.array,
-  onChange: PropTypes.func
-});
 
 _defineProperty(CheckboxGroup, "defaultProps", {
   options: [],

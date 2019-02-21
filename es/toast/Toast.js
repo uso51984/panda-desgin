@@ -2,7 +2,7 @@ import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import classNames from 'classnames';
 import Notification from '../notification';
-import Icon from '../Icon';
+import Icon from '../icon';
 var messageInstance;
 var prefixCls = 'panda-toast';
 

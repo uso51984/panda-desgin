@@ -71,7 +71,7 @@ function (_React$Component) {
           swiping: _this.swiping
         });
 
-        _this._setStyle(deltaX);
+        _this.setStyle(deltaX);
       }
     });
 
@@ -89,7 +89,7 @@ function (_React$Component) {
         srcEvent.preventDefault();
       }
 
-      _this._setStyle(deltaX);
+      _this.setStyle(deltaX);
     });
 
     _defineProperty(_assertThisInitialized(_this), "onPanEnd", function (e) {
@@ -128,10 +128,10 @@ function (_React$Component) {
       _this.open(-_this.btnsRightWidth, true, false);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "_setStyle", function (value) {
+    _defineProperty(_assertThisInitialized(_this), "setStyle", function (value) {
       var limit = value > 0 ? _this.btnsLeftWidth : -_this.btnsRightWidth;
 
-      var contentLeft = _this._getContentEasing(value, limit);
+      var contentLeft = _this.getContentEasing(value, limit);
 
       _this.content.style.left = "".concat(contentLeft, "px");
 
@@ -149,7 +149,7 @@ function (_React$Component) {
       _this.openedLeft = openedLeft;
       _this.openedRight = openedRight;
 
-      _this._setStyle(value);
+      _this.setStyle(value);
     });
 
     _defineProperty(_assertThisInitialized(_this), "close", function () {
@@ -157,7 +157,7 @@ function (_React$Component) {
         _this.props.onClose();
       }
 
-      _this._setStyle(0);
+      _this.setStyle(0);
 
       _this.openedLeft = false;
       _this.openedRight = false;
@@ -204,15 +204,16 @@ function (_React$Component) {
       }
     }
   }, {
-    key: "_getContentEasing",
-    value: function _getContentEasing(value, limit) {
+    key: "getContentEasing",
+    value: function getContentEasing(value, limit) {
       // limit content style left when value > actions width
       var delta = Math.abs(value) - Math.abs(limit);
       var isOverflow = delta > 0;
       var factor = limit > 0 ? 1 : -1;
 
       if (isOverflow) {
-        value = limit + Math.pow(delta, 0.85) * factor;
+        value = limit + Math.pow(delta, 0.85) * factor; // eslint-disable-line
+
         return Math.abs(value) > Math.abs(limit) ? limit : value;
       }
 
@@ -233,7 +234,7 @@ function (_React$Component) {
       }, buttons.map(function (btn, i) {
         return React.createElement("div", {
           key: i,
-          className: "".concat(prefixCls, "-btn ").concat(btn.hasOwnProperty('className') ? btn.className : ''),
+          className: "".concat(prefixCls, "-btn ").concat(btn.className ? btn.className : ''),
           style: btn.style,
           role: "button",
           onClick: function onClick(e) {

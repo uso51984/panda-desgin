@@ -5,8 +5,8 @@ import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
 import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
 import _inherits from "@babel/runtime/helpers/inherits";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'; // import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
 import PanelContent from './PanelContent';
 import Animate from '../AnimationGroup';
@@ -78,23 +78,30 @@ function (_React$Component) {
   }]);
 
   return CollapsePanel;
-}(React.Component);
+}(React.Component); // CollapsePanel.propTypes = {
+//   className: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.object,
+//   ]),
+//   children: PropTypes.any,
+//   openAnimation: PropTypes.object,
+//   prefixCls: PropTypes.string,
+//   header: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.number,
+//     PropTypes.node,
+//   ]),
+//   showArrow: PropTypes.bool,
+//   isActive: PropTypes.bool,
+//   onItemClick: PropTypes.func,
+//   style: PropTypes.object,
+//   destroyInactivePanel: PropTypes.bool,
+//   disabled: PropTypes.bool,
+//   accordion: PropTypes.bool,
+//   expandIcon: PropTypes.func,
+// };
 
-CollapsePanel.propTypes = {
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  children: PropTypes.any,
-  openAnimation: PropTypes.object,
-  prefixCls: PropTypes.string,
-  header: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node]),
-  showArrow: PropTypes.bool,
-  isActive: PropTypes.bool,
-  onItemClick: PropTypes.func,
-  style: PropTypes.object,
-  destroyInactivePanel: PropTypes.bool,
-  disabled: PropTypes.bool,
-  accordion: PropTypes.bool,
-  expandIcon: PropTypes.func
-};
+
 CollapsePanel.defaultProps = {
   showArrow: true,
   isActive: false,

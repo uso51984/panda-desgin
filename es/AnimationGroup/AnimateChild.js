@@ -3,10 +3,8 @@ import _createClass from "@babel/runtime/helpers/createClass";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/inherits";
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import cssAnimate, { isCssAnimationSupported } from 'dom-animation';
 import animUtil from './utils';
 var transitionMap = {
@@ -112,9 +110,5 @@ function (_React$Component) {
 
   return AnimateChild;
 }(React.Component);
-
-_defineProperty(AnimateChild, "propTypes", {
-  children: PropTypes.any
-});
 
 export { AnimateChild as default };

@@ -1,14 +1,15 @@
 /*eslint-disable */
-export default function throttle(fn, threshhold, scope) {
-  threshhold || (threshhold = 250);
-  var last, deferTimer;
+export default function throttle(fn) {
+  var threshhold = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 250;
+  var scope = arguments.length > 2 ? arguments[2] : undefined;
+  var last;
+  var deferTimer;
   return function () {
     var context = scope || this;
-    var now = +new Date(),
-        args = arguments;
+    var now = +new Date();
+    var args = arguments;
 
     if (last && now < last + threshhold) {
-      // hold on to it
       clearTimeout(deferTimer);
       deferTimer = setTimeout(function () {
         last = now;

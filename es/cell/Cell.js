@@ -8,7 +8,7 @@ import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import classNames from 'classnames';
 import TapFeedback from 'react-tap-feedback';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 var Cell =
 /*#__PURE__*/

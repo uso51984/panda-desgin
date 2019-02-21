@@ -46,7 +46,6 @@ function (_React$Component) {
       }
 
       value.length = i;
-      console.log('value2323', value);
 
       if (!('value' in _this.props)) {
         _this.setState({
@@ -65,8 +64,6 @@ function (_React$Component) {
   _createClass(Cascader, [{
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      console.log('this.getValue(nextProps.data, nextProps.value)', this.getValue(nextProps.data, nextProps.value));
-
       if ('value' in nextProps) {
         this.setState({
           value: this.getValue(nextProps.data, nextProps.value)

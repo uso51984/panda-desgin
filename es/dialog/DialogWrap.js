@@ -41,9 +41,7 @@ function (_React$Component) {
       var props = _objectSpread({}, _this.props);
 
       ['visible', 'onAnimateLeave'].forEach(function (key) {
-        if (props.hasOwnProperty(key)) {
-          delete props[key];
-        }
+        delete props[key];
       });
       return React.createElement(Dialog, _extends({}, props, {
         visible: visible,

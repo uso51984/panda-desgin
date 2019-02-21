@@ -34,10 +34,11 @@ if (semver.lte(nextVersion, curVersion)) {
 
 // 1) Make sure the lint and tests pass
 exec('npm run lint', { stage: 'linting' })
-  // .then(() => exec('npm run doc', { stage: 'documenting' }))
-  // .then(() => exec('npm run build', { stage: 'building' }))
+  .then(() => exec('npm run test', { stage: 'test' }))
+  // .then(() => exec('npm run build:doc', { stage: 'documenting' }))
+  .then(() => exec('npm run build:lib', { stage: 'building' }))
   .then(() => exec('git add .', { stage: 'adding to repo' }))
-  .then(() => exec('git commit --allow-empty -m "npm run build"', { stage: 'committing' }))
+  // .then(() => exec('git commit --allow-empty -m "npm run build"', { stage: 'committing' }))
   // npm version
   // [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
   .then(() => exec(`npm version ${nextVersion} --force -m "Release version to %s"`, { stage: 'bumping version' }))

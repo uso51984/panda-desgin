@@ -1,5 +1,4 @@
 import _extends from "@babel/runtime/helpers/extends";
-import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
@@ -9,7 +8,7 @@ import _inherits from "@babel/runtime/helpers/inherits";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import classnames from 'classnames';
 import React from 'react';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 var Switch =
 /*#__PURE__*/
@@ -80,9 +79,7 @@ function (_React$PureComponent) {
           className = _this$props.className,
           platform = _this$props.platform,
           color = _this$props.color,
-          loading = _this$props.loading,
-          restProps = _objectWithoutProperties(_this$props, ["prefixCls", "name", "disabled", "className", "platform", "color", "loading"]);
-
+          loading = _this$props.loading;
       var checked = this.state.checked;
       var wrapCls = classnames(prefixCls, className, (_classnames = {}, _defineProperty(_classnames, "".concat(prefixCls, "-android"), platform === 'android'), _defineProperty(_classnames, "".concat(prefixCls, "-checked"), checked), _classnames));
       var fackInputCls = classnames('checkbox', {
@@ -95,7 +92,8 @@ function (_React$PureComponent) {
       }
 
       return React.createElement("label", {
-        className: wrapCls
+        className: wrapCls,
+        htmlFor: "checkbox"
       }, React.createElement("input", _extends({
         type: "checkbox",
         name: name,

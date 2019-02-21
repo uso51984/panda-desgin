@@ -4,8 +4,8 @@ import _createClass from "@babel/runtime/helpers/createClass";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/inherits";
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'; // import PropTypes from 'prop-types';
+
 import classnames from 'classnames';
 
 var PanelContent =
@@ -39,12 +39,12 @@ function (_React$PureComponent) {
   }]);
 
   return PanelContent;
-}(React.PureComponent);
+}(React.PureComponent); // PanelContent.propTypes = {
+//   prefixCls: PropTypes.string,
+//   isActive: PropTypes.bool,
+//   children: PropTypes.any,
+//   destroyInactivePanel: PropTypes.bool,
+// };
 
-PanelContent.propTypes = {
-  prefixCls: PropTypes.string,
-  isActive: PropTypes.bool,
-  children: PropTypes.any,
-  destroyInactivePanel: PropTypes.bool
-};
+
 export default PanelContent;

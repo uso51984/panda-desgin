@@ -9,7 +9,7 @@ import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import classnames from 'classnames';
 import React from 'react';
 import TapFeedback from 'react-tap-feedback';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 var Button =
 /*#__PURE__*/

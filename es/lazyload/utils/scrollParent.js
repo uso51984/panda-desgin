@@ -1,6 +1,3 @@
-/**
- * @fileOverview Find scroll parent
- */
 export default (function (node) {
   if (!(node instanceof HTMLElement)) {
     return document.documentElement;
@@ -23,7 +20,7 @@ export default (function (node) {
 
     if (position === 'static' && excludeStaticParent) {
       parent = parent.parentNode;
-      continue;
+      continue; // eslint-disable-line
     }
 
     if (overflowRegex.test(overflow) && overflowRegex.test(overflowX) && overflowRegex.test(overflowY)) {

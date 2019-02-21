@@ -9,7 +9,7 @@ import _inherits from "@babel/runtime/helpers/inherits";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon';
+import Icon from '../icon';
 import InputHandler from './InputHandler';
 
 function noop() {}
