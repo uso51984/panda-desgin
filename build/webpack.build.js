@@ -4,8 +4,8 @@ const path = require('path');
 const shelljs = require('shelljs');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const assign = require('object-assign');
-const getWebpackCommonConfig = require('./webpackCommonConfig');
-const { measureFileSizesBeforeBuild, printFileSizesAfterBuild } = require('./fileSizeReporter');
+const getWebpackCommonConfig = require('./sections/webpackCommonConfig');
+const { measureFileSizesBeforeBuild, printFileSizesAfterBuild } = require('./utils/fileSizeReporter');
 const cwd = process.cwd();
 
 function printResult(stats) {
