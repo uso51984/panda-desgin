@@ -54,6 +54,7 @@ const eslintrc = {
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'jsx-a11y/interactive-supports-focus': 0,
     'jsx-a11y/label-has-for': 0,
+    'operator-linebreak': 0,
   },
 };
 

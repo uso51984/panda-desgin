@@ -33,10 +33,10 @@ if (semver.lte(nextVersion, curVersion)) {
 }
 
 // 1) Make sure the lint and tests pass
-exec('git add .', { stage: 'linting' })
+exec('npm run lint', { stage: 'linting' })
   // .then(() => exec('npm run doc', { stage: 'documenting' }))
   // .then(() => exec('npm run build', { stage: 'building' }))
-  // .then(() => exec('git add .', { stage: 'adding to repo' }))
+  .then(() => exec('git add .', { stage: 'adding to repo' }))
   .then(() => exec('git commit --allow-empty -m "npm run build"', { stage: 'committing' }))
   // npm version
   // [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]

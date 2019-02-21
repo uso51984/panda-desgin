@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const babel = require('@babel/core');
-const getBabelCommonConfig = require('./getBabelCommonConfig');
+const getBabelCommonConfig = require('./sections/getBabelCommonConfig');
 
 const esDir = path.join(__dirname, '../es');
 const libDir = path.join(__dirname, '../lib');

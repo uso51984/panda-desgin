@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 const csso = require('gulp-csso');
 const postcss = require('gulp-postcss');
-const autoprefixerConfig = require('./autoprefixerConfig');
+const autoprefixerConfig = require('./sections/autoprefixerConfig');
 
 gulp.task('compile', () => {
   return gulp
