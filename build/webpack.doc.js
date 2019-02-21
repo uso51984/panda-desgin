@@ -3,7 +3,7 @@ const path = require('path');
 const assign = require('object-assign');
 const shelljs = require('shelljs');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const getWebpackCommonConfig = require('./webpackCommonConfig');
+const getWebpackCommonConfig = require('./sections/webpackCommonConfig');
 const config = require('./webpack.dev.js')(true);
 
 delete config.devServer;
