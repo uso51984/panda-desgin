@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Notification from '../notification';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 let messageInstance;
 const prefixCls = 'panda-toast';

@@ -1,10 +1,10 @@
 // This file is auto gererated by build/build-entry.js
 import React from 'react';
-import Button from 'src/Button/zh-CN.md';
-import Icon from 'src/Icon/zh-CN.md';
-import Grid from 'src/Grid/zh-CN.md';
-import Cell from 'src/Cell/zh-CN.md';
-import Collapse from 'src/Collapse/zh-CN.md';
+import Button from 'src/button/zh-CN.md';
+import Icon from 'src/icon/zh-CN.md';
+import Grid from 'src/grid/zh-CN.md';
+import Cell from 'src/cell/zh-CN.md';
+import Collapse from 'src/collapse/zh-CN.md';
 import NavBar from 'src/nav-bar/zh-CN.md';
 import Dialog from 'src/dialog/zh-CN.md';
 import Modal from 'src/modal/zh-CN.md';

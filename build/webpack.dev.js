@@ -2,7 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const getWebpackCommonConfig = require('./sections/webpackCommonConfig');
+const getWebpackCommonConfig = require('./webpackCommonConfig');
 const plugins = [new ProgressBarPlugin()];
 
 function resolveCwd(...args) {
@@ -15,7 +15,7 @@ function setHtmlWebpackPlugin(name) {
     new HtmlWebpackPlugin({
       chunks: [name],
       title: name,
-      template: './build/doc.Template.html',
+      template: './build/sections/doc.Template.html',
       filename: `${name}.html`,
       inject: true
     })

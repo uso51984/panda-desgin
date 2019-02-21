@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import TapFeedback from 'react-tap-feedback';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 export default class Cell extends React.PureComponent {
   static defaultProps = {

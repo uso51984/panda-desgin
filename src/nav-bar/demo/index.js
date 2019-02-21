@@ -1,6 +1,6 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import Icon from '../../Icon';
+import Icon from '../../icon';
 import NavBar from '../index';
 
 export default () => (

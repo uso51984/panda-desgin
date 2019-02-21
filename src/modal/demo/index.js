@@ -1,7 +1,7 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import closest from 'src/utils/closest';
-import Button from 'src/Button';
+import Button from 'src/button';
 import Modal, { alert } from '../index';
 import './index.less';
 

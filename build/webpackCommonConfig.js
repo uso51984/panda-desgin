@@ -3,7 +3,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const getBabelCommonConfig = require('./getBabelCommonConfig');
-const autoprefixerConfig = require('./autoprefixerConfig');
+const autoprefixerConfig = require('./sections/autoprefixerConfig');
 
 function getResolve() {
   const resolve = {
@@ -14,6 +14,8 @@ function getResolve() {
   return resolve;
 }
 
+const babelConfig = getBabelCommonConfig();
+console.log('babelConfig', babelConfig);
 module.exports = {
   getResolve,
   getResolveLoader() {
@@ -30,8 +32,8 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        options: getBabelCommonConfig()
+        loader: 'babel-loader',
+        options: babelConfig
       },
       {
         test: /\.svg$/,

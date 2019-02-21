@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import NavBar from 'src/nav-bar';
-import Icon from 'src/Icon';
+import Icon from 'src/icon';
 import docConfig from './doc.config';
 import DemoList from './mobileComponents/DemoList';
 import componentDocs, { Markdown } from './docs-entry';
@@ -46,17 +46,17 @@ const registerRoute = (isDemo) => {
             return (
               <React.Fragment>
                 {
-                  isDemo &&
+                  isDemo && (
                   <NavBar
                     icon={<Icon type="left" />}
                     onLeftClick={() => props.history.push('/')}
                   >
                     {page.title}
                   </NavBar>
-                }
+                  )}
                 <Component {...props} />
               </React.Fragment>
-              );
+            );
           }}
         />));
       }

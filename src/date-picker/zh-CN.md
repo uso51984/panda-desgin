@@ -6,8 +6,8 @@
 ```jsx
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import { Row, Col } from '../../Grid';
-import { Cell } from '../../Cell';
+import { Row, Col } from '../../grid';
+import { Cell } from '../../cell';
 import { RadioGroup } from '../../radio';
 import Checkbox from '../../checkbox';
 import DatePicker from '../index';

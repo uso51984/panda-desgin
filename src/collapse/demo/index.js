@@ -1,7 +1,7 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Collapse, { Panel } from '../index';
-import Icon from '../../Icon';
+import Icon from '../../icon';
 import './index.less';
 
 export default () => (

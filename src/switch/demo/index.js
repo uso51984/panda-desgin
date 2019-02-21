@@ -3,7 +3,7 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Switch from '../index';
-import { Cell } from '../../Cell';
+import { Cell } from '../../cell';
 
 export default class Demo extends React.Component {
   state = {

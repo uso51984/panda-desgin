@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 export default class Switch extends React.PureComponent {
   static defaultProps = {

@@ -6,7 +6,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Radio from '../index';
 import RadioGroup from '../RadioGroup';
-import Cell from '../../Cell';
+import Cell from '../../cell';
 import './index.less';
 
 function onChange(e) {

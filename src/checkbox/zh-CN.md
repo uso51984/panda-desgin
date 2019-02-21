@@ -8,7 +8,7 @@ import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Checkbox from '../Checkbox';
 import CheckboxGroup from '../CheckboxGroup';
-import Cell from '../../Cell';
+import Cell from '../../cell';
 import './index.less';
 
 function onChange(e) {

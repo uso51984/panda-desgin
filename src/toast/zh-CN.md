@@ -5,7 +5,7 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import Toast from '../Toast';
-import Button from '../../Button';
+import Button from '../../button';
 
 function showToast() {
   Toast.info('This is a toast tips !!!', 1);

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon';
+import Icon from '../icon';
 import InputHandler from './InputHandler';
 
 function noop() {

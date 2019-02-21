@@ -1,6 +1,6 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import { Row, Col } from '../../Grid';
+import { Row, Col } from '../../grid';
 import Button from '../index';
 
 import './index.less';

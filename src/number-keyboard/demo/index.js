@@ -1,6 +1,6 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import Button from '../../Button';
+import Button from '../../button';
 import PopupNumberKeyboard from '../PopupNumberKeyboard';
 import Toast from '../../toast';
 

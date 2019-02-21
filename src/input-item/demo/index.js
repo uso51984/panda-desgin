@@ -1,6 +1,6 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import Icon from '../../Icon';
+import Icon from '../../icon';
 import InputItem from '../index';
 
 export default class Demo extends React.PureComponent {

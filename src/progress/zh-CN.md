@@ -4,9 +4,9 @@
 ```jsx
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
-import { Row, Col } from '../../Grid';
+import { Row, Col } from '../../grid';
 import Progress from '../Progress';
-import Button from '../../Button';
+import Button from '../../button';
 import './index.less';
 
 export default class Demo extends React.PureComponent {

@@ -1,9 +1,9 @@
 // This file is auto gererated by build/build-entry.js
-import Button from 'src/Button/demo';
-import Icon from 'src/Icon/demo';
-import Grid from 'src/Grid/demo';
-import Cell from 'src/Cell/demo';
-import Collapse from 'src/Collapse/demo';
+import Button from 'src/button/demo';
+import Icon from 'src/icon/demo';
+import Grid from 'src/grid/demo';
+import Cell from 'src/cell/demo';
+import Collapse from 'src/collapse/demo';
 import NavBar from 'src/nav-bar/demo';
 import Dialog from 'src/dialog/demo';
 import Modal from 'src/modal/demo';

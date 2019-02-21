@@ -1,6 +1,6 @@
 import React from 'react';
-import { Cell } from 'src/Cell';
-import Collapse from 'src/Collapse';
+import { Cell } from 'src/cell';
+import Collapse from 'src/collapse';
 import DocConfig from '../../doc.config';
 
 export default class DemoList extends React.PureComponent {
@@ -30,6 +30,7 @@ export default class DemoList extends React.PureComponent {
           }
         </Collapse>
 
-      </div>);
+      </div>
+    );
   }
 }
