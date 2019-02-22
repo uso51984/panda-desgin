@@ -8,7 +8,8 @@
   "scripts": {
     "bootstrap": "npm install",
     "dev": "webpack-dev-server --config ./webpack.dev.js",
-    "lint": "eslint --ext .js,.jsx src",
+    "eslint": "eslint --ext .js,.jsx src",
+    "eslint:fix": "eslint --ext .js,.jsx src --fix",
     "stylelint": "stylelint 'src/**/*.less'",
     "stylelint:fix": "stylelint 'src/**/*.less' --fix",
     "build:panda": "node build/webpack.build.js",
