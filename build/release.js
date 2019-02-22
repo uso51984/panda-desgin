@@ -45,5 +45,6 @@ exec('npm run lint', { stage: 'linting' })
   .then(() => exec('git push origin HEAD:master', { stage: 'pushing to remote' }))
   //Push the v* tag to Git server
   .then(() => exec(`git push -f --no-verify origin v${nextVersion}`), { stage: `Push the v${nextVersion} tag` })
+  .then(() => exec('npm publish --registry https://registry.npmjs.org'), { stage: 'npm publish' })
   .then(() => exec('npm run clear'), { stage: 'Clear'} )
   .catch(error => console.error(error));
