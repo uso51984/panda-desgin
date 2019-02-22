@@ -4,8 +4,8 @@
 
 .@{toastPrefixCls} {
   position: fixed;
-  width: 100%;
   z-index: @toast-zindex;
+  width: 100%;
   font-size: @font-size-base;
   text-align: center;
 
@@ -14,22 +14,23 @@
   }
 
   &&-mask {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 0;
     top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     transform: translateZ(1px);
   }
 
   &&-nomask {
     position: fixed;
-    max-width: 50%;
-    width: auto;
-    left: 50%;
     top: 50%;
+    left: 50%;
+    width: auto;
+    max-width: 50%;
     transform: translateZ(1px);
+
     .@{toastPrefixCls}-notice {
       transform: translateX(-50%) translateY(-50%);
     }
@@ -38,19 +39,19 @@
   &-notice-content {
     .@{toastPrefixCls}-text {
       min-width: 60 * @hd;
-      border-radius: @radius-sm;
+      padding: @v-spacing-md @h-spacing-lg;
+      line-height: @line-height-paragraph;
       color: @color-text-base-inverse;
       background-color: @toast-fill;
-      line-height: @line-height-paragraph;
-      padding: @v-spacing-md @h-spacing-lg;
+      border-radius: @radius-sm;
 
       &.@{toastPrefixCls}-text-icon {
-        border-radius: @radius-md;
         padding: @v-spacing-lg @h-spacing-lg;
+        border-radius: @radius-md;
+      }
 
-        .@{toastPrefixCls}-text-info {
-          margin-top: @v-spacing-sm;
-        }
+      .@{toastPrefixCls}-text-info {
+        margin-top: @v-spacing-sm;
       }
     }
   }

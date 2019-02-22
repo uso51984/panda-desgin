@@ -1,6 +1,6 @@
 @import '../../style/var.less';
 @import '../../style/mixins/icon.less';
-@import "../../style/mixins/hairline.less";
+@import '../../style/mixins/hairline.less';
 
 @modalPrefixClass: panda-modal;
 
@@ -8,31 +8,32 @@
 
 .@{modalPrefixClass} {
   .button-common() {
+    display: block;
     box-sizing: border-box;
+    height: @modal-button-height;
+    font-size: @modal-button-font-size;
+    line-height: @modal-button-height;
     text-align: center;
     text-decoration: none;
-    outline: none;
     color: @color-link;
-    font-size: @modal-button-font-size;
-    height: @modal-button-height;
-    line-height: @modal-button-height;
-    display: block;
+    outline: none;
     .ellipsis();
   }
 
   &-button-group-h {
     position: relative;
-    border-top: 1px solid @border-color-base;
     display: flex;
+    border-top: 1px solid @border-color-base;
 
     .@{modalPrefixClass}-button {
-      -webkit-touch-callout: none;
       flex: 1;
+      -webkit-touch-callout: none;
       .button-common();
 
       &:first-child {
         color: @color-text-base;
       }
+
       &:last-child {
         position: relative;
         border-left: 1px solid @border-color-base;
@@ -42,10 +43,10 @@
 
   &-button-group-v {
     .@{modalPrefixClass}-button {
-      -webkit-touch-callout: none;
-      display: block;
       position: relative;
+      display: block;
       border-top: 1px solid @border-color-base;
+      -webkit-touch-callout: none;
       .button-common();
     }
   }

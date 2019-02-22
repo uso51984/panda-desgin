@@ -42,31 +42,30 @@
 
 .panda-fade {
   &-enter-active {
-    animation: .3s panda-fade-in;
+    animation: 0.3s panda-fade-in;
   }
 
   &-leave-active {
-    animation: .3s panda-fade-out;
+    animation: 0.3s panda-fade-out;
   }
 }
 
 .panda-slide-bottom {
   &-enter-active {
-    animation: panda-slide-bottom-enter .3s both ease;
+    animation: panda-slide-bottom-enter 0.3s both ease;
   }
 
   &-leave-active {
-    animation: panda-slide-bottom-leave .3s both ease;
+    animation: panda-slide-bottom-leave 0.3s both ease;
   }
 }
 
-
-/*do not import this file except src/style/index.less*/
+/* do not import this file except src/style/index.less */
 .am {
   .effect() {
-    animation-duration: .2s;
+    animation-duration: 0.2s;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
     animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(.55, 0, .55, .2);
   }
 
   &-fade-enter,
@@ -166,17 +165,16 @@
   &-zoom-enter,
   &-zoom-appear {
     opacity: 0;
-    .effect();
-
-    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
     animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    .effect();
   }
 
   &-zoom-leave {
     .effect();
 
-    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
     animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
   }
 
   &-zoom-enter&-zoom-enter-active,
@@ -193,28 +191,28 @@
   @keyframes amZoomIn {
     0% {
       opacity: 0;
-      transform-origin: 50% 50%;
       transform: scale(0, 0);
+      transform-origin: 50% 50%;
     }
 
     100% {
       opacity: 1;
-      transform-origin: 50% 50%;
       transform: scale(1, 1);
+      transform-origin: 50% 50%;
     }
   }
 
   @keyframes amZoomOut {
     0% {
       opacity: 1;
-      transform-origin: 50% 50%;
       transform: scale(1, 1);
+      transform-origin: 50% 50%;
     }
 
     100% {
       opacity: 0;
-      transform-origin: 50% 50%;
       transform: scale(0, 0);
+      transform-origin: 50% 50%;
     }
   }
 

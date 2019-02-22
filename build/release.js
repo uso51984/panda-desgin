@@ -33,7 +33,8 @@ if (semver.lte(nextVersion, curVersion)) {
 }
 
 //Make sure the lint pass
-exec('npm run lint', { stage: 'linting' })
+exec('npm run eslint', { stage: 'eslint' })
+.then(() => exec('npm run stylelint', { stage: 'stylelint' }))
   //Make sure the test pass
   .then(() => exec('npm run test', { stage: 'test' }))
   .then(() => exec('npm run build:lib', { stage: 'building' }))

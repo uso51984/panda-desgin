@@ -1,5 +1,6 @@
 .@{modalPrefixClass} {
   position: relative;
+
   &:not(.@{modalPrefixClass}-transparent):not(.@{modalPrefixClass}-popup) {
     width: 100%;
     height: 100%;
@@ -9,10 +10,10 @@
     position: fixed;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
-    height: 100%;
+    left: 0;
     z-index: @modal-zindex;
+    height: 100%;
     background-color: @fill-mask;
 
     &-hidden {
@@ -22,20 +23,21 @@
 
   &-wrap {
     position: fixed;
-    overflow: auto;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    height: 100%;
     z-index: @modal-zindex;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    overflow: auto;
+    outline: 0;
     // fixed a layer issue with animated Tabs in the x5 kernel browser
     transform: translateZ(1px);
+    -webkit-overflow-scrolling: touch;
+
     &-popup {
       display: block;
     }
@@ -43,6 +45,7 @@
 
   &-transparent {
     width: 270 * @hd;
+
     .@{modalPrefixClass}-content {
       border-radius: @radius-lg;
     }
@@ -70,8 +73,8 @@
     margin: 0;
     font-size: @modal-font-size-heading;
     line-height: @line-height-base;
-    color: @color-text-base;
     text-align: center;
+    color: @color-text-base;
   }
 
   &-header {
@@ -80,24 +83,24 @@
 
   &-content {
     position: relative;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
     background-color: @fill-base;
     border: 0;
     background-clip: padding-box;
-    text-align: center;
-    height: 100%;
-    overflow: hidden;
   }
 
   &-close {
-    border: 0;
-    padding: 0;
-    background-color: transparent;
-    outline: none;
     position: absolute;
     right: @h-spacing-lg;
     z-index: 999;
-    height: @icon-size-sm;
     width: @icon-size-sm;
+    height: @icon-size-sm;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    outline: none;
 
     &-x {
       display: inline-block;
@@ -111,7 +114,7 @@
 
   &-body {
     height: 100%;
-    line-height: @line-height-paragraph;
     overflow: auto;
+    line-height: @line-height-paragraph;
   }
 }

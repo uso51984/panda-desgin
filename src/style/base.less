@@ -1,3 +1,4 @@
+
 @import './normalize.less';
 @import './var';
 @import './ellipsis';
@@ -15,20 +16,16 @@ body {
   font-size: @font-size-base;
 }
 
-*[contenteditable] {
-  -webkit-user-select: auto !important;
-}
-
-*:focus {
-  outline: none;
-}
-
 a {
-  background: transparent;
   text-decoration: none;
+  background: transparent;
   outline: none;
 }
 
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
 }

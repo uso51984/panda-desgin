@@ -3,26 +3,26 @@
 @numberKeyboardPrefix: panda-number-keyboard;
 
 .@{numberKeyboardPrefix} {
-  width: 100%;
-  user-select: none;
-  background-color: @white;
   position: relative;
+  width: 100%;
+  background-color: @white;
+  user-select: none;
 
   &__title {
+    position: relative;
     height: 30px;
     font-size: 14px;
     line-height: 30px;
     text-align: center;
-    position: relative;
     color: @gray-darker;
   }
 
   &__close {
-    right: 0;
-    color: @blue;
-    font-size: 14px;
-    padding: 0 15px;
     position: absolute;
+    right: 0;
+    padding: 0 15px;
+    font-size: 14px;
+    color: @blue;
 
     &:active {
       background-color: @active-color;
@@ -34,10 +34,10 @@
   }
 
   &__sidebar {
+    position: absolute;
     right: 0;
     bottom: 0;
     width: 25%;
-    position: absolute;
     height: @number-keyboard-key-height * 4;
   }
 
@@ -49,16 +49,16 @@
 }
 
 .@{numberKeyboardPrefix}-item {
+  display: inline-block;
   width: 100% / 3;
+  height: @number-keyboard-key-height;
   font-size: 24px;
   font-style: normal;
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-  height: @number-keyboard-key-height;
   line-height: @number-keyboard-key-height;
+  text-align: center;
+  vertical-align: middle;
 
-  &::after {
+  &:after {
     border-width: 1px 1px 0 0;
   }
 
@@ -85,7 +85,7 @@
       background-color: @blue;
     }
 
-    &::after {
+    &:after {
       border-color: @blue;
     }
   }
@@ -100,6 +100,6 @@
 }
 
 .pup-keyboard-wrapper {
-  height: 246px;
   top: auto;
+  height: 246px;
 }

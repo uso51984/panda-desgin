@@ -7,32 +7,32 @@
   vertical-align: middle;
 
   &-text {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     position: absolute;
     top: -1 * @v-spacing-sm;
+    z-index: 10;
     height: @icon-size-xs;
-    line-height: @icon-size-xs;
     min-width: @icon-size-xs / 2;
-    border-radius: 2 * @v-spacing-sm;
     padding: 0 @h-spacing-sm;
-    text-align: center;
     font-size: @font-size-caption-sm;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: @icon-size-xs;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
     color: @color-text-base-inverse;
     background-color: @brand-important;
-    white-space: nowrap;
+    border-radius: 2 * @v-spacing-sm;
     transform: translateX(-45%);
     transform-origin: -10% center;
-    z-index: 10;
 
     a {
       color: @color-text-base-inverse;
     }
 
     p {
-      margin: 0;
       padding: 0;
+      margin: 0;
     }
   }
 
@@ -42,41 +42,41 @@
 
   &-dot {
     position: absolute;
+    top: -2 * @border-width-lg;
+    z-index: 10;
+    width: 0.5 * @font-size-caption;
+    height: 0.5 * @font-size-caption;
+    background: @brand-important;
+    border-radius: 100%;
     transform: translateX(-50%);
     transform-origin: 0 center;
-    top: -2 * @border-width-lg;
-    height: 0.5 * @font-size-caption;
-    width: 0.5 * @font-size-caption;
-    border-radius: 100%;
-    background: @brand-important;
-    z-index: 10;
 
     &-large {
-      height: @font-size-caption;
       width: @font-size-caption;
+      height: @font-size-caption;
     }
   }
 
   &-not-a-wrapper &-text,
   &-not-a-wrapper &-dot {
+    position: relative;
     top: auto;
     display: block;
-    position: relative;
     transform: translateX(0);
   }
 
   &-corner {
+    position: absolute;
+    top: 0.5 * @font-size-caption;
+    right: -2 * @font-size-caption;
     width: 5 * @font-size-caption;
     padding: 0.5 * @font-size-caption;
-    position: absolute;
-    right: -2 * @font-size-caption;
-    top: 0.5 * @font-size-caption;
-    background-color: @brand-important;
-    color: @color-text-base-inverse;
-    white-space: nowrap;
-    transform: rotate(45deg);
-    text-align: center;
     font-size: @font-size-subhead;
+    text-align: center;
+    white-space: nowrap;
+    color: @color-text-base-inverse;
+    background-color: @brand-important;
+    transform: rotate(45deg);
 
     &-wrapper {
       overflow: hidden;
