@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const shelljs = require('shelljs');
 const resolveCwd = require('./utils/resolveCwd');
+const colors = require('colors');
 
 function cleanCompile() {
   if (fs.existsSync(resolveCwd('lib'))) {
@@ -24,7 +25,9 @@ function cleanDocBuild() {
 }
 
 console.log('Start Clear'.green)
+console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 cleanCompile()
 cleanBuild()
 cleanDocBuild()
-console.log('Complete Clear '.green)
+console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+console.log('Complete Clear'.green)
