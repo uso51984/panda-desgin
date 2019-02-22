@@ -4227,6 +4227,9 @@ body {
   padding: 8px;
   font-size: 14px;
 }
+.CodeMirror .CodeMirror-line {
+  padding-bottom: 5px;
+}
 .panda-doc-intro {
   text-align: center;
 }
