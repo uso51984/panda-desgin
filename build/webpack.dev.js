@@ -3,12 +3,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const getWebpackCommonConfig = require('./sections/webpackCommonConfig');
+const resolveCwd = require('./utils/resolveCwd');
 const plugins = [new ProgressBarPlugin()];
-
-function resolveCwd(...args) {
-  args.unshift(process.cwd());
-  return path.join(...args);
-};
 
 function setHtmlWebpackPlugin(name) {
   plugins.push(

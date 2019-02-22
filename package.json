@@ -13,9 +13,10 @@
     "build:components": "node build/build-components.js --color",
     "build:lib": "node build/build-lib.js",
     "build:style": "gulp --gulpfile ./build/build-style.js",
-    "gh-pages": "webpack --config build/webpack.doc.js && gh-pages -d docs/dist",
+    "gh-pages": "webpack --config build/webpack.doc.js && gh-pages -d docs/dist && npm run clear",
     "build:doc": "webpack --config build/webpack.doc.js",
     "release": "node build/release.js",
+    "clear": "node build/clear.js",
     "test": "jest --config=jest.config.json --coverage",
     "test:watch": "jest --config=jest.config.json --watch",
     "test:update": "jest --config=jest.config.json --updateSnapshot"
