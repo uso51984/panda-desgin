@@ -1,27 +1,27 @@
 @import '../../style/var.less';
-@import "../../style/mixins/hairline.less";
+@import '../../style/mixins/hairline.less';
 
 .panda-cell-group {
   background-color: @white;
 }
 
 .panda-cell {
-  width: 100%;
-  display: flex;
-  padding: 10px 15px;
-  box-sizing: border-box;
-  line-height: 24px;
   position: relative;
-  background-color: @white;
-  color: @text-color;
-  font-size: 14px;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 15px;
   overflow: hidden;
+  font-size: 14px;
+  line-height: 24px;
+  color: @text-color;
+  background-color: @white;
 
-  &:not(:last-child)::after {
+  &:not(:last-child):after {
     .hairline-bottom(@border-color, 15px);
   }
 
-  &--borderless::after {
+  &--borderless:after {
     display: none;
   }
 
@@ -42,9 +42,9 @@
   }
 
   &__value {
+    position: relative;
     overflow: hidden;
     text-align: right;
-    position: relative;
     vertical-align: middle;
 
     &--alone {
@@ -53,28 +53,28 @@
   }
 
   &__left-icon {
+    margin-right: 5px;
     font-size: 16px;
     line-height: 24px;
-    margin-right: 5px;
     vertical-align: middle;
   }
 
   &__right-icon {
-    color: @gray-dark;
+    margin-left: 5px;
     font-size: 12px;
     line-height: 24px;
-    margin-left: 5px;
     vertical-align: bottom;
+    color: @gray-dark;
 
-    &--left::before {
+    &--left:before {
       transform: rotate(180deg);
     }
 
-    &--up::before {
+    &--up:before {
       transform: rotate(-90deg);
     }
 
-    &--down::before {
+    &--down:before {
       transform: rotate(90deg);
     }
   }
@@ -86,12 +86,12 @@
   &--required {
     overflow: visible;
 
-    &::before {
-      content: '*';
+    &:before {
       position: absolute;
       left: 7px;
       font-size: 14px;
       color: @red;
+      content: '*';
     }
   }
 

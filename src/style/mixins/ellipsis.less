@@ -1,14 +1,15 @@
-.multi-ellipsis(@lines) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: @lines;
-  /* autoprefixer: ignore next */
-  -webkit-box-orient: vertical;
-}
+// .multi-ellipsis(@lines) {
+//   display: -webkit-box;
+
+//   /* autoprefixer: ignore next */
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   -webkit-line-clamp: @lines;
+// }
 
 .ellipsis() {
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }

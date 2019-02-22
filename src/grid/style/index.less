@@ -7,22 +7,27 @@
 
 .generate-col(24);
 .generate-col(@n, @i: 1) when (@i =< @n) {
-  .panda-col--@{i} { width: @i * 100% / 24; }
-  .panda-col--offset-@{i} { margin-left: @i * 100% / 24; }
+  .panda-col--@{i} {
+    width: @i * 100% / 24;
+  }
+
+  .panda-col--offset-@{i} {
+    margin-left: @i * 100% / 24;
+  }
   .generate-col(@n, (@i + 1));
 }
 
 .panda-row {
-  &::after {
-    content: "";
+  &:after {
     display: table;
     clear: both;
+    content: '';
   }
 
   &--flex {
     display: flex;
 
-    &::after {
+    &:after {
       display: none;
     }
   }

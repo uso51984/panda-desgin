@@ -80,9 +80,10 @@ class Carousel extends React.PureComponent {
     const { children, prefixCls, vertical } = this.props;
     this.swipeItemEl = [];
     const mainAxis = vertical ? 'height' : 'width';
+    const styleEmun = { [mainAxis]: this.size };
     const mapFunc = (child, index) => (
       <div
-        style={{ [mainAxis]: this.size }}
+        style={styleEmun}
         key={index}
         className={`${prefixCls}-item`}
         ref={el => this.swipeItemEl[index] = el}

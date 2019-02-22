@@ -3,13 +3,12 @@
     position: fixed;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
-    background-color: rgb(55, 55, 55);
-    background-color: rgba(55, 55, 55, 0.6);
-    height: 100%;
-    filter: alpha(opacity=50);
+    left: 0;
     z-index: 1050;
+    height: 100%;
+    background-color: rgba(55, 55, 55, 0.6);
+    filter: alpha(opacity=50);
 
     &-hidden {
       display: none;
@@ -18,22 +17,26 @@
 
   .fade-effect() {
     animation-duration: 0.3s;
-    animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-fill-mode: both;
   }
 
-  &-fade-enter,&-fade-appear {
+  &-fade-enter,
+  &-fade-appear {
     opacity: 0;
     .fade-effect();
+
     animation-play-state: paused;
   }
 
   &-fade-leave {
     .fade-effect();
+
     animation-play-state: paused;
   }
 
-  &-fade-enter&-fade-enter-active,&-fade-appear&-fade-appear-active  {
+  &-fade-enter&-fade-enter-active,
+  &-fade-appear&-fade-appear-active {
     animation-name: rcDialogFadeIn;
     animation-play-state: running;
   }
@@ -47,6 +50,7 @@
     0% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
@@ -56,6 +60,7 @@
     0% {
       opacity: 1;
     }
+
     100% {
       opacity: 0;
     }

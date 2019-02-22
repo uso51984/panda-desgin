@@ -1,22 +1,22 @@
 @import '../../style/var.less';
 @import '../../style/mixins/icon.less';
-@import "../../style/mixins/hairline.less";
+@import '../../style/mixins/hairline.less';
 
 @prefixTextareCls: panda-textarea;
 
 .@{prefixTextareCls}-wrapper {
-  width: 100%;
-  display: flex;
-  padding: 10px 15px;
-  box-sizing: border-box;
-  line-height: 24px;
   position: relative;
-  background-color: @white;
-  color: @text-color;
-  font-size: 14px;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 15px;
   overflow: hidden;
+  font-size: 14px;
+  line-height: 24px;
+  color: @text-color;
+  background-color: @white;
 
-  &:not(:last-child)::after {
+  &:not(:last-child):after {
     .hairline-bottom(@border-color, 15px);
   }
 
@@ -34,19 +34,19 @@
     align-items: center;
 
     textarea {
-      color: @color-text-base;
-      font-size: @font-size-base;
-      line-height: @line-height-paragraph * @font-size-heading;
-      appearance: none;
+      display: block;
       width: 100%;
       padding: 0;
-      border: 0;
-      background-color: transparent;
       overflow: visible;
-      display: block;
-      resize: none;
+      font-size: @font-size-base;
+      line-height: @line-height-paragraph * @font-size-heading;
       word-break: break-all;
       word-wrap: break-word;
+      color: @color-text-base;
+      background-color: transparent;
+      border: 0;
+      resize: none;
+      appearance: none;
 
       &::placeholder {
         color: @color-text-placeholder;
@@ -65,13 +65,13 @@
   width: @icon-size-sm;
   height: @icon-size-sm;
   margin-top: 4 * @hd;
-  border-radius: @radius-circle;
   overflow: hidden;
   font-style: normal;
   color: #fff;
   background-color: @input-color-icon;
   background-repeat: no-repeat;
   background-size: @icon-size-sm auto;
+  border-radius: @radius-circle;
   .encoded-svg-background('textarea_item_delete');
 
   &-active {
@@ -86,16 +86,16 @@
 }
 
 .@{prefixTextareCls}-has-count {
-  padding-bottom: 14px;
   position: relative;
+  padding-bottom: 14px;
 }
 
 .@{prefixTextareCls}-count {
   position: absolute;
-  bottom: @v-spacing-sm;
   right: @h-spacing-sm;
-  color: @color-text-placeholder;
+  bottom: @v-spacing-sm;
   font-size: @font-size-base;
+  color: @color-text-placeholder;
 
   span {
     color: @color-text-base;
@@ -110,9 +110,9 @@
   }
 
   .@{prefixTextareCls}-error-extra {
-    margin-top: 4 * @hd;
     width: @icon-size-sm;
     height: @icon-size-sm;
+    margin-top: 4 * @hd;
     margin-left: @h-spacing-md;
     background-size: @icon-size-sm @icon-size-sm;
     .encoded-svg-background('error');
