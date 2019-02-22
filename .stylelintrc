@@ -1,0 +1,36 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "at-rule-semicolon-newline-after": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "unit-no-unknown": null,
+    "function-parentheses-newline-inside": null,
+    "color-no-invalid-hex": true,
+    "font-family-name-quotes": "always-unless-keyword",
+    "font-weight-notation": ["numeric", { ignore: ["relative"] }],
+    "function-calc-no-unspaced-operator": true,
+    "function-comma-space-after": "always",
+    "function-url-quotes": "always",
+    "string-quotes": "single",
+    "property-no-vendor-prefix": true,
+    "declaration-no-important": true,
+    "block-closing-brace-newline-before": "always",
+    "block-no-empty": true,
+    "block-opening-brace-newline-after": "always",
+    "selector-no-vendor-prefix": true,
+    "selector-pseudo-element-colon-notation": "single",
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "no-duplicate-selectors": true,
+    "max-nesting-depth": [3],
+    "order/properties-order": [
+      [
+        "position", "top", "right", "bottom", "left", "z-index", "display", "align-content", "align-items", "align-self", "flex", "flex-basis", "flex-direction", "flex-flow", "flex-grow", "flex-shrink", "flex-wrap", "justify-content", "order", "float", "clear", "zoom", "box-align", "box-flex", "box-orient", "box-pack", "box-shadow", "box-sizing", "table-layout", "width", "height", "max-width", "max-height", "min-width", "min-height", "padding", "padding-top", "padding-right", "padding-bottom", "padding-left", "margin", "margin-top", "margin-right", "margin-bottom", "margin-left", "margin-collapse", "margin-top-collapse", "margin-right-collapse", "margin-bottom-collapse", "margin-left-collapse", "overflow", "overflow-x", "overflow-y", "clip", "font", "font-family", "font-size", "font-smoothing", "osx-font-smoothing", "font-style", "font-weight", "hyphens", "src", "line-height", "letter-spacing", "word-spacing", "text-align", "text-decoration", "text-indent", "text-overflow", "text-rendering", "text-size-adjust", "text-shadow", "text-transform", "word-break", "word-wrap", "white-space", "vertical-align", "list-style", "list-style-type", "list-style-position", "list-style-image", "pointer-events", "cursor", "color", "background", "background-attachment", "background-color", "background-image", "background-position", "background-repeat", "background-size", "border", "border-collapse", "border-top", "border-right", "border-bottom", "border-left", "border-color", "border-image", "border-top-color", "border-right-color", "border-bottom-color", "border-left-color", "border-spacing", "border-style", "border-top-style", "border-right-style", "border-bottom-style", "border-left-style", "border-width", "border-top-width", "border-right-width", "border-bottom-width", "border-left-width", "border-radius", "border-top-right-radius", "border-bottom-right-radius", "border-bottom-left-radius", "border-top-left-radius", "border-radius-topright", "border-radius-bottomright", "border-radius-bottomleft", "border-radius-topleft", "content", "quotes", "outline", "outline-offset", "outline-width", "outline-style", "outline-color", "opacity", "filter", "visibility", "size", "transform", "animation", "animation-delay", "animation-duration", "animation-iteration-count", "animation-name", "animation-play-state", "animation-timing-function", "animation-fill-mode", "transition", "transition-delay", "transition-duration", "transition-property", "transition-timing-function", "background-clip", "backface-visibility", "resize", "appearance", "user-select", "interpolation-mode", "direction", "marks", "page", "set-link-source", "unicode-bidi", "speak"
+      ],
+      {"unspecified": "bottom"}
+    ]
+  }
+}
