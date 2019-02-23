@@ -11,7 +11,7 @@ module.exports = function exec(command, options = {}) {
 
   return processExec(command, options).progress((result) => {
     result.stdout.on('data', data => output('progress....'.cyan, data));
-    result.stderr.on('data', data => output('error'.red, data));
+    result.stderr.on('data', data => output(data));
   })
   .then((result) => {
     console.log(`${title} Complete!`.green);
