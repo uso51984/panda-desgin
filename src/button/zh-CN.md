@@ -59,3 +59,5 @@ export default () => (
 | loading	   | 设置按钮载入状态	  | boolean	 | false |
 | icon  | 可以是组件里内置的某个 icon 的 type 值，也可以是任意合法的 ReactElement (注意: `loading`设置后此项设置失效) | `string`, `React.Element` | -  |
 | className |  样式类名 | string | 无 |
+
+> 支持所有a标签属性

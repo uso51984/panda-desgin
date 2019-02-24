@@ -65,7 +65,8 @@ const eslintrc = {
     'consistent-return': 0,
     'no-loop-func': 0,
     'implicit-arrow-linebreak': 0,
-    'react/button-has-type': 0
+    'react/button-has-type': 0,
+    'react/require-default-props': 0
   },
 };
 
