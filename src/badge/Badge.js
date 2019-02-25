@@ -1,7 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { isNumber } from '../utils/checkType';
+
+const propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  prefixCls: PropTypes.string,
+  size: PropTypes.string,
+  className: PropTypes.string,
+  overflowCount: PropTypes.number,
+  corner: PropTypes.bool,
+  dot: PropTypes.bool,
+  text: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+};
 
 export default class Badge extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-badge',
     size: 'small',
@@ -16,7 +38,7 @@ export default class Badge extends React.PureComponent {
 
     let { text } = this.props;
 
-    text = (typeof text === 'number' && text > overflowCount) ? `${overflowCount}+` : text;
+    text = (isNumber(text) && text > overflowCount) ? `${overflowCount}+` : text;
 
     if (dot) {
       text = '';
@@ -33,7 +55,7 @@ export default class Badge extends React.PureComponent {
     const badgeCls = classnames(prefixCls, {
       [`${prefixCls}-not-a-wrapper`]: !children,
       [`${prefixCls}-corner-wrapper`]: corner,
-      [`${prefixCls}-hot`]: !!hot,
+      [`${prefixCls}-hot`]: hot,
       [`${prefixCls}-corner-wrapper-large`]: corner && size === 'large',
     }, className);
 
