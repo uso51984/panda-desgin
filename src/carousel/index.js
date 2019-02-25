@@ -1,22 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import getDirection from './getDirection';
 
-const MIN_DISTANCE = 10;
-function getDirection(x, y) {
-  if (x > y && x > MIN_DISTANCE) {
-    return 'horizontal';
-  }
-
-  /* istanbul ignore else */
-  if (y > x && y > MIN_DISTANCE) {
-    return 'vertical';
-  }
-
-  /* istanbul ignore next */
-  return '';
-}
+const propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  vertical: PropTypes.bool,
+  autoplay: PropTypes.number,
+  duration: PropTypes.number,
+  initialSwipe: PropTypes.number,
+  loop: PropTypes.bool,
+  showIndicators: PropTypes.bool,
+  touchable: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
 
 class Carousel extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-swipe',
     vertical: false,
@@ -26,7 +30,6 @@ class Carousel extends React.PureComponent {
     initialSwipe: 0,
     loop: true,
     touchable: true,
-    style: {},
   }
 
   constructor(props) {

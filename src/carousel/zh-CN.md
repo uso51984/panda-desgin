@@ -82,7 +82,7 @@ export default class App extends React.Component {
 |------|------|------|------|------|
 | autoplay | 自动轮播间隔，单位为 ms | `Number` | - | - |
 | duration | 动画时长，单位为 ms | `Number` | `500` | - |
-| initial-swipe | 初始位置索引值 | `Number` | `0` | - |
+| initialSwipe | 初始位置索引值 | `Number` | `0` | - |
 | loop | 是否开启循环播放 | `Boolean` | `true` | - |
 | showIndicators | 是否显示指示器 | `Boolean` | `true` | - |
 | vertical | 是否为纵向滚动 | `Boolean` | `false` | 1.1.1 |
