@@ -1,8 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  children: PropTypes.node,
+  onChange: PropTypes.func,
+  options: PropTypes.array,
+  disabled: PropTypes.bool,
+  defaultValue: PropTypes.array,
+};
+
 export default class CheckboxGroup extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     options: [],
     defaultValue: [],
@@ -51,23 +65,21 @@ export default class CheckboxGroup extends React.Component {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-
-
     this.props.onChange(value);
   }
 
   render() {
-    const { props, state } = this;
-    const { prefixCls, className, style, options } = props;
+    const { value } = this.state;
+    const { prefixCls, className, style, options, disabled } = this.props;
 
-    let children = props.children;
+    let children = this.props.children;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
         <Checkbox
           key={option.value}
-          disabled={'disabled' in option ? option.disabled : props.disabled}
+          disabled={'disabled' in option ? option.disabled : disabled}
           value={option.value}
-          checked={state.value.indexOf(option.value) !== -1}
+          checked={value.indexOf(option.value) !== -1}
           onChange={() => this.toggleOption(option)}
           className={`${prefixCls}-item`}
         >

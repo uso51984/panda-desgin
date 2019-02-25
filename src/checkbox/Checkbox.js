@@ -1,7 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  onChange: PropTypes.func,
+  type: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  readOnly: PropTypes.bool,
+  defaultChecked: PropTypes.bool,
+  tabIndex: PropTypes.number,
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+};
+
 export default class Checkbox extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-checkbox',
     className: '',
@@ -30,16 +55,16 @@ export default class Checkbox extends React.PureComponent {
   }
 
   handleChange = (e) => {
-    const { props } = this;
-    if (props.disabled) {
+    const { onChange, disabled } = this.props;
+    if (disabled) {
       return;
     }
-    if (!('checked' in props)) {
+    if (!('checked' in this.props)) {
       this.setState({
         checked: e.target.checked,
       });
     }
-    props.onChange(e);
+    onChange(e);
   };
 
   saveInput = (node) => {
