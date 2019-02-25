@@ -1,9 +1,43 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TapFeedback from 'react-tap-feedback';
 import Icon from '../icon';
 
+const propTypes = {
+  border: PropTypes.bool,
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  title: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  desc: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  icon: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  arrow: PropTypes.string,
+  size: PropTypes.string,
+  activeClass: PropTypes.string,
+  required: PropTypes.bool,
+};
+
 export default class Cell extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-cell',
     border: true,
@@ -16,13 +50,13 @@ export default class Cell extends React.PureComponent {
 
   render() {
     const { prefixCls, title, onClick, value, desc, icon, arrow, size, activeClass,
-      border, required } = this.props;
+      border, required, className } = this.props;
     const cls = classNames({
       [prefixCls]: true,
       [`${prefixCls}--${size}`]: size,
       [`${prefixCls}--borderless`]: !border,
       [`${prefixCls}--required`]: required,
-    });
+    }, className);
     return (
       <TapFeedback
         disabled={!onClick}
