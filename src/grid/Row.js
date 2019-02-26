@@ -1,7 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  style: PropTypes.object,
+  children: PropTypes.node,
+  Tag: PropTypes.string,
+  justify: PropTypes.string,
+  gutter: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+};
+
 export default class Row extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     Tag: 'div',
     gutter: 0,
