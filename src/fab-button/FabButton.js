@@ -1,8 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../icon';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.array,
+  icon: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  angle: PropTypes.number,
+  distance: PropTypes.number,
+  delay: PropTypes.number,
+  position: PropTypes.string,
+  type: PropTypes.string,
+  reverse: PropTypes.bool,
+};
+
 class FabButton extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     angle: 90,
     distance: 20,
