@@ -1,8 +1,17 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  isActive: PropTypes.bool,
+  children: PropTypes.any,
+  destroyInactivePanel: PropTypes.bool,
+};
+
 class PanelContent extends React.PureComponent {
+  static propTypes = propTypes
+
   render() {
     const { prefixCls, isActive, children, destroyInactivePanel } = this.props;
     const contentCls = classnames({
@@ -23,12 +32,5 @@ class PanelContent extends React.PureComponent {
     );
   }
 }
-
-// PanelContent.propTypes = {
-//   prefixCls: PropTypes.string,
-//   isActive: PropTypes.bool,
-//   children: PropTypes.any,
-//   destroyInactivePanel: PropTypes.bool,
-// };
 
 export default PanelContent;

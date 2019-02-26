@@ -1,12 +1,37 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CollapsePanel from './Panel';
 import openAnimation from './openAnimation';
 
+const propTypes = {
+  children: PropTypes.any,
+  prefixCls: PropTypes.string,
+  activeKey: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  defaultActiveKey: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  openAnimation: PropTypes.object,
+  onChange: PropTypes.func,
+  accordion: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  destroyInactivePanel: PropTypes.bool,
+  expandIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+};
+
 const toArray = activeKey => (Array.isArray(activeKey) ? activeKey : [activeKey]);
 
 class Collapse extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-collapse',
     onChange() {},
@@ -117,26 +142,6 @@ class Collapse extends React.Component {
     );
   }
 }
-
-// Collapse.propTypes = {
-//   children: PropTypes.any,
-//   prefixCls: PropTypes.string,
-//   activeKey: PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.arrayOf(PropTypes.string),
-//   ]),
-//   defaultActiveKey: PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.arrayOf(PropTypes.string),
-//   ]),
-//   openAnimation: PropTypes.object,
-//   onChange: PropTypes.func,
-//   accordion: PropTypes.bool,
-//   className: PropTypes.string,
-//   style: PropTypes.object,
-//   destroyInactivePanel: PropTypes.bool,
-//   expandIcon: PropTypes.func,
-// };
 
 Collapse.Panel = CollapsePanel;
 

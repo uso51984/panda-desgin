@@ -1,10 +1,45 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import PanelContent from './PanelContent';
 import Animate from '../AnimationGroup';
 
+const propTypes = {
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
+  children: PropTypes.any,
+  openAnimation: PropTypes.object,
+  prefixCls: PropTypes.string,
+  header: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.node,
+  ]),
+  showArrow: PropTypes.bool,
+  isActive: PropTypes.bool,
+  onItemClick: PropTypes.func,
+  style: PropTypes.object,
+  destroyInactivePanel: PropTypes.bool,
+  disabled: PropTypes.bool,
+  accordion: PropTypes.bool,
+  expandIcon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+};
+
 class CollapsePanel extends React.Component {
+  static propTypes = propTypes
+
+  static defaultProps = {
+    showArrow: true,
+    isActive: false,
+    destroyInactivePanel: false,
+    onItemClick() { },
+  }
+
   handleItemClick = () => {
     this.props.onItemClick();
   }
@@ -50,37 +85,5 @@ class CollapsePanel extends React.Component {
     );
   }
 }
-
-// CollapsePanel.propTypes = {
-//   className: PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.object,
-//   ]),
-//   children: PropTypes.any,
-//   openAnimation: PropTypes.object,
-//   prefixCls: PropTypes.string,
-//   header: PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.number,
-//     PropTypes.node,
-//   ]),
-//   showArrow: PropTypes.bool,
-//   isActive: PropTypes.bool,
-//   onItemClick: PropTypes.func,
-//   style: PropTypes.object,
-//   destroyInactivePanel: PropTypes.bool,
-//   disabled: PropTypes.bool,
-//   accordion: PropTypes.bool,
-//   expandIcon: PropTypes.func,
-// };
-
-CollapsePanel.defaultProps = {
-  showArrow: true,
-  isActive: false,
-  destroyInactivePanel: false,
-  onItemClick() { },
-  headerClass: '',
-  forceRender: false,
-};
 
 export default CollapsePanel;
