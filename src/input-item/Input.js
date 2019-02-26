@@ -1,6 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+};
 
 class Input extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     onBlur() { },
     onFocus() { },

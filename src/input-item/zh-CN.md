@@ -87,7 +87,7 @@
 | onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
 | error       | 报错样式        | bool |  false  |
 | onErrorClick       | 点击报错 icon 触发的回调函数  | (e: Object): void |  无  |
-| suffixNode       | 右边注释   | string or node |  ''  |
+| suffix       | 右边注释   | string or node |  ''  |
 | name    | input 的 name        | String |  无  |
 
 > 注意: `InputItem` 当 `type=number` 时不支持输入负号, 你可以利用 `type=text` 来自己实现。

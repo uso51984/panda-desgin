@@ -1,7 +1,34 @@
 import React from 'react';
 import classNames from 'classnames';
 import TouchFeedback from 'react-tap-feedback';
+import PropTypes from 'prop-types';
 import Input from './Input';
+
+const propTypes = {
+  prefixCls: PropTypes.string,
+  type: PropTypes.string,
+  suffix: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.node,
+  ]),
+  label: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.node,
+  ]),
+  placeholder: PropTypes.string,
+  error: PropTypes.bool,
+  clear: PropTypes.bool,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onErrorClick: PropTypes.func,
+  readOnly: PropTypes.bool,
+  disabled: PropTypes.bool,
+  maxLength: PropTypes.number,
+  name: PropTypes.string,
+};
 
 function normalizeValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -13,6 +40,8 @@ function normalizeValue(value) {
 const noop = () => {};
 
 class InputItem extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-input',
     type: 'text',
