@@ -7,7 +7,7 @@ import './index.less';
 const list = [
   'check-circle', 'check', 'check-circle-o',
   'cross-circle', 'cross', 'cross-circle-o',
-  'up', 'down', 'left', 'right', 'search',
+  'up', 'down', 'left', 'search',
   'right', 'ellipsis',
   'loading', 'plus',
   'minus',

@@ -8,11 +8,14 @@ const propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
-    PropTypes.element,
+    PropTypes.node,
   ]),
   Tag: PropTypes.string,
   offset: PropTypes.string,
-  span: PropTypes.string,
+  span: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
 };
 
 export default class Col extends React.PureComponent {
