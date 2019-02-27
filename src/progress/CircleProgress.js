@@ -1,6 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  percent: PropTypes.number,
+  gapDegree: PropTypes.number,
+  gapPosition: PropTypes.string,
+  strokeColor: PropTypes.string,
+  strokeLinecap: PropTypes.string,
+  strokeWidth: PropTypes.number,
+  style: PropTypes.object,
+  trailColor: PropTypes.string,
+  trailWidth: PropTypes.number,
+};
 
 class Circle extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     className: '',
     percent: 0,

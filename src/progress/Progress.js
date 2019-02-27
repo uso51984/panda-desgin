@@ -1,8 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CircleProgress from './CircleProgress';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  type: PropTypes.oneOf(['line', 'circle', 'dashboard']),
+  width: PropTypes.number,
+  strokeWidth: PropTypes.number,
+  percent: PropTypes.number,
+  gapDegree: PropTypes.number,
+  showInfo: PropTypes.bool,
+  trailColor: PropTypes.string,
+  format: PropTypes.func,
+};
+
 export default class Progress extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-progress',
     type: 'line',
@@ -10,7 +25,6 @@ export default class Progress extends React.PureComponent {
     gapDegree: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
-    showPercentStatus: false,
   };
 
   getProgressInfoNode() {
@@ -56,7 +70,7 @@ export default class Progress extends React.PureComponent {
     };
     const circleWidth = strokeWidth || 6;
     const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
-    const gapDeg = gapDegree || (type === 'dashboard' && 75);
+    const gapDeg = gapDegree || (type === 'dashboard' ? 75 : 0);
 
     return (
       <div className={`${prefixCls}-inner`} style={circleStyle}>
