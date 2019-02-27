@@ -1,9 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TouchFeedback from 'react-tap-feedback';
 import classnames from 'classnames';
 import Dialog from '../dialog';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  wrapClassName: PropTypes.string,
+  maskTransitionName: PropTypes.string,
+  transitionName: PropTypes.node,
+  transparent: PropTypes.bool,
+  popup: PropTypes.bool,
+  animationType: PropTypes.string,
+  animated: PropTypes.bool,
+  style: PropTypes.object,
+  onShow: PropTypes.func,
+  footer: PropTypes.array,
+  closable: PropTypes.bool,
+};
+
 export default class Modal extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-modal',
     transparent: true,
