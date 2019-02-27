@@ -9,7 +9,6 @@ export default class List extends React.PureComponent {
   }
 
   componentDidMount() {
-    // this.scroller = utils.getScrollEventTarget(this.el);
     this.scroller = this.el;
     this.scroller.addEventListener('scroll', this.check);
 

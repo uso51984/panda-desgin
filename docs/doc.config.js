@@ -123,10 +123,10 @@ module.exports = {
                 path: '/swipeout-action',
                 title: 'SwipeoutAction 滑动操作'
               },
-              {
-                path: '/list',
-                title: 'List 列表'
-              },
+              // {
+              //   path: '/list',
+              //   title: 'List 列表'
+              // },
               {
                 path: '/lazyload',
                 title: 'Lazyload 懒加载'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { on, off } from './utils/event';
 import scrollParent from './utils/scrollParent';
 import debounce from './utils/debounce';
@@ -171,6 +171,15 @@ let finalLazyLoadHandler = null;
 const isString = string => typeof string === 'string';
 
 class LazyLoad extends Component {
+  static defaultProps = {
+    once: false,
+    offset: 0,
+    overflow: false,
+    resize: false,
+    scroll: true,
+    unmountIfInvisible: false,
+  }
+
   constructor(props) {
     super(props);
 
@@ -277,28 +286,19 @@ class LazyLoad extends Component {
   }
 }
 
-// LazyLoad.propTypes = {
-//   once: PropTypes.bool,
-//   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-//   offset: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-//   overflow: PropTypes.bool,
-//   resize: PropTypes.bool,
-//   scroll: PropTypes.bool,
-//   children: PropTypes.node,
-//   throttle: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-//   debounce: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-//   placeholder: PropTypes.node,
-//   scrollContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-//   unmountIfInvisible: PropTypes.bool,
-// };
-
-LazyLoad.defaultProps = {
-  once: false,
-  offset: 0,
-  overflow: false,
-  resize: false,
-  scroll: true,
-  unmountIfInvisible: false,
+LazyLoad.propTypes = {
+  once: PropTypes.bool, // eslint-disable-line
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]), // eslint-disable-line
+  overflow: PropTypes.bool,
+  resize: PropTypes.bool,
+  scroll: PropTypes.bool,
+  children: PropTypes.node,
+  throttle: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  debounce: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  placeholder: PropTypes.node,
+  scrollContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  unmountIfInvisible: PropTypes.bool, // eslint-disable-line
 };
 
 export const lazyload = decorator;
