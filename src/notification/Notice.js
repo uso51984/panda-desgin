@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  duration: PropTypes.number,
+  style: PropTypes.object,
+  onClose: PropTypes.func,
+  closable: PropTypes.bool,
+};
+
 export default class Notice extends Component {
+  static propTypes = propTypes
+
   static defaultProps = {
-    onEnd() {},
     onClose() {},
     duration: 1.5,
     style: {
@@ -40,18 +51,17 @@ export default class Notice extends Component {
   }
 
   render() {
-    const props = this.props;
-    const componentClass = `${props.prefixCls}-notice`;
-    const className = {
-      [`${componentClass}`]: 1,
-      [`${componentClass}-closable`]: props.closable,
-      [props.className]: !!props.className,
-    };
+    const { prefixCls, closable, className, style, children } = this.props;
+    const componentClass = `${prefixCls}-notice`;
+    const cls = classNames(componentClass, {
+      [`${componentClass}-closable`]: closable,
+    }, className);
+
     return (
-      <div className={classNames(className)} style={props.style}>
-        <div className={`${componentClass}-content`}>{props.children}</div>
+      <div className={cls} style={style}>
+        <div className={`${componentClass}-content`}>{children}</div>
         {
-          props.closable ? (
+          closable ? (
             <a onClick={this.close} className={`${componentClass}-close`}>
               <span className={`${componentClass}-close-x`} />
             </a>

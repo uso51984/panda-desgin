@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import Animate from '../AnimationGroup';
@@ -27,7 +28,17 @@ function getUuid() {
   return `pandaNotification_${now}_${seed++}`;
 }
 
-class Notification extends Component {
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  animation: PropTypes.string,
+  transitionName: PropTypes.string,
+  style: PropTypes.object,
+};
+
+class Notification extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-notification',
     animation: 'fade',
@@ -69,12 +80,12 @@ class Notification extends Component {
   }
 
   render() {
-    const props = this.props;
+    const { prefixCls, style, className } = this.props;
     const noticeNodes = this.state.notices.map((notice) => {
       const onClose = createChainedFunction(this.remove.bind(this, notice.key), notice.onClose);
       return (
         <Notice
-          prefixCls={props.prefixCls}
+          prefixCls={prefixCls}
           {...notice}
           onClose={onClose}
         >
@@ -82,13 +93,10 @@ class Notification extends Component {
         </Notice>
       );
     });
-    const className = {
-      [props.prefixCls]: 1,
-      [props.className]: !!props.className,
-    };
+    const cls = classNames(prefixCls, className);
 
     return (
-      <div className={classNames(className)} style={props.style}>
+      <div className={cls} style={style}>
         <Animate
           transitionName={this.getTransitionName()}
         >
