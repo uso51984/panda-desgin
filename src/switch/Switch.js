@@ -1,8 +1,24 @@
-import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Icon from '../icon';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  name: PropTypes.string,
+  defaultChecked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  platform: PropTypes.string,
+  onClick: PropTypes.func,
+  color: PropTypes.string,
+  loading: PropTypes.bool,
+};
+
 export default class Switch extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-switch',
     name: '',
