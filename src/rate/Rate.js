@@ -1,10 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import getOffsetLeft from './util';
 import Star from './Star';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  defaultValue: PropTypes.number,
+  count: PropTypes.number,
+  allowHalf: PropTypes.bool,
+  allowClear: PropTypes.bool,
+  onChange: PropTypes.func,
+  character: PropTypes.string,
+  color: PropTypes.string,
+};
+
 export default class Rate extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     defaultValue: 0,
     count: 5,
@@ -14,7 +30,6 @@ export default class Rate extends React.Component {
     prefixCls: 'panda-rate',
     onChange() {},
     character: '★',
-    tabIndex: 0,
   };
 
   constructor(props) {
