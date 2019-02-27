@@ -14,11 +14,6 @@ const propTypes = {
     PropTypes.string,
     PropTypes.element,
   ]),
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.element,
-  ]),
   desc: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,

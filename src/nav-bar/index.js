@@ -1,7 +1,32 @@
-import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.node,
+  ]),
+  leftContent: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.node,
+  ]),
+  rightContent: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.node,
+  ]),
+  onLeftClick: PropTypes.func,
+};
 
 export default class NavBar extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-navbar',
     onLeftClick: () => {},
