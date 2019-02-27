@@ -1,15 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import getPopupModal from './getPopupModal';
 
+const propTypes = {
+  WrapComponent: PropTypes.string,
+  triggerType: PropTypes.string,
+  onVisibleChange: PropTypes.func,
+  onOk: PropTypes.func,
+  onDismiss: PropTypes.func,
+};
+
 export default class Picker extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     onVisibleChange() { },
-    okText: '确定',
-    dismissText: '取消',
-    title: '',
     onOk() { },
     onDismiss() { },
-    prefixCls: 'panda-picker-popup',
     WrapComponent: 'span',
     triggerType: 'onClick',
   };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PopupPickerWrap from './PopupPickerWrap';
 import MultiPicker from '../picker-view/MultiPicker';
 import PickerView from '../picker-view/PickerView';
@@ -21,7 +22,23 @@ export function getDefaultProps() {
   };
 }
 
+const propTypes = {
+  triggerType: PropTypes.string,
+  format: PropTypes.func,
+  cols: PropTypes.number,
+  cascade: PropTypes.bool,
+  title: PropTypes.string,
+  dismissText: PropTypes.string,
+  okText: PropTypes.string,
+  onOk: PropTypes.func,
+  onChange: PropTypes.func,
+  onPickerChange: PropTypes.func,
+  onVisibleChange: PropTypes.func,
+};
+
 export default class Picker extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     ...getDefaultProps(),
   }
@@ -47,15 +64,14 @@ export default class Picker extends React.Component {
 
   getSel = (value) => {
     let treeChildren;
-    const { data } = this.props;
-    if (this.props.cascade) {
+    const { data, cascade, format } = this.props;
+    if (cascade) {
       treeChildren = arrayTreeFilter(data, (c, level) => c.value === value[level]);
     } else {
       treeChildren = value.map((v, i) => data[i].filter(d => d.value === v)[0]);
     }
     return (
-      this.props.format &&
-      this.props.format(treeChildren.map(v => v.label))
+      format && format(treeChildren.map(v => v.label))
     );
   }
 
@@ -110,23 +126,26 @@ export default class Picker extends React.Component {
   }
 
   onPickerChange = (v) => {
+    const { onPickerChange } = this.props;
     this.setScrollValue(v);
     this.setState({ value: v });
-    if (this.props.onPickerChange) {
-      this.props.onPickerChange(v);
+
+    if (onPickerChange) {
+      onPickerChange(v);
     }
   }
 
   onVisibleChange = (visible) => {
+    const { onVisibleChange } = this.props;
     this.setScrollValue(undefined);
-    if (this.props.onVisibleChange) {
-      this.props.onVisibleChange(visible);
+    if (onVisibleChange) {
+      onVisibleChange(visible);
     }
   }
 
   render() {
     const { children, popupPrefixCls, itemStyle, indicatorStyle, okText, dismissText,
-      extra, cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps
+      cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps
     } = this.props;
 
     const { value } = this.state;

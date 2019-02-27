@@ -1,9 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import arrayTreeFilter from '../utils/arrayTreeFilter';
 import MultiPicker from '../picker-view/MultiPicker';
 import PickerView from '../picker-view/PickerView';
 
+const propTypes = {
+  data: PropTypes.array,
+  cols: PropTypes.number,
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  prefixCls: PropTypes.string,
+  style: PropTypes.object,
+};
+
 class Cascader extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     cols: 3,
     data: [],
@@ -85,8 +97,7 @@ class Cascader extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const { prefixCls, className, rootNativeProps, style } = props;
+    const { prefixCls, className, onScrollChange, rootNativeProps, style } = this.props;
     const cols = this.getCols();
     const multiStyle = {
       flexDirection: 'row',
@@ -101,7 +112,7 @@ class Cascader extends React.Component {
         selectedValue={this.state.value}
         rootNativeProps={rootNativeProps}
         onValueChange={this.onValueChange}
-        onScrollChange={props.onScrollChange}
+        onScrollChange={onScrollChange}
       >
         {cols}
       </MultiPicker>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Touchable from 'react-tap-feedback';
+import TabFeedback from 'react-tap-feedback';
 import Modal from '../modal';
 
 export default (props, visible, { getContent, hide, onDismiss, onOk }) => {
@@ -16,17 +16,17 @@ export default (props, visible, { getContent, hide, onDismiss, onOk }) => {
     >
       <div>
         <div className={`${prefixCls}-header`}>
-          <Touchable activeClassName={`${prefixCls}-item-active`}>
+          <TabFeedback activeClassName={`${prefixCls}-item-active`}>
             <div className={`${prefixCls}-item ${prefixCls}-header-left`} onClick={onDismiss}>
               {props.dismissText}
             </div>
-          </Touchable>
+          </TabFeedback>
           <div className={`${prefixCls}-item ${prefixCls}-title`}>{props.title}</div>
-          <Touchable activeClassName={`${prefixCls}-item-active`}>
+          <TabFeedback activeClassName={`${prefixCls}-item-active`}>
             <div className={`${prefixCls}-item ${prefixCls}-header-right`} onClick={onOk}>
               {props.okText}
             </div>
-          </Touchable>
+          </TabFeedback>
         </div>
         {getContent()}
       </div>
