@@ -1,8 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Radio from './Radio';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  name: PropTypes.string,
+  style: PropTypes.object,
+  children: PropTypes.node,
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+  ]),
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+  ]),
+};
+
 export default class RadioGroup extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     disabled: false,
     prefixCls: 'panda-radio-group',
