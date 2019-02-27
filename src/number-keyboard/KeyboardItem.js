@@ -1,11 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TouchFeedback from 'react-tap-feedback';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  action: PropTypes.string,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
 export default class KeyboardItem extends React.PureComponent {
+  static propTypes = propTypes
+
   static defaultProps = {
     onClick: () => {},
-    disabled: false,
   };
 
   render() {

@@ -1,8 +1,20 @@
-import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import KeyboardItem from './KeyboardItem';
 
+const propTypes = {
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  theme: PropTypes.string,
+  deleteText: PropTypes.string,
+  confirm: PropTypes.string,
+  onKeyboardClick: PropTypes.func,
+};
+
 class NumberKeyboard extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     prefixCls: 'panda-number-keyboard',
     theme: 'default',
@@ -42,7 +54,7 @@ class NumberKeyboard extends React.Component {
   getHeaderNode() {
     const { confirm, prefixCls } = this.props;
     return (
-      <div className="hairline--top panda-number-keyboard__title">
+      <div className="hairline--top panda-number-keyboard__">
         <span
           onClick={() => this.onKeyboardClick('confirm')}
           className={`${prefixCls}__close`}
