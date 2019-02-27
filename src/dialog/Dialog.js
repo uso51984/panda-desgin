@@ -1,10 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Animate from '../AnimationGroup';
 import LazyRenderBox from './LazyRenderBox';
 
+const propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]).isRequired,
+  footer: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  title: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.element,
+  ]),
+  prefixCls: PropTypes.string,
+  className: PropTypes.string,
+  mask: PropTypes.bool,
+  visible: PropTypes.bool,
+  closable: PropTypes.bool,
+  maskClosable: PropTypes.bool,
+  style: PropTypes.objectOf(PropTypes.string),
+  bodyStyle: PropTypes.objectOf(PropTypes.string),
+  onClose: PropTypes.func,
+  onAnimateLeave: PropTypes.func,
+  afterClose: PropTypes.func,
+};
+
 export default class Dialog extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
-    className: '',
     mask: true,
     visible: false,
     closable: true,

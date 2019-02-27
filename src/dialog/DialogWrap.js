@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import Dialog from './Dialog';
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
 
+const propTypes = {
+  visible: PropTypes.bool,
+  prefixCls: PropTypes.string,
+};
+
 export default class DialogWrap extends React.Component {
+  static propTypes = propTypes
+
   static defaultProps = {
     visible: false,
     prefixCls: 'panda-dialog',
-    onClose() {},
   };
 
   componentDidMount() {
