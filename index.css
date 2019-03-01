@@ -1123,7 +1123,7 @@ a {
   right: 0;
   bottom: 0;
   left: 15px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebedf0;
   -webkit-transform: scaleY(0.5);
           transform: scaleY(0.5);
 }
@@ -1210,7 +1210,6 @@ a {
 }
 .panda-collapse {
   position: relative;
-  border-top: 1px solid #ccc;
 }
 .panda-collapse-anim-active {
   -webkit-transition: all 0.2s ease-out;
@@ -1234,7 +1233,7 @@ a {
   line-height: 24px;
   color: #333;
   background-color: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebedf0;
   outline: none;
 }
 .panda-collapse__item-header i {
@@ -1268,7 +1267,7 @@ a {
   padding: 15px 15px 15px 20px;
   font-size: 13px;
   line-height: 1.5;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebedf0;
 }
 .panda-collapse__item .panda-collapse__item-content.panda-collapse__item-content--inactive {
   display: none;
@@ -1746,7 +1745,7 @@ a {
   box-sizing: border-box;
   width: 20px;
   height: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ebedf0;
   border-radius: 50%;
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
@@ -1832,7 +1831,7 @@ a {
   right: 0;
   bottom: 0;
   left: 15px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebedf0;
   -webkit-transform: scaleY(0.5);
           transform: scaleY(0.5);
 }
@@ -2158,7 +2157,7 @@ a {
   box-sizing: border-box;
   width: 20px;
   height: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #ebedf0;
   border-radius: 50%;
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
@@ -2869,7 +2868,7 @@ a {
   right: 0;
   bottom: 0;
   left: 15px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebedf0;
   -webkit-transform: scaleY(0.5);
           transform: scaleY(0.5);
 }
