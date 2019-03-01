@@ -3440,6 +3440,9 @@ a {
   color: #455a64;
   margin: 0 0 60px;
 }
+.side-nav .panda-collapse {
+  margin-bottom: 10px;
+}
 .side-nav .panda-collapse__item-content-box {
   padding: 0 !important;
 }
