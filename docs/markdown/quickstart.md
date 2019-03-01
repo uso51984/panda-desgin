@@ -1,16 +1,4 @@
-<div class="panda-doc-intro">
-  <h2>panda</h2>
-  <p>轻量、可靠的移动端 react 组件库</p>
-</div>
----
-
-## 特性
-
-* 10+ 个经过线上业务检验的组件
-* 95%+ 单元测试覆盖率
-* 完善的中文档和示例
-* 支持 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
-
+## 快速上手
 ## 安装
 
 #### NPM
@@ -31,12 +19,12 @@ yarn add panda-desgin
 
 `babel-plugin-import` 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式
 
-```bash
+```shell
 # 安装 babel-plugin-import 插件
 npm i babel-plugin-import -D
 ```
 
-```js
+```jsx
 // 在 .babelrc 或 babel-loader 中添加插件配置
 // 注意：webpack 1 无需设置 libraryDirectory。
 {
@@ -52,7 +40,7 @@ npm i babel-plugin-import -D
 
 接着你可以在代码中直接引入 panda-desgin 组件，插件会自动将代码转化为方式二中的按需引入形式。
 
-```js
+```jsx
 import { Button } from 'panda-desgin';
 ```
 
@@ -60,25 +48,17 @@ import { Button } from 'panda-desgin';
 
 在不使用插件的情况下，可以手动引入需要的组件
 
-```js
+```jsx
 import Button from 'panda-desgin/lib/button';
 import 'panda-desgin/lib/button/style';
 ```
 
 #### 方式三. 导入所有组件
 
-```js
+```jsx
 import { Button } from 'panda-desgin';
 import 'panda-desgin/lib/index.css';
 
 ```
 
 > 注意：配置 babel-plugin-import 插件后将不允许导入所有组件
-
-## 浏览器支持
-
-现代浏览器以及 Android 4.0+, iOS 6+.
-
-## 开源协议
-
-本项目基于 [MIT](https://zh.wikipedia.org/wiki/MIT%E8%A8%B1%E5%8F%AF%E8%AD%89) 协议，请自由地享受和参与开源。

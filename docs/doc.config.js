@@ -13,6 +13,10 @@ module.exports = {
                 path: '/',
                 title: '介绍'
               },
+              {
+                path: '/quickstart',
+                title: '快速上手'
+              },
             ]
           }
         ]

@@ -11,14 +11,7 @@ import intro from './markdown/intro.md';
 const registerRoute = (isDemo) => {
   const route = [];
   Object.keys(docConfig).forEach((lang, index) => {
-    if (isDemo) {
-      route.push((<Route
-        key={index}
-        exact
-        path="/"
-        component={DemoList}
-      />));
-    } else {
+    if (!isDemo) {
       route.push((<Route
         key="index"
         exact
@@ -26,12 +19,16 @@ const registerRoute = (isDemo) => {
         component={Markdown(intro)}
       />));
     }
+
     function addRoute(page) {
       let { path } = page;
       if (path) {
         path = path.replace('/', '');
 
-        const Component = isDemo ? componentDemos[path] : componentDocs[path];
+        let Component = isDemo ? componentDemos[path] : componentDocs[path];
+        if (isDemo && !componentDemos[path]) {
+          Component = DemoList;
+        }
 
         if (!Component) {
           return;
@@ -40,6 +37,7 @@ const registerRoute = (isDemo) => {
         route.push((<Route
           key={page.path}
           path={page.path}
+          exact
           component={(props) => {
             window.g_history = props.history;
             window.g_location = props.location;

@@ -1,4 +1,5 @@
 // This file is auto gererated by build/build-entry.js
+import Quickstart from './markdown/quickstart.md';
 import React from 'react';
 import Button from 'src/button/zh-CN.md';
 import Icon from 'src/icon/zh-CN.md';
@@ -34,6 +35,7 @@ const ReactMarkdown = require('react-markdown');
 export const Markdown = docData => () => <ReactMarkdown source={docData} escapeHtml={false} renderers={{ code: CodeBlock }} />;
 
 export default {
+  quickstart: Markdown(Quickstart),
   button: Markdown(Button),
   icon: Markdown(Icon),
   grid: Markdown(Grid),
