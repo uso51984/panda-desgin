@@ -13,6 +13,7 @@ function setHtmlWebpackPlugin(name) {
       title: name,
       template: './build/sections/doc.Template.html',
       filename: `${name}.html`,
+      favicon: './build/sections/favicon.ico',
       inject: true
     })
   );
