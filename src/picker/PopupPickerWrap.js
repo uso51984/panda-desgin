@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import getPopupModal from './getPopupModal';
 
 const propTypes = {
+  prefixCls: PropTypes.string,
+  dismissText: PropTypes.string,
+  okText: PropTypes.string,
   WrapComponent: PropTypes.string,
   triggerType: PropTypes.string,
   onVisibleChange: PropTypes.func,
@@ -17,6 +20,9 @@ export default class Picker extends React.Component {
     onVisibleChange() { },
     onOk() { },
     onDismiss() { },
+    prefixCls: 'panda-picker-popup',
+    dismissText: '取消',
+    okText: '确认',
     WrapComponent: 'span',
     triggerType: 'onClick',
   };
@@ -116,10 +122,9 @@ export default class Picker extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const children = props.children;
+    const children = this.props.children;
     if (!children) {
-      return getPopupModal(props, this.state.visible, {
+      return getPopupModal(this.props, this.state.visible, {
         getContent: this.getContent,
         onOk: this.onOk,
         hide: this.hide,
@@ -130,13 +135,13 @@ export default class Picker extends React.Component {
     const child = children;
     const newChildProps = {};
     if (!disabled) {
-      newChildProps[props.triggerType] = this.onTriggerClick;
+      newChildProps[this.props.triggerType] = this.onTriggerClick;
     }
     return (
-      <WrapComponent style={props.wrapStyle}>
+      <WrapComponent style={this.props.wrapStyle}>
         {React.cloneElement(child, newChildProps)}
         {
-        getPopupModal(props, this.state.visible, {
+        getPopupModal(this.props, this.state.visible, {
           getContent: this.getContent,
           onOk: this.onOk,
           hide: this.hide,
