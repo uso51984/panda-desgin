@@ -806,7 +806,7 @@ a {
 }
 .panda-button--primary.panda-button--active {
   color: rgba(255, 255, 255, 0.3);
-  background-color: #0e80d2;
+  background-color: #1989fa;
 }
 .panda-button--primary.panda-button--disabled {
   color: rgba(255, 255, 255, 0.6);
@@ -2294,7 +2294,7 @@ a {
   transition: all 200ms;
 }
 .panda-switch-checked .checkbox {
-  background: #4dd865;
+  background: #4b0;
 }
 .panda-switch-checked .checkbox:before {
   -webkit-transform: scale(0);
@@ -2787,7 +2787,7 @@ a {
   text-rendering: optimizeLegibility;
   white-space: nowrap;
   color: #fff;
-  background-color: #ff5b05;
+  background-color: #f44;
   border-radius: 12px;
   -webkit-transform: translateX(-45%);
           transform: translateX(-45%);
@@ -2810,7 +2810,7 @@ a {
   z-index: 10;
   width: 8px;
   height: 8px;
-  background: #ff5b05;
+  background: #f44;
   border-radius: 100%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -2839,7 +2839,7 @@ a {
   text-align: center;
   white-space: nowrap;
   color: #fff;
-  background-color: #ff5b05;
+  background-color: #f44;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
