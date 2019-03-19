@@ -127,6 +127,10 @@ module.exports = {
                 path: '/swipeout-action',
                 title: 'SwipeoutAction 滑动操作'
               },
+              {
+                path: '/countdown',
+                title: 'Countdown 倒计时'
+              },
               // {
               //   path: '/list',
               //   title: 'List 列表'

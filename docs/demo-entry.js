@@ -27,6 +27,7 @@ import SwipeoutAction from 'src/swipeout-action/demo';
 import List from 'src/list/demo';
 import Lazyload from 'src/lazyload/demo';
 import Carousel from 'src/carousel/demo';
+import Countdown from 'src/countdown/demo';
 
 export default {
   button: Button,
@@ -57,4 +58,5 @@ export default {
   list: List,
   lazyload: Lazyload,
   carousel: Carousel,
+  countdown: Countdown,
 };

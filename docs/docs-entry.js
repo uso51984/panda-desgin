@@ -27,6 +27,7 @@ import TextareaItem from 'src/textarea-item/zh-CN.md';
 import Progress from 'src/progress/zh-CN.md';
 import List from 'src/list/zh-CN.md';
 import Carousel from 'src/carousel/zh-CN.md';
+import Countdown from 'src/countdown/zh-CN.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -62,4 +63,5 @@ export default {
   progress: Markdown(Progress),
   list: Markdown(List),
   carousel: Markdown(Carousel),
+  countdown: Markdown(Countdown),
 };
