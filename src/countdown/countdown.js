@@ -19,7 +19,7 @@ export default class Countdown extends React.PureComponent {
     };
 
     this.p = 0;
-    this._curr = 0;
+    this.curr = 0;
   }
 
   componentDidMount() {
@@ -51,9 +51,9 @@ export default class Countdown extends React.PureComponent {
 
   componentWillReceiveProps() {
     if (!this.props.paused) {
-      this._curr = Date.now();
+      this.curr = Date.now();
     } else {
-      this.p += (Date.now() - this._curr);
+      this.p += (Date.now() - this.curr);
     }
   }
 

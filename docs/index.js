@@ -23,4 +23,3 @@ ReactDOM.render(
   <DocsApp />,
   document.getElementById('root'),
 );
-
