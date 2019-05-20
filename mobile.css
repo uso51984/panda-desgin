@@ -3348,6 +3348,15 @@ a {
   margin-bottom: 20px;
 }
 
+.count-down-demo .base-count-down {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+.count-down-demo .panda-button {
+  margin-left: 20px;
+  width: 90px;
+}
+
 /* header */
 /* simulator */
 @media (min-width: 1300) {
