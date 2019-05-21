@@ -1728,7 +1728,6 @@ a {
 }
 .panda-checkbox-wrapper {
   display: inline-block;
-  height: 21px;
   vertical-align: middle;
 }
 .panda-checkbox-wrapper .panda-checkbox {
@@ -2140,7 +2139,6 @@ a {
 }
 .panda-radio-wrapper {
   display: inline-block;
-  height: 21px;
   vertical-align: middle;
 }
 .panda-radio-wrapper .panda-radio {
