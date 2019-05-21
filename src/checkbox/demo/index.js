@@ -76,9 +76,9 @@ export default class Demo extends React.Component {
           />
         </DemoBlock>
 
-        <DemoBlock title="搭配单元格组件使用" className="has-padding">
+        {/* <DemoBlock title="搭配单元格组件使用" className="has-padding">
           <Cell title="单元格" onClick={() => { this.setState({ value: !this.state.value }); }} value={<Checkbox checked={this.state.value} />} />
-        </DemoBlock>
+        </DemoBlock> */}
       </div>
     );
   }
