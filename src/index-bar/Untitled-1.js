@@ -128,7 +128,7 @@ export default createComponent({
 
     onTouchMove(event) {
       this.touchMove(event);
-
+      console.log('this.direction', this.direction);
       if (this.direction === 'vertical') {
         /* istanbul ignore else */
         if (event.cancelable) {
@@ -156,7 +156,6 @@ export default createComponent({
       }
 
       const match = this.children.filter(item => String(item.index) === index);
-      console.log('match', match[0]);
       if (match[0]) {
         match[0].scrollIntoView();
 

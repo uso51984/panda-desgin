@@ -8,11 +8,6 @@ import {
   getScrollEventTarget,
 } from '../utils/dom/scroll';
 
-const data = [];
-for (let i = 0; i < 16; i += 1) {
-  data.push(i);
-}
-
 const dataTwo = [];
 for (let i = 0; i < 15; i += 1) {
   dataTwo.push(i);
@@ -24,16 +19,32 @@ for (let i = 0; i < 26; i++) {
   indexList.push(String.fromCharCode(charCodeOfA + i));
 }
 
+const MIN_DISTANCE = 10;
+
+function getDirection(x, y) {
+  if (x > y && x > MIN_DISTANCE) {
+    return 'horizontal';
+  }
+
+  if (y > x && y > MIN_DISTANCE) {
+    return 'vertical';
+  }
+
+  return '';
+}
+
 export default class Countdown extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'panda-index',
     stickyOffsetTop: 0,
     sticky: true,
+    select() {},
   }
 
   constructor(props) {
     super(props);
 
+    this.anchorElList = [];
     this.state = {
       height: 0,
     };
@@ -46,7 +57,7 @@ export default class Countdown extends React.PureComponent {
     }
 
     this.setState({
-      height: this.anchorEl.offsetHeight,
+      height: this.anchorElList[0].offsetHeight,
     });
   }
 
@@ -66,28 +77,13 @@ export default class Countdown extends React.PureComponent {
 
     const active = this.getActiveAnchorIndex(scrollTop, rects);
     this.setState({ active });
-    // console.log('active', active);
-    // if (this.props.sticky) {
-    //   data.forEach((item, index) => {
-    //     // console.log('index', index)
-    //     if (index === active) {
-    //       this.setState({ active: index });
-    //     } else if (index === active - 1) {
-    //       const activeItemTop = rects[active].top - scrollTop;
-    //       if (activeItemTop > 0) {
-    //         this.setState({ active: index });
-    //       }
-    //     } else {
-    //       console.log('------')
-    //       this.setState({ active: '' });
-    //     }
-    //   });
-    // }
+
+    console.log('232323')
   }
 
 
   getActiveAnchorIndex(scrollTop, rects) {
-    for (let i = data.length - 1; i >= 0; i--) {
+    for (let i = indexList.length - 1; i >= 0; i--) {
       const prevHeight = i > 0 ? rects[i - 1].height : 0;
 
       if (scrollTop + prevHeight + this.props.stickyOffsetTop >= rects[i].top) {
@@ -95,6 +91,74 @@ export default class Countdown extends React.PureComponent {
       }
     }
     return -1;
+  }
+
+  onClick = (event) => {
+    this.scrollToElement(event.target);
+  }
+
+  onTouchEnd = () => {
+    // this.setState({ active: null });
+  }
+
+  scrollToElement(element, setActive) {
+    const { index } = element.dataset;
+    if (!index) {
+      return null;
+    }
+
+    const achorTargetEl = this.anchorElList[index];
+    if (achorTargetEl) {
+      achorTargetEl.scrollIntoView();
+
+      if (this.stickyOffsetTop) {
+        setRootScrollTop(getRootScrollTop() - this.stickyOffsetTop);
+      }
+    }
+  }
+
+  resetTouchStatus() {
+    this.direction = '';
+    this.deltaX = 0;
+    this.deltaY = 0;
+    this.offsetX = 0;
+    this.offsetY = 0;
+  }
+
+  touchStart = (event) => {
+    this.resetTouchStatus();
+    this.startX = event.touches[0].clientX;
+    this.startY = event.touches[0].clientY;
+  }
+
+  touchMove(event) {
+    const touch = event.touches[0];
+    this.deltaX = touch.clientX - this.startX;
+    this.deltaY = touch.clientY - this.startY;
+    this.offsetX = Math.abs(this.deltaX);
+    this.offsetY = Math.abs(this.deltaY);
+    this.direction = this.direction || getDirection(this.offsetX, this.offsetY);
+  }
+
+  onTouchMove = (event) => {
+    this.touchMove(event);
+    console.log('onTouchMove', event)
+    if (this.direction === 'vertical') {
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+
+      const { clientX, clientY } = event.touches[0];
+      const target = document.elementFromPoint(clientX, clientY);
+      if (target) {
+        const { index } = target.dataset;
+        console.log('0target', index)
+        if (this.touchActiveIndex !== index) {
+          this.touchActiveIndex = index;
+          this.scrollToElement(target);
+        }
+      }
+    }
   }
 
   getIndexes() {
@@ -116,13 +180,16 @@ export default class Countdown extends React.PureComponent {
     });
   }
 
+  saveAnchorElList = (el) => {
+    this.anchorElList.push(el);
+  }
+
   renderAnchor(text, index) {
     const { sticky } = this.props;
     const { height, active } = this.state;
-    console.log('active', active)
     return (
       <div
-        ref={el => this.anchorEl = el}
+        ref={this.saveAnchorElList}
         className="anchor"
         style={{ height: sticky && height ? `${this.state.height}px` : null }}
       >
@@ -145,7 +212,14 @@ export default class Countdown extends React.PureComponent {
 
     return (
       <div className={`${prefixCls}-bar`} ref={(el) => { this.el = el; }}>
-        <div className={`${prefixCls}-bar__sidebar`}>
+        <div
+          className={`${prefixCls}-bar__sidebar`}
+          onClick={this.onClick}
+          onTouchStart={this.touchStart}
+          onTouchMove={this.onTouchMove}
+          onTouchEnd={this.onTouchEnd}
+          onTouchCancel={this.onTouchEnd}
+        >
           {this.getIndexes()}
         </div>
         <div className="bar__content">

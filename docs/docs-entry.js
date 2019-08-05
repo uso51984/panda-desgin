@@ -1,5 +1,4 @@
 // This file is auto gererated by build/build-entry.js
-import Quickstart from './markdown/quickstart.md';
 import React from 'react';
 import Button from 'src/button/zh-CN.md';
 import Icon from 'src/icon/zh-CN.md';
@@ -28,6 +27,8 @@ import Progress from 'src/progress/zh-CN.md';
 import List from 'src/list/zh-CN.md';
 import Carousel from 'src/carousel/zh-CN.md';
 import Countdown from 'src/countdown/zh-CN.md';
+import IndexBar from 'src/index-bar/zh-CN.md';
+import Quickstart from './markdown/quickstart.md';
 
 import CodeBlock from './CodeBlock';
 
@@ -64,4 +65,5 @@ export default {
   list: Markdown(List),
   carousel: Markdown(Carousel),
   countdown: Markdown(Countdown),
+  'index-bar': Markdown(IndexBar),
 };

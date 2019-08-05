@@ -98,6 +98,10 @@ module.exports = {
                 path: '/nav-bar',
                 title: 'NavBar 导航栏'
               },
+              {
+                path: '/index-bar',
+                title: 'IndexBar 索引栏'
+              },
             ]
           },
           {
