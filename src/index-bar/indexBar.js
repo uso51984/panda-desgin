@@ -56,9 +56,16 @@ export default class Countdown extends React.PureComponent {
       this.scroller.addEventListener('scroll', this.onScroll);
     }
 
+    this.sidebar.addEventListener('touchmove', this.onTouchMove);
+
     this.setState({
       height: this.anchorElList[0].offsetHeight,
     });
+  }
+
+  componentWillUnmount() {
+    this.scroller.removeEventListener('scroll', this.onScroll);
+    this.sidebar.removeEventListener('touchmove', this.onTouchMove);
   }
 
   onScroll = () => {
@@ -78,7 +85,7 @@ export default class Countdown extends React.PureComponent {
     const active = this.getActiveAnchorIndex(scrollTop, rects);
     this.setState({ active });
 
-    console.log('232323')
+    console.log('232323');
   }
 
 
@@ -142,7 +149,6 @@ export default class Countdown extends React.PureComponent {
 
   onTouchMove = (event) => {
     this.touchMove(event);
-    console.log('onTouchMove', event)
     if (this.direction === 'vertical') {
       if (event.cancelable) {
         event.preventDefault();
@@ -152,7 +158,6 @@ export default class Countdown extends React.PureComponent {
       const target = document.elementFromPoint(clientX, clientY);
       if (target) {
         const { index } = target.dataset;
-        console.log('0target', index)
         if (this.touchActiveIndex !== index) {
           this.touchActiveIndex = index;
           this.scrollToElement(target);
@@ -214,9 +219,9 @@ export default class Countdown extends React.PureComponent {
       <div className={`${prefixCls}-bar`} ref={(el) => { this.el = el; }}>
         <div
           className={`${prefixCls}-bar__sidebar`}
+          ref={el => this.sidebar = el}
           onClick={this.onClick}
           onTouchStart={this.touchStart}
-          onTouchMove={this.onTouchMove}
           onTouchEnd={this.onTouchEnd}
           onTouchCancel={this.onTouchEnd}
         >
