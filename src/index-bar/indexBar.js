@@ -46,7 +46,7 @@ export default class Countdown extends React.PureComponent {
 
     this.anchorElList = [];
     this.state = {
-      height: 0,
+      dragging: false,
     };
   }
 
@@ -100,6 +100,7 @@ export default class Countdown extends React.PureComponent {
   }
 
   onTouchEnd = () => {
+    this.setState({ dragging: false });
     // this.setState({ active: null });
   }
 
@@ -131,6 +132,7 @@ export default class Countdown extends React.PureComponent {
     this.resetTouchStatus();
     this.startX = event.touches[0].clientX;
     this.startY = event.touches[0].clientY;
+    this.setState({ dragging: true });
   }
 
   touchMove(event) {
@@ -164,13 +166,11 @@ export default class Countdown extends React.PureComponent {
 
   getIndexes() {
     const { prefixCls } = this.props;
-    console.log('this.state.touchActiveIndex', this.state.activeAnchorIndex);
 
     return indexList.map((item, index) => {
       const cls = classNames(`${prefixCls}__index`, {
         [`${prefixCls}__index--active`]: index === this.state.activeAnchorIndex,
       });
-      console.log('cls', cls)
       return (
         <span
           className={cls}
@@ -242,8 +242,7 @@ export default class Countdown extends React.PureComponent {
           {this.getIndexes()}
         </div>
         <div className="bar__content">
-          <div>
-            {/* {
+          {/* {
             indexList.map((item, index) => (
               <div>
                 {this.renderAnchor(item, index)}
@@ -252,10 +251,9 @@ export default class Countdown extends React.PureComponent {
               </div>
             ))
           } */}
-            {this.renderAnchor()}
-          </div>
+          {this.renderAnchor()}
+          {this.state.dragging && <span className="panda-index-bar-current">{indexList[this.state.activeAnchorIndex]}</span>}
         </div>
-
       </div>
     );
   }
