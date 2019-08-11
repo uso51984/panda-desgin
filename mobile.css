@@ -1686,7 +1686,7 @@ a {
   line-height: 50px;
   text-align: center;
   text-decoration: none;
-  color: #108ee9;
+  color: #1989fa;
   outline: none;
   width: auto;
   overflow: hidden;
@@ -1711,7 +1711,7 @@ a {
   line-height: 50px;
   text-align: center;
   text-decoration: none;
-  color: #108ee9;
+  color: #1989fa;
   outline: none;
   width: auto;
   overflow: hidden;
@@ -3223,6 +3223,72 @@ a {
 .panda-swipe__indicator--active {
   background-color: #fff;
 }
+.panda-index-bar__sidebar {
+  position: fixed;
+  top: 50%;
+  right: 5px;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-user-select: none;
+          user-select: none;
+}
+.panda-index-bar-anchor {
+  padding: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #323233;
+  background-color: transparent;
+}
+.panda-index-bar-anchor--sticky {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  color: #07c160;
+  background-color: #fff;
+}
+.panda-index-bar__index {
+  padding: 0 3px 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.panda-index-bar__index--active {
+  color: red;
+}
+.panda-index-bar-current {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
 
 .button-demo {
   padding: 10px;
@@ -3344,6 +3410,15 @@ a {
   width: 200px;
   margin: 0 auto;
   margin-bottom: 20px;
+}
+
+.count-down-demo .base-count-down {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+.count-down-demo .panda-button {
+  margin-left: 20px;
+  width: 90px;
 }
 
 .count-down-demo .base-count-down {
