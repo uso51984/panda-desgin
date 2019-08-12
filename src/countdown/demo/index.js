@@ -16,25 +16,25 @@ export default class Demo extends React.PureComponent {
       <div className="count-down-demo">
         <DemoBlock title="基础用法">
           <div className="base-count-down">
-            <Countdown endTime={1559334689373} />
+            <Countdown endTime={3559334689373} />
           </div>
         </DemoBlock>
 
         <DemoBlock title="显示天">
           <div className="base-count-down">
-            <Countdown endTime={1559334689373} showDays />
+            <Countdown endTime={3559334689373} showDays />
           </div>
         </DemoBlock>
 
         <DemoBlock title="显示时分秒">
           <div className="base-count-down">
-            <Countdown endTime={1559334689373} showPlainText />
+            <Countdown endTime={3559334689373} showPlainText />
           </div>
         </DemoBlock>
 
         <DemoBlock title="可暂停">
           <div className="base-count-down">
-            <Countdown endTime={1559334689373} showPlainText paused={paused} />
+            <Countdown endTime={3559334689373} showPlainText paused={paused} />
           </div>
           <Button onClick={() => this.setState({ paused: !paused })}>{this.state.paused ? '开始' : '暂停'}</Button>
         </DemoBlock>

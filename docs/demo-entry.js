@@ -28,6 +28,7 @@ import List from 'src/list/demo';
 import Lazyload from 'src/lazyload/demo';
 import Carousel from 'src/carousel/demo';
 import Countdown from 'src/countdown/demo';
+import IndexBar from 'src/index-bar/demo';
 
 export default {
   button: Button,
@@ -59,4 +60,5 @@ export default {
   lazyload: Lazyload,
   carousel: Carousel,
   countdown: Countdown,
+  'index-bar': IndexBar,
 };

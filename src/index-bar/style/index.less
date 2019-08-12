@@ -1,0 +1,59 @@
+.panda-index-bar {
+  &__sidebar {
+    position: fixed;
+    top: 50%;
+    right: 5px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(-50%);
+    user-select: none;
+  }
+
+  &-anchor {
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #323233;
+    background-color: transparent;
+
+    &--sticky {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      color: rgb(7, 193, 96);
+      background-color: #fff;
+    }
+  }
+
+  &__index {
+    padding: 0 3px 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+    &--active {
+      color: red;
+    }
+  }
+
+  &-current {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

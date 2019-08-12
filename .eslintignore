@@ -1,5 +1,6 @@
 test
 src/**/test/
+src/**/demo/
 src/stepper
 lib
 es
