@@ -7,36 +7,23 @@ import {
   setRootScrollTop,
   getScrollEventTarget,
 } from '../utils/dom/scroll';
+import getDirection from '../utils/dom/touch';
 
-const indexList = [];
-const charCodeOfA = 'A'.charCodeAt(0);
-for (let i = 0; i < 26; i++) {
-  indexList.push(String.fromCharCode(charCodeOfA + i));
-}
-
-const dataTwo = [];
-for (let i = 0; i < 15; i += 1) {
-  dataTwo.push(i);
-}
-
-const MIN_DISTANCE = 10;
-
-function getDirection(x, y) {
-  if (x > y && x > MIN_DISTANCE) {
-    return 'horizontal';
+const getIndexList = () => {
+  const indexList = [];
+  const charCodeOfA = 'A'.charCodeAt(0);
+  for (let i = 0; i < 26; i++) {
+    indexList.push(String.fromCharCode(charCodeOfA + i));
   }
 
-  if (y > x && y > MIN_DISTANCE) {
-    return 'vertical';
-  }
-
-  return '';
-}
+  return indexList;
+};
 
 export default class Countdown extends React.PureComponent {
   static defaultProps = {
     prefixCls: 'panda-index-bar',
     stickyOffsetTop: 0,
+    indexList: getIndexList(),
     sticky: true,
     select() {},
   }
@@ -73,9 +60,6 @@ export default class Countdown extends React.PureComponent {
       scrollTop = 0;
     }
 
-    // const celElList = [...document.querySelectorAll('.anchor')];
-    // console.log('scrollTop', scrollTop);
-
     const rects = this.anchorElList.map(el => ({
       height: el.getBoundingClientRect().height,
       top: getElementTop(el),
@@ -86,6 +70,7 @@ export default class Countdown extends React.PureComponent {
 
 
   getActiveAnchorIndex(scrollTop, rects) {
+    const { indexList } = this.props;
     for (let i = indexList.length - 1; i >= 0; i--) {
       const prevHeight = i > 0 ? rects[i - 1].height : 0;
       if (scrollTop + prevHeight + this.props.stickyOffsetTop >= rects[i].top) {
@@ -165,7 +150,7 @@ export default class Countdown extends React.PureComponent {
   }
 
   getIndexes() {
-    const { prefixCls } = this.props;
+    const { prefixCls, indexList } = this.props;
 
     return indexList.map((item, index) => {
       const cls = classNames(`${prefixCls}__index`, {
@@ -173,6 +158,7 @@ export default class Countdown extends React.PureComponent {
       });
       return (
         <span
+          key={index}
           className={cls}
           data-index={index}
         >
@@ -192,6 +178,7 @@ export default class Countdown extends React.PureComponent {
 
     const newChildre = children.map((child, index) => {
       const childProps = {
+        key: index,
         active: activeAnchorIndex === index,
         sticky,
         getIndexAnchorEl: this.saveAnchorElList,
@@ -203,30 +190,8 @@ export default class Countdown extends React.PureComponent {
     return newChildre;
   }
 
-  // renderAnchor(text, index) {
-  //   const { sticky } = this.props;
-  //   const { height, activeAnchorIndex } = this.state;
-  //   return (
-  //     <div
-  //       ref={this.saveAnchorElList}
-  //       className="anchor"
-  //       style={{ height: sticky && height ? `${this.state.height}px` : null }}
-  //     >
-  //       <div
-  //         style={{ zIndex: 1 }}
-  //         className={classNames('panda-index-bar-anchor', {
-  //           'panda-index-bar-anchor--sticky': activeAnchorIndex === index,
-  //           'panda-hairline--bottom': activeAnchorIndex === index,
-  //         })}
-  //       >
-  //         {text}
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   render() {
-    const { prefixCls } = this.props;
+    const { prefixCls, indexList } = this.props;
 
 
     return (
@@ -241,18 +206,13 @@ export default class Countdown extends React.PureComponent {
         >
           {this.getIndexes()}
         </div>
-        <div className="bar__content">
-          {/* {
-            indexList.map((item, index) => (
-              <div>
-                {this.renderAnchor(item, index)}
-                {dataTwo.map(() => (<div>adfasdf32232</div>))}
-
-              </div>
-            ))
-          } */}
+        <div className={`${prefixCls}__content`}>
           {this.renderAnchor()}
-          {this.state.dragging && <span className="panda-index-bar-current">{indexList[this.state.activeAnchorIndex]}</span>}
+          {this.state.dragging && (
+          <span className="panda-index-bar-current">
+            {indexList[this.state.activeAnchorIndex]}
+          </span>
+          )}
         </div>
       </div>
     );

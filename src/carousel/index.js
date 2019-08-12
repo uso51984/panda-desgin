@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import getDirection from './getDirection';
+import getDirection from '../utils/dom/touch';
 
 const propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
