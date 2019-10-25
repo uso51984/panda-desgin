@@ -33,7 +33,15 @@ export default class App extends React.Component {
         title="基本用法"
         footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
       >
-        <div>
+        <div style={{maxHeight: 130}}>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
           <p>内容</p>
           <p>内容</p>
           <p>内容</p>

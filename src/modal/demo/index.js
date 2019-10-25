@@ -64,7 +64,15 @@ export default class Demo extends React.Component {
             footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
             wrapProps={{ onTouchStart: this.onWrapTouchStart }}
           >
-            <div>
+            <div style={{maxHeight: 130}}>
+              <p>内容</p>
+              <p>内容</p>
+              <p>内容</p>
+              <p>内容</p>
+              <p>内容</p>
+              <p>内容</p>
+              <p>内容</p>
+              <p>内容</p>
               <p>内容</p>
               <p>内容</p>
               <p>内容</p>

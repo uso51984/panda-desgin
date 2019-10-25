@@ -1,6 +1,7 @@
 import React from 'react';
 import DemoBlock from 'docs/mobileComponents/DemoBlock';
 import { Row, Col } from '../../grid';
+import Button from '../../button';
 import { Cell } from '../../cell';
 import { RadioGroup } from '../../radio';
 import Checkbox from '../../checkbox';
@@ -65,12 +66,17 @@ export default class Demo extends React.Component {
     });
   }
 
+  onClick = () => {
+    console.log('-------')
+  }
+
   render() {
     const { date, mode, localeType, disabled } = this.state;
 
     return (
       <div>
         <DemoBlock title="date picker view">
+          <Button onClick={this.onClick}>点击</Button>
           <Row gutter="10" type="flex" align="center" style={{ padding: 10 }}>
             <Col span="3">模式</Col>
             <Col span="21">

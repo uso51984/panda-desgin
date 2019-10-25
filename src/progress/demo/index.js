@@ -8,7 +8,23 @@ import './index.less';
 export default class Demo extends React.PureComponent {
   state = {
     percent: 10,
+    val: 0,
   };
+
+  componentDidMount() {
+    this.setState({ val: this.state.val + 1 });
+    console.log('val', this.state.val);
+    this.setState({ val: this.state.val + 1 });
+    console.log('val', this.state.val);
+
+    setTimeout(() => {
+      this.setState({ val: this.state.val + 1 });
+      console.log('setTimeout', this.state.val);
+      this.setState({ val: this.state.val + 1 });
+      console.log('setTimeout', this.state.val);
+    });
+  }
+
 
   add = () => {
     let percent = this.state.percent + 10;

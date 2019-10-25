@@ -1,9 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ReactDOM from 'react-dom';
-import Animate from '../AnimationGroup';
-import Notice from './Notice';
+import uniqueId from 'lodash/uniqueId';
+import NoticeContent from './NoticeContent';
 
 let seed = 0;
 const now = Date.now();
@@ -62,7 +62,8 @@ class Notification extends React.Component {
   }
 
   add = (notice) => {
-    notice.key = notice.key || getUuid();
+    notice.key = notice.key || uniqueId('notification-');
+
     this.setState((previousState) => {
       const notices = previousState.notices;
       if (!notices.filter(v => v.key === notice.key).length) {
@@ -84,24 +85,20 @@ class Notification extends React.Component {
     const noticeNodes = this.state.notices.map((notice) => {
       const onClose = createChainedFunction(this.remove.bind(this, notice.key), notice.onClose);
       return (
-        <Notice
+        <NoticeContent
           prefixCls={prefixCls}
           {...notice}
           onClose={onClose}
         >
           {notice.content}
-        </Notice>
+        </NoticeContent>
       );
     });
     const cls = classNames(prefixCls, className);
 
     return (
       <div className={cls} style={style}>
-        <Animate
-          transitionName={this.getTransitionName()}
-        >
-          {noticeNodes}
-        </Animate>
+        {noticeNodes}
       </div>
     );
   }

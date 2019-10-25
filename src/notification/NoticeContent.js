@@ -6,7 +6,6 @@ const propTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   duration: PropTypes.number,
-  style: PropTypes.object,
   onClose: PropTypes.func,
   closable: PropTypes.bool,
 };
@@ -16,10 +15,7 @@ export default class Notice extends Component {
 
   static defaultProps = {
     onClose() {},
-    duration: 1.5,
-    style: {
-      right: '50%',
-    },
+    duration: null,
   };
 
   componentDidMount() {
@@ -52,21 +48,19 @@ export default class Notice extends Component {
 
   render() {
     const { prefixCls, closable, className, style, children } = this.props;
-    const componentClass = `${prefixCls}-notice`;
+    const componentClass = `${prefixCls}-notice__content`;
     const cls = classNames(componentClass, {
       [`${componentClass}-closable`]: closable,
     }, className);
 
     return (
       <div className={cls} style={style}>
-        <div className={`${componentClass}-content`}>{children}</div>
         {
           closable ? (
-            <a onClick={this.close} className={`${componentClass}-close`}>
-              <span className={`${componentClass}-close-x`} />
-            </a>
+            <a onClick={this.close} className={`${componentClass}-close`}>x</a>
           ) : null
         }
+        <div className={`${componentClass}-content`}>{children}</div>
       </div>
     );
   }
